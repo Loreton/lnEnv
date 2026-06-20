@@ -1,0 +1,264 @@
+
+
+# Tasmota_sonoff
+#  Partire da:
+#       https://github.com/arendst/Tasmota/wiki
+#  https://github.com/arendst/Sonoff-Tasmota/wiki/Arduino-IDE
+#      IMPORTANT: For Windows users, before executing arduino.exe add an empty folder called portable in the known folder.
+#
+#       Install ESP8266 board software
+#         Open Arduino IDE and select File → Preferences and add the following text
+#               for field Additional Boards Manager URLs: http://arduino.esp8266.com/stable/package_esp8266com_index.json and select OK.
+#         Open Tools → Boards... → Boards Manager... and scroll down and click on esp8266 by ESP8266 Community.
+#               Click the Install button to download and install the latest ESP8266 board software. Select Close.
+#
+#       Download Tasmota
+#           Download the latest Tasmota release Source code from
+#               https://github.com/arendst/Sonoff-Tasmota/releases and unzip to another known folder.
+
+
+https://tasmota.github.io/docs/devices/Sonoff-Basic/
+
+Una volta programmato collegare Il sonoff sulla seriale tramite l'interfaccia sulla porta USB
+ed utilizzare "Termite" come programma per accedere alla seriale.
+Non serve spingere il tasto per dare i comandi.
+
+oppure eseguire i comandi tramite l console
+oppure attraverso MQTT
+
+Esempio:
+    console oppure via USB:
+        Backlog SSID1 Casetta; Password1 xxx.Adsl; SSID2 Tenda-M300; Password2 xxx.Adsl
+    WEB:
+        space=%20
+        ';'=%3B
+        http://192.168.1.50/cm?&cmnd=Backlog%20Status%201%3BPower1%20on%3BDelay%2020%3BPower1%20off%3BStatus%204
+    MQTT:
+        cmnd/%topic%/<command> <parameter>
+        cmnd/tasmota_01/Backlog SSID2 Tenda-M300
+
+commands:
+    setOptions:
+        backlog SO0; SO1; SO2; SO3; SO4; SO5; SO6; SO7; SO8; SO9; SO10; SO11; SO12; SO13; SO14; SO15; SO16; SO17; SO18; SO19; SO20; SO21; SO22; SO23; SO24; SO25
+        backlog SO26; SO27; SO28; SO29; SO30; SO31; SO32; SO33; SO34; SO35; SO36; SO37; SO38; SO39; SO40; SO41; SO42; SO43; SO44; SO45; SO46; SO47; SO48; SO49; SO50
+        backlog SO51; SO52; SO53; SO54; SO55; SO56; SO57; SO58; SO59; SO60; SO61; SO62; SO63; SO64; SO65; SO66; SO67; SO68; SO69; SO70; SO71; SO72; SO73; SO74; SO75
+        backlog SO76; SO77; SO78; SO79; SO80; SO81; SO82; SO83; SO84; SO85; SO86; SO87; SO88; SO89; SO90; SO91; SO92; SO93; SO94; SO95; SO96; SO97; SO98; SO99; SO100
+        backlog SO101; SO102; SO103; SO104; SO105; SO106; SO107; SO108; SO109; SO110; SO111; SO112; SO113; SO114; SO115; SO116; SO117; SO118; SO119; SO120
+        backlog SO121; SO122; SO123; SO124; SO125; SO126; SO127
+
+    setSSID:
+        Backlog SSID1 Casetta; Password1 xxx.Adsl; SSID2 Tenda-M300; Password2 xxxx.Adsl
+
+        Backlog SSID1 PEPPEWIFI; Password1 PicchiGiuseppe2019; SSID2 WebPocket-4545; Password2 BBBA6CAC
+        Backlog SSID1 UNIAGRARIA; Password2 UAVottobre2020; SSID2 WebPocket-4545; Password2 BBBA6CAC
+
+    setMQTT:
+        Backlog mqtthost lnmqtt.duckdns.org; mqttport 1883; mqttuser Loreto; mqttpassword xxxMqtt;
+        Backlog mqtthost broker.hivemq.com; mqttport 1883; mqttuser Loreto; mqttpassword xxx;
+
+
+    Script:
+        # For specific power control, using backlog like a script
+        Backlog Status 1; Power1 on; Delay 20; Power1 off; Status 4
+        # http://<ip>/cm?&cmnd=....
+        # http://<ip>/cm?user=admin&password=joker&cmnd=...
+        http://192.168.1.50/cm?&cmnd=Backlog%20Status%201%3BPower1%20on%3BDelay%2020%3BPower1%20off%3BStatus%204
+
+    LED:
+        Backlog LedPower 0
+
+    Rele:
+        Backlog Power1 toggle
+
+
+    PulseTime<x>:   Display the amount of PulseTime remaining on the corresponding Relay<x>
+                    0 / OFF = disable use of PulseTime for Relay<x>
+                    1..111 = set PulseTime for Relay<x> in 0.1 second increments
+                    112..64900 = set PulseTime for Relay<x>, offset by 100, in 1 second increments.
+                    Add 100 to desired interval in seconds, e.g.,
+                    PulseTime 113 = 13 seconds and PulseTime 460 = 6 minutes (i.e., 360 seconds)
+                    <value> Set the duration to keep Relay<x> ON when Power<x> ON command is issued.
+                    After this amount of time, the power will be turned OFF.
+
+    LedState - Manage LED state:
+        0 = disable use of LED as much as possible
+    x   1 = show power state on LED (LED on when power on) (default) (inverted for Sonoff Touch/T1)
+        2 = show MQTT subscriptions as a LED blink
+        3 = show power state and MQTT subscriptions as a LED blink
+        4 = show MQTT publications as a LED blink
+        5 = show power state and MQTT publications as a LED blink
+        6 = show all MQTT messages as a LED blink
+        7 = show power state and MQTT messages as a LED blink
+        8 = LED on when Wi-Fi and MQTT are connected.
+
+
+    SetOption4:
+        Return MQTT response as
+        0 = RESULT topic (default)
+        1 = %COMMAND% topic
+
+
+
+    PowerOnState: 0
+        PowerOnState    Control relay state after powering up the device.
+             x  0 / OFF = keep relay(s) OFF after power up
+                1 / ON = turn relay(s) ON after power up
+                2 / TOGGLE = toggle relay(s) from last saved state
+                3 = switch relay(s) to their last saved state (default)
+                4 = turn relay(s) ON and disable further relay control
+                5 = after a PulseTime period turn relay(s) ON (acts as inverted PulseTime mode)
+
+                The PowerOnState device configuration parameter is applied when
+                the device is initially powered up.
+                It does not apply to device warm restarts.
+                SetOption63 is executed after PowerOnState or restart initialization.
+
+    SetOption63: Set relay state feedback scan at restart (#5594, #5663)
+            0 = Scan power state at restart (default)
+        x   1 = Disable power state scanning at restart
+
+    SetOption65: Device recovery using fast power cycle detection
+        x   0 = enabled (default)
+            1 = disabled
+
+    SetOption26: Use indexes even when only one relay is present
+        x   0 = messages use POWER (default)
+            1 = messages use POWER1
+
+# last state, 0: off
+    ButtonRetain:
+        x   0 = disable use of MQTT retain flag (default)
+            1 = enable MQTT retain flag on button press
+
+    PowerRetain: MQTT power retain state
+        x   0 / off = disable MQTT power retain on status update (default)
+            1 / on = enable MQTT power retain on status update
+
+
+    PulseTime:
+            0 / off Disabilita la funzione PULSETIME per il relè <x>
+            1..111  Imposta la funzione PULSETIME per il relè <x> con incrementi di 0,1 secondi,
+                fino alla regolazione di 11 secondi complessivi (111)
+            112..64900  Imposta la funzione PULSETIME per il relè <x> con incrementi di 1 secondo,
+                a partire dai 12 secondi
+                (aggiungere 100 all’intervallo desiderato in secondi
+                eg. 113 = 13 secondi e 220 = 120 secondi).
+                N.b. Affinché PULSETIME funzioni in modo corretto,
+                è necessario che il tempo di durata del TELEPERIOD impostato sia
+                maggiore del valore impostato con PULSETIME.
+
+            cmnd/sonoff/PULSETIME 20 (2 secondi)
+            cmnd/sonoff/PULSETIME 130 (30 secondi) in quanto 30=30+100
+
+            il valore impostato  prevarrà fino a:
+            cmnd/sonoff/PULSETIME 0
+
+
+    IPAddress<x>:    Set networking IP (XXX.XXX.XXX.XXX) addresses
+        IPAddress1 = set device IP address
+                        0.0.0.0 = use dynamic IP address (DHCP)
+                        XXX.XXX.XXX.XXX = set static IP address
+        IPAddress2 = set gateway IP address
+        IPAddress3 = set subnet mask
+        IPAddress4 = set DNS server IP address
+
+
+    Retained:
+        PowerOnState 3 # 3=restart as last status
+        ButtonRetain 0  # OFF
+        SwitchRetain 0  # OFF
+        PowerRetain 0  # OFF
+        BUT, a message in your MQTT broker flagged as 'retained' will always override the PowerOnState
+
+
+default_settings:
+    Backlog ButtonDebounce 50; LedState 1; ButtonRetain 0; PowerRetain 0; SetOption26 0;
+
+my_all_settings:
+    Backlog topic ExtFromPumpsRoom;
+
+    # Non funziona... vuole TLS
+    Backlog mqtthost 2a2611463b584dbdbc2da5059b1ae8ff.s1.eu.hivemq.cloud; mqttport 1883; mqttuser Loreto; mqttpassword xxxx_2021;
+    Backlog mqtthost 2a2611463b584dbdbc2da5059b1ae8ff.s1.eu.hivemq.cloud; mqttport 8883; mqttuser Loreto; mqttpassword xxxx_2021;
+    # Funziona ma è libero a tutti
+    Backlog mqtthost broker.hivemq.com; mqttport 1883; mqttuser Loreto; mqttpassword dummy_password;
+
+
+
+    Backlog topic Vescovi; FriendlyName uno; DeviceName due;
+
+    Backlog mqtthost lnmqtt.duckdns.org; mqttport 1883; mqttuser Loreto; mqttpassword xxxxoMqtt;
+    Backlog SSID1 Casetta; Password1 xxx.Adsl; SSID2 LoretoHotSpot; Password2 xxxx;
+
+    # last power status and scan ... ver.12.x sono default 
+    Backlog PowerOnState 0; SetOption63 0; SwitchRetain 0; ButtonRetain 0; SetOption26 1
+    # casetta
+    Backlog Teleperiod 30; SetOption50 1; SetOption56 1; SetOption57 1;
+    Backlog timezone 99; latitude 42.291476; longitude 12.957694; altitude 800;
+    SwitchMode1 0 oppure SwitchMode1 3
+
+
+
+
+
+
+
+
+
+IPAddress ; per vedere l'indirizzo del device
+upgrade 1 ; per fare l'aggiornamento del firmware e restart
+restart 1; 1 = restart device with configuration saved to flash
+
+Ghost_Switch: https://github.com/arendst/Tasmota/issues/5449
+    default:
+        Backlog ButtonTopic 0; SetOption1 0; SetOption73 0; SetOption32 40 # default
+        Rule1 ""
+
+    Soluton_#5449: NON funziona
+        Backlog ButtonTopic 0; SetOption1 1; SetOption73 1; SetOption32 2
+        Rule1 ON button1#state=3 DO Power1 2 ENDON
+        Rule1 1
+
+Rules:
+    Button2#State   when a button changes state:
+    0 = OFF
+    1 = ON
+    2 = TOGGLE
+    3 = HOLD
+
+    Rulex 0 or 1
+
+    Rule1 ON Power1#state=1 DO publish cmnd/Crepuscolare/POWER 0 ENDON  # FUNZIONA!!!!!
+
+    # Per il PressControl
+    Rule1 ON Power1#state=1 DO publish cmnd/InnaffiamentoOrto/POWER 0 ENDON
+    Rule1 1
+
+    # Per InnaffiamentoOrto
+    Rule1 ON Power1#state=1 DO publish cmnd/PressControl/POWER 0 ENDON
+    Rule1 1
+
+    # Per FaroLetto
+    backlog Rule1 0; Rule1 ON Power1#state=1 DO publish cmnd/FaroLegnaia/POWER 1 ENDON ;Rule1  1
+        # ON Power1#state=1 DO publish cmnd/Crepuscolare/POWER 1 ENDON
+
+    backlog Rule2 0; Rule2 ON Power1#state=0 DO publish cmnd/FaroLegnaia/POWER 0 ENDON ;Rule2  1
+        # ON Power1#state=0 DO publish cmnd/Crepuscolare/POWER 1 ENDON
+
+    # backlog Rule2 0; Rule2 ON Power1#state=0 DO publish cmnd/FaroLegnaia/POWER 0 ENDON; Rule2  1
+    # backlog Rule3 0; Rule3 ON Power1#state=1 DO publish cmnd/Crepuscolare/POWER 1 ENDON; Rule3  1
+
+    # Per FaroLegnaia
+    backlog Rule1 0; Rule1 ON Power1#state=1 DO publish cmnd/FaroLetto/POWER 1 ENDON; Rule1 1
+    backlog Rule2 0; Rule2 ON Power1#state=0 DO publish cmnd/FaroLetto/POWER 0 ENDON; Rule2 1
+
+    # Per Crepuscolare
+    backlog Rule1 0; Rule1 ON Power1#state=0 DO publish cmnd/FaroLetto/POWER 0 ENDON; Rule1 1;
+    backlog Rule2 0; Rule2 ON Power1#state=0 DO publish cmnd/FaroLegnaia/POWER 0 ENDON; Rule2 1;
+
+    Rule1 "  # delete it
+    # backlog Rule1 0; Rule1
+    #     ON Power1#state=0 DO publish cmnd/FaroLetto/POWER 0 ENDON
+    #     ON Power1#state=0 DO publish cmnd/FaroLegnaia/POWER 0 ENDON
+    #     ;Rule1 1;
+

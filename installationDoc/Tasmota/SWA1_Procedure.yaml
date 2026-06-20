@@ -1,0 +1,34 @@
+Ref:
+
+SWA1:
+    https://templates.blakadder.com/SWA1.html
+    https://www.youtube.com/watch?v=A23_m7IpTSs
+    https://forum.iobroker.net/assets/uploads/files/5056_flash_der_lingan_swa_1_steckdose_mit_der_tasmota_firmware.pdf
+    https://tasmota.github.io/docs/Templates/
+
+    GPIO# |00| 01|02| 03|04| 05| 09| 10| 12| 13| 14| 15| 16| https://tasmota.github.io/docs/Templates/#gpio
+    CODE  [416,0,418,0,417,2720,0,0,2624,32,2656,224,0,0]    https://tasmota.github.io/docs/Components/
+
+    # Backlog SetOption0 0; SetOption36 1
+
+    steps from main menu:
+        Configuration
+        Configure Template ...
+        Creating Your Template:
+            Select Generic (18) as base model
+            Change the template name to --> Loreto_SWA
+
+
+        modificare i GPIO ome segue:
+
+        GPIO#                        |0|1|2|3| 04| 05|9|10|12|13|14|15|16|
+        SWA1   {"NAME":"SWA1","GPIO":[0,0,0,0,288,224,0, 0, 0,32, 0, 0, 0,0],"FLAG":0,"BASE":18}
+                                                               Button
+                                                   Relay 1
+                                                Led 1
+
+        dare il comando "restart 1" da console
+        MainMenu->Configuration
+        Cofigure module
+        selezionare Loreto_SWA
+    # Backlog SetOption0 1; SetOption36 1; SetOption114 0

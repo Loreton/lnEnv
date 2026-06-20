@@ -1,0 +1,75 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+scriptFullPath="$(readlink -f ${BASH_SOURCE[0]})"       # OTTIMA
+scriptDir="$(dirname $scriptFullPath)"
+scriptName="$(basename $scriptFullPath)"
+echo "----------- $scriptName"
+
+#############################################
+# https://stackabuse.com/how-to-parse-command-line-arguments-in-bash/
+# called by:     parseInput "$@"
+# Single colon (:)  - Value is required for this option
+# Double colon (::) - Value is optional
+# No colons         - No values are required
+#############################################
+function parseInput() {
+    help() {
+        echo "Usage: $(basename $0)
+                [ -d | --domain ]   domain_name/server_name
+                [ --force ]         force new certificate creation
+                [ --go ]            generate
+                [ -h | --help  ]    this help"
+        exit 2
+    }
+
+    SHORT='d:,h'
+    LONG='domain:,force,go,help' # i ':' indicano che necessitano di un argomento
+    VALID_OPTS=$(getopt -a -n ParseInput --options $SHORT --longoptions $LONG -- "$@")
+
+    N_ARGUMENTS=$# # Returns the count of arguments that are in short or long options
+    [[ "$N_ARGUMENTS" -eq 0 ]] && help
+    g_DomainName=
+    g_GO=
+
+    eval set -- "$VALID_OPTS"
+    while :; do
+        case "$1" in
+            -d | --domain )
+                g_DomainName="$2";
+                shift # past argument
+                shift # past value
+                ;;
+
+            -h | --help)
+                help;
+                ;;
+
+            --force)
+                g_FORCE='true';
+                shift 1
+                ;;
+
+            --go)
+                g_GO="true";
+                shift 1;
+                ;;
+
+            --)
+                shift 1;
+                break;
+                ;;
+
+            *)
+                echo "Unexpected option: $1"; help; ;;
+        esac
+    done
+
+    _test=${g_DomainName:?"domain_name is mandatory argument"}
+    # echo "rserver: $g_DomainName"
+    # echo "GO: $g_GO"
+    # echo "remaining args are: $@"
+}
+

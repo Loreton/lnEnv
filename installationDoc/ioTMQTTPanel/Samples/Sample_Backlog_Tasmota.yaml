@@ -1,0 +1,82 @@
+        -   panelName: Tasmota Backlog Sample
+            topic: cmnd/ExtFromPumpsRoom/backlog
+            seperateSubscribeTopic: stat/ExtFromPumpsRoom/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_18
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+            options:
+            -   label: Power State
+                payload: power
+                $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#ebca06'
+
+            -   label: Summary State
+                payload: LnCmnd.summary_state
+                icon: assignment
+                iconColor: '#0df430'
+                $$hashKey: object:983
+
+            -   label: URL
+                payload: LnCmnd.get_url
+                icon: settings
+                iconColor: '#06cbe5'
+                $$hashKey: object:3474
+
+            -   label: Power ON
+                payload: power on
+                icon: bulb_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+
+            -   label: Power OFF
+                payload: power off
+                icon: bulb_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+
+            -   label: Disable Timers
+                payload: Timers 0
+                icon: timer_off
+                iconColor: '#0fe7ed'
+                $$hashKey: object:152
+
+            -   label: Enable Timers
+                payload: Timers 1
+                icon: timer
+                iconColor: '#17ec0e'
+                $$hashKey: object:401
+
+            -   label: Disable Device
+                payload: "Timers 0; Pulsetime 1" # tra apici a causa del ';'
+                icon: thumb_down
+                iconColor: '#0d85ef'
+                $$hashKey: object:959
+
+            -   label: Enable device
+                payload: "Timers 1; Pulsetime 0" # tra apici a causa del ';'
+                icon: thumb_up
+                iconColor: '#36e80d'
+                $$hashKey: object:9963
+
+            -   label: Auto-ON xx secs
+                payload: "PowerOnState 5; Pulsetime 0" # tra apici a causa del ';'
+                icon: radio_button_checked
+                iconColor: '#9E9E9E'
+                $$hashKey: object:1655
+
+            -   label: Auto-OFF xx secs
+                payload: "PowerOnState 0; Pulsetime 0" # tra apici a causa del ';'
+                icon: touch_app
+                iconColor: '#f1d514'
+                $$hashKey: object:790

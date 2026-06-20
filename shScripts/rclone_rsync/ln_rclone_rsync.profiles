@@ -1,0 +1,65 @@
+#!/bin/bash
+# needs pip3 install -U niet
+
+
+#########################################################
+# -             P R O F I L E S
+#########################################################
+
+
+#############################################
+# get all functions related to directory profiles
+#############################################
+function profiles() {
+    local prefix_str=$profile_name_prefix_str; local suffix_str_len=${#suffix_str}
+    local suffix_str=$profile_name_suffix_str; local prefix_str_len=${#prefix_str}
+
+
+    local functions=$(declare -F | grep -E ${prefix_str} | cut -d' ' -f 3)
+
+    local funcsList=''
+    for func_name in $functions; do
+        if [[ "$func_name" == *"$suffix_str" ]]; then # * is used for pattern matching
+            profile_name=${func_name#"${prefix_str}"}
+            profile_name=${profile_name%"${suffix_str}"}
+            funcsList="$funcsList $profile_name"
+        fi
+    done
+    echo $funcsList
+}
+
+
+
+
+#############################################
+# get remote_site properties
+#############################################
+function read_profile_data() {
+    local profile_name=$1
+    local prefix_str=$profile_name_prefix_str
+    local suffix_str=$profile_name_suffix_str
+    if [[ " ${g_profiles} " == *" ${profile_name} "* ]]; then
+        "${prefix_str}${profile_name}${suffix_str}"
+        rCode=$?
+    else
+        rCode=1
+    fi
+
+    if [ $rCode -ne 0 ] ; then
+        echo
+        echo -e "$TABredH Profile name: $profile_name NOT found. (rCode: $rCode)"
+        echo -e "${TAByellow}valid profiles are:"
+        for profile in $g_profiles; do
+            echo -e "${TAB}${TAByellow}$profile"
+        done
+        echo
+        exit 1
+    fi
+
+
+}
+
+profile_name_prefix_str="@_"
+profile_name_suffix_str='_@'
+g_profiles=$(profiles)
+# echo $g_profiles

@@ -1,0 +1,49 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 29-12-2020 12.33.50
+#
+
+# @_ln_echo_script_name $BASH_SOURCE
+
+
+
+
+function @openWrt_scp() {
+    local remote="$1"
+    local local_path="$2"
+
+    #... create dest directory
+    DATE=$(date +'%Y%m%d_%H%M%S')
+    local destPath="${local_path}_${DATE}"
+    mkdir "$destPath"
+
+    echo -e "${TAB}${cyanH}backing-up $remote"
+    echo -e "${TAB}${cyanH}      to $destPath"
+
+    echo -en "${gray}"
+    CMD="scp -O -P22 "$remote" "${destPath}""
+    echo $CMD
+    $CMD
+
+    echo -en "${yellow}"
+    ls -la "${destPath}"
+    echo -en "${colorReset}"
+
+}
+
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+    alias ${alias_prefix}openwrt.archerc20.backup="@openWrt_scp "root@192.168.5.3:/etc/config/*" "${ln_GIT_REPO_DIR}/lnDevices/data/openwrt/archerc20_v23_05/backup" "
+    alias ${alias_prefix}openwrt.archerc6.backup="@openWrt_scp  "root@192.168.5.2:/etc/config/*" "${ln_GIT_REPO_DIR}/lnDevices/data/openwrt/archerc6_v22_03/backup" "
+    alias ${alias_prefix}devicesdata='_thisPath=$(readlink -fvs  "${ln_GIT_REPO_DIR}/lnDevices/data/devicesDB_lnk.ods") && /usr/bin/libreoffice $_thisPath &'
+fi
+
+
+
+
+
+
+
+

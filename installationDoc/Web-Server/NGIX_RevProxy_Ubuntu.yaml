@@ -1,0 +1,88 @@
+DOC:
+    https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-22-04
+
+
+Install:
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install nginx
+
+    sudo systemctl start nginx
+
+
+    nginx -V | grep -i debug
+    nginx -V | grep -i python
+
+
+    sudo adduser www-data pi #
+
+Config:
+    sudo mkdir -p /var/www/your_domain/html
+
+    sudo mkdir -p /var/www/loreto_domain/html
+    sudo chown -R $USER:$USER /var/www/loreto_domain/html
+    sudo chmod -R 755 /var/www/loreto_domain
+    vi /var/www/loreto_domain/html/index.html
+        <html>
+            <head>
+                <title>Welcome to loreto_domain!</title>
+            </head>
+            <body>
+                <h1>Success!  The loreto_domain server block is working!</h1>
+            </body>
+        </html>
+
+
+    sudo vi /etc/nginx/sites-available/loreto_domain
+        server {
+                listen 80;
+                listen [::]:80;
+
+                root /var/www/loreto_domain/html;
+                index index.html index.htm index.nginx-debian.html;
+
+                server_name loreto_domain www.loreto_domain;
+
+                location / {
+                        try_files $uri $uri/ =404;
+                }
+        }
+
+
+
+    sudo ln -s /etc/nginx/sites-available/loreto_domain /etc/nginx/sites-enabled/
+    sudo vi /etc/nginx/nginx.conf
+
+    cd /etc/nginx/sites-available/
+    sudo vi example.com.conf
+    add:
+        server {
+            listen 80;
+            server_name example.com;
+            location / {
+            proxy_pass http://192.x.x.2;
+            }
+        }
+
+    ln -s /etc/nginx/sites-available/example.com.conf /etc/nginx/sites-enabled/example.com.con
+    sudo nginx -t
+    sudo systemctl reload nginx
+
+    sudo vi loretoVH.conf
+        server {
+            listen 80;
+            server_name loretoVH.casetta;
+            location / {
+            proxy_pass http://192.x.x.2;
+            }
+        }
+    ln -s /etc/nginx/sites-available/loretoVH.conf /etc/nginx/sites-enabled/loretoVH.conf
+    sudo nginx -t
+    sudo systemctl reload nginx
+
+
+python WSGI:
+    https://decovar.dev/blog/2019/11/03/nginx-uwsgi-python-scripts/
+
+python fastsgi:
+    https://techexpert.tips/nginx/python-cgi-nginx/

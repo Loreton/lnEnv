@@ -1,0 +1,95 @@
+# updated by ...: Loreto Notarantonio
+# Date .........: 21-05-2025 15.52.59
+
+
+ref:
+    # https://www.kicad.org/download/details/ubuntu/
+    https://phoenixnap.com/kb/how-to-install-xampp-on-ubuntu
+
+Install:
+    chmod +x xampp-linux-x64-8.2.12-0-installer.run
+    sudo ./xampp-linux-x64-8.2.12-0-installer.run
+
+    Important:
+        If the services fail to start, make sure that the net-tools utility is installed on your system:
+        To install net-tools, run the command below:
+            sudo apt install net-tools
+
+    Verify localhost is working by entering the following URL in a browser:
+        http://localhost/dashboard
+        http://localhost/phpmyadmin
+
+
+    Quello che segue Ã¨ un elenco delle vulnerabilitÃ  del sistema:
+        - l'amministratore del database MySQL non ha una password;
+        - il servizio del database Ã¨ accessibile da remoto con ProFtp; utilizzare la password Â«lamppÂ» per l'utente Â«nobodyÂ»;
+        - PhpMyAdmin Ã¨ accessibile da remoto;
+        - tutti gli esempi sono accessibili da remoto;
+        - MySQL e Apache sono avviati con gli stessi permessi utente Â«nobodyÂ».
+
+    Security:
+        # Per risolvere la maggior parte di queste vulnerabilitÃ  Ã¨ sufficiente digitare nel terminale il seguente comando:
+        sudo /opt/lampp/lampp security
+
+    Uninstall:
+        sudo /opt/lampp/./uninstall
+        sudo rm -r /opt/lamp
+
+
+
+
+config:
+    add in hosts:
+        127.0.0.5       website01
+
+    create path struct:
+        sudo mkdir -p /var/wwww/website01
+        sudo mkdir -p /var/wwww/website01/php
+        sudo mkdir -p /var/wwww/website01/html
+        sudo mkdir -p /var/wwww/website01/images
+        sudo mkdir -p /var/wwww/website01/conf
+
+        apache configuration file:
+            /opt/lampp/etc/httpd.conf
+
+        sudo cp /opt/lampp/etc/extra/httpd-vhosts.conf /var/wwww/website01/conf/httpd-vhosts.conf
+        sudo chgrp loreto /var/wwww/website01/conf/httpd-vhosts.conf
+        sudo chmod g+w /var/wwww/website01/conf/httpd-vhosts.conf
+
+    create index.php:
+        sudo touch /var/wwww/website01/index.php
+        sudo chgrp loreto /var/wwww/website01/index.php
+        sudo chmod g+w /var/wwww/website01/index.php
+        add linde:
+            <?php
+                phpinfo( );
+            ?>
+
+
+
+    add:
+        <VirtualHost 127.0.0.5:80>
+            DocumentRoot "/var/wwww/website01"
+            DirectoryIndex index.php
+
+            <Directory "/var/wwww/website01">
+                Options All
+                AllowOverride All
+                Require all granted
+            </Directory>
+        </VirtualHost>
+
+
+
+
+    vhosts:
+        change lines in /opt/lampp/etc/httpd.conf:
+            ref: https://ourcodeworld.com/articles/read/302/how-to-setup-a-virtual-host-locally-with-xampp-in-ubuntu
+        # Virtual hosts
+        #Include etc/extra/httpd-vhosts.conf
+        # @Ln_changed:  31-10-2024 16:56:07
+        Include /home/loreto/lnprofile/httpd/etc/httpd-vhosts.conf
+
+
+run:
+    sudo /opt/lampp/manager-linux-x64.run

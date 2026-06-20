@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 14-12-2025 18.53.23
+#
+
+
+
+
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+
+    ### ------
+    ### creazione del link per inserire il .xbindekeysrc nella $HOME/.xbindekeysrc
+    if ! declare -F @createLink > /dev/null; then
+        source create_links.functions
+    fi
+    export fEXECUTE="--go" ### fEXECUTE
+    fname='sublimeStart.desktop'
+    @createLink "${ln_START_PROC_DIR}/.desktop/${fname}"  "${HOME}/.local/share/applications/${fname}"
+    ### ------
+
+    # alias ${alias_prefix}edit="${ln_SUBLIME_BIN}"
+    alias ${alias_prefix}subl="${ln_SUBLIME_START_PROC}"
+    # alias subl="${ln_SUBLIME_BIN}"
+    # alias subl="${ln_SUBLIME_BIN}"
+
+
+fi
+
+

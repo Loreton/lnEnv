@@ -1,0 +1,22 @@
+//  project format
+// ref: https://www.sublimetext.com/docs/projects.html
+//  "folder_exclude_patterns": ["PressControl_222"],
+//  "file_exclude_patterns": ["*.css"],
+{
+    "folders":
+    [
+
+
+        // ---- sublime user
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/User", "name": "Sublime User", },
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto", "name": "Sublime userLoreto", },
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages", "name": "Sublime packages", },
+
+        // ---- terminator
+        // {"path": "/home/loreto/.config/terminator/plugins", "name": "terminatorPlugins", },
+
+        // ---- lnEnv
+        {"path": "/home/loreto/filu/lnEnv", /*"name": "",*/ /*"folder_exclude_patterns": [],*/ },
+
+    ],
+}

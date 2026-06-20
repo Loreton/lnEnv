@@ -1,0 +1,28 @@
+# /etc/udev/rules.d/99-ln-usb-serial.rules
+# udevadm info --attribute-walk -n /dev/ttyUSB0  |grep serial (can be used to get serial number)
+# udevadm control --reload-rules (reload rules)
+# udevadm trigger (re-add all devices)
+# see https://wiki.archlinux.org/index.php/Bus_pirate
+# for some reason, ATTRS{bInterfaceNumber}=="00" is not working, hence the use of ENV{}
+
+# SUBSYSTEMS=="usb-serial",   KERNELS=="1-1.2", ATTRS{idVendor}=="1a86", ATTRS{serial}=="A6008isP", SYMLINK+="arduino2"
+# ACTION=="add", SUBSYSTEMS=="tty", KERNELS=="1-1.2", ATTRS{idVendor}=="1a86", ATTRS{urbnum}=="20", SYMLINK+="arduino"
+# SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="A7004IXj", SYMLINK+="buspirate"
+# SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="FTDIF46B", SYMLINK+="ttyUSB.ARM"
+
+# KERNELS=="1-1.2:1.0"
+
+
+
+ # udevadm info --name=ttyUSB2 --attribute-walk | grep num
+# ------------------ OK ---------------
+# ACTION=="add", KERNEL=="ttyUSB[0-9]*", PROGRAM="/etc/udev/rules.d/usb-parse-devpath.sh %p", SYMLINK+="TTYUSBs/%c"
+ACTION=="add", KERNEL=="ttyUSB[0-9]*", PROGRAM="/etc/udev/rules.d/99-ln-usb-serial-parsing.sh %p", SYMLINK+="%c"
+# ACTION=="add", KERNEL=="ttyUSB[0-9]*", PROGRAM="/etc/udev/rules.d/usb-parse-devpath.sh %p", SYMLINK+="TTYUSBs2/%c"
+# ACTION=="add", KERNEL=="ttyUSB[0-9]*", PROGRAM="/etc/udev/rules.d/usb-parse-devpath.py %p", SYMLINK+="TTYUSBs2/%c{1}"
+
+
+# ACTION=="add", KERNEL=="ttyUSB[0-9]*", PROGRAM="/etc/udev/rules.d/usb-parse-devpath.py %p", SYMLINK+="Arduino/%c{1}"
+# ACTION=="add", KERNEL=="ttyUSB[0-9]*", PROGRAM="/etc/udev/rules.d/usb-parse-devpath.py %p", SYMLINK+="%c{1}"
+# ACTION=="add", KERNEL=="ttyUSB[0-9]*", PROGRAM="/etc/udev/rules.d/usb-parse-devpath.py %p", NAME="%c{1}", SYMLINK+="TTYUSBs/%c{2}"
+

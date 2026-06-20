@@ -1,0 +1,32 @@
+ref: https://www.dwarmstrong.org/pyenv/
+
+ Install pyenv:
+    git clone https://github.com/pyenv/pyenv.git .pyenv # normalmente in ~/.pyenv io lo metto in una mia dir
+    git clone https://github.com/pyenv/pyenv.git .pyENV # normalmente in ~/.pyenv io lo metto in una mia dir
+    # oppure....
+    git clone https://github.com/pyenv/pyenv.git /home/loreto/filu/Applications/pythonENV/.pyenv
+
+
+To prepare my bash shell environment for pyenv, I add to ~/.profile:
+    my_pyenv_dir='/home/loreto/filu/Applications/pythonENV/.pyenv'
+    if [ -d "$my_pyenv_dir" ] ; then
+        export PYENV_ROOT="$my_pyenv_dir"
+        command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init -)"
+    fi
+
+
+Install build dependencies:
+    pyenv builds Python from source code. Before doing so, install software to satisfy build dependencies (the only instance where use of root is required):
+    sudo apt install make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+
+
+
+Install pyVersions:
+    pyenv install --list
+    pyenv install 3.12.5
+
+Upgrade pyenv with a simple git pull:
+    cd ~/.pyenv; git pull
+    Remove a user-installed Python with pyenv uninstall <version>.
+    To remove pyenv itself, simply remove the settings in .profile to revert back to the old $PATH and delete the ~/.pyenv directory.

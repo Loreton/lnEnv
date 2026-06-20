@@ -1,0 +1,33 @@
+
+ref:
+    https://lindevs.com/install-yq-on-ubuntu
+
+install_raspberry:
+    wget -qO ${HOME}/lnprofile/bin/yq_linux_arm https://github.com/mikefarah/yq/releases/latest/download/yq_linux_arm
+    chmod a+x ${HOME}/lnprofile/bin/yq_linux_arm
+    sudo ln -sf ${HOME}/lnprofile/bin/yq_linux_arm /usr/local/bin/yq
+
+install_ubuntu:
+    wget -qO ${HOME}/lnprofile/bin/yq_linux_amd64 https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
+    chmod a+x ${HOME}/lnprofile/bin/yq_linux_amd64
+    sudo ln -sf ${HOME}/lnprofile/bin/yq_linux_amd64 /usr/local/bin/yq
+
+install_common:
+    sudo chmod a+x /usr/local/bin/yq
+
+    yq --version
+
+    # create yaml file
+    printf "status: success\ndata:\n  - name: John\n    age: 25\n  - name: James\n    age: 29" > test.yaml
+
+    yq e '.' test.yaml
+
+    sudo ln -s /home/loreto/lnprofile/bin/yq /usr/local/bin/yqq
+
+
+install_2:
+    sudo snap install yq # a volte non ha funzionato sotto ubuntu
+
+Uninstall yq:
+    sudo rm -rf /usr/local/bin/yq
+

@@ -1,0 +1,251 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+
+
+
+########################################################
+# --
+########################################################
+function @_ln_echo_script_name() {
+    local offset=0
+    if [[ "$1" =~ ^-?[0-9]+$ ]]; then
+        offset=$1
+        shift 1
+    fi
+    # local line="${1:-0}"
+    local this="$(readlink -fvs  $1)"
+    # echo $offset
+    @lnLog $offset "${colorReset}running: ${yellowH}${this}${colorReset}"
+    # @lnLog "${colorReset}running: ${yellowH}${this}${colorReset}"
+}
+
+
+
+
+########################################################
+# -- NOT used
+########################################################
+function @___caller() {
+    local funcname="$blueH${FUNCNAME[1]}"
+    rCode=1
+    bash_source_01=${BASH_SOURCE[1]}; lineno_01=${BASH_LINENO[1]}
+    bash_source_02=${BASH_SOURCE[2]}; lineno_02=${BASH_LINENO[2]}
+
+    echo -e "[${funcname}]: ${cyanH}---"
+    echo -e "[${funcname}]: ${cyanH}current..:  $(basename ${bash_source_01}):${lineno_01} -> ${FUNCNAME[1]}"
+
+    if [[ ! -z $bash_source_02 ]]; then
+        echo -e "[${funcname}]: ${cyanH}called by:  $(basename ${bash_source_02}):${lineno_01} -> ${FUNCNAME[2]}"
+        rCode=0
+    else
+        echo -e "[${funcname}]: ${cyanH}called by: unable to retrieve CALLER"
+        rCode=1
+    fi
+
+    echo -e "[${funcname}]: ${cyanH}---"
+    return $rCode
+}
+
+
+
+
+function _set_yq() {
+    arch=$(uname -m)
+    if [[ "$arch" == *"x86_64"* ]]; then
+        yq_bin="${ln_PROFILE_DIR}/bin/yq_linux_amd64"
+    else
+        yq_bin="${ln_PROFILE_DIR}/bin/yq_linux_arm"
+    fi
+    alias ".yq=${yq_bin}"
+    sudo ln -sf "${yq_bin}" "/usr/bin/lnYQ"
+    ln -sf "${yq_bin}" "${ln_PROFILE_DIR}/bin/lnYQ"
+}
+
+
+
+
+
+########################################################
+# lnLog:
+#    $1: se Ã¨ un integer indica l offest della linea da sommare al lineno
+#        Ã¨ indispensabile per quando viene chiamata all'interno di
+#        funzioni in memoria dove tutti commenti sono eliminati
+#    $@: resto da scrivere
+# calcola automaticamente il caller e lo indica nella riga
+########################################################a
+
+function lnLog() {
+    local offset=0
+    # Controlla se il primo argomento Ã¨ un intero (positivo o negativo)
+    if [[ "$1" =~ ^-?[0-9]+$ ]]; then
+        offset=$1
+        shift 1
+    fi
+
+    local stacklevel=1
+    local stacklen=${#BASH_LINENO[@]}
+    local script="${BASH_SOURCE[$stacklevel]}"
+    local script_name=$(basename $script)
+    local func="${FUNCNAME[$stacklevel]:-MAIN}"
+    local line=$(( ${BASH_LINENO[0]:-0} + offset ))
+
+
+    local caller="${func}:${line}"
+    if [[ $func == "source" ]]; then
+        caller="${script_name}:${line}"
+    fi
+    caller="${script_name}:${line}"
+
+    echo -e "${blueH}[${caller}]: $@"
+}
+
+
+
+
+: '
+########################################################
+# lnLog:
+#    $1: se Ã¨ un integer indica l offest della linea da sommare al lineno
+#    $*: stringa da scrivere
+# calcola automaticamente il caller e lo indica nella riga
+########################################################a
+function lnLog() {
+    local offset=0
+    # Controlla se il primo argomento ÃÂ¨ un intero (positivo o negativo)
+    if [[ "$1" =~ ^-?[0-9]+$ ]]; then
+        offset=$1
+        shift 1
+    fi
+
+    local stacklen=${#BASH_LINENO[@]}
+    local script="${BASH_SOURCE[1]}"
+    local func="${FUNCNAME[1]:-MAIN}"
+    local line=$(( ${BASH_LINENO[0]:-0} + offset ))
+    local caller="${func}:${line}"
+    echo -e "${blueH}[${caller}]: $@"
+}
+
+'
+
+
+
+##########################################################
+# legge le keys ed i values e li trasforma in array
+# dopo di che li unisce lavorando sull'indice
+##########################################################
+function _export_Variables() {
+    filename="${ln_PROFILE_DIR}/secret/yaml/ln_system_variables.yaml"
+    array_length=$($yq_bin ".system_envars | length - 1" $filename)
+    g_keys=$($yq_bin ".system_envars.* | key" $filename)
+    g_values=$($yq_bin ".system_envars.*" $filename)
+
+    readarray -t a_keys <<< "$g_keys"
+    readarray -t a_values <<< "$g_values"
+
+    g_hostname_nc=$(hostname -s) && g_hostname=${g_hostname_nc,,}
+    for (( i=0; i<${#a_keys[@]}; i++ )); do
+        eval "export ${a_keys[i]}=${a_values[i]}"
+        # printf "....... $my_var\n"
+        # eval $my_var
+    done
+}
+
+
+# -- display
+function _display_Variables() {
+    envars=$(env | grep -E -i "^g_|^ln_" | tr ' ' '\n' | sort)
+    if [[ "${fDEBUG}" == "1" ]]; then
+        for var in $envars; do
+            echo "..... $var"
+        done
+        echo
+    fi
+}
+
+
+
+
+
+#########################################################
+# trap ctrl-c and call ctrl_c()
+# non posso inserirli nella root altrimenti con ctrlc mi chiude la shell
+# https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html
+# https://www.howtogeek.com/821320/how-to-trap-errors-in-bash-scripts-on-linux/
+# https://www.howtogeek.com/782514/how-to-use-set-and-pipefail-in-bash-scripts-on-linux/
+# https://phoenixnap.com/kb/bash-trap-command
+#########################################################
+function _ln_TRAP_exit__2() {
+    set -Eeuo pipefail
+    # set -e # (exit) option causes a script to exit if any of the processes it calls generate a non-zero return code. Anything non-zero is taken to be a failure.
+    # set -o pipefail # exit on first error on pipe, the script doesn't continue
+    # set -u # error on unset variable
+    # set -E # error trap
+
+    trap 'func_error_handler $? $LINENO' ERR
+    func_error_handler() {
+        echo "Error: ($1) occurred on $2" $SIGINT
+        rCode=1
+        exit 1
+    }
+}
+
+function _ln_TRAP_exit() {
+    trap "exit 1" TERM
+    export TOP_PID=$$
+}
+
+function lnExit() {
+    local descr=$@
+    export TOP_PID=$$
+    echo -e "${TABredH}$descr"
+    echo -e "${TABredH}killing process $TOP_PID on exit"
+    echo
+    # kill -s TERM $TOP_PID
+}
+
+function _ln_TRAP_ctrl_c() {
+    trap "func_ctrl_c" INT
+    function func_ctrl_c() {
+        echo "** Trapped CTRL-C"
+        trap "echo -e '\nTerminated by Ctrl+c'; exit" $SIGINT
+        rCode=1
+        exit 1
+    }
+}
+
+
+
+_set_yq
+# _ln_set_colors
+_export_Variables
+_display_Variables
+
+
+: ' per cercare di intercettare il PPID
+PARENT_COMMAND=$(ps -o args=${PPID})
+echo $PARENT_COMMAND
+perÃÂÃÂ² il problema ÃÂÃÂ¨ quando il caller parte da un symllink...
+quindi questa soluzione ÃÂÃÂ¨ in test...
+altrimenti passare un parametro di richiesta
+
+PARENT_COMMAND=$(ps -o args=${PPID})
+echo "### PARENT_COMMAND: $PARENT_COMMAND"
+caller=$(echo $PARENT_COMMAND | cut -d' ' -f4)
+echo "### caller:   $caller"
+_ln_splitScriptName $caller
+read
+'
+
+caller=$1 # full path dello script caller ("$0")
+substr=${caller:0:1}
+
+[[ -z $caller ]] && return
+[[ $substr == "-" ]] && return
+[[ $caller == "bash" ]] && return
+[[ $caller == "/bin/bash" ]] && return
+
+echo "caller: $caller"
+_ln_splitScriptName $caller

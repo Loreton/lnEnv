@@ -1,0 +1,34 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 11.27.28
+#
+
+
+vivaldi browser:
+        If you are using Ubuntu, Debian, or any Debian-based Linux distribution such as Linux Mint or Pop!_OS,
+        you can easily install Vivaldi browser through the terminal using a quick and effective approach.
+        Unlike most browsers, Vivaldi has a .deb package for effortless installation.
+
+        Execute the following command to download the current stable version of Vivaldi from its official website:
+        wget https://downloads.vivaldi.com/stable/vivaldi-stable_amd64.deb
+        sudo dpkg -i vivaldi-stable_amd64.deb
+
+
+
+
+
+
+    dal settings di vivaldi impostarlo come default browser
+
+    vivaldi settings:
+        set as Default browser
+        startup with  home page
+
+        shift-ctrl-E --> Extensions
+        install BitWarden from Chrome web store
+
+
+vivaldi_code:
+    9RF-HCK-HPE-JXC
+    MTX-XL3-LA4-XW4
+    RRL-WAV-7VL-DTX

@@ -1,0 +1,85 @@
+# vim:enc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=udevrules:
+#
+# /etc/udev/rules.d/98-my-media-automount.rules
+# http://www.binarytides.com/linux-commands-hardware-info/
+#       lscpu
+#       sudo lsusb
+#       sudo lsusb -v
+#       lsblk
+#       udevadm info -a -n /dev/sda1
+#       blkid -o udev -p /dev/sda1
+
+# start at sdb to ignore the system hard drive
+GOTO="my_media_automount_end"
+KERNEL!="sd[a-z]*", GOTO="my_media_automount_end"
+ACTION=="add", PROGRAM!="/sbin/blkid %N", GOTO="my_media_automount_end"
+
+
+# import some useful filesystem info as variables:
+IMPORT{program}="/sbin/blkid -o udev -p %N"
+
+
+# =============================================
+# check UUID if known
+#   otherwise
+# get the label if present
+#   otherwise
+# assign one based on device/partition
+# =============================================
+ENV{ID_FS_UUID}=="41cd5baa-7a62-4706-b8e8-02c43ccee8d9", ENV{dir_name}="SD_Alcor_2GB_Swap",                 GOTO="DEVICE_UNKNOWN"
+ENV{ID_FS_UUID}=="5D2D-B09A",                            ENV{dir_name}="SD_Alcor_2GB", ENV{readwrite}="rw", GOTO="LnCreateDir"
+ENV{ID_FS_UUID}=="34F4-73E2",                            ENV{dir_name}="SD_32GB_Samsung_EVO", ENV{readwrite}="rw", GOTO="LnCreateDir"
+ENV{ID_FS_UUID}=="24C4-EA91",                            ENV{dir_name}="SD_32GB_Samsung_EVO", ENV{readwrite}="rw", GOTO="LnCreateDir"
+
+
+# ENV{ID_FS_UUID}=="B222175022171945",    ENV{dir_name}="Lacie232GB_B", ENV{readwrite}="ro",     GOTO="LnCreateDir"
+# ENV{ID_FS_UUID}=="1448564A48562AAE",    ENV{dir_name}="Lacie232GB_A", ENV{readwrite}="ro",     GOTO="LnCreateDir"
+# ENV{ID_FS_UUID}=="1B0D-464D",           ENV{dir_name}="StoreJet1TB", ENV{readwrite}="ro",     GOTO="LnCreateDir"
+# ENV{ID_FS_UUID}=="50B45582B4556C0A",    ENV{dir_name}="Hitachi-500", ENV{readwrite}="rw",     GOTO="LnCreateDir"
+
+ENV{ID_FS_LABEL}!="", ENV{dir_name}="%E{ID_FS_LABEL}"
+ENV{ID_FS_LABEL}=="", ENV{dir_name}="usbhd-%k"
+ENV{Ln.Device}="%k"
+ENV{Ln.MountDir}='/media/%E{dir_name}'
+ENV{Ln.WhoAmI}='udev'
+
+
+#######################################
+# - Loreto Mount my drive
+#######################################
+LABEL="LnCreateDir"
+
+# create the dir in /media and symlink it to /mnt
+ACTION=="add", RUN+="/bin/mkdir -p '%E{Ln.MountDir}'"
+
+#######################################
+# - Loreto Mount my drive
+#######################################
+LABEL="LnMount"
+# global mount options
+# ACTION=="add", ENV{mount_options}="relatime"
+
+# filesystem-specific mount options (777/666 dir/file perms for ntfs/vfat)
+# ACTION=="add", ENV{ID_FS_TYPE}=="vfat|ntfs", ENV{mount_options}="$env{mount_options},$env{readwrite},uid=pi,gid=pi,dmask=000,fmask=111,utf8"
+# ACTION=="add", ENV{ID_FS_TYPE}=="vfat|ntfs", ENV{mount_options}="$env{mount_options},gid=100,dmask=000,fmask=111,nls=utf8,noexec,sync,locale=it_IT.UTF-8"
+
+# automount ntfs filesystems using ntfs-3g driver
+# ACTION=="add", ENV{ID_FS_TYPE}=="ntfs", RUN+="/bin/mount -t ntfs-3g -o %E{mount_options} /dev/%k '%E{Ln.MountDir}'"
+
+
+
+# clean up after device removal
+# ACTION=="remove", ENV{dir_name}!="", RUN+="/bin/umount -l '/media/%E{dir_name}'", RUN+="/bin/rmdir '%E{Ln.MountDir}'"
+
+# ACTION=="add",    ENV{ID_FS_TYPE}=="vfat|ntfs", RUN+="/usr/local/bin/LnUdevMount.sh '%E{ID_FS_UUID}' '%E{Ln.MountDir}' "
+# ACTION=="add",    ENV{ID_FS_TYPE}=="vfat|ntfs", RUN+="/usr/bin/python3 /home/pi/Loreto/etc/media/LnMount.py '%E{ID_FS_UUID}'"
+# ACTION=="add",    ENV{ID_FS_UUID}=="B222175022171945", RUN+="/usr/local/bin/LnUdevMount.sh B222175022171945"
+# ACTION=="remove", ENV{ID_FS_UUID}=="B222175022171945", RUN+="/usr/local/bin/LnUdevMount.sh 0"
+
+# automount all other filesystems
+ACTION=="add", ENV{ID_FS_TYPE}!="ntfs", RUN+="/bin/mount -t auto -o %E{mount_options} /dev/%k '%E{Ln.MountDir}'"
+
+# exit
+LABEL="my_media_automount_end"
+LABEL="DEVICE_UNKNOWN"
+

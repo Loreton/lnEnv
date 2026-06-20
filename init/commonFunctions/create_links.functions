@@ -1,0 +1,190 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+# if ! declare -F @lnLog > /dev/null;     then source ${script_path}/ln_log.functions; fi
+# if ! declare -F @setColors > /dev/null; then source ${script_path}/colors.functions; fi
+# if ! declare -F @lnEsegui > /dev/null; then source ${script_path}/esegui.functions; fi
+# if ! declare -F @isAbsolute > /dev/null; then source ${script_path}/is_absolute.functions; fi
+
+### obbligatorio perché potrebbe essere chiamato prima di importare le path per COMMON_FUNCTIONS
+# pwd=$(dirname $BASH_SOURCE)
+# pwd="${BASH_SOURCE%/*}" ###. get parent dir
+# source "${pwd}/@load_common_functions.sh"
+# unset pwd
+# @lnLog "running: ${yellowH}${BASH_SOURCE}${colorReset}"
+
+export fEXECUTE=${1:---dry-run}
+
+###########################################################
+# Se la sorgente  è una directory ignoriamo
+# Se la destinazione è una directory oppure mancante allora
+# il filename viene creato dinamicamente nella current directory
+###########################################################
+function @createDirLink() {
+    local source_path=$1
+    local dest_link_path=${2:-} ### se non è specificato default current directory
+
+    if [[ -z "${dest_link_path}"  ]]; then
+        dest_link_path="./$(basename $source_path)"
+
+    #- se la dest è relative
+    elif ! @isAbsolute "${dest_link_path}"; then
+        dest_link_path="./${dest_link_path}"
+    fi
+
+
+
+    ###- se la destinazione non esiste
+    if [ ! -e "${dest_link_path}" ]; then
+        echo -en "${yellowH}"
+        @lnEsegui "ln -sf ${source_path} ${dest_link_path}"
+        # @lnEsegui "chmod -w ${source_path}" nella DIR non imposto il read-only
+
+    ###- controlli messi per aiutare il debug,,,,
+    elif [[ -d "${dest_link_path}" || -f "${dest_link_path}" ]] && [[ ! -L "${dest_link_path}" ]]; then
+        @lnLog "${yellow}ln -sf ${source_path} ${dest_link_path}${colorReset}"
+        @lnLog "${yellow}[${dest_link_path}] - ${redH}already exists as FILE/DIR. Please remove it manually${colorReset}"
+        return 1
+
+
+    ###- fare il test di -L prima di -d e -f
+    elif [[ -L "${dest_link_path}"  ]]; then
+        local real_sourcePath="$(readlink -fvs  $source_path)" # resolve links if any
+        local real_destPath="$(readlink -fvs  $dest_link_path)" # resolve links if any
+        if [ "$real_destPath" == "${real_sourcePath}" ]; then
+            @lnLog "${whiteH}directory-Link OK:"
+            @lnLog "   ${yellow}source_path: ${cyanH}${source_path}${colorReset}"
+            @lnLog "   ${yellow}link_name:   ${cyanH}${dest_link_path}"
+        else
+            @lnLog "${redH}wrong pointer:"
+            @lnLog "    ${yellow}source_path: ${cyanH}${source_path}"
+            @lnLog "    ${yellow}link_name:   ${cyanH}${dest_link_path}"
+            @lnLog "    ${cyanH}pleas remove link manually ${colorReset}"
+        fi
+
+    else
+        @lnLog "${purpleH}${source_path}    unManaged${colorReset}"
+        @lnLog "${purpleH}${dest_link_path} unManaged${colorReset}"
+    fi
+
+}
+
+
+###########################################################
+# Se la sorgente  è una directory ignoriamo
+# Se la destinazione è una directory oppure mancante allora
+# il filename viene creato dinamicamente nella current directory
+# Syntax:
+#   @createLink sourceFile destdir linkname     dest_link_path: $destdir/linkname
+#   @createLink sourceFile destidir             dest_link_path: $destdir/$(basename $source)
+#   @createLink sourceFile                      dest_link_path: $destdir/$(basename $source)
+#   @createLink sourceFile   .        lnk       dest_link_path: ./src_fname.lnk.extension
+#
+#   @createLink sourceDir  destdir linkname     dest_link_path: $destdir/linkname
+#   @createLink sourceDir  destdir              dest_link_path: $destdir/$(basename $source)
+#   @createLink sourceDir  .                    dest_link_path: ./$(basename $source)
+###########################################################
+function @createLink() {
+    local source_path=$1
+    local dest_link_path=${2:-} ### se non è specificato default current directory
+    # local sub_ext=${3:-no_lnk} ### se lnk lo inseriamo tra fname ed est --> fname.lnk.ext
+
+    # [[ "$sub_ext" == 'lnk' ]] && sub_ext='.lnk.' || ''
+
+    echo
+    if [[ ! -e "$source_path" ]]; then
+        @lnLog "${cyanH}${source_path}: ${redH}doesn't exist!${colorReset}"
+        return 1
+    fi
+
+    ### source link is a directory
+    if [[ -d "${source_path}"  ]]; then
+        @createDirLink "${source_path}" "${dest_link_path}"
+        return
+    fi
+
+    base_filename=$(basename $source_path)
+    # if [[ "${sub_ext}" == 'lnk' ]]; then
+    #     fname="${filename%.*}"
+    #     fext="${filename##*.}"
+    #     base_filename="${fname}.lnk.${fext}"
+    # fi
+
+    #- se dest non è definito
+    if [[ -z "${dest_link_path}" ]]; then
+        # dest_link_path="./$(basename $source_path)"
+        dest_link_path="./${base_filename}"
+
+    #- se la dest è una directory
+    elif [[ -d "${dest_link_path}" ]]; then
+        # dest_link_path="${dest_link_path}/$(basename $source_path)"
+        dest_link_path="${dest_link_path}/${base_filename}"
+
+    #- se la dest è relative
+    elif ! @isAbsolute "${dest_link_path}"; then
+        dest_link_path="./${dest_link_path}"
+    fi
+
+
+
+    ###- source is not a file
+    if [[ ! -f "$source_path" ]]; then
+        @lnLog "${cyanH}${source_path}: ${redH}is NOT a file, cannot proceed!${colorReset}"
+        return 1
+
+    # elif [[ -d "${dest_link_path}" || -f "${dest_link_path}" ]] && [[ ! -L "${dest_link_path}" ]]; then
+    elif [[ -f "${dest_link_path}" ]] && [[ ! -L "${dest_link_path}" ]]; then
+        # @lnLog "${yellowH}ln -sf ${source_path} ${dest_link_path}${colorReset}"
+        @lnLog "${yellow}ln -sf ${source_path} ${dest_link_path}${colorReset}"
+        @lnLog "${yellow}[${dest_link_path}] - ${redH}already exists as FILE. Please remove it manually${colorReset}"
+        return 1
+
+
+    # se la destinazione non esiste
+    elif [ ! -e "${dest_link_path}" ]; then
+        echo -en "${yellowH}"
+        @lnEsegui "ln -sf ${source_path} ${dest_link_path}"
+        @lnEsegui "chmod -w ${source_path}"
+
+    ###- fare il test di -L prima di -d e -f
+    elif [[ -L "${dest_link_path}"  ]]; then
+        local real_sourcePath="$(readlink -fvs  $source_path)" # resolve links if any
+        local real_destPath="$(readlink -fvs  $dest_link_path)" # resolve links if any
+        if [ "$real_destPath" == "${real_sourcePath}" ]; then
+            @lnLog "${whiteH}file-Link OK:"
+            @lnLog "   ${yellow}source_path: ${cyanH}${source_path}${colorReset}"
+            @lnLog "   ${yellow}link_name:   ${cyanH}${dest_link_path}"
+        else
+            @lnLog "${redH}wrong pointer:"
+            @lnLog "    ${yellow}source_path: ${cyanH}${source_path}"
+            @lnLog "    ${yellow}link_name:   ${cyanH}${dest_link_path}"
+            @lnLog "    ${cyanH}creating new one ${colorReset}"
+            @lnEsegui "ln -sf ${source_path} ${dest_link_path}"
+        fi
+
+    else
+        @lnLog "${purpleH}${source_path}    unManaged${colorReset}"
+        @lnLog "${purpleH}${dest_link_path} unManaged${colorReset}"
+    fi
+}
+
+
+
+function TEST() {
+    export fEXECUTE=${1:---dry-run}
+    dir="/home/loreto/filu/lnEnv/config/envars";  @createLink "$dir" "${HOME}/Downloads/test"
+    dir="/home/loreto/filu/lnEnv/config/envars";  @createLink "$dir" "test"
+    dir="/home/loreto/filu/lnEnv/config/envars";  @createLink "$dir"
+
+
+    file='/home/loreto/filu/lnEnv/config_secret/loretoVariables.sh';  @createLink "$file"
+    file='/home/loreto/filu/lnEnv/config_secret/loretoVariables.sh';  @createLink "$file" "test1"
+    file='/home/loreto/filu/lnEnv/config_secret/loretoVariables.sh';  @createLink "$file" "test"
+    file='/home/loreto/filu/lnEnv/config_secret/loretoVariables.sh';  @createLink "$file" "${HOME}/Downloads/test"
+
+}
+
+
+# TEST $@

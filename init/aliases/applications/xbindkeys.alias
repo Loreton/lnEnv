@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 15-06-2026 19.11.35
+#
+
+echo "xbindkeys has been disabled."
+return
+
+function @start_xbindkeys() {
+    local pgm='xbindkeys'
+    # alias per eliminare questo file
+    local rcode=$(ps -ef | grep ${pgm} | grep -v grep |  grep -v alias |  wc -l)
+
+    if [[ $rcode -eq 0 ]]; then
+        # cmd="/usr/bin/${pgm} -f /home/loreto/filu/lnEnv/config/appls/xbindkey/xbindkeysrc"
+        local cmd="/usr/bin/${pgm}"
+        @lnLog "${purpleH}executing: ${cmd}"
+        $cmd
+        [[ $? == 0 ]] && @lnLog "${purpleH}${pgm} started!"
+    else
+        @lnLog "${purpleH}${pgm} already active!"
+    fi
+}
+
+
+if [[ "${lapTopPC_lc}" == *" ${hostname_lc} "* ]]; then
+    ### ------
+    ### creazione del link per inserire il .xbindekeysrc nella $HOME/.xbindekeysrc
+    if ! declare -F @createLink > /dev/null; then
+        source create_links.functions
+    fi
+
+    export fEXECUTE="--go" ### fEXECUTE
+    fname='.xbindkeysrc'
+    @createLink "${ln_APPLS_CONFIG_DIR}/xbindkey/${fname}"  "${HOME}/${fname}"
+    ### -------------
+    
+    @start_xbindkeys
+
+    alias ${alias_prefix}xbindkeys.stop="killall xbindkeys"
+    alias ${alias_prefix}xbindkeys.restart="killall -HUP xbindkeys"
+    alias ${alias_prefix}xbindkeys.force_restart="killall xbindkeys;@start_xbindkeys"
+    alias ${alias_prefix}xbindkeys.start="@start_xbindkeys"
+    alias ${alias_prefix}xbindkeys.show="xbindkeys_show"
+fi
+

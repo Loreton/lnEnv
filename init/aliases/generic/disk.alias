@@ -1,0 +1,78 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 01-05-2026 17.54.05
+#
+
+
+# @_ln_echo_script_name $BASH_SOURCE
+
+
+function @lnIconv() {
+    source_file_name="${1:-'missing file'}"
+    if [[ ! -f $source_file_name ]]; then
+    	echo -e "$source_file_name NOT found!!!"
+    	return
+    fi
+    repaired_file="/tmp/repaired_$(basename $source_file_name)"
+    iconv -f utf-8 -t latin1 "$source_file_name" | iconv -f utf-8 -t utf-8 > $repaired_file
+    # cmp -s "$source_file_name" "${repaired_file}"
+    # echo -e "cmp: $0"
+    # diff  "$source_file_name" "${repaired_file}"
+    # echo -e "diff: $0"
+    echo "${repaired_file} has been created"
+}
+
+
+
+
+function @_rw_speed() {
+    TARGET_DIR=$1
+    file_size=${2:-1G}
+    file_size=${file_size^^}
+
+    if [[ -z "$TARGET_DIR" || ! -d "$TARGET_DIR" ]]; then
+        echo
+        echo
+        echo -e "${TAByellowH}please enter path and max_data to use for testing"
+        echo -e "\tex.:${cyanH}"
+        echo -e "\t\t/media/loreto/LnDisk_SD_ntfs/tmp 100M"
+        echo -e "\t\t/media/loreto/SD1TB_FAT32/tmp    100M"
+        echo -e "\t\t/tmp/speed.test 100M"
+        echo
+        return
+    fi
+
+    TEST_FILE="$TARGET_DIR/test_speed_file"
+    [[ -f "$TEST_FILE" ]] && rm -f ${TEST_FILE}
+    echo -e "\n-------- checking write speed on file: ${TEST_FILE}"
+    dd if=/dev/zero of="${TEST_FILE}" bs=${file_size} count=1 oflag=dsync
+
+    echo -e "\n-------- Svuotamento cache di sistema..."
+    sync && sudo /sbin/sysctl -w vm.drop_caches=3
+
+    echo -e "\n-------- checking read speed on file: $TEST_FILE"
+    dd if="${TEST_FILE}" of=/dev/zero bs=${file_size} count=1 iflag=direct
+    [[ -f "${TEST_FILE}" ]] && rm -f ${TEST_FILE}
+}
+
+alias ${alias_prefix}rwSpeed=@_rw_speed
+#... oppure
+alias ${alias_prefix}disk_speed='/home/loreto/filu/lnEnv/shScripts/benchmark/disk_benchmark.sh'
+
+###- diff
+alias ${alias_prefix}diff="/usr/bin/diffuse" # https://flathub.org/apps/io.github.mightycreak.Diffuse
+
+
+### - disk
+alias ${alias_prefix}dd_clone='echo sudo dd if=/dev/sda of=/dev/sdb bs=64K conv=noerror,sync status=progress'
+alias ${alias_prefix}dd_to_img='echo sudo dd if=/dev/xxxxx of=~/sd-card-copy.img bs=1M status=progress'
+alias ${alias_prefix}dd_img_to_disk='echo sudo dd if=/media/loreto/lnpi31_2023-11-06_62521344.img    of=/dev/sdcxxx bs=512 count=62521344 status=progres'
+alias ${alias_prefix}dd_gUnzip_to_disk='echo "gzip -cd /media/loreto/LnDisk_SD_ext4/myData/Backups/lnpi31/lnpi31_2023-11-06_62521344.img.gz | sudo dd of=/dev/xxxxx bs=512 count=62521344 status=progress"'
+
+alias ${alias_prefix}deviceList='${HOME}/filu/lnEnv/shScripts/device_list/deviceList.sh'
+alias ${alias_prefix}blkid='sudo blkid -o list'
+
+# alias ${alias_prefix}iconv='echo iconv -f utf-8 -t latin1 source_filename.txt | iconv -f utf-8 -t utf-8 > /tmp/repaired_filename.txt'
+alias ${alias_prefix}iconv='@lnIconv'
+

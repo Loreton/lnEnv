@@ -1,0 +1,47 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 11.21.57
+#
+
+# Double Commander
+    sudo apt-get install doublecmd-qt -y
+    or...
+    sudo apt-get install doublecmd-gtk -y
+
+
+    ma installa una versione vecchia
+
+
+    https://sourceforge.net/projects/doublecmd/
+    per installare l'ultima versione
+
+    https://sourceforge.net/p/doublecmd/wiki/Download/ -> download -> doublecmd-1.1.17.gtk2.x86_64.tar.xz
+    e non doublecmd-1.1.17.qt.x86_64.tar.xz perché mancano delle librerie
+
+    cd /usr/bin
+    sudo ln -sf /home/loreto/lnFreex/doublecmd/doublecmd
+
+
+
+ERROR1:
+    doublecmd error while loading shared libraries libQt5PrintSupport.so.5 cannot open shared object file No such file or directory
+    # sudo apt install libqt5printsupport5
+    sudo apt install libqt5printsupport5t64
+    sudo apt install libqt5x11extras5
+
+ERROR1:
+    (doublecmd:22157): GLib-GObject-CRITICAL **: 10:40:54.682: g_object_unref: assertion 'G_IS_OBJECT (object)' failed
+
+
+ERROR3:
+    doublecmd linux mint libssh2 not found quando cerco di usare scp
+
+    ho installato:
+
+    sudo apt install libssh2-1 libssh2-1-dev pkg-config
+
+
+    find /usr/lib -name "libssh2.so*" 2>/dev/null
+    /usr/lib/x86_64-linux-gnu/libssh2.so
+    /usr/lib/x86_64-linux-gnu/libssh2.so.1
+    /usr/lib/x86_64-linux-gnu/libssh2.so.1.0.1

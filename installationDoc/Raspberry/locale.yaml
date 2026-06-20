@@ -1,0 +1,40 @@
+Fix `warning: setlocale: LC_ALL: cannot change locale (en_US.UTF-8)` error on Raspberry PI
+Run the following:
+
+echo "LC_ALL=en_US.UTF-8" | sudo tee -a /etc/environment > /dev/null
+echo "en_US.UTF-8 UTF-8" | sudo tee -a /etc/locale.gen > /dev/null
+echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf > /dev/null
+sudo locale-gen en_US.UTF-8
+
+ubuntu:
+    sudo locale-gen --purge en_US.utf8 it_IT.utf8 ### genera solo quelli indicati purge tutto il resto
+    sudo locale-gen --purge en_US.utf8 ### genera solo quelli indicati purge tutto il resto
+
+
+
+
+
+LOCALE Raspberry:
+    ll /usr/lib/locale/
+    locale -a
+    verifica:
+        cat /etc/locale.gen | grep en_US.UTF-8
+    Uncomment the en_US.UTF-8 UTF-8string and run locales generator:
+        sudo locale-gen
+
+
+    oppure....
+    Edit the default locale:
+        sudo vim /etc/default/locale
+    Add the following:
+        LANGUAGE=en_US.UTF-8
+        LANG=en_US.UTF-8
+        LC_ALL=en_US.UTF-8
+    Run these commands:
+        sudo locale-gen en_US.UTF-8
+        ... oppure
+        sudo dpkg-reconfigure locales
+
+
+
+

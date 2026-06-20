@@ -1,0 +1,56 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 17-05-2026 15.35.54
+#
+
+
+# Stato / esito
+#   ✅ success
+#   ❌ error
+#   ⚠️ warning
+#   ℹ️ info
+#   🔥 hot
+#   🚀 start/deploy
+#   ⏳ waiting
+#   ⌛ timeout
+#   🔄 retry
+#   💥 crash
+#   🛑 stop
+
+
+# Sviluppo:
+#   🐍 python
+#   🐧 linux
+#   ⚙️ settings
+#   🔧 tools
+#   📦 package
+#   📁 folder
+#   📄 file
+#   🧪 test
+#   🛠️ build
+#   🔒 secure
+#   🔑 key
+#   🌐 network
+#   📡 signal
+
+#   ➡️
+#   ⬅️
+#   ⬆️
+#   ⬇️
+#   ↔️
+#   ↪️
+#   ➜
+#   ➤
+#   ▶️
+
+
+
+
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+    alias ${alias_prefix}print_unicode='${HOME}/filu/lnEnv/init/script_utils/print_emoj.py'
+
+fi
+

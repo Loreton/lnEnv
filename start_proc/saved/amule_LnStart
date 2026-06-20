@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 16-07-2018 14.49.31
+#
+# To generate password, run:
+#       echo -n your_password_here | md5sum | cut -d ' ' -f 1
+#       current xxLoretoxx
+#
+# to share directory add them to:
+#       /home/pi/.aMule/shareddir.dat
+#
+# to remove from startup:
+#       sudo update-rc.d -f amule-daemon remove
+#
+# porte:  tcp:4662 tcp+3:4665 upd:4672
+# porte:  tcp:53672 tcp+3:4665 upd:53672
+
+myAmuleDataDir='/home/pi/.aMule'
+if [ -d $myAmuleDataDir ]; then
+    echo 'starting amuled....'
+    echo 'sudo service amule-daemon start'
+    sudo service amule-daemon start
+else
+    echo
+    echo "La directory $myAmuleDataDir"
+    echo "non esiste... forse non è montata"
+    echo
+fi
+

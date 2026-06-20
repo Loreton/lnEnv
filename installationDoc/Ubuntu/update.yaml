@@ -1,0 +1,15 @@
+
+sudo apt update -y
+sudo apt full-upgrade
+sudo apt dist-upgrade -y
+
+
+sudo apt list --upgradable -a #
+    Listing... Done
+    python3-distupgrade/noble-updates,noble-updates 1:24.04.23 all [upgradable from: 1:24.04.22]
+    ubuntu-release-upgrader-core/noble-updates,noble-updates 1:24.04.23 all [upgradable from: 1:24.04.22]
+    ubuntu-release-upgrader-gtk/noble-updates,noble-updates 1:24.04.23 all [upgradable from: 1:24.04.22]
+
+    sudo apt --only-upgrade install python3-distupgrade
+
+sudo apt install python3-pip

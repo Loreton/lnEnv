@@ -1,0 +1,45 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 11.21.51
+#
+#
+
+
+
+ssh:
+    - USER_PC="loreto@IdeaPadSlim3"; ssh-keygen -o -a 100 -t ed25519 -f $HOME/.ssh/id_ed25519 -C "${USER_PC}.ed25519"
+    - USER_PC="loreto@IdeaPadSlim3"; ssh-keygen -t rsa -b 2048 -f $HOME/.ssh/id_rsa -C "loreto-HP255G7.rsa"
+
+    Se il server SSH  non risulta installato:
+        ref: https://community.linuxmint.com/tutorial/view/2370
+
+        check:
+            - ssh localhost
+                connect to host localhost port 22: Connection refused
+
+        - install:
+            - sudo apt-get install openssh-server
+
+
+
+            - sudo vi /etc/ssh/sshd_config
+                modificare la porta di ascolto da 22 a 2222
+
+            - sudo systemctl restart ssh
+
+            se alla partenza di sshd  da errori come segue:
+                    * Starting OpenBSD Secure Shell server sshd sshd
+                    Could not load host key: /etc/ssh/ssh_host_rsa_key
+                    Could not load host key: /etc/ssh/ssh_host_ecdsa_key
+                    Could not load host key: /etc/ssh/ssh_host_ed25519_key
+                dare il comando:
+                    sudo ssh-keygen -A
+
+
+
+copia authorized_keys
+    copy del folder in $HOME/.ssh
+    eseguire:
+        bash /home/loreto/filu/lnEnv/config/appls/.ssh/01-common/copy_common_keys.sh
+
+    aggiungere la key di questo pc nell'authorized_keys e poi propagare il file negli altri PC

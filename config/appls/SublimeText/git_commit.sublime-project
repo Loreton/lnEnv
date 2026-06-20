@@ -1,0 +1,12 @@
+{
+	"folders":
+	[
+		// ---- lnEnv
+		// {"path": "/home/loreto/filu/lnEnv", "name": "", "folder_exclude_patterns": [], },
+
+
+		// {"path": "/home/loreto/filu/lnEnv/pyScripts/git_commit" },
+		// {"path": "/home/loreto/filu/Programming/gitREPO/pyLnLib" },
+		{"path": "/home/loreto/filu/Programming/gitREPO/gitCommit" },
+	]
+}

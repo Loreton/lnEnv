@@ -1,0 +1,30 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 15.20.06
+#
+
+
+
+sudo:
+    # Questa soluzione abilita l'utente user a tutti i sudo senza password
+    # Testata e funzionante sotto WSL e sotto UBUNTU
+    USER='loreto' && echo "$USER ALL=(ALL:ALL) NOPASSWD: ALL" | sudo tee /etc/sudoers.d/dont-prompt-$USER-for-password
+
+
+    # oppure:
+    sudo visudo - ed inserire la riga
+        loreto     ALL=(ALL) NOPASSWD:ALL
+
+        utilizzando sudo visudo si potrebbe avere lo stesso risultato
+        ma si è poi soggetti a futuri aggiornamenti con relative
+        modifiche del file primario
+
+        If your user is called user and your host is called host you could add these lines to /etc/sudoers
+        add_lines:
+            user host = (root) NOPASSWD: /sbin/shutdown
+            user host = (root) NOPASSWD: /sbin/reboot
+
+sudo check:
+    sudo --list
+
+

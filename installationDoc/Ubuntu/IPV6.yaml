@@ -1,0 +1,23 @@
+ipv6:
+    scope: disable ipv6
+    config:
+        add the following to /boot/cmdline.txt
+        ipv6.disable=1
+        # sembra funzionare
+
+
+
+
+https://linuxconfig.org/how-to-disable-ipv6-address-on-ubuntu-18-04-bionic-beaver-linux
+
+The simplest way to instantly disable the IP version 6 network protocol system on on Ubuntu 18.04 is to execute the following commands:
+    sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+    sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+
+The above IPv6 disable settings would not persist after the reboot. The usual way on how to load the above settings is to edit the
+    /etc/sysctl.conf
+
+configuration file by adding the following lines:
+    net.ipv6.conf.all.disable_ipv6=1
+    net.ipv6.conf.default.disable_ipv6=1

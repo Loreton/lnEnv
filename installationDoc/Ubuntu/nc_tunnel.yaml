@@ -1,0 +1,4 @@
+tunnel_01:
+    tunnel dalla porta 60080 al server 192.168.1.41 port 22
+    https://unix.stackexchange.com/questions/10428/simple-way-to-create-a-tunnel-from-one-local-port-to-another
+    nc.traditional -l -k -p 60080 -c "nc 192.168.1.41 22" -vvv

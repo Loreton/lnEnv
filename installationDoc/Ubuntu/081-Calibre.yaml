@@ -1,0 +1,25 @@
+
+# Calibre:
+#    ref:
+#       https://flathub.org/apps/com.calibre_ebook.calibre
+#    install:
+#       sudo flatpak install com.calibre_ebook.calibre
+#    run: flatpak run com.calibre_ebook.calibre
+
+
+
+
+ref:
+   https://calibre-ebook.com/download_linux
+
+install:
+   sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+
+
+   Errors:
+      You are missing the system library libxcb-cursor.so.0. Try installing packages such as libxcb-cursor0 or xcb-cursor
+      solution:
+         sudo apt install libxcb-cursor0
+
+
+

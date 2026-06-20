@@ -1,0 +1,15 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 18.36.14
+#
+
+
+xnview:
+    ref:
+        https://flathub.org/en/apps/com.xnview.XnViewMP
+
+    install:
+        flatpak install flathub com.xnview.XnViewMP
+
+    run:
+        flatpak run com.xnview.XnViewMP

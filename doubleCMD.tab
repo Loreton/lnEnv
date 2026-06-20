@@ -1,0 +1,946 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doublecmd>
+  <Tabs>
+    <OpenedTabs>
+      <Left>
+        <ActiveTab>2</ActiveTab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>2</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="scripts">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/scripts/</Path>
+                  <Path Filename="doc">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="INSTALL.txt">/home/loreto/lnFreex/doublecmd/doc/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="doublecmd-1.1.17.gtk2.x86_64.tar.xz">/home/loreto/Downloads/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename="Pictures">/home/loreto/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+          <Options>3</Options>
+          <LockPath>/home/loreto/</LockPath>
+          <Title>loreto</Title>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="scripts">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/scripts/</Path>
+                  <Path Filename="doc">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="INSTALL.txt">/home/loreto/lnFreex/doublecmd/doc/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="doublecmd-1.1.17.gtk2.x86_64.tar.xz">/home/loreto/Downloads/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename=".config">/home/loreto/</Path>
+                  <Path Filename="vivaldi">/home/loreto/.config/</Path>
+                  <Path Filename="..">/home/loreto/.config/vivaldi/</Path>
+                  <Path Filename="terminator">/home/loreto/.config/</Path>
+                  <Path Filename="plugins">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="..">/home/loreto/.config/terminator/plugins/</Path>
+                  <Path Filename="config">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="lnEnv">/home/loreto/filu/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+          <Options>3</Options>
+          <LockPath>/home/loreto/filu/</LockPath>
+          <Title>filu</Title>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="doublecmd-1.1.17.gtk2.x86_64.tar.xz">/home/loreto/Downloads/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename=".config">/home/loreto/</Path>
+                  <Path Filename="vivaldi">/home/loreto/.config/</Path>
+                  <Path Filename="..">/home/loreto/.config/vivaldi/</Path>
+                  <Path Filename="terminator">/home/loreto/.config/</Path>
+                  <Path Filename="plugins">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="..">/home/loreto/.config/terminator/plugins/</Path>
+                  <Path Filename="config">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/</Path>
+                  <Path Filename="..">/home/loreto/filu/gitREPO/</Path>
+                  <Path Filename="lnENV">/home/loreto/filu/</Path>
+                  <Path Filename="..">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="_lnEnv">/home/loreto/filu/</Path>
+                  <Path Filename="..">/home/loreto/filu/_lnEnv/</Path>
+                  <Path Filename="lnEnv">/home/loreto/filu/</Path>
+                  <Path Filename="..">/home/loreto/filu/lnEnv/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+          <Options>3</Options>
+          <LockPath>/home/loreto/filu/lnEnv/</LockPath>
+          <Title>lnEnv</Title>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>2</Direction>
+                <Function>7</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="Downloads">/home/loreto/</Path>
+                  <Path Filename="Ale-RX">/home/loreto/Downloads/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Loreto</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+          <Options>3</Options>
+          <LockPath>/home/loreto/Downloads/</LockPath>
+          <Title>Downloads</Title>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename=".config">/home/loreto/</Path>
+                  <Path Filename="vivaldi">/home/loreto/.config/</Path>
+                  <Path Filename="..">/home/loreto/.config/vivaldi/</Path>
+                  <Path Filename="terminator">/home/loreto/.config/</Path>
+                  <Path Filename="plugins">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="..">/home/loreto/.config/terminator/plugins/</Path>
+                  <Path Filename="config">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="lnEnv">/home/loreto/filu/</Path>
+                  <Path Filename="doubleCMD.tab">/home/loreto/filu/lnEnv/</Path>
+                  <Path Filename="..">/home/loreto/filu/lnEnv/utils/iconv/</Path>
+                  <Path Filename="..">/home/loreto/filu/lnEnv/utils/py_env/</Path>
+                  <Path Filename="iconv">/home/loreto/filu/lnEnv/utils/</Path>
+                  <Path Filename="ln_iconv.sh">/home/loreto/filu/lnEnv/utils/iconv/</Path>
+                  <Path Filename="ln_esptool">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/ln_esptool/</Path>
+                  <Path Filename="lnSync">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename=".gitignore">/home/loreto/filu/Programming/gitREPO/lnSync/</Path>
+                  <Path Filename=".git">/home/loreto/filu/Programming/gitREPO/lnEsptool_/</Path>
+                  <Path Filename="config">/home/loreto/filu/Programming/gitREPO/lnEsptool_/.git/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/ln_esptool/data/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/Programming/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/Programming/</Path>
+                  <Path Filename="esp32_orto">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="externalLibraries">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="externalLibraries">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="project_dflags.sh">/home/loreto/filu/Programming/gitREPO/esp32_orto_/</Path>
+                  <Path Filename="pressControl">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="a_pressControlLib">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/pressControl/a_pressControlLib/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                  <Path Filename="esp32LnLibrary">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="externalLibraries">/home/loreto/filu/Programming/gitREPO/esp32LnLibrary/</Path>
+                  <Path Filename="ArduinoJson-7.3.0">/home/loreto/filu/Programming/gitREPO/esp32LnLibrary/externalLibraries/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="Downloads">/home/loreto/</Path>
+                  <Path Filename="Arduino-Temperature-Control-Library-master.zip">/home/loreto/Downloads/</Path>
+                  <Path Filename="esp32_littleFS">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/esp32_littleFS/</Path>
+                  <Path Filename="esp32_littleFS">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/</Path>
+                  <Path Filename="libdeps">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/</Path>
+                  <Path Filename=".pio">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="pressControl">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="src">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                  <Path Filename="process">/home/loreto/filu/Programming/gitREPO/pressControl/src/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/pressControl/src/process/</Path>
+                  <Path Filename="process">/home/loreto/filu/Programming/gitREPO/pressControl/src/</Path>
+                  <Path Filename="a_pressControlLib">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                  <Path Filename="lnLogger_Class">/home/loreto/filu/Programming/gitREPO/pressControl/a_pressControlLib/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/lib/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="pressControl">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename=".gitignore">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                  <Path Filename="..">/home/loreto/filu/Applications/linuxPortable/SublimeText4_prev/Data/Packages/</Path>
+                  <Path Filename="Packages">/home/loreto/filu/Applications/linuxPortable/SublimeText4_prev/Data/</Path>
+                  <Path Filename="Data">/home/loreto/filu/Applications/linuxPortable/SublimeText4_prev/</Path>
+                  <Path Filename="SublimeText4">/home/loreto/filu/Applications/linuxPortable/</Path>
+                  <Path Filename="Data">/home/loreto/filu/Applications/linuxPortable/SublimeText4/</Path>
+                  <Path Filename="Packages">/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/</Path>
+                  <Path Filename="userLoreto">/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/</Path>
+                  <Path Filename="..">/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/</Path>
+                  <Path Filename="Versions">/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/</Path>
+                  <Path Filename="..">/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/Versions/</Path>
+                  <Path Filename="indentation">/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/</Path>
+                  <Path Filename="ln_indentation_selection_block_gemini.py">/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/indentation/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Loreto</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>2</Direction>
+                <Function>7</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="Downloads">/home/loreto/</Path>
+                  <Path Filename="Ale-RX">/home/loreto/Downloads/</Path>
+                  <Path Filename="DICOM">/home/loreto/Downloads/Ale-RX/</Path>
+                  <Path Filename="..">/home/loreto/Downloads/Ale-RX/DICOM/</Path>
+                  <Path Filename="DICOM">/home/loreto/Downloads/Ale-RX/</Path>
+                  <Path Filename="..">/home/loreto/Downloads/Ale-RX/DICOM/</Path>
+                  <Path Filename="Ale-RX_02a.png">/home/loreto/Downloads/Ale-RX/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Loreto</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="scripts">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/scripts/</Path>
+                  <Path Filename="doc">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="INSTALL.txt">/home/loreto/lnFreex/doublecmd/doc/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="doublecmd-1.1.17.gtk2.x86_64.tar.xz">/home/loreto/Downloads/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename=".config">/home/loreto/</Path>
+                  <Path Filename="vivaldi">/home/loreto/.config/</Path>
+                  <Path Filename="..">/home/loreto/.config/vivaldi/</Path>
+                  <Path Filename="terminator">/home/loreto/.config/</Path>
+                  <Path Filename="plugins">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="..">/home/loreto/.config/terminator/plugins/</Path>
+                  <Path Filename="config">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="Applications">/home/loreto/filu/</Path>
+                  <Path Filename="linuxPortable">/home/loreto/filu/Applications/</Path>
+                  <Path Filename="..">/home/loreto/filu/Applications/linuxPortable/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename=".config">/home/loreto/</Path>
+                  <Path Filename="vivaldi">/home/loreto/.config/</Path>
+                  <Path Filename="..">/home/loreto/.config/vivaldi/</Path>
+                  <Path Filename="terminator">/home/loreto/.config/</Path>
+                  <Path Filename="plugins">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="..">/home/loreto/.config/terminator/plugins/</Path>
+                  <Path Filename="config">/home/loreto/.config/terminator/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/</Path>
+                  <Path Filename="..">/home/loreto/filu/gitREPO/</Path>
+                  <Path Filename="lnENV">/home/loreto/filu/</Path>
+                  <Path Filename="..">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/lnENV/</Path>
+                  <Path Filename="Applications">/home/loreto/filu/</Path>
+                  <Path Filename="linuxPortable">/home/loreto/filu/Applications/</Path>
+                  <Path Filename="..">/home/loreto/filu/Applications/linuxPortable/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="prev">/home/loreto/filu/Programming/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/appo/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+      </Left>
+      <Right>
+        <ActiveTab>6</ActiveTab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="scripts">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/scripts/</Path>
+                  <Path Filename="doc">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="INSTALL.txt">/home/loreto/lnFreex/doublecmd/doc/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="doublecmd-1.1.17.gtk2.x86_64.tar.xz">/home/loreto/Downloads/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename="Downloads">/home/loreto/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+          <Options>3</Options>
+          <LockPath>/home/loreto/</LockPath>
+          <Title>loreto</Title>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="scripts">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/scripts/</Path>
+                  <Path Filename="doc">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="INSTALL.txt">/home/loreto/lnFreex/doublecmd/doc/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="doublecmd-1.1.17.gtk2.x86_64.tar.xz">/home/loreto/Downloads/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="ln-eBooks">/home/loreto/filu/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+          <Options>3</Options>
+          <LockPath>/home/loreto/filu/</LockPath>
+          <Title>filu</Title>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="scripts">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/scripts/</Path>
+                  <Path Filename="doc">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="INSTALL.txt">/home/loreto/lnFreex/doublecmd/doc/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="doublecmd-1.1.17.gtk2.x86_64.tar.xz">/home/loreto/Downloads/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="Devel">/home/loreto/filu/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/Devel/</Path>
+                  <Path Filename="lnSync">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/Programming/</Path>
+                  <Path Filename="gitUtils">/home/loreto/filu/Programming/gitREPO/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+          <Options>3</Options>
+          <LockPath>/home/loreto/filu/Programming/gitREPO/</LockPath>
+          <Title>gitREPO</Title>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="Devel">/home/loreto/filu/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/Devel/</Path>
+                  <Path Filename="lnSync">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/Programming/</Path>
+                  <Path Filename="esp32LnLibrary">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32LnLibrary/</Path>
+                  <Path Filename="pressControl">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="a_pressControlLib">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/pressControl/a_pressControlLib/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                  <Path Filename="esp32LnLibrary">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="externalLibraries">/home/loreto/filu/Programming/gitREPO/esp32LnLibrary/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32LnLibrary/externalLibraries/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32LnLibrary/</Path>
+                  <Path Filename="pressControl">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename=".git">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/pressControl/.git/</Path>
+                  <Path Filename=".git">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/pressControl/.git/</Path>
+                  <Path Filename="project_dflags.sh">/home/loreto/filu/Programming/gitREPO/pressControl/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="src">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/Universal-Arduino-Telegram-Bot-master/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/Universal-Arduino-Telegram-Bot-master/src/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/Universal-Arduino-Telegram-Bot-master/</Path>
+                  <Path Filename="Espalexa-main">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="src">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/Espalexa-main/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/Espalexa-main/src/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/Espalexa-main/</Path>
+                  <Path Filename="Universal-Arduino-Telegram-Bot-master">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="src">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/Universal-Arduino-Telegram-Bot-master/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/Universal-Arduino-Telegram-Bot-master/src/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/Universal-Arduino-Telegram-Bot-master/</Path>
+                  <Path Filename="Universal-Arduino-Telegram-Bot-master">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="externalLibraries">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="esp32-ds18b20-main">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="OneWireESP32.h">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/esp32-ds18b20-main/</Path>
+                  <Path Filename="esp32-ds18b20-main">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="externalLibraries">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="onewire-main">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="bin">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/onewire-main/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/onewire-main/bin/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/onewire-main/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="externalLibraries">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/esp32_littleFS/OneWire/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/esp32_littleFS/</Path>
+                  <Path Filename="esp32_littleFS">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/esp32_littleFS/</Path>
+                  <Path Filename="esp32_littleFS">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/</Path>
+                  <Path Filename="libdeps">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/</Path>
+                  <Path Filename="externalLibraries">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="externalLibraries">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/externalLibraries/</Path>
+                  <Path Filename="lnLibraries">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="lnLogger_Class">/home/loreto/filu/Programming/gitREPO/esp32_orto/lnLibraries/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/lnLibraries/lnLogger_Class/</Path>
+                  <Path Filename="lnLogger_Class">/home/loreto/filu/Programming/gitREPO/esp32_orto/lnLibraries/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/lnLibraries/lnLogger_Class/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/lnLibraries/</Path>
+                  <Path Filename="src">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/src/</Path>
+                  <Path Filename=".pio">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="libdeps">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/</Path>
+                  <Path Filename="esp32_littleFS">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/esp32_littleFS/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/libdeps/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/.pio/</Path>
+                  <Path Filename=".git">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/.git/</Path>
+                  <Path Filename="include_03">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="scripts">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="..">/home/loreto/lnFreex/doublecmd/scripts/</Path>
+                  <Path Filename="doc">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="INSTALL.txt">/home/loreto/lnFreex/doublecmd/doc/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/</Path>
+                  <Path Filename="doublecmd">/home/loreto/lnFreex/doublecmd/</Path>
+                  <Path Filename="doublecmd-1.1.17.gtk2.x86_64.tar.xz">/home/loreto/Downloads/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="Python">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="GIT-REPO">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="ln-eBooks">/home/loreto/filu/</Path>
+                  <Path Filename="lnLibraries">/home/loreto/filu/ln-eBooks/</Path>
+                  <Path Filename="..">/home/loreto/filu/ln-eBooks/lnLibraries/</Path>
+                  <Path Filename="L&apos;uomo di paglia - Connelly, Michael.epub">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/Connelly, Michael/L'uomo di paglia (954)/</Path>
+                  <Path Filename="L&apos;uomo di paglia (954)">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/Connelly, Michael/</Path>
+                  <Path Filename="..">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/Connelly, Michael/L'uomo di paglia (954)/</Path>
+                  <Path Filename="..">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/Connelly, Michael/</Path>
+                  <Path Filename="Connelly, M_">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/</Path>
+                  <Path Filename="..">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/Connelly, M_/</Path>
+                  <Path Filename="Connelly, Michael">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/</Path>
+                  <Path Filename="La lista. Un romanzo della serie Avvocato di difesa (960)">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/Connelly, Michael/</Path>
+                  <Path Filename="..">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/Connelly, Michael/La lista. Un romanzo della serie Avvocato di difesa (960)/</Path>
+                  <Path Filename="..">/home/loreto/filu/ln-eBooks/lnLibraries/A0_mainLibrary/Connelly, Michael/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+        <Tab>
+          <FileView Type="columns">
+            <Sortings>
+              <Sorting>
+                <Direction>1</Direction>
+                <Function>12</Function>
+              </Sorting>
+            </Sortings>
+            <History>
+              <Entry Active="True">
+                <FileSource Type="FileSystem"/>
+                <Paths>
+                  <Path Filename="..">/media/loreto/</Path>
+                  <Path Filename="">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="">/media/loreto/</Path>
+                  <Path Filename="HW-Projects">/media/loreto/LnDisk_SD_ext4/Filu/GIT-REPO/</Path>
+                  <Path Filename="Filu">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/Filu/</Path>
+                  <Path Filename="..">/media/loreto/LnDisk_SD_ext4/</Path>
+                  <Path Filename="LnDisk_SD_ext4">/media/loreto/</Path>
+                  <Path Filename="loreto">/media/</Path>
+                  <Path Filename="home">/</Path>
+                  <Path Filename="loreto">/home/</Path>
+                  <Path Filename="filu">/home/loreto/</Path>
+                  <Path Filename="Devel">/home/loreto/filu/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/Devel/</Path>
+                  <Path Filename="lnSync">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="">/home/loreto/filu/</Path>
+                  <Path Filename="">/home/loreto/filu/Devel/gitREPO/</Path>
+                  <Path Filename="Programming">/home/loreto/filu/</Path>
+                  <Path Filename="gitREPO">/home/loreto/filu/Programming/</Path>
+                  <Path Filename="gitUtils">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/gitUtils/</Path>
+                  <Path Filename="gitUtils">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/gitUtils/</Path>
+                  <Path Filename="esp32_orto">/home/loreto/filu/Programming/gitREPO/</Path>
+                  <Path Filename="include_02">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/include_02/</Path>
+                  <Path Filename="src">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/src/</Path>
+                  <Path Filename="lib">/home/loreto/filu/Programming/gitREPO/esp32_orto/</Path>
+                  <Path Filename="lnLogger_Class">/home/loreto/filu/Programming/gitREPO/esp32_orto/lib/</Path>
+                  <Path Filename="test">/home/loreto/filu/Programming/gitREPO/esp32_orto/lib/lnLogger_Class/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/lib/lnLogger_Class/test/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/lib/lnLogger_Class/</Path>
+                  <Path Filename="lnLogger_Class">/home/loreto/filu/Programming/gitREPO/esp32_orto/lib/</Path>
+                  <Path Filename="test">/home/loreto/filu/Programming/gitREPO/esp32_orto/lib/lnLogger_Class/</Path>
+                  <Path Filename="..">/home/loreto/filu/Programming/gitREPO/esp32_orto/lib/lnLogger_Class/test/</Path>
+                </Paths>
+              </Entry>
+            </History>
+            <ColumnsView>
+              <ColumnsSet>Default</ColumnsSet>
+            </ColumnsView>
+          </FileView>
+        </Tab>
+      </Right>
+    </OpenedTabs>
+  </Tabs>
+</doublecmd>

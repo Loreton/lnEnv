@@ -1,0 +1,12 @@
+ref: https://indomus.it/guide/le-prime-cose-da-fare-dopo-aver-installato-raspberry-con-raspbian/
+
+    sudo dphys-swapfile swapoff
+    dopodiché modificare il file di impostazione swap tramite il comando:
+
+    sudo nano /etc/dphys-swapfile
+    andando a modificare la chave “CONF_SWAPSIZE” come segue:
+
+    CONF_SWAPSIZE=1024
+    dopodiché uscire salvando (CTRL+X, y, invio) e infine riavviare il servizio di swap tramite il comando:
+
+    sudo dphys-swapfile swapon

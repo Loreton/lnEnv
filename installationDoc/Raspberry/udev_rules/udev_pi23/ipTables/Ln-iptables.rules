@@ -1,0 +1,166 @@
+# Loreto
+# ----------------------
+#   called by: /etc/network/if-pre-up.d/iptables
+#       !/bin/sh
+#        /sbin/iptables-restore </home/pi/Loreto/etc/ipTables/Ln-iptables.rules
+# ----------------------
+#
+# sudo bash -c 'iptables-save > /home/pi/Loreto/etc/ipTables/Ln-iptables'
+# sudo iptables-restore < /home/pi/Loreto/etc/ipTables/Ln-iptables.rules
+
+# ##################################################################################################################
+# https://wiki.debian.org/it/iptables
+#       Una volta che si è soddisfatti, salvare le regole nel file di configurazione principale di iptables:
+#           iptables-save > /etc/iptables.up.rules
+#       Per assicurarsi che le regole di iptables vengano usate al prossimo riavvio, creare un nuovo file:
+#           sudo vi /etc/network/if-pre-up.d/iptables
+#       e aggiungervi queste righe:
+#           # !/bin/sh
+#           /sbin/iptables-restore < /home/pi/Loreto/conf/Ln-iptables.rules
+#       Il file deve essere eseguibile, perciò cambiare i suoi permessi:
+#           chmod +x /etc/network/if-pre-up.d/iptables
+# ##################################################################################################################
+*mangle
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:FORWARD ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+COMMIT
+
+# -----------------------------------------
+*nat
+:PREROUTING ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+COMMIT
+
+# - don’t accept any incoming network traffic unless a following rule overrides it.
+# -----------------------------------------
+*filter
+:INPUT DROP
+# - accept any forwarding requests
+# :FORWARD ACCEPT
+:FORWARD DROP
+# - allow any outbound network traffic
+:OUTPUT ACCEPT
+
+# :INBOUND_ETH - [0:0]
+:LOG_CHAIN  - [0:0]
+:LOG_DROP   - [0:0]
+:LOG_ACCEPT - [0:0]
+
+:ICMP_INPUT   - [0:0]
+:UDP_INPUT   - [0:0]
+:TCP_INPUT   - [0:0]
+
+# -A OUTPUT               -j ACCEPT
+# Permette tutto il traffico su loopback (lo0) traffic e elimina tutto il traffico che non usa lo0 verso 127/8
+-A INPUT -i lo -j ACCEPT
+-A INPUT ! -i lo -d 127.0.0.0/8 -j REJECT
+
+
+# ------- V A R I E ------------------------------------------
+-A INPUT -d 255.255.255.255 -i eth0         -j LOG_DROP
+-A INPUT -s 255.255.255.255                 -j LOG_DROP
+-A INPUT -d 0.0.0.0                         -j LOG_DROP
+-A INPUT -m state --state INVALID           -j LOG_DROP
+
+# - block any traffic to port 22 (ssh) coming from your firewall
+-A INPUT -s 192.168.0.1/32 -p tcp --dport 22 -j LOG_DROP
+# ----------- allow all traffic from the internal network
+-A INPUT -s 192.168.0.0/24 -j ACCEPT
+-A INPUT -s 192.168.1.0/24 -j ACCEPT
+
+# ----------- Accetta in entrata tutte le connessioni stabilite
+-A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+# -------------------------------------------------
+# - OUTPUT Section
+# -------------------------------------------------
+-A INPUT    -p udp      -j UDP_INPUT
+-A INPUT    -p tcp      -j TCP_INPUT
+-A INPUT    -p icmp     -j ICMP_INPUT
+
+
+
+# *************************************************
+# * TCP Section
+# *************************************************
+# ----------- SSH from anywhere
+-A TCP_INPUT -p tcp -m state --state NEW,RELATED,ESTABLISHED -m multiport --dports 22,64022 -j ACCEPT
+# ----------- allow all traffic via port 5901 (VNC)
+-A TCP_INPUT -p tcp --dport 5901 -j LOG_ACCEPT
+# ----------- allow aMule
+-A TCP_INPUT -p tcp -m multiport --dports 53672,53673,53674,53675 -j ACCEPT
+# ----------- Unknown connections
+-A TCP_INPUT -p tcp -m limit --limit 5/sec      -j LOG --log-prefix "[TCP > 5/sec: Dropping] " --log-level 6
+-A TCP_INPUT -p tcp                             -j LOG --log-prefix "[TCP Unknown: Dropping] " --log-level 6
+-A TCP_INPUT -j DROP
+
+
+################## S e r v i c e s #####################################
+
+
+# *********  G O T O      Logger Section *************
+-A INPUT -j LOG_CHAIN
+
+
+
+
+# -------------------------------------------------
+# LOGGER Section
+# -------------------------------------------------
+-A LOG_CHAIN -p tcp --tcp-flags FIN,SYN,RST,ACK SYN -m limit    --limit 1/sec   -j LOG --log-prefix "[SYN Inbound: Dropping] " --log-level 6
+-A LOG_CHAIN -p tcp --tcp-flags FIN,SYN,RST,ACK SYN -j DROP
+-A LOG_CHAIN -p tcp --tcp-flags FIN,SYN,RST,ACK RST -m limit    --limit 1/sec   -j LOG --log-prefix "[RST Inbound: Dropping] " --log-level 6
+-A LOG_CHAIN -p tcp --tcp-flags FIN,SYN,RST,ACK RST -j DROP
+-A LOG_CHAIN -j DROP
+
+
+
+
+# -------------------------------------------------
+# UDP Section
+# -------------------------------------------------
+# ----------- allow aMule
+-A UDP_INPUT -p udp -m multiport --dports 53672,53673,53674,53675 -j ACCEPT
+-A UDP_INPUT -p udp -m limit --limit 5/sec -j LOG --log-prefix "[UDP > 5/sec: Dropping] " --log-level 6
+-A UDP_INPUT -j DROP
+
+
+
+
+
+# -------------------------------------------------
+# ICMP Section
+#   Permettere ping
+#   notare che bloccare altri tipi di pacchetti icmp è considerata da alcuni una cattiva idea
+#   rimuovere -m icmp --icmp-type 8 da questa riga per permettere tutti i tipi di icmp:
+#   https://security.stackexchange.com/questions/22711
+#   -A INPUT -p icmp -m icmp --icmp-type 8 -m limit --limit 1/sec -j LOG --log-prefix "[ICMP > 1/sec] " --log-level 6
+# -------------------------------------------------
+# -A ICMP_INPUT -p icmp -m icmp --icmp-type 8 -j LOG --log-prefix "[ICMP > 1/sec] " --log-level 6
+-A ICMP_INPUT -p icmp --icmp-type 8 -m limit --limit 1/sec -j LOG --log-prefix "[ICMP:8 > 1/sec: Accepting] " --log-level 6
+-A ICMP_INPUT -p icmp --icmp-type 8 -j ACCEPT
+
+-A ICMP_INPUT -p icmp --icmp-type 0 -m limit --limit 1/sec -j LOG --log-prefix "[ICMP:0 > 1/sec: Accepting] " --log-level 6
+-A ICMP_INPUT -p icmp --icmp-type 0 -j ACCEPT
+
+-A ICMP_INPUT -m limit --limit 5/sec -j LOG --log-prefix "[ICMP generic: > 5/sec: Dropping] " --log-level 6
+-A ICMP_INPUT -j DROP
+
+# -------------------------------------------------
+# LOG ACCEPT/DROP Section
+# -------------------------------------------------
+
+-A LOG_ACCEPT -p tcp -j LOG --log-prefix "[TCP_INPUT: Accepting] " --log-level 6
+-A LOG_ACCEPT -p udp -j LOG --log-prefix "[UDP_INPUT: Accepting] " --log-level 6
+-A LOG_ACCEPT -j ACCEPT
+
+-A LOG_DROP -j LOG --log-prefix "[INPUT: Dropping] " --log-level 6
+-A LOG_DROP -j DROP
+
+
+COMMIT
+

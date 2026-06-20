@@ -1,0 +1,129 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 16-05-2026 17.45.34
+#
+
+# set -u # MI CREA PROBLEMI....
+# @_ln_echo_script_name $BASH_SOURCE
+
+
+: <<'STACK_DEFINITIVO_2026' ## importante gli apici altrimenti tenta di interpretare il testomy_project/
+
+    ARCHITETTURA:
+        Python version  ─── pyenv
+        Environment      ─── uv (venv + deps)
+        Auto activation  ─── direnv
+        Prompt           ─── starship
+        Project layout   ─── src/ + pyproject.toml
+
+
+    COMPONENTI:
+    1. pyenv → versioni Python
+        👉 solo per scegliere la versione (NON per env)
+
+    2. uv → pip + venv manager moderno
+        👉 sostituisce:
+            pip
+            venv
+            requirements install lento
+
+    3. direnv → auto-activate ambiente progetto
+        👉 entri nella cartella = ambiente attivo
+
+    4. starship → prompt intelligente
+        👉 niente PS1 custom
+
+
+    INSTALLAZIONE BASE:
+    pyenv:
+        git clone https://github.com/pyenv/pyenv.git ~/.pyENV
+
+    .bashrc:
+        export PYENV_ROOT="$HOME/.pyENV"
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init - bash)"
+
+    uv (NUOVO STANDARD):
+        curl -Ls https://astral.sh/uv/install.sh | sh
+        export PATH="$HOME/.local/bin:$PATH"
+
+    direnv
+        sudo apt install direnv
+        .bashrc:
+            eval "$(direnv hook bash)"
+
+    starship
+        curl -sS https://starship.rs/install.sh | sh
+        .bashrc:
+            eval "$(starship init bash)"
+
+
+    CONFIG STARSHIP (MINIMALE MA UTILE)
+    ~/.config/starship.toml
+
+        add_newline = false
+
+        format = """
+        $directory\
+        $python\
+        $git_branch\
+        $git_status\
+        $character
+        """
+
+        [python]
+        symbol = "🐍 "
+        format = "[$symbol$version]($style) "
+
+        [directory]
+        style = "cyan bold"
+
+        [character]
+        success_symbol = "➜ "
+        error_symbol = "✗ "
+
+
+    my_project/
+    ├── .python-version
+    ├── .envrc
+    ├── pyproject.toml
+    ├── src/
+    │   └── my_project/
+    ├── tests/
+
+
+    CREAZIONE PROGETTO
+        mkdir my_project
+        cd my_project
+
+        pyenv local 3.11.8
+        uv venv
+
+
+    ATTIVAZIONE AUTOMATICA
+
+    .envrc:
+        source .venv/bin/activate
+    poi:
+    direnv allow
+
+    per installare un package usare:
+    uv add package
+    in modo che viene automaticamente aggiunto a pyproject.toml
+
+STACK_DEFINITIVO_2026
+
+
+
+
+# alias ${alias_prefix}pyenv.setup="source ${ln_PY_SCRIPTS_DIR}/py_env/pyenv_activate.sh"
+# alias ${alias_prefix}venv.create="${ln_PY_SCRIPTS_DIR}/py_env/venv_creation.py"
+# alias ${alias_prefix}venv.lnactivate="source ${ln_PY_SCRIPTS_DIR}/py_env/lnvenv_activate.sh"
+
+
+# alias ${alias_prefix}genericPython='cd ${ln_PROGRAMMING_DIR}/genericPython && source .lnactivate'
+# alias ${alias_prefix}lnsync='cd ${ln_GIT_REPO_DIR}/lnSync 						      && source .lnactivate && echo "     --- git pull (to update project)"'
+# alias ${alias_prefix}deviceManager='cd ${ln_GIT_REPO_DIR}/lnDevices/deviceManager 	  && source .lnactivate  && echo "     --- git pull (to update project)"'
+# alias ${alias_prefix}esptool='cd ${ln_GIT_REPO_DIR}/lnEsptool 						  && source .lnactivate && echo "     --- git pull (to update project)"'
+

@@ -1,0 +1,11 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 17-11-2025 20.30.32
+#
+
+
+https://docs.platformio.org/en/latest/core/installation/index.html
+
+
+wget -O get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
+python3 get-platformio.py

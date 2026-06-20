@@ -1,0 +1,122 @@
+@ECHO OFF
+SETLOCAL
+    
+    SET FILE_DAT=SSH_SendKey.txt
+    
+    SET MyKEY="/cygdrive/l/Loreto/ApplsConfig/Putty/MyKeys/LoretoBI_SSH_xx.pub_forRemoteMachine"
+    SET MyKEY="%USERPROFILE%/.ssh/id_rsa.pub"
+    SET MyKEY="/cygdrive/c/Documents and Settings/f602250/.ssh/id_rsa.pub"
+    SET REMOTE_HOST=%1
+    IF EXIST "%FILE_DAT%" GOTO :LOOP
+    
+    if NOT DEFINED REMOTE_HOST (
+        SET /P REMOTE_HOST="Please enter remoteMachine: => "
+        SET /P REMOTE_USER="Please enter userID: => "
+        SET /P REMOTE_DIR="Please enter home Directory: => "
+        )
+        
+    if NOT DEFINED REMOTE_HOST GOTO :ERROR
+    if NOT DEFINED REMOTE_USER GOTO :ERROR
+    if NOT DEFINED REMOTE_DIR GOTO :ERROR
+    
+    CALL :EseguiCMD %REMOTE_HOST% %REMOTE_USER% %REMOTE_DIR%
+    GOTO :Esci
+    
+    
+:EseguiCMD2
+    SET ServerName=%1
+    SET loginUser=%2
+    SET homeDir=%3
+    
+    echo "-----------------------------------------------------------------"
+    echo "----------- Executing  to  %ServerName --------------------------"
+    echo "-----------------------------------------------------------------"
+    
+    SET REMOTE_SERVER=%loginUser%@%ServerName%
+    
+    REM SET REMOTE_DIR=/home/%loginUser%/.ssh
+    REM SET REMOTE_DIR=/root/.ssh
+    SET REMOTE_DIR=%homeDir%/.ssh
+    
+
+    echo "... Creazione della directory %REMOTE_DIR%"
+        ssh -n %REMOTE_SERVER% "mkdir %REMOTE_DIR%"
+    echo "... copia della id_rsa.pub in authorized_keys_new"
+        pscp -p "%MyKEY%" %REMOTE_SERVER%:"%REMOTE_DIR%/authorized_keys_new"
+    echo "... cat di authorized_keys_new in authorized_keys"
+        ssh -n %REMOTE_SERVER% "cat "%REMOTE_DIR%/authorized_keys_new" >>%REMOTE_DIR%/authorized_keys"
+    echo "... removing authorized_keys_new"
+        ssh -n %REMOTE_SERVER% "rm "%REMOTE_DIR%/authorized_keys_new""
+    GOTO :EOF
+
+
+
+
+    GOTO :EOF
+    
+
+:EseguiCMD
+    SET ACTION=%1
+    SET ServerName=%2
+    SET loginUser=%3
+    SET homeDir=%4
+    SET REMOTE_SERVER=%loginUser%@%ServerName%
+    SET REMOTE_DIR=%homeDir%/.ssh
+    
+    echo "-----------------------------------------------------------------"
+    echo "----------- Server:     %REMOTE_SERVER%"
+    echo "----------- homeDir:    %REMOTE_DIR%"
+    echo "-----------------------------------------------------------------"
+    
+    IF /I NOT .%ACTION%. == .GO. (
+        echo "----------- S K I P P E D"
+        echo.
+        GOTO :EOF
+    )
+    
+    echo "... Creazione della directory %REMOTE_DIR%/authorized_keys"
+        REM IF /I .%ACTION%. == .GO. ssh %REMOTE_SERVER% "touch %REMOTE_DIR%/authorized_keys"
+        ssh %REMOTE_SERVER% "touch %REMOTE_DIR%/authorized_keys"
+    
+    echo "... copia della %MyKEY% in %REMOTE_DIR%/authorized_keys"
+        echo. >a.a && cat %MyKEY% >>a.a && echo. >>a.a
+        cat a.a  |  ssh %REMOTE_SERVER% "cat >> %REMOTE_DIR%/authorized_keys"
+        del a.a
+    
+    echo "... set chmod 600  to %REMOTE_DIR%/authorized_keys"
+        ssh %REMOTE_SERVER% "chmod 600 ~/.ssh/authorized_keys"
+    
+    
+    GOTO :EOF
+    GOTO :Esci
+    
+
+
+    
+:EseguiSingolo
+    REM SET REMOTE_HOST=root@esil819
+    REM SET MyKEY="L:\Loreto\ApplsConfig\Putty\MyKeys\LoretoBI_SSH_xx.pub_forRemoteMachine"
+    
+    ssh %REMOTE_SERVER% "touch ~/.ssh/authorized_keys"
+    cat %MyKEY%  |  ssh %REMOTE_SERVER% "cat >> ~/.ssh/authorized_keys"
+    ssh %REMOTE_SERVER% "chmod 600 ~/.ssh/authorized_keys"
+    GOTO :Esci
+     
+  
+REM # ----------------------------------------------------------------------------
+REM # - Il file è così composto:
+REM # - # commento
+REM # - nomeMacchina userID
+REM # ----------------------------------------------------------------------------
+:LOOP
+    echo "lettura del file %FILE_DAT% in corso"
+    FOR /F "eol=# tokens=1,2,3,4,5* delims=, " %%i IN (%FILE_DAT%) DO CALL :EseguiCMD %%i %%j %%k %%l
+    GOTO :Esci
+    
+:ERROR
+    echo "Immettere userID@remoteMachine"
+
+:Esci
+    ENDLOCAL
+
+pause

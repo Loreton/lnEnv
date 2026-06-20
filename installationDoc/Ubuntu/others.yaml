@@ -1,0 +1,59 @@
+packages:
+   apt list --installed
+   apt list --upgradeable
+   apt list apache2
+apt list | grep htop
+
+sudo flatpak install flathub
+
+
+
+snap:
+   telegram:
+      sudo snap install telegram-desktop
+
+   VSCode:
+      ref: https://code.visualstudio.com/docs/setup/linux
+         sudo snap install --classic code # or code-insiders
+
+   ssd-benchmark:
+      sudo snap install ssd-benchmark non funziona
+
+   KDiskMark: #
+      ref: https://github.com/JonMagon/KDiskMark
+      sudo snap install kdiskmark
+      sudo snap connect kdiskmark:removable-media
+
+      oppure flatpak:
+         flatpak install flathub io.github.jonmagon.kdiskmark
+
+
+
+apt:
+   hdparm:
+      sudo apt install hdparm
+      ex:
+         sudo hdparm -t --direct /dev/sdb1
+
+   sysbench: # - https://linuxconfig.org/how-to-benchmark-your-linux-system
+      NON molto utile
+      sysbench --test=cpu run
+      sysbench --test=memory run
+      sysbench --test=fileio --file-test-mode=seqwr run
+
+
+      sudo apt-get install iptraf iptraf-ng
+      sudo apt-get install nethogs
+      sudo apt-get install iftop
+
+
+
+from ubuntu software:
+   System Profiler and Benchmark:
+      stato del sistema e bench sulla cpu
+
+   GtkStressTesting:
+      non immediato, rimosso
+
+
+

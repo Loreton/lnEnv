@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 17-05-2026 20.57.59
+#
+
+
+
+
+###- lnSync: # definito in PYENV.functions
+LNSYNC_PGM="${ln_INIT_DIR}/script_utils/lnSync.pyz"
+alias ${alias_prefix}lnsync.st500gb='${LNSYNC_PGM} 	    --dry-run --prof ST500GB '
+alias ${alias_prefix}lnsync.HD2510='${LNSYNC_PGM} 	    --dry-run --prof HD2510'
+alias ${alias_prefix}lnsync.lnpi23='${LNSYNC_PGM} 	    --dry-run --prof lnpi23'
+alias ${alias_prefix}lnsync.lnpi31='${LNSYNC_PGM} 	    --dry-run --prof lnpi31'
+alias ${alias_prefix}lnsync.lnpi51='${LNSYNC_PGM} 	    --dry-run --prof lnpi51'
+alias ${alias_prefix}lnsync.ezsilvia='${LNSYNC_PGM} 	--dry-run --prof ezbook_silvia'
+alias ${alias_prefix}lnsync.wd264f_500gb='${LNSYNC_PGM} --dry-run --prof WD264F_500GB'

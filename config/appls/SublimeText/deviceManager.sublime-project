@@ -1,0 +1,49 @@
+{
+    //  project format
+    // ref: https://www.sublimetext.com/docs/projects.html
+            // "folder_exclude_patterns": ["PressControl_222"],
+            // "file_exclude_patterns": ["*.css"],
+
+
+    //  ################################################################
+    //  keys per VisualStudio code
+    //  toggel comment line  ctrl+q
+    //  toggel block comment line  shift+ctrl+q
+    //  move line down  alt - downArrow --> shift+ ctrl+downArrow
+    //  move line up    alt - downup --> shift+ ctrl+downUp
+    //  copy line down - ctrl+d
+    //  uppercase  ctrl+k ctrl+u
+    //  lowercase  ctrl+k ctrl+l
+    //  titlecase  ctrl+k ctrl+t
+    //  toggle wrap  alt+w
+    //  ################################################################
+
+    "folders": [
+
+
+        // ---- sublime user
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/User", "name": "Sublime User", },
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/multiAlign", "name": "", },
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto", "name": "Sublime userLoreto", },
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages", "name": "Sublime-Packages", },
+
+        // ---- notes 
+        // {"path": "/home/loreto/filu/lnEnv/config/Notes", "name": "", },
+
+        // ---- terminator
+        // {"path": "/home/loreto/.config/terminator/plugins", "name": "terminatorPlugins", },
+        // {"path": "/home/loreto/.config/terminator", "name": "terminator/.config", },
+
+        // ---- lnEnv
+        // {"path": "/home/loreto/filu/lnEnv", "name": "", "folder_exclude_patterns": ["lnFreex"], },
+
+
+        // --- lnDevices with excel + openWRT
+        {
+            "path": "/home/loreto/lnprofile/devicesDB", "name": "devicesDB_manager",
+            // "folder_exclude_patterns": ["applsx", "steveWork", "xArduino-ESP32"],
+            "path": "",
+            "path": "/home/loreto/filu/Programming/gitREPO/lnDevices", "name": "",
+        },
+    ]
+}

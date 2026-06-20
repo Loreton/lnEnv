@@ -1,0 +1,32 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 15-12-2025 09.30.46
+#
+
+# function @_system_real_path() {
+#     echo $(readlink -fvs  '${1}');
+# }
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+    # _TAB='    '
+    # _dq='''
+    alias ${alias_prefix}filesAttributes='${ln_SH_SCRIPTS_DIR}/setFiles/setFilesReadOnly.sh'
+    # alias ${alias_prefix}filesVerify='verifyAttributes'
+    # alias ${alias_prefix}filesReadOnly1='echo find . -type f -exec chmod 444 {} +'
+    # alias ${alias_prefix}filesReadOnly2='echo find . -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.h' \) -exec chmod -w {} \;'
+    # alias ${alias_prefix}filesReadOnly3='echo find . -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.h' \) -print0 \| xargs -0 chmod -w'
+    # alias ${alias_prefix}filesReadOnly_verify='echo find /path/to/dir -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.h' \) -ls'
+    # alias ${alias_prefix}filesAnDirReadOnly='echo find . -type f -exec chmod 555 {} +'
+
+    alias ${alias_prefix}todo='.subl /home/loreto/filu/lnEnv/Notes/todo.yaml'
+    alias ${alias_prefix}serietv='.subl /home/loreto/filu/lnEnv/Notes/SerieTV.yaml'
+    alias ${alias_prefix}film='.subl /home/loreto/filu/lnEnv/Notes/film.yaml'
+
+    #----- find text in files
+    alias ${alias_prefix}fr.lnEnv='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${ln_ENV_DIR}'
+    alias ${alias_prefix}fr.pwd='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${PWD} $@'
+    alias ${alias_prefix}fr.ask='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py $@'
+fi
+

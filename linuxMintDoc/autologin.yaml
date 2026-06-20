@@ -1,0 +1,33 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 21-11-2025 17.36.22
+#
+
+Perfetto — **se RustDesk è installato come Flatpak**, NON può partire prima del login, perché i Flatpak girano **solo nella sessione utente**.
+Quindi la strada giusta è:
+
+👉 **attivare il login automatico (autologin) su Linux Mint**
+👉 far partire RustDesk **dall’autostart dell’utente**
+
+Ti mostro entrambi i passaggi.
+
+---
+
+# ✅ 1. **Abilitare l’autologin su Linux Mint (LightDM)**
+
+Modifica il file di configurazione:
+    Linux Mint usa **LightDM**.
+    sudo vi /etc/lightdm/lightdm.conf
+
+    Aggiungi (o modifica) queste righe:
+    ```
+    [Seat:*]
+    autologin-user=TUO_UTENTE
+    autologin-user-timeout=0
+    ```
+    Sostituisci `TUO_UTENTE` con il tuo username
+    Salva
+
+    Riavvia
+
+---

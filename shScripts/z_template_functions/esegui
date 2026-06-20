@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+
+
+
+
+
+
+
+#############################################
+# need the following variables:
+#    $g_fEXECUTE
+# caller: https://stackoverflow.com/questions/10707173/bash-parameter-quotes-and-eval/10707498#10707498
+#############################################
+function @local_esegui() {
+    # set -u
+    # set -x
+    local stacklevel=$1
+    local CMD_DESCR=$2
+    local cmd=$3
+    local indent=$4
+
+    caller="${FUNCNAME[stacklevel+1]}:${BASH_LINENO[stacklevel]}"
+    printf "\n${indent}[${caller}]"
+    printf "\n${indent}${cyanH} ${CMD_DESCR}${colorReset}\n"
+    if [[ "$g_fEXECUTE" -eq "1" || "$g_fEXECUTE" == "go" ]]; then
+        printf "${indent}${purpleH} [executing]$yellowH: ${cmd}${colorReset}\n"
+        eval '$cmd'
+        rCode=$?
+        [[ ! "$rCode" -eq 0 ]] && printf "${indent}${redH} ${rCode}${colorReset}\n" && exit $rCode
+    else
+        printf "${indent}${purpleH} [dry-run]$yellowH: ${cmd}${colorReset}\n"
+    fi
+}

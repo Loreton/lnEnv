@@ -1,0 +1,12 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 11.34.03
+#
+
+
+https://community.linuxmint.com/software/view/terminator
+e fare install dal software manager
+
+
+- fare settings dalla finestra, modificare qualcosa in modo che crei la dir $HOME/.config/terminator
+- copiare la mia config di base con il plugin lnOpenfile.py

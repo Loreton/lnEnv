@@ -1,0 +1,68 @@
+https://indomus.it/guide/come-installare-e-configurare-home-assistant-su-un-raspberry-pi-gia-in-uso/
+
+https://www.home-assistant.io/docs/installation/raspberry-pi/
+    sudo apt-get update
+    sudo apt-get upgrade -y
+    sudo apt-get install -y python3 python3-dev python3-venv python3-pip libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff5 libturbojpeg0-dev tzdata
+    sudo useradd -rm homeassistant -G dialout,gpio,i2c
+
+    sudo mkdir /srv/homeassistant
+    sudo chown homeassistant:homeassistant /srv/homeassistant
+
+    sudo -u homeassistant -H -s
+    cd /srv/homeassistant
+    python3 -m venv .
+    source bin/activate
+
+    python3 -m pip install wheel
+    pip3 install homeassistant
+    pip3 install hass-nabucasa==0.54.0 (se da errore su nabucasa)
+    hass
+    You can now reach your installation on your Raspberry Pi
+    over the web interface on http://ipaddress:8123.
+
+    When you run the hass command for the first time, it will download, install and cache the necessary libraries/dependencies.
+    This procedure may take anywhere between 5 to 10 minutes.
+    During that time, you may get “site cannot be reached” error when accessing the web interface.
+    This will only happen for the first time, and subsequent restarts will be much faster.
+
+
+
+
+Configure Your .bashrc for the Virtual Environment:
+        $ vi /home/homeassistant/.bashrc
+        copy and paste the following at the bottom of the file
+            source /srv/homeassistant/bin/activate
+
+    Now save the file and to test it type the following:
+        $ exit
+        $ sudo su -s /bin/bash homeass
+
+
+Setup Home Assistant to Auto Start:
+
+
+Rimozione:
+    https://indomus.it/guide/pulizia-completa-di-home-assistant-installato-su-raspbian-anche-mantenendo-la-configurazione/
+    sudo systemctl stop home-assistant@homeassistant
+
+    . FERMARE IL SERVIZIO HOME ASSISTANT
+        sudo systemctl stop home_assistant.service
+    . DISINSTALLARE HOME ASSISTANT
+        sudo su -s /bin/bash homeassistant
+        cd /srv/homeassistant
+        python3 -m venv .
+        source bin/activate
+        pip3 uninstall homeassistant
+    . CANCELLARE E RICREARE LA CARTELLA HOMEASSISTANT/ ALL’INTERNO DI /HOME
+        sudo rm /home/homeassistant -R
+
+Salvare Home Assistant:
+    Come salvare la propria configurazione di Home Assistant:
+        cd /srv/homeassistant
+        sudo rm * -R
+        cd ..
+        sudo chown homeassistant:homeassistant homeassistant
+        cd /home/homeassistant
+        sudo mv .homeassistant/ .homeassistant_backup
+        sudo su -s /bin/bash homeassistant

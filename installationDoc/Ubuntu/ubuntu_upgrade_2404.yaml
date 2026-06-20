@@ -1,0 +1,8 @@
+
+
+https://ubuntuforums.org/showthread.php?t=2498936
+
+Before starting any upgrade, be 100% certain you
+sudo apt update && sudo apt full-upgrade && sudo shutdown -r now
+Backup anything you don't want to lose - sometimes things break, badly. If you don't have a backup or 20 of them, you'll be much more likely to need it. OTOH, if you do have a backup, something about this seems to keep Murphy away. It is a law.
+sudo do-release-upgrade

@@ -1,0 +1,32 @@
+
+PipeView:
+    ref:
+        https://www.tecmint.com/install-tftp-server-on-ubuntu-debian/
+        https://help.ubuntu.com/community/TFTP
+
+    install:
+        sudo apt update
+        sudo apt install tftpd-hpa  # server
+        sudo apt install tftp-hpa   # client
+
+        sudo systemctl status tftpd-hpa.service
+
+        start automatico:
+            sudo systemctl enable tftpd-hpa
+
+
+    config:
+        sudo vi /etc/default/tftpd-hpa
+        change dirrectory:
+            TFTP_DIRECTORY="/var/lib/tftpboot"
+            \TFTP_OPTIONS="--secure --create"  # create permette di fare put
+
+
+    dirs:
+        sudo mkdir -p /var/lib/tftpboot
+        sudo chown -R nobody:nogroup /var/lib/tftpboot
+        sudo chmod -R 777 /var/lib/tftpboot
+
+
+    restart:
+        sudo systemctl restart tftpd-hpa

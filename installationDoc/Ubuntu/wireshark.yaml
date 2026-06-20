@@ -1,0 +1,19 @@
+# updated by ...: Loreto Notarantonio
+# Date .........: 11-09-2024 18.10.38
+
+
+
+WireShark:
+   ref:
+        - https://www.cherryservers.com/blog/install-wireshark-ubuntu
+        - https://www.geeksforgeeks.org/how-to-install-and-use-wireshark-on-ubuntu-linux/
+
+   install:
+        sudo apt update && sudo apt upgrade && sudo apt full-upgrade
+        sudo apt install wireshark
+
+        sudo usermod -aG wireshark loreto
+
+        sudo wireshark
+
+

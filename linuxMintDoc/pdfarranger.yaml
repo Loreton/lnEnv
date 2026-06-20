@@ -1,0 +1,15 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 11.49.45
+#
+
+
+pdfArranger:
+    ref:
+        https://flathub.org/en/apps/com.github.jeromerobert.pdfarranger
+
+    install:
+        flatpak install flathub com.github.jeromerobert.pdfarranger
+
+    run:
+        flatpak run com.github.jeromerobert.pdfarranger

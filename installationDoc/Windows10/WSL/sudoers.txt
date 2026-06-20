@@ -1,0 +1,8 @@
+eseguire sudo visudo da loreto
+oppure visudo da root
+...ed
+inserire il comando
+loreto     ALL=(ALL) NOPASSWD:ALL
+
+check
+sudo --list

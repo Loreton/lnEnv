@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 03-01-2026 16.44.49
+#
+
+# Restituisce 0 se il primo argomento è un path assoluto, 1 altrimenti.
+function @isAbsolute() {
+    [ -z "$1" ] && return 1        # vuoto -> non assoluto
+    case "$1" in
+        /*) return 0 ;;               # comincia con '/'
+        *)  return 1 ;;
+     esac
+}
+

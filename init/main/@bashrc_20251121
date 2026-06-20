@@ -1,0 +1,29 @@
+# updated by ...: Loreto Notarantonio
+# Date .........: 08-02-2026 09.59.59
+
+if [[ -z "$GNOME_TERMINAL_SCREEN" ]]; then
+
+    # ref.: https://www.digitalocean.com/community/tutorials/
+    # how-to-use-bash-history-commands-and-expansions-on-a-linux-vps#:~:text=Bash%20includes%20search%20functionality%20for,part%20of%20the%20previous%20command.
+    # append to the history file, don't overwrite it
+    # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+
+    shopt -s histappend
+    HISTSIZE=5000
+    HISTFILESIZE=10000
+    stty -ixon # enable ctrl-s to move backward in history (ctrl-r)
+
+    loretorc_link="$HOME/.loreto_setup"
+    loretorc_file="${HOME}/filu/lnEnv/init/main/Loretorc"
+    loretorc_path="$(readlink -fvs  "${loretorc_link}")"
+
+    if [[ -f "${loretorc_file}" ]]; then ###. se esiste
+        if [[ "${loretorc_path}" != "${loretorc_file}" ]]; then ## #. non sono uguali
+            ln -sf "$loretorc_file" "$HOME/.loreto_setup" ###. ricrealo
+        else
+            echo "sono uguali"
+        fi
+        source $loretorc_link 1
+        ln -sf ${ln_BATCH_VARIABLES_FILE} "$HOME/.loreto_variables"
+    fi
+fi

@@ -1,0 +1,11 @@
+# updated by ...: Loreto Notarantonio
+# Date .........: 11-09-2024 18.10.38
+
+E' outdate
+ref:
+    # https://www.kicad.org/download/details/ubuntu/
+    https://unetbootin.github.io/linux_download.html
+
+install:
+    sudo add-apt-repository ppa:gezakovacs/ppa
+    sudo apt-get update && sudo apt install unetbootin

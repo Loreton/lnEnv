@@ -1,0 +1,215 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 16-05-2026 16.32.58
+#
+
+# set -u # MI CREA PROBLEMI....
+# @_ln_echo_script_name $BASH_SOURCE
+
+
+: <<'STACK_DEFINITIVO_2026' ## importante gli apici altrimenti tenta di interpretare il testomy_project/
+
+    ARCHITETTURA:
+        Python version  ─── pyenv
+        Environment      ─── uv (venv + deps)
+        Auto activation  ─── direnv
+        Prompt           ─── starship
+        Project layout   ─── src/ + pyproject.toml
+
+
+    COMPONENTI:
+    1. pyenv → versioni Python
+        👉 solo per scegliere la versione (NON per env)
+
+    2. uv → pip + venv manager moderno
+        👉 sostituisce:
+            pip
+            venv
+            requirements install lento
+
+    3. direnv → auto-activate ambiente progetto
+        👉 entri nella cartella = ambiente attivo
+
+    4. starship → prompt intelligente
+        👉 niente PS1 custom
+
+
+    INSTALLAZIONE BASE:
+    pyenv:
+        git clone https://github.com/pyenv/pyenv.git ~/.pyENV
+
+    .bashrc:
+        export PYENV_ROOT="$HOME/.pyENV"
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init - bash)"
+
+    uv (NUOVO STANDARD):
+        curl -Ls https://astral.sh/uv/install.sh | sh
+        export PATH="$HOME/.local/bin:$PATH"
+
+    direnv
+        sudo apt install direnv
+        .bashrc:
+            eval "$(direnv hook bash)"
+
+    starship
+        curl -sS https://starship.rs/install.sh | sh
+        .bashrc:
+            eval "$(starship init bash)"
+
+
+    CONFIG STARSHIP (MINIMALE MA UTILE)
+    ~/.config/starship.toml
+
+        add_newline = false
+
+        format = """
+        $directory\
+        $python\
+        $git_branch\
+        $git_status\
+        $character
+        """
+
+        [python]
+        symbol = "🐍 "
+        format = "[$symbol$version]($style) "
+
+        [directory]
+        style = "cyan bold"
+
+        [character]
+        success_symbol = "➜ "
+        error_symbol = "✗ "
+
+
+    my_project/
+    ├── .python-version
+    ├── .envrc
+    ├── pyproject.toml
+    ├── src/
+    │   └── my_project/
+    ├── tests/
+
+
+    CREAZIONE PROGETTO
+        mkdir my_project
+        cd my_project
+
+        pyenv local 3.11.8
+        uv venv
+
+
+    ATTIVAZIONE AUTOMATICA
+
+    .envrc:
+        source .venv/bin/activate
+    poi:
+    direnv allow
+
+
+
+
+
+
+STACK_DEFINITIVO_2026
+
+
+
+: <<'__COMMENT__' ## importante gli apici altrimenti tenta di interpretare il testomy_project/
+    ├── .python-version
+    ├── .envrc
+    ├── .venv/                  # NON versionare (auto o locale)
+    ├── pyproject.toml         # definizione progetto (moderno)
+    ├── requirements.txt       # opzionale (compatibilità)
+    ├── README.md
+    ├── src/
+    │   └── my_project/
+    │       ├── __init__.py
+    │       ├── main.py
+    │       └── core.py
+    ├── tests/
+    │   ├── test_core.py
+    │   └── test_main.py
+    └── scripts/
+        └── run.sh
+
+
+    -------
+    3. CONFIGURAZIONE UNA TANTUM (IMPORTANTISSIMA)
+    direnv (obbligatorio per auto-activate)
+
+    sudo apt install direnv
+    poi nel ~/.bashrc:
+        eval "$(direnv hook bash)"
+    -------
+
+
+    -------
+    . INSTALLAZIONE STARSHIP
+    curl -sS https://starship.rs/install.sh | sh
+    -------
+
+
+
+    -------
+    azioni per creare un nuovo venv:
+    mkdir my_project
+    cd my_project
+    -------
+    pyenv install 3.14 (se la versione desiderata non à già installata)
+    pyenv local 3.14
+    python -m venv .venv
+    pip install -r requirements.txt
+
+
+
+function .pyenv() {
+	export PYENV_ROOT="$HOME/.pyenv"
+	[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+	eval "$(pyenv init - bash)"
+	eval "$(pyenv virtualenv-init -)"
+	pyenv $@
+}
+
+python_venv:
+    ref:
+        https://aruljohn.com/blog/install-python-raspberry-pi-pyenv/
+    curl https://pyenv.run | bash
+
+    Add these 4 lines to the bottom to your ~/.bashrc so that they'll run when you open a new Terminal session:
+        export PYENV_ROOT="$HOME/.pyenv"
+        [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init - bash)"
+        eval "$(pyenv virtualenv-init -)"
+
+    Now, install Python 3.14.0. Run this:
+        pyenv install 3.14
+
+	---- a me queste non dovrebbero interessre perché utilizzo i venv per progetto
+	---- a meno che non voglio cambiare la python di default
+    After a successful installation of Python, set 14.0 as the default version globally:
+        pyenv global 3.14.0
+
+    Also, set it in the current shell session:
+        pyenv shell 3.14.0
+
+    Verify that Python 3.14.0 is installed and the default version:
+        python -V
+    You will get the output as:
+        Python 3.14.0
+__COMMENT__
+
+
+
+alias ${alias_prefix}pyenv.setup="source ${ln_PY_SCRIPTS_DIR}/py_env/pyenv_activate.sh"
+alias ${alias_prefix}venv.create="${ln_PY_SCRIPTS_DIR}/py_env/venv_creation.py"
+alias ${alias_prefix}venv.lnactivate="source ${ln_PY_SCRIPTS_DIR}/py_env/lnvenv_activate.sh"
+
+
+alias ${alias_prefix}genericPython='cd ${ln_PROGRAMMING_DIR}/genericPython && source .lnactivate'
+alias ${alias_prefix}lnsync='cd ${ln_GIT_REPO_DIR}/lnSync 						      && source .lnactivate && echo "     --- git pull (to update project)"'
+alias ${alias_prefix}deviceManager='cd ${ln_GIT_REPO_DIR}/lnDevices/deviceManager 	  && source .lnactivate  && echo "     --- git pull (to update project)"'
+alias ${alias_prefix}esptool='cd ${ln_GIT_REPO_DIR}/lnEsptool 						  && source .lnactivate && echo "     --- git pull (to update project)"'
+

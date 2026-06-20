@@ -1,0 +1,13 @@
+
+
+image editor :
+    # https://www.fosslinux.com/78648/best-image-editors-for-ubuntu.htm
+    sudo apt update && sudo apt upgrade -y
+
+    showphoto:
+        https://www.digikam.org/documentation/
+        sudo apt install showfoto
+
+    fotoxx:
+        sudo apt install fotoxx
+

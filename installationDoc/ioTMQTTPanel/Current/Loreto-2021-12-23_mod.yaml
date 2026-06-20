@@ -1,0 +1,1948 @@
+dataVersion: 54
+connections:
+-   autoConnect: true
+    connectionName: LnMqtt
+    clientId: boH0cVpVJb
+    host: lnmqtt.duckdns.org
+    port: 1883
+    connectionType: tcp
+    connectionTimeout: 30
+    keepAlive: 60
+    defaultDashboard: dashboard_13
+    username: Loreto
+    password: LoretoMqtt
+    connectionId: connection_0
+    dashboards:
+    -   dashboardId: dashboard_10
+        dashboardName: Varie Casetta
+        dashboardPrefixTopic: ""
+        dashboardIcon: dashboard
+        panels:
+        -   panelName: varie Power State
+            topic: LnCmnd/LnCommand/dummy
+            payload: '{""power"": ""Computer,Crepuscolare,ExtFromPumpsRoom, FaroLetto,Scaldabagno,TavoloLavoro,
+                Ventilatore-Camera""}'
+            panelId: panel_28
+            type: button
+            mqttType: pub
+            panelWidth: '100'
+            buttonSize: small
+            retain: false
+            qos: 0
+            fitToPanelWidth: true
+            hasCustomIcon: true
+            icon: wifi_tethering
+            iconColor: '#1806e9'
+        -   panelName: Scaldabagno
+            topic: cmnd/Scaldabagno/POWER
+            seperateSubscribeTopic: stat/Scaldabagno/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_4
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+        -   topic: cmnd/Scaldabagno/Backlog
+            payload: power
+            panelName: Scaldabagno
+            panelId: panel_33
+            type: button
+            mqttType: pub
+            panelWidth: '33'
+            buttonSize: small
+            retain: false
+            qos: 0
+            panelMergeClass: 'merge-left   '
+        -   panelName: ExtFromPumpsRoom
+            topic: cmnd/ExtFromPumpsRoom/POWER
+            seperateSubscribeTopic: stat/ExtFromPumpsRoom/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_7
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonEnvelope: ""
+            jsonPath: $.POWER
+            enableNotification: true
+        -   topic: cmnd/ExtFromPumpsRoom/Backlog
+            payload: power
+            panelName: ExtFromPumpsRoom
+            panelId: panel_32
+            type: button
+            mqttType: pub
+            panelWidth: '33'
+            buttonSize: small
+            retain: false
+            qos: 0
+            panelMergeClass: 'merge-left   '
+        -   panelName: Shelly_Letto
+            topic: shellies/Shelly_Letto/relay/0/command
+            seperateSubscribeTopic: shellies/Shelly_Letto/relay/0
+            payloadOn: 'on'
+            payloadOff: 'off'
+            panelId: panel_15
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            enableNotification: false
+        -   panelName: Shelly_Letto
+            topic: shellies/Shelly_Letto/relay/0
+            payload: power
+            noPayload: true
+            hasCustomIcon: false
+            icon: network_check
+            iconColor: '#1e4bc6'
+            showSentTimeStamp: true
+            panelId: panel_34
+            type: button
+            panelWidth: '33'
+            buttonSize: small
+            retain: false
+            qos: 0
+            mqttType: pub
+            panelMergeClass: 'merge-left   '
+        -   panelName: TavoloLavoro
+            topic: cmnd/TavoloLavoro/POWER
+            seperateSubscribeTopic: stat/TavoloLavoro/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_18
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right   '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+        -   topic: cmnd/TavoloLavoro/Backlog
+            payload: power
+            panelName: TavoloLavoro
+            panelId: panel_31
+            type: button
+            mqttType: pub
+            panelWidth: '33'
+            buttonSize: small
+            retain: false
+            qos: 0
+            panelMergeClass: 'merge-left   '
+        -   panelName: FaroLetto
+            topic: cmnd/FaroLetto/POWER
+            seperateSubscribeTopic: stat/FaroLetto/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_20
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+        -   topic: cmnd/FaroLetto/Backlog
+            payload: power
+            panelName: FaroLetto
+            panelId: panel_35
+            type: button
+            mqttType: pub
+            panelWidth: '33'
+            buttonSize: small
+            retain: false
+            qos: 0
+            panelMergeClass: '    '
+        -   panelName: Computer
+            topic: cmnd/Computer/POWER
+            seperateSubscribeTopic: stat/Computer/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_22
+            type: switch
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: '    '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+        -   options:
+            -   $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#37d707'
+                label: Power State
+                payload: power
+            -   icon: switch_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: power on
+            -   icon: switch_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: power off
+            -   icon: timer_off
+                iconColor: '#1770cf'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers 0
+            -   icon: timer
+                iconColor: '#07ef1f'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers 1
+            -   icon: touch_app
+                iconColor: '#3ee20c'
+                $$hashKey: object:790
+                label: Pulsetime 20
+                payload: Pulsetime 20
+            -   icon: thumb_down
+                iconColor: '#1190e5'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: 'timers 0: pulsetime 1'
+            -   icon: thumb_up
+                iconColor: '#0beb07'
+                $$hashKey: object:4788
+                label: Enable device
+                payload: 'timers 1: pulsetime 0'
+            -   icon: radio_button_checked
+                iconColor: '#9E9E9E'
+                $$hashKey: object:19365
+                label: List timers
+                payload: timers
+            panelName: Computer
+            topic: cmnd/Computer/backlog
+            seperateSubscribeTopic: stat/Computer/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_43
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   panelName: LineaEsterna
+            topic: shellies/LineaEsterna/relay/0/command
+            seperateSubscribeTopic: shellies/LineaEsterna/relay/0
+            payloadOn: 'on'
+            payloadOff: 'off'
+            panelId: panel_10
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            hasCustomIcon: false
+            iconOn: switch_on
+            iconColorOn: '#ec0a0a'
+            iconOff: switch_off
+            iconColorOff: '#9E9E9E'
+            enableNotification: false
+        -   options:
+            -   $$hashKey: object:2428
+                icon: radio_button_unchecked
+                iconColor: '#37d707'
+                label: PowerState
+                payload: .
+            -   icon: radio_button_checked
+                iconColor: '#1549b9'
+                $$hashKey: object:152
+                label: Timers Toggle
+                payload: Timers 2
+            panelName: LineaEsterna
+            topic: shellies/LineaEsterna/relay/0
+            seperateSubscribeTopic: shellies/LineaEsterna/relay/0
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_42
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '33'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   panelName: Crepuscolare
+            topic: cmnd/Crepuscolare/POWER
+            seperateSubscribeTopic: stat/Crepuscolare/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_39
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+        -   options:
+            -   $$hashKey: object:2428
+                icon: radio_button_unchecked
+                iconColor: '#37d707'
+                label: Power State
+                payload: power
+            -   $$hashKey: object:2429
+                icon: flash_off
+                iconColor: '#ed0b0b'
+                label: 'ON'
+                payload: power on
+            -   icon: flash_on
+                iconColor: rgba(93, 85, 86, 0.88)
+                $$hashKey: object:6589
+                label: 'OFF'
+                payload: power off
+            -   icon: radio_button_checked
+                iconColor: '#1549b9'
+                $$hashKey: object:152
+                label: Timers OFF
+                payload: Timers 0
+            -   icon: radio_button_checked
+                iconColor: '#9E9E9E'
+                $$hashKey: object:1613
+                label: Timers ON
+                payload: Timers 1
+            -   icon: radio_button_checked
+                iconColor: '#9E9E9E'
+                $$hashKey: object:895
+                label: Url
+                payload: LnCmnd.get_url
+            panelName: Crepuscolare
+            topic: cmnd/Crepuscolare/backlog
+            seperateSubscribeTopic: stat/Crepuscolare/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_41
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '33'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   showReceivedTimeStamp: true
+            panelName: Log
+            topic: +/Crepuscolare/#
+            showLatestMsgOnly: false
+            panelId: panel_45
+            type: log
+            logLength: 2
+            panelWidth: '100'
+            qos: 0
+            isJSONPayload: false
+            fontSize: '20'
+            mqttType: sub
+        -   panelName: LnStatus Url
+            topic: LnStatus/LnCommand/url
+            showReceivedTimeStamp: true
+            panelId: panel_46
+            type: uri-launcher
+            mqttType: sub
+            panelWidth: '100'
+            qos: 0
+    -   dashboardIcon: ev_station
+        dashboardName: Stufe
+        dashboardColor: '#4CAF50'
+        dashboardId: dashboard_14
+        dashboardPrefixTopic: ""
+        panels:
+        -   panelName: Stufe Power Status
+            topic: lncmnd/LnCommand/dummy
+            payload: dummy
+            panelId: panel_15
+            type: button
+            mqttType: pub
+            panelWidth: '100'
+            buttonSize: small
+            retain: false
+            qos: 0
+            fitToPanelWidth: true
+            hasCustomIcon: true
+            icon: wifi_tethering
+            iconColor: '#1806e9'
+            isJSONPayload: true
+            jsonEnvelope: '{ "power": ""Vescovi-Control,Vescovi-Power,ThermorossiPower,
+                ThermorossiControl""}'
+        -   iconOn: led
+            iconColorOn: '#DF0000'
+            iconOff: led
+            iconColorOff: '#9E9E9E'
+            topic: stat/Vescovi-Power/RESULT
+            panelName: Vescovi Power
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            isJSONPayload: true
+            jsonPath: $.POWER
+            panelId: panel_19
+            type: led
+            mqttType: sub
+            panelWidth: '50'
+            qos: 0
+            enableNotification: true
+            showReceivedTimeStamp: true
+        -   options:
+            -   $$hashKey: object:2428
+                icon: refresh
+                iconColor: '#37d707'
+                label: Power State
+                payload: power
+            -   icon: switch_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: power on
+            -   icon: switch_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: power off
+            -   icon: flash_off
+                iconColor: '#bd18ce'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers 0
+            -   icon: flash_on
+                iconColor: '#07ef1f'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers 1
+            -   icon: touch_app
+                iconColor: '#3ee20c'
+                $$hashKey: object:790
+                label: Pulsetime 15 sec.
+                payload: Pulsetime
+            -   icon: thumb_down
+                iconColor: '#1190e5'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: Pulsetime 1;timers 0
+            panelName: Vescovi-Power
+            topic: cmnd/Vescovi-Power/backlog
+            seperateSubscribeTopic: stat/Vescovi-Power/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_24
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   iconOn: led
+            iconColorOn: '#DF0000'
+            iconOff: led
+            iconColorOff: '#9E9E9E'
+            topic: stat/Vescovi-Control/RESULT
+            panelName: Vescovi Control
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            isJSONPayload: true
+            jsonPath: $.POWER
+            panelId: panel_18
+            type: led
+            mqttType: sub
+            panelWidth: '50'
+            qos: 0
+            enableNotification: true
+            showReceivedTimeStamp: true
+        -   options:
+            -   $$hashKey: object:2428
+                icon: refresh
+                iconColor: '#37d707'
+                label: Power State
+                payload: power
+            -   icon: switch_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: power on
+            -   icon: switch_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: power off
+            -   icon: flash_off
+                iconColor: '#bd18ce'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers 0
+            -   icon: flash_on
+                iconColor: '#07ef1f'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers 1
+            -   icon: touch_app
+                iconColor: '#3ee20c'
+                $$hashKey: object:790
+                label: Pulsetime xx sec.
+                payload: Pulsetime
+            -   icon: thumb_down
+                iconColor: '#1190e5'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: Pulsetime 1; Timers 0
+            panelName: Vescovi-Control
+            topic: cmnd/Vescovi-Control/backlog
+            seperateSubscribeTopic: stat/Vescovi-Control/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_25
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   iconOn: led
+            iconColorOn: '#DF0000'
+            iconOff: led
+            iconColorOff: '#9E9E9E'
+            topic: stat/ThermorossiPower/RESULT
+            panelName: Thermorossi Power
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            isJSONPayload: true
+            jsonPath: $.POWER
+            panelId: panel_20
+            type: led
+            mqttType: sub
+            panelWidth: '50'
+            qos: 0
+            enableNotification: true
+            showReceivedTimeStamp: true
+        -   options:
+            -   $$hashKey: object:2428
+                icon: refresh
+                iconColor: '#37d707'
+                label: Power State
+                payload: power
+            -   icon: switch_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: power on
+            -   icon: switch_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: power off
+            -   icon: flash_off
+                iconColor: '#bd18ce'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers 0
+            -   icon: flash_on
+                iconColor: '#07ef1f'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: Timers 1
+            -   icon: touch_app
+                iconColor: '#3ee20c'
+                $$hashKey: object:790
+                label: Pulsetime xx sec.
+                payload: Pulsetime
+            -   icon: thumb_down
+                iconColor: '#1190e5'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: Timers 0; pulsetime 1
+            -   icon: radio_button_checked
+                iconColor: '#9E9E9E'
+                $$hashKey: object:1588
+                label: Enable device
+                payload: Timers 1; pulsetime 0
+            panelName: ThermorossiPower
+            topic: cmnd/ThermorossiPower/backlog
+            seperateSubscribeTopic: stat/ThermorossiPower/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_26
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   iconOn: led
+            iconColorOn: '#DF0000'
+            iconOff: led
+            iconColorOff: '#9E9E9E'
+            topic: stat/ThermorossiControl/RESULT
+            panelName: Thermorossi Control
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            isJSONPayload: true
+            jsonPath: $.POWER
+            panelId: panel_22
+            type: led
+            mqttType: sub
+            panelWidth: '50'
+            qos: 0
+            enableNotification: true
+            showReceivedTimeStamp: true
+        -   options:
+            -   $$hashKey: object:2428
+                icon: refresh
+                iconColor: '#37d707'
+                label: Power State
+                payload: power
+            -   icon: bulb_open
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: power on
+            -   icon: bulb_energy_saver
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: power off
+            -   icon: timer_off
+                iconColor: '#1733cf'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers 0
+            -   icon: access_time
+                iconColor: '#07ef1f'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers 1
+            -   icon: touch_app
+                iconColor: '#0c0ae4'
+                $$hashKey: object:790
+                label: Pulsetime xx sec.
+                payload: Pulsetime
+            -   icon: thumb_down
+                iconColor: '#1190e5'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: Pulsetime 1;timers 0
+            -   icon: thumb_up
+                iconColor: '#07ea43'
+                $$hashKey: object:246
+                label: Enable device
+                payload: Pulsetime 0;timers 1
+            panelName: ThermorossiControl
+            topic: cmnd/ThermorossiControl/backlog
+            seperateSubscribeTopic: stat/ThermorossiControl/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_27
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+    -   dashboardIcon: ev_station
+        dashboardName: Pompe
+        dashboardColor: '#4CAF50'
+        dashboardId: dashboard_8
+        dashboardPrefixTopic: ""
+        panels:
+        -   panelName: Pompe Power Status
+            topic: lncmnd/LnCommand/dummy
+            payload: dummy
+            panelId: panel_13
+            type: button
+            mqttType: pub
+            panelWidth: '100'
+            buttonSize: small
+            retain: false
+            qos: 0
+            fitToPanelWidth: true
+            hasCustomIcon: true
+            icon: wifi_tethering
+            iconColor: '#1806e9'
+            isJSONPayload: true
+            jsonEnvelope: '{ "power": ""PressControl, Load-Superiore, Areazione-Inferiore,
+                Areazione-Superiore""}'
+        -   panelName: PressControl
+            topic: cmnd/PressControl/POWER
+            seperateSubscribeTopic: stat/PressControl/POWER
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_0
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            enableNotification: true
+        -   panelName: Query presscontrol
+            topic: cmnd/PressControl/power
+            payload: power
+            noPayload: true
+            hasCustomIcon: false
+            icon: network_check
+            iconColor: '#1e4bc6'
+            showSentTimeStamp: true
+            panelId: panel_9
+            type: button
+            panelWidth: '33'
+            buttonSize: small
+            retain: false
+            qos: 0
+            mqttType: pub
+            panelMergeClass: 'merge-left   '
+        -   panelName: Areazione Superiore
+            topic: cmnd/Areazione-Superiore/POWER
+            seperateSubscribeTopic: stat/Areazione-Superiore/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_1
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+        -   panelName: Query Areaz Superiore
+            topic: cmnd/Areazione-Superiore/power
+            payload: power
+            noPayload: true
+            hasCustomIcon: false
+            icon: network_check
+            iconColor: '#1e4bc6'
+            showSentTimeStamp: true
+            panelId: panel_8
+            type: button
+            panelWidth: '33'
+            buttonSize: small
+            retain: false
+            qos: 0
+            mqttType: pub
+            panelMergeClass: 'merge-left   '
+        -   panelName: Areazione Inferiore
+            topic: cmnd/Areazione-Inferiore/POWER
+            seperateSubscribeTopic: stat/Areazione-Inferiore/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_2
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+        -   panelName: Query Areaz Inferiore
+            topic: cmnd/Areazione-Inferiore/power
+            payload: power
+            noPayload: true
+            hasCustomIcon: false
+            icon: network_check
+            iconColor: '#1e4bc6'
+            showSentTimeStamp: true
+            panelId: panel_6
+            type: button
+            panelWidth: '33'
+            buttonSize: small
+            retain: false
+            qos: 0
+            mqttType: pub
+            panelMergeClass: 'merge-left   '
+        -   panelName: Load Superiore
+            topic: cmnd/Load-Superiore/POWER
+            seperateSubscribeTopic: stat/Load-Superiore/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_3
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+        -   options:
+            -   $$hashKey: object:2428
+                icon: radio_button_unchecked
+                iconColor: '#37d707'
+                label: State
+                payload: state .toTG
+            -   $$hashKey: object:2429
+                icon: flash_off
+                iconColor: '#ed0b0b'
+                label: 'ON'
+                payload: power on
+            -   icon: flash_on
+                iconColor: rgba(93, 85, 86, 0.88)
+                $$hashKey: object:6589
+                label: 'OFF'
+                payload: power off
+            -   icon: radio_button_checked
+                iconColor: '#1549b9'
+                $$hashKey: object:152
+                label: Timers Toggle
+                payload: Timers 2 .toTG
+            panelName: Load-Superiore
+            topic: cmnd/Load-Superiore/backlog
+            seperateSubscribeTopic: stat/Load-Superiore/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_12
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '33'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+    -   dashboardIcon: dashboard
+        dashboardName: Camera Letto
+        dashboardColor: '#4CAF50'
+        dashboardId: dashboard_11
+        dashboardPrefixTopic: ""
+        panels:
+        -   panelName: Camera Letto State
+            topic: LnCmnd/LnCommand/noTelegram
+            payload: '{""power"": ""Scaldasonno, Ventilatore-Camera""}'
+            panelId: panel_17
+            type: button
+            mqttType: pub
+            panelWidth: '100'
+            buttonSize: small
+            retain: false
+            qos: 0
+            fitToPanelWidth: true
+            hasCustomIcon: true
+            icon: wifi_tethering
+            iconColor: '#1806e9'
+        -   firstColor: '#003796'
+            secondColor: '#fac800'
+            thirdColor: '#ff5722'
+            panelName: Temperatura Camera
+            topic: shellies/Scaldasonno/ext_temperatures
+            payloadMin: 0
+            payloadMax: 50
+            unit: "\xC2\xB0C"
+            showReceivedTimeStamp: true
+            firstColorEnd: 14
+            secondColorEnd: 25
+            panelId: panel_0
+            type: gauge
+            mqttType: sub
+            panelWidth: '100'
+            qos: 0
+            isJSONPayload: true
+            jsonPath: $.0.tC
+        -   noOfDivisor: 8
+            maxPersistence: 100
+            comboItemList:
+            -   color: '#d70206'
+                $$hashKey: object:9521
+                topic: shellies/Scaldasonno/ext_temperatures
+                label: Scaldasonno
+                isJSONPayload: true
+                jsonPath: $.0.tC
+                showPoints: true
+                showArea: true
+                panelTopic: shellies/Scaldasonno/ext_temperatures
+                lineGraphData:
+                -   x: '2021-11-19T19:33:20.800Z'
+                    y: 19.1
+                -   x: '2021-11-19T19:33:27.110Z'
+                    y: 19.1
+                -   x: '2021-11-19T19:33:58.177Z'
+                    y: 19.1
+                -   x: '2021-11-19T19:35:00.893Z'
+                    y: 19.2
+                -   x: '2021-11-19T19:35:00.902Z'
+                    y: 19.2
+                -   x: '2021-11-19T19:36:02.872Z'
+                    y: 19.2
+                -   x: '2021-11-19T19:36:34.645Z'
+                    y: 19.2
+                -   x: '2021-11-19T19:37:04.939Z'
+                    y: 19.2
+                -   x: '2021-11-19T19:37:15.808Z'
+                    y: 19.4
+                -   x: '2021-11-19T19:37:35.980Z'
+                    y: 19.4
+                -   x: '2021-11-19T19:38:37.863Z'
+                    y: 19.4
+                -   x: '2021-11-19T19:39:08.889Z'
+                    y: 19.4
+                -   x: '2021-11-19T19:39:39.873Z'
+                    y: 19.4
+                -   x: '2021-11-19T19:40:10.880Z'
+                    y: 19.4
+                -   x: '2021-11-19T19:40:25.810Z'
+                    y: 19.5
+                -   x: '2021-11-19T19:41:12.940Z'
+                    y: 19.5
+                -   x: '2021-11-19T19:41:43.899Z'
+                    y: 19.5
+                -   x: '2021-11-19T19:42:14.902Z'
+                    y: 19.5
+                -   x: '2021-11-19T19:43:17.152Z'
+                    y: 19.5
+                -   x: '2021-11-19T19:44:50.065Z'
+                    y: 19.5
+                -   x: '2021-11-19T19:47:24.967Z'
+                    y: 19.6
+                -   x: '2021-11-19T19:48:56.211Z'
+                    y: 19.8
+                -   x: '2021-11-19T19:48:58.695Z'
+                    y: 19.8
+                -   x: '2021-11-19T19:52:04.348Z'
+                    y: 19.8
+                -   x: '2021-11-19T19:54:39.284Z'
+                    y: 19.8
+                -   x: '2021-11-19T19:54:41.129Z'
+                    y: 19.9
+                -   x: '2021-11-19T19:55:10.142Z'
+                    y: 19.9
+                -   x: '2021-11-19T19:55:41.078Z'
+                    y: 19.9
+                -   x: '2021-11-19T19:56:43.272Z'
+                    y: 19.9
+                -   x: '2021-11-19T19:57:14.316Z'
+                    y: 19.9
+                -   x: '2021-11-19T19:58:47.614Z'
+                    y: 19.9
+                -   x: '2021-11-19T20:03:27.060Z'
+                    y: 20
+                -   x: '2021-11-19T20:08:37.050Z'
+                    y: 20.1
+                -   x: '2021-11-19T20:09:08.100Z'
+                    y: 20.1
+                -   x: '2021-11-19T20:12:45.101Z'
+                    y: 20.1
+                -   x: '2021-11-19T20:13:47.203Z'
+                    y: 20.1
+                -   x: '2021-11-19T20:16:22.176Z'
+                    y: 20.1
+                -   x: '2021-11-19T20:17:21.045Z'
+                    y: 20.2
+                -   x: '2021-11-19T20:17:24.089Z'
+                    y: 20.2
+                -   x: '2021-11-20T08:13:25.518Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:13:56.500Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:14:27.355Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:14:58.150Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:15:29.156Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:16:00.386Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:16:31.353Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:17:02.481Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:17:33.209Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:18:04.540Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:18:35.260Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:19:06.593Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:19:37.517Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:20:08.543Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:20:39.675Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:21:10.245Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:21:41.480Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:22:13.230Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:22:43.791Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:23:45.593Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:24:16.464Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:24:47.660Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:25:18.281Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:25:49.284Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:26:20.572Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:26:51.283Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:27:22.588Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:27:54.571Z'
+                    y: 16.4
+                -   x: '2021-11-20T08:30:33.912Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:30:34.135Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:30:59.584Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:31:30.951Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:32:01.571Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:32:32.412Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:33:03.577Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:33:34.508Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:34:05.638Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:34:36.503Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:35:07.941Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:35:38.972Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:36:10.941Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:36:40.576Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:37:12.036Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:37:42.776Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:38:13.652Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:38:44.472Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:39:16.519Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:39:47.471Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:40:18.132Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:40:49.510Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:41:20.365Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:41:51.270Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:42:22.997Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:42:53.727Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:43:25.278Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:43:56.128Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:44:26.340Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:44:57.624Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:45:28.391Z'
+                    y: 16.2
+                -   x: '2021-11-20T08:46:00.434Z'
+                    y: 16.2
+                -   x: '2021-11-20T11:14:22.327Z'
+                    y: 16.5
+            xAxisTimeFormat: HH:mm
+            panelName: Temperatura camera
+            unit: "\xC2\xB0C"
+            panelId: panel_5
+            type: line-graph
+            mqttType: sub
+            panelWidth: '100'
+            qos: 0
+            hideLegend: false
+        -   panelName: Scaldasonno
+            topic: shellies/Scaldasonno/relay/0/command
+            seperateSubscribeTopic: shellies/Scaldasonno/relay/0
+            payloadOn: 'on'
+            payloadOff: 'off'
+            panelId: panel_7
+            type: switch
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            hasCustomIcon: false
+            iconOn: switch_on
+            iconColorOn: '#9E9E9E'
+            iconOff: switch_off
+            iconColorOff: '#9E9E9E'
+        -   options:
+            -   $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#ebca06'
+                label: Power State
+                payload: power
+            -   icon: bulb_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: 'on'
+            -   icon: bulb_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: 'off'
+            -   icon: timer_off
+                iconColor: '#0fe7ed'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers_Disable
+            -   icon: timer
+                iconColor: '#17ec0e'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers_enable
+            -   icon: touch_app
+                iconColor: '#f1d514'
+                $$hashKey: object:790
+                label: Pulsetime xx sec.
+                payload: Pulsetime
+            -   icon: thumb_down
+                iconColor: '#0d85ef'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: disable_device
+            -   icon: cloud_off
+                iconColor: '#d7eb0d'
+                $$hashKey: object:213
+                label: Enable Mqtt
+                payload: Mqtt_Enable
+            -   icon: cloud_queue
+                iconColor: '#0ed8f3'
+                $$hashKey: object:222
+                label: Enable Cloud
+                payload: Cloud_Enable
+            -   icon: settings
+                iconColor: '#06cbe5'
+                $$hashKey: object:3474
+                label: URL
+                payload: get_url
+            -   icon: thumb_up
+                iconColor: '#36e80d'
+                $$hashKey: object:9963
+                label: Enable device
+                payload: enable_device
+            panelName: LnScaldasonno
+            topic: LnCmnd/Scaldasonno/toTelegram
+            seperateSubscribeTopic: shellies/Scaldasonno/relay/0
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_18
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   iconOn: led
+            iconColorOn: '#DF0000'
+            iconOff: led
+            iconColorOff: '#9E9E9E'
+            topic: stat/Ventilatore-Camera/RESULT
+            panelName: Ventilatore   Camera
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            isJSONPayload: true
+            jsonPath: $.POWER
+            panelId: panel_15
+            type: led
+            mqttType: sub
+            panelWidth: '50'
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+        -   options:
+            -   $$hashKey: object:2428
+                icon: refresh
+                iconColor: '#37d707'
+                label: State
+                payload: state
+            -   icon: switch_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: power on
+            -   icon: switch_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: power off
+            -   icon: flash_off
+                iconColor: '#bd18ce'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers 0
+            -   icon: flash_on
+                iconColor: '#07ef1f'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers 1
+            -   icon: touch_app
+                iconColor: '#3ee20c'
+                $$hashKey: object:790
+                label: Pulsetime xx sec.
+                payload: Pulsetime
+            -   icon: thumb_down
+                iconColor: '#1190e5'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: Pulsetime 1;Timers 0
+            -   icon: radio_button_checked
+                iconColor: '#9E9E9E'
+                $$hashKey: object:195
+                label: Enable device
+                payload: Pulsetime 0;Timers 1
+            panelName: Ventilatore-Camera
+            topic: cmnd/Ventilatore-Camera/backlog
+            seperateSubscribeTopic: stat/Ventilatore-Camera/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_16
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+
+
+    # ------ Samples Dashboard Start
+    -   dashboardId: dashboard_13
+        dashboardName: Samples
+        dashboardPrefixTopic: ""
+        dashboardIcon: dashboard
+        dashboardColor: '#9C27B0'
+        panels:
+
+
+        # ----- Sample Backlog Tasmota
+        -   panelName: Tasmota Backlog Sample
+            topic: cmnd/Tasmota_topic/backlog
+            seperateSubscribeTopic: stat/Tasmota_topic/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_18
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+            options:
+            -   label: Power State
+                payload: power
+                $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#ebca06'
+
+            -   label: Summary State
+                payload: summary_state
+                icon: assignment
+                iconColor: '#0df430'
+                $$hashKey: object:983
+
+            -   label: Power ON
+                payload: power on
+                icon: bulb_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+
+            -   label: Power OFF
+                payload: power off
+                icon: bulb_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+
+            -   label: Disable Timers
+                payload: Timers 0
+                icon: timer_off
+                iconColor: '#0fe7ed'
+                $$hashKey: object:152
+
+            -   label: Enable Timers
+                payload: Timers 1
+                icon: timer
+                iconColor: '#17ec0e'
+                $$hashKey: object:401
+
+            -   label: Disable Device
+                payload: "Timers 0; Pulsetime 1" # tra apici a causa del ';'
+                icon: thumb_down
+                iconColor: '#0d85ef'
+                $$hashKey: object:959
+
+            -   label: Enable device
+                payload: "Timers 1; Pulsetime 0" # tra apici a causa del ';'
+                icon: thumb_up
+                iconColor: '#36e80d'
+                $$hashKey: object:9963
+
+            -   label: Auto-ON xx secs
+                payload: "PowerOnState 5; Pulsetime xx" # tra apici a causa del ';'
+                icon: touch_app
+                iconColor: '#f1d514'
+                $$hashKey: object:1655
+
+            -   label: Auto-OFF xx secs
+                payload: "PowerOnState 0; Pulsetime xx" # tra apici a causa del ';'
+                icon: touch_app
+                iconColor: '#9E9E9E'
+                $$hashKey: object:790
+
+
+
+        # ----- Sample LnCmnd Shelly
+        -   panelName: Shelly LnCmnd Sample
+            topic: LnCmnd/Shelly_Topic/toTelegram
+            seperateSubscribeTopic: shellies/Shelly_Topic/relay/0
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_19
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+            options:
+
+            -   label: Power State
+                payload: power
+                $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#ebca06'
+
+            -   label: Summary State
+                payload: summary_state
+                icon: assignment
+                iconColor: '#0df430'
+                $$hashKey: object:983
+
+            -   label: "ON"
+                payload: "on"
+                icon: bulb_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+
+            -   label: "OFF"
+                payload: "off"
+                icon: bulb_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+
+            -   label: Disable Timers
+                payload: Timers_Disable
+                icon: timer_off
+                iconColor: '#0fe7ed'
+                $$hashKey: object:152
+
+            -   label: Enable Timers
+                payload: timers_enable
+                icon: timer
+                iconColor: '#17ec0e'
+                $$hashKey: object:401
+
+            -   label: URL
+                payload: get_url
+                icon: settings
+                iconColor: '#06cbe5'
+                $$hashKey: object:3474
+
+            -   label: Disable Device
+                payload: disable_device
+                icon: thumb_down
+                iconColor: '#0d85ef'
+                $$hashKey: object:959
+
+            -   label: Enable device
+                payload: enable_device
+                icon: thumb_up
+                iconColor: '#36e80d'
+                $$hashKey: object:9963
+
+            -   label: Enable Mqtt
+                payload: Mqtt_Enable
+                icon: cloud_off
+                iconColor: '#d7eb0d'
+                $$hashKey: object:213
+
+            -   label: Enable Cloud
+                payload: Cloud_Enable
+                icon: cloud_queue
+                iconColor: '#0ed8f3'
+                $$hashKey: object:222
+
+            -   label: Auto-ON xx secs
+                payload: auto_on xx
+                icon: touch_app
+                iconColor: '#f1d514'
+                $$hashKey: object:1655
+
+            -   label: Auto-OFF xx secs
+                payload: auto_off xx
+                icon: touch_app
+                iconColor: '#9E9E9E'
+                $$hashKey: object:790
+
+
+        -   panelName: Tasmota Switch Sample
+            topic: cmnd/Scaldasonno/POWER
+            seperateSubscribeTopic: stat/Scaldasonno/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_4
+            type: switch
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+
+
+        -   panelName: Shelly Switch Sample
+            topic: shellies/Shelly_Letto/relay/0/command
+            seperateSubscribeTopic: shellies/Shelly_Letto/relay/0
+            payloadOn: 'on'
+            payloadOff: 'off'
+            panelId: panel_5
+            type: switch
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: false
+            jsonPath: $.POWER
+            enableNotification: true
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+
+    # ------ Samples Dashboard END
+
+    dashboardQuickAccess: false
+    notifyOnDisconnect: false
+-   autoConnect: true
+    connectionName: Hivemq cloud tls
+    host: 2a2611463b584dbdbc2da5059b1ae8ff.s1.eu.hivemq.cloud
+    port: 8883
+    connectionType: ssl
+    clientId: hQJQMlJuF9
+    connectionTimeout: 30
+    keepAlive: 60
+    defaultDashboard: dashboard_0
+    connectionId: connection_3
+    dashboards:
+    -   dashboardId: dashboard_0
+        dashboardName: Casetta
+        dashboardPrefixTopic: ""
+        dashboardIcon: dashboard
+        dashboardColor: '#2196F3'
+        panels:
+        -   panelName: Crepuscolare
+            topic: cmnd/Crepuscolare/POWER
+            seperateSubscribeTopic: stat/Crepuscolare/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_0
+            type: switch
+            panelWidth: '66'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+        -   iconOn: led
+            iconColorOn: '#DF0000'
+            iconOff: led
+            iconColorOff: '#9E9E9E'
+            topic: stat/ExtFromPumpsRoom/RESULT
+            panelName: ExtFromPumpsRoom led sample
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            isJSONPayload: true
+            jsonPath: $.POWER
+            panelId: panel_2
+            type: led
+            mqttType: sub
+            panelWidth: '50'
+            qos: 0
+            showReceivedTimeStamp: true
+        -   options:
+            -   $$hashKey: object:2428
+                icon: refresh
+                iconColor: '#37d707'
+                label: State
+                payload: state
+            -   icon: switch_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: power on
+            -   icon: switch_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: power off
+            -   icon: flash_off
+                iconColor: '#bd18ce'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers 0 .toTG
+            -   icon: flash_on
+                iconColor: '#07ef1f'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers 1 .toTG
+            -   icon: touch_app
+                iconColor: '#3ee20c'
+                $$hashKey: object:790
+                label: Pulsetime 15 sec.
+                payload: Pulsetime1 115
+            -   icon: thumb_down
+                iconColor: '#1190e5'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: Pulsetime 1 .toLN
+            panelName: ExtFromPumpsRoom sample
+            topic: cmnd/ExtFromPumpsRoom/backlog
+            seperateSubscribeTopic: stat/ExtFromPumpsRoom/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_1
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+    caPath: /storage/emulated/0/Android/data/snr.lab.iotmqttpanel.prod.pro/files/LnXCA_TLS-client_pem%2Bkey.pem
+    username: Loreto
+    password: Loreto_2021
+-   autoConnect: true
+    connectionName: HivemqFree
+    host: broker.hivemq.com
+    port: 1883
+    connectionType: tcp
+    clientId: sNnlYru0ro
+    connectionTimeout: 30
+    keepAlive: 60
+    defaultDashboard: dashboard_0
+    connectionId: connection_4
+    dashboards:
+    -   dashboardId: dashboard_0
+        dashboardName: HivemqTest
+        dashboardPrefixTopic: ""
+        dashboardIcon: dashboard
+        dashboardColor: '#2196F3'
+        panels:
+        -   panelName: VCPresepeGenerale
+            topic: cmnd/VCPresepeGenerale/backlog
+            seperateSubscribeTopic: stat/VCPresepeGenerale/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            enableNotification: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            panelId: panel_11
+            type: switch
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            isJSONPayload: true
+            jsonPath: stat/VCPresepeGenerale/RESULT
+            jsonEnvelope: $.POWER
+        -   options:
+            -   $$hashKey: object:2428
+                icon: refresh
+                iconColor: '#37d707'
+                label: Power State
+                payload: power
+            -   icon: switch_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: power on
+            -   icon: switch_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: power off
+            -   icon: flash_off
+                iconColor: '#bd18ce'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers 0
+            -   icon: flash_on
+                iconColor: '#07ef1f'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers 1
+            -   icon: touch_app
+                iconColor: '#3ee20c'
+                $$hashKey: object:790
+                label: Pulsetime 100 sec.
+                payload: Pulsetime 100
+            -   icon: thumb_down
+                iconColor: '#1190e5'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: Pulsetime 1
+            panelName: VCPresepeGenerale
+            topic: cmnd/VCPresepeGenerale/backlog
+            seperateSubscribeTopic: stat/VCPresepeGenerale/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_1
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: false
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   iconOn: led
+            iconColorOn: '#DF0000'
+            iconOff: led
+            iconColorOff: '#9E9E9E'
+            topic: stat/ExtFromPumpsRoom/RESULT
+            panelName: ExtFromPumpsRoom led sample
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            isJSONPayload: true
+            jsonPath: $.POWER
+            panelId: panel_3
+            type: led
+            mqttType: sub
+            panelWidth: '50'
+            qos: 0
+            showReceivedTimeStamp: true
+        -   options:
+            -   $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#37d707'
+                label: Power State
+                payload: power
+            -   icon: switch_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: power on
+            -   icon: switch_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: power off
+            -   icon: timer_off
+                iconColor: '#1770cf'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers 0
+            -   icon: timer
+                iconColor: '#07ef1f'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers 1
+            -   icon: touch_app
+                iconColor: '#3ee20c'
+                $$hashKey: object:790
+                label: Pulsetime xx
+                payload: Pulsetime
+            -   icon: thumb_down
+                iconColor: '#1190e5'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: timers 0; pulsetime 1
+            -   icon: thumb_up
+                iconColor: '#0beb07'
+                $$hashKey: object:4788
+                label: Enable device
+                payload: timers 1;pulsetime 0
+            -   icon: radio_button_checked
+                iconColor: '#9E9E9E'
+                $$hashKey: object:19365
+                label: List timers
+                payload: timers
+            panelName: ExtFromPumpsRoom sample
+            topic: cmnd/ExtFromPumpsRoom/backlog
+            seperateSubscribeTopic: stat/ExtFromPumpsRoom/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_2
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   topic: shellies/Shelly_Letto/relay/0/command
+            seperateSubscribeTopic: shellies/Shelly_Letto/relay/0
+            payloadOn: 'on'
+            payloadOff: 'off'
+            hasCustomIcon: false
+            iconOn: switch_on
+            iconColorOn: '#f40a4a'
+            iconOff: switch_off
+            iconColorOff: '#9E9E9E'
+            enableNotification: false
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            panelName: Shelly_Letto
+            panelId: panel_10
+            type: switch
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+        -   options:
+            -   $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#ebca06'
+                label: Power State
+                payload: power
+            -   icon: bulb_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+                label: 'ON'
+                payload: 'on'
+            -   icon: bulb_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+                label: 'OFF'
+                payload: 'off'
+            -   icon: timer_off
+                iconColor: '#0fe7ed'
+                $$hashKey: object:152
+                label: Disable Timers
+                payload: Timers_Disable
+            -   icon: timer
+                iconColor: '#17ec0e'
+                $$hashKey: object:401
+                label: Enable Timers
+                payload: timers_enable
+            -   icon: touch_app
+                iconColor: '#f1d514'
+                $$hashKey: object:790
+                label: Pulsetime xx sec.
+                payload: Pulsetime
+            -   icon: thumb_down
+                iconColor: '#0d85ef'
+                $$hashKey: object:959
+                label: Disable Device
+                payload: disable_device
+            -   icon: cloud_off
+                iconColor: '#d7eb0d'
+                $$hashKey: object:213
+                label: Enable Mqtt
+                payload: Mqtt_Enable
+            -   icon: cloud_queue
+                iconColor: '#0ed8f3'
+                $$hashKey: object:222
+                label: Enable Cloud
+                payload: Cloud_Enable
+            -   icon: settings
+                iconColor: '#06cbe5'
+                $$hashKey: object:3474
+                label: URL
+                payload: get_url
+            -   icon: thumb_up
+                iconColor: '#36e80d'
+                $$hashKey: object:9963
+                label: Enable device
+                payload: enable_device
+            -   icon: assignment
+                iconColor: '#0df430'
+                $$hashKey: object:983
+                label: Summary State
+                payload: summary_state
+            -   icon: radio_button_checked
+                iconColor: '#9E9E9E'
+                $$hashKey: object:1655
+                label: AutoON
+                payload: PowerOnState 5; Pulsetime 100
+            panelName: LnCmnd Shelly_Letto sample
+            topic: LnCmnd/Shelly_Letto/toTelegram
+            seperateSubscribeTopic: shellies/Shelly_Letto/relay/0
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_5
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '50'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+        -   panelName: Url Shelly_Letto
+            topic: LnStatus/Shelly_Letto/url
+            isJSONPayload: false
+            showReceivedTimeStamp: true
+            panelId: panel_6
+            type: uri-launcher
+            mqttType: sub
+            panelWidth: '100'
+            qos: 0
+            enableNotification: true
+        -   panelName: Url ExtFromPumpsRoom
+            topic: LnStatus/ExtFromPumpsRoom/url
+            isJSONPayload: false
+            showReceivedTimeStamp: true
+            panelId: panel_7
+            type: uri-launcher
+            mqttType: sub
+            panelWidth: '100'
+            qos: 0
+            enableNotification: true
+        -   panelName: Disable for absence
+            topic: LnCmnd/LnCommand/dummy
+            payload: '{"disable_device": "Shelly_Letto, ExtFromPumpsRoom"}'
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            showSentTimeStamp: true
+            panelId: panel_8
+            type: button
+            mqttType: pub
+            panelWidth: '100'
+            buttonSize: small
+            retain: false
+            qos: 0
+        -   payloadOn: '{"enable_device": "Shelly_Letto, ExtFromPumpsRoom"}'
+            payloadOff: '{"disable_device": "Shelly_Letto, ExtFromPumpsRoom"}'
+            panelName: Enable disable
+            topic: LnCmnd/LnCommand/toTelegram
+            panelId: panel_9
+            type: switch
+            mqttType: pubsub
+            panelWidth: '100'
+            retain: false
+            qos: 0
+appTheme: dark
+runInBackground: false
+wakeLock: true
+displayOrientation: portrait
+

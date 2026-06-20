@@ -1,0 +1,35 @@
+#
+
+
+
+ssh:
+    - ssh-keygen -o -a 100 -t ed25519 -f $HOME/.ssh/id_ed25519 -C "loreto-HP255G7.ed25519"
+    - ssh-keygen -t rsa -b 2048 -f $HOME/.ssh/id_rsa -C "loreto-HP255G7.rsa"
+
+    su ubuntu-22.04 ssh server non risulta installato
+    https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
+    check:
+        - ssh localhost
+            connect to host localhost port 22: Connection refused
+
+    - install:
+        - sudo apt-get install openssh-server
+
+            make a r/o backup of your sshd_config:
+        - bkup_file='/etc/ssh/sshd_config.factory-defaults' && sudo cp /etc/ssh/sshd_config $bkup_file && sudo chmod a-w $bkup_file
+
+        - sudo vi /etc/ssh/sshd_config
+            modificare la porta di ascolto da 22 a 2222
+
+        - sudo systemctl restart ssh
+
+        se alla partenza di sshd  da errori come segue:
+                * Starting OpenBSD Secure Shell server sshd sshd
+                Could not load host key: /etc/ssh/ssh_host_rsa_key
+                Could not load host key: /etc/ssh/ssh_host_ecdsa_key
+                Could not load host key: /etc/ssh/ssh_host_ed25519_key
+            dare il comando:
+                sudo ssh-keygen -A
+
+
+

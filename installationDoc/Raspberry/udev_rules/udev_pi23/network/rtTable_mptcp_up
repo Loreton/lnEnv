@@ -1,0 +1,46 @@
+#!/bin/bash
+# A script for setting up routing tables for MPTCP in the N950.
+# http://multipath-tcp.org/pmwiki.php/Users/ConfigureRouting
+# posizione originale: /etc/network/if-up.d/rtTable_mptcp_up
+
+set -e
+
+env > /etc/network/if_up_env
+
+# ==================================================
+# definisce le seguenti funzioni:
+#   lnLogger
+#   bringUPInterface
+#   bringDOWNInterface
+#   setWlan0
+#   setWlan1
+#   setEth0
+thisSCRIPT=$(basename $0)
+moduleName=$(basename $0)
+now=$(date +"%Y/%m/%d %H:%M:%S")
+source /home/pi/LnProd/etc/LnCommon/LnNetFunctions $thisSCRIPT
+# ==================================================
+
+
+    [[ -z "$IFACE" ]] && exit 0
+    [[ "$IFACE" ==  *"lo"* ]] && exit 0
+    [[ "$IFACE" ==  *"--all"* ]] && exit 0
+    [[ "$MODE" != 'start' ]] && exit 0
+
+        # chiama la funzione con il nome della vlan
+    [[ "$IFACE" ==  *"wlan0"* ]] && setWlan0
+    [[ "$IFACE" ==  *"wlan1"* ]] && setWlan1
+    [[ "$IFACE" ==  *"eth0"* ]]  && setEth0
+
+    wrLog "$moduleName" "$LINENO" "   interfaceName:      $IFACE"
+    wrLog "$moduleName" "$LINENO" "   MODE:               $MODE"
+    wrLog "$moduleName" "$LINENO" "   interfaceName:      $interfaceName"
+    wrLog "$moduleName" "$LINENO" "   NET:                $NET"
+    wrLog "$moduleName" "$LINENO" "   MASK:               $MASK"
+    wrLog "$moduleName" "$LINENO" "   IPADDR:             $IPADDR"
+    wrLog "$moduleName" "$LINENO" "   GATEWAY:            $GATEWAY"
+    wrLog "$moduleName" "$LINENO" "   TABLE_NAME:         $TABLE_NAME"
+    wrLog "$moduleName" "$LINENO" "   ------------------------ "
+    bringUPInterface
+    wrLog "$moduleName" "$LINENO" ""
+    exit 0

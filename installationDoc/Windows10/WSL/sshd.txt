@@ -1,0 +1,28 @@
+Accedere da dos prompt:
+wsl --user root
+modificare /etc/sshd/sshd.config e modificare la porta 22 in 2222
+    sudo service ssh --full-restart
+nel caso dia errore: no hostkeys available -- exiting
+creare le ssh keys di root
+    ssh-keygen -A
+
+creare il file authorized_keys con le chiavi pub di accesso e modificare gli attributi del file
+    chmod 600 ayuthorized_keys
+
+
+
+sotto WSL 2:
+see:
+https://www.hanselman.com/blog/how-to-ssh-into-wsl2-on-windows-10-from-an-external-machine
+
+netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=127.0.0.1 connectport=2222
+
+
+open fw:
+netsh advfirewall firewall add rule name=”Open Port 2222 for WSL2” dir=in action=allow protocol=TCP localport=2222
+
+show:
+netsh interface portproxy show v4tov4
+
+remove
+netsh int portproxy reset all

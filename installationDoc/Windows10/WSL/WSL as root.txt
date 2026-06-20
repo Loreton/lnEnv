@@ -1,0 +1,12 @@
+Come accedere a WSL come root
+
+There is a simpler method.
+
+Open cmd.exe
+    wsl -u root
+    passwd username (to change user password)
+    passwd          (to change root password)
+    exit
+    wsl
+
+type sudo echo hi (to confirm the new password works)

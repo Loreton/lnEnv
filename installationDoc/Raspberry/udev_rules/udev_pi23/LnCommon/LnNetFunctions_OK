@@ -1,0 +1,270 @@
+#!/bin/bash
+#
+# 1. /home/pi/Loreto/etc/rules.d/70-ln-network.rules
+# -----------------------------------------------------------------------
+# le tabelle di routing sono definite in : /etc/iproute2/rt_tables
+#       200     eth0
+#       201     wlan0
+#       202     wlan1
+# -----------------------------------------------------------------------
+caller=$1   # Script chiamante
+gScriptName=$(basename "$0" ".sh")
+# _LOGfile="/tmp/myRoute_lnNetwork"
+_LOGfile="/tmp/LnNetFunctions_${caller}.log"
+# _ERRORfile='/dev/null'
+_ERRORfile='/tmp/LnNetFunctions.err'
+# clear errorFile
+echo >$_ERRORfile
+
+alias ifup='/sbin/ifup'
+alias ifdown='/sbin/ifdown'
+alias ifconfig='/sbin/ifconfig'
+
+thisHost=$(hostname)
+
+function wrLog {
+    lineNO=$1; shift
+
+    outLineFile="[$gHostNAME] $(date '+%T') $gScriptName[$lineNO] - "
+    # outLineConsole="$gScriptName[$lineNO] - "
+
+    now=$(date +"%Y/%m/%d %H:%M:%S")
+    # echo "$now - $*" >>$_LOGfile
+    echo "$outLineFile - $*" >>$_LOGfile
+}
+
+
+
+function lnLoggerzzz {
+    now=$(date +"%Y/%m/%d %H:%M:%S")
+    echo "$now - $*" >>$_LOGfile
+}
+
+
+##########################################################
+# -
+##########################################################
+function cleanVars {
+    lnLogger ""
+    interfaceName=''
+    SUBNET=''
+    MASK=""
+    IPADDR=""
+
+    GATEWAY=""
+    TABLE_NAME=""
+    statusFileName=""
+    isUP=""
+    lastSTATUS=""
+    interfaceExists=""
+}
+
+##########################################################
+# - scriviamo lo STATUS 1/0 dell'interfaccia nel file /tmp/eth0.status
+# - 1 = OK
+# - 0 = ERROR
+##########################################################
+function setOtherVars {
+    GATEWAY="${SUBNET}.1"
+    TABLE_NAME="$interfaceName"
+    statusFileName="/tmp/${interfaceName}.status"
+
+    interfaceExists=$(ip addr sh ${interfaceName} 2>>$_ERRORfile | grep ${interfaceName}: | wc -l); lnLogger "$interfaceName Exists? : $interfaceExists"
+    if [[ "$interfaceExists" -eq "0" ]]; then
+        lastSTATUS=0
+        isUP=0
+
+    else
+        # read last Status
+        lastSTATUS=$(head -1 <$statusFileName |  awk '{print $1;}'); lnLogger "$interfaceName lastSTATUS: $lastSTATUS"
+
+        # read current  Status
+        isUP=$(ip addr sh ${interfaceName} 2>>$_ERRORfile| grep "inet ${IPADDR}/"  | wc -l);    lnLogger "$interfaceName UP?     : $isUP"
+    fi
+
+        # save current Status
+    echo "$isUP" >$statusFileName
+
+}
+
+
+
+##########################################################
+# -
+##########################################################
+function setWlan0 {
+
+    cleanVars
+
+    interfaceName='wlan0'
+    lnLogger "setting variables for interface ${interfaceName}"
+
+    getIpAddress;[[ "$?" -ne "0" ]] && return 1
+    setOtherVars
+}
+
+##########################################################
+# -
+##########################################################
+function setWlan1 {
+    cleanVars
+
+    interfaceName='wlan1'
+    lnLogger "setting variables for interface ${interfaceName}"
+    getIpAddress;[[ "$?" -ne "0" ]] && return 1
+
+    setOtherVars
+
+
+}
+
+
+##########################################################
+# - Loreto
+##########################################################
+function setEth0 {
+    cleanVars
+
+    interfaceName='eth0'
+    lnLogger "setting variables for interface ${interfaceName}"
+    getIpAddress;[[ "$?" -ne "0" ]] && return 1
+    setOtherVars
+
+}
+
+
+
+##########################################################
+# - return $IPADDR and $SUBNET and MASK
+##########################################################
+function getIpAddress {
+        # set -x
+    lnLogger "reading interface ${interfaceName}"
+     # set -x
+    isInterfaceUP=$(ip a s ${interfaceName} 2>>$_ERRORfile | grep "inet " | wc -l)
+
+        # - Non c'è l'indirizzo. Vediamo se esiste la schedA
+    if [[ "$isInterfaceUP" == "0" ]]; then
+        IFC_LINE=$(ip a s ${interfaceName} 2>>$_ERRORfile | grep "${interfaceName}: " | wc -l)
+        if [[ "$IFC_LINE" == "1" ]]; then
+            lnLogger "trying to start interface: ${interfaceName}"
+            # /sbin/ifup ${interfaceName} 2>>$_ERRORfile
+            ifup ${interfaceName}
+            sleep 2
+        else
+            lnLogger "interface ${interfaceName} NOT Found!"
+        fi
+        # exit
+        return 1
+
+    else
+        IPADDR_LINE=$(ip a s ${interfaceName} 2>>$_ERRORfile | grep "inet ")
+            # - indirizzo trovato.
+        IPADDR=$(echo $IPADDR_LINE | awk '{ print $2 }'| awk -F '/' '{print $1}')
+        # subnetBits=$(ip a s ${interfaceName} | grep "inet " | awk -F'/' '{ print $2 }' |  awk '{ print $1 }')
+
+            # Read first three octets
+        OCTECT_01=$(echo $IPADDR | cut -d\. -f1)
+        OCTECT_02=$(echo $IPADDR | cut -d\. -f2)
+        OCTECT_03=$(echo $IPADDR | cut -d\. -f3)
+        SUBNET="$OCTECT_01.$OCTECT_02.$OCTECT_03"         # default
+        [[ "$subnetBits" == "24" ]] && SUBNET="$OCTECT_01.$OCTECT_02.$OCTECT_03"
+        MASK="${SUBNET}.0${subnetBits}"
+    fi
+
+    # exit
+    return 0
+
+}
+
+
+##########################################################
+# - set Rules and Routes
+##########################################################
+function bringUPInterface {
+    lnLogger "Starting up the interface ${interfaceName}"
+    lnLogger "  IP Address: ${IPADDR}"
+    lnLogger "  TABLE Name: ${TABLE_NAME}"
+    lnLogger "  GATEWAY:    ${GATEWAY}"
+    lnLogger "  MASK:       ${MASK}"
+    lnLogger "  UPping interface"
+    /sbin/ifup ${interfaceName} 2>>$_ERRORfile
+
+    # leggiamo i rule
+    ruleExists=$(ip rule | egrep "$IPADDR|$TABLE_NAME" | wc -l)
+    if [[ "$ruleExists" == 0 ]]; then
+        lnLogger "  Adding RULES"
+        CMD="       ip rule add from      $IPADDR table $TABLE_NAME"
+        lnLogger $CMD
+        $CMD 2>>$_ERRORfile
+    fi
+
+    lnLogger "  Adding Routes"
+    CMD="       ip route add $MASK     dev $interfaceName scope link table $TABLE_NAME"
+    lnLogger $CMD
+    $CMD 2>>$_ERRORfile
+
+    CMD="       ip route add default  via $GATEWAY      dev $interfaceName table $TABLE_NAME"
+    lnLogger $CMD
+    $CMD 2>>$_ERRORfile
+}
+
+
+##########################################################
+# - clear Rules and Routes
+##########################################################
+function bringDOWNInterface {
+    lnLogger "Shutting down the interface ${interfaceName}"
+    # ifdown ${interfaceName}
+
+    # lnLogger "clearing rules for interface ${interfaceName}"
+    ruleExists=$(ip rule | egrep "$IPADDR|$TABLE_NAME" | wc -l)
+
+
+    # ricerchiamo tutti i rule relativi all'indirizzo e li cancelliamo  se > 1
+    if [[ "$ruleExists" > 1 ]]; then
+        arrayRule=$(ip rule | grep $IPADDR)
+        while IFS='\n' read -ra RULES; do
+            for record in "${RULES[@]}"; do
+                # echo $record
+                rulePrefix=$(echo  "$record" | cut -d\:  -f1)
+                echo $rulePrefix
+                CMD="ip rule del pref $rulePrefix"
+                lnLogger $CMD
+                $CMD 2>>$_ERRORfile
+            done
+        done <<< "$arrayRule"
+    fi
+
+    CMD="ip rule del table $TABLE_NAME"
+    lnLogger $CMD
+    $CMD # 2>>$_ERRORfile
+
+    # lnLogger "clearing routes for interface ${interfaceName}"
+    CMD="ip route flush table $TABLE_NAME"
+    lnLogger $CMD
+    $CMD # 2>>$_ERRORfile
+}
+
+# #######################################################
+# - prende il nome dell'interfaccia
+# - forma il nome della funzione e la chiama
+# - esce se la var interfaceName e' nulla
+# - chiama una URL per ottenere l'indirizzo IP remoto relativo
+# - all'interfaccia di chiamata.
+# #######################################################
+function getRemoteIP {
+    interface=$1
+    func="set${interface^}"
+    eval $func          # chiama la funzione setXXXX
+
+    [[ "$interfaceName" == "" ]] && return 0
+    NEWIP=''
+    isUP=$(ip addr sh ${interfaceName} 2>>$_ERRORfile | grep "inet ${IPADDR}"  | wc -l);    lnLogger "is $interfaceName UP?     : $isUP"
+    if [[ "$isUP" == "1" ]]; then
+        CURL_OPTIONS="--connect-timeout 5 --max-time 10 --silent"
+        NEWIP=$($CURL_PROGRAM $CURL_OPTIONS --interface ${interfaceName} http://icanhazip.com/)     # --- ottieni l'indirizzo IP esterno per questa interfaccia
+    fi
+    echo ${NEWIP}
+}
+

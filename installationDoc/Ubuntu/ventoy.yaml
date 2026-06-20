@@ -1,0 +1,20 @@
+# updated by ...: Loreto Notarantonio
+# Date .........: 11-12-2024 16.03.43
+A New Bootable USB Solution
+
+ref:
+    https://www.ventoy.net/en/doc_start.html
+
+cli:
+    Download the installation package, like ventoy-x.x.xx-linux.tar.gz and decompress it.
+    Run the shell script as root sh Ventoy2Disk.sh { -i | -I | -u } /dev/XXX   XXX is the USB device, for example /dev/sdb.
+
+
+GUI:
+    3. Usage
+    Open the terminal and directly execute the corresponding file in the above table.
+    Take the most commonly used x86 64-bit OS for example, just execute ./VentoyGUI.x86_64
+
+
+installed:
+    /home/loreto/lnFreex/ventoy-1.0.99/Ventoy2Disk.sh

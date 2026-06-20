@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 20-06-2026 12.42.08
+#
+
+
+if [[ "${lapTopPC_lc}" == *" ${hostname_lc} "* ]]; then
+
+    function @start_sxhkd() {
+        # set -x
+        # alias per eliminare questo file
+        local rcode=$(ps -ef | grep sxhkd | grep -v grep |  grep -v alias | grep -v tail |  wc -l)
+        if [[ $rcode -eq 0 ]]; then
+            # local cmd="/usr/bin/sxhkd -c ${HOME}/filu/lnEnv/config/appls/sxhkd/sxhkdrc -r /tmp/sxhkd.log -s /tmp/sxhkd_status.fifo"
+            local cmd="/home/loreto/filu/lnEnv/start_proc/sxhkd_start.sh"
+            ### lanciato da launcher
+            @lnLog "${purpleH}executing: ${cmd}"
+            $cmd &
+            [[ $? == 0 ]] && @lnLog "${purpleH}sxhkd started!"
+        else
+            @lnLog "${purpleH}sxhkd already active!"
+        fi
+        set +x
+    }
+
+
+    ### ------
+    ### creazione del link per inserire il .xbindekeysrc nella $HOME/.xbindekeysrc
+    # pgm='sxhkd'
+    if ! declare -F @createLink > /dev/null; then
+        source create_links.functions
+    fi
+
+    export fEXECUTE="--go" ### fEXECUTE
+    @createLink "${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc"  "${HOME}/.config/sxhkd/sxhkdrc"
+    ### -------------
+
+    # parte la prima volta da launcher
+    # @start_sxhkd
+
+    # alias ${alias_prefix}sxhkd.stop="pkill -x sxhkd"
+    alias ${alias_prefix}sxhkd.stop="killall -9 sxhkd"
+    alias ${alias_prefix}sxhkd.restart=".sxhkd.stop; sleep 1; @start_sxhkd"
+    alias ${alias_prefix}sxhkd.start="@start_sxhkd"
+    alias ${alias_prefix}sxhkd.status="ps -ef | grep sxhkd | grep -v grep |  grep -v alias | grep -v tail"
+    # unset pgm
+fi

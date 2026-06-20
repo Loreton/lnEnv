@@ -1,0 +1,48 @@
+# How to read the syntax:
+# control + x ; control + i: This line defines the chord. The ; (semicolon) is the key. It means "listen for Control+k, then wait for Control+i".
+# firefox: This is the command to execute. It MUST be indented by at least one space or a tab.
+# sxhkd is flexible, so you can use other modifiers like alt, shift, or super (the Windows key). For a complete list of key names, you can run xev in a terminal and press a key to see its name
+
+
+# Open Firefox (Ctrl + K then Ctrl + I)
+alt + x ; alt + c
+    /usr/bin/flatpak run com.calibre_ebook.calibre
+
+# Open the System Monitor (Ctrl + K then Ctrl + M)
+alt + x ; alt + m
+    gnome-system-monitor
+
+alt + x; alt + x
+    /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip_rootdir
+
+# Super_L + x
+    # /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip_rootdir
+
+# shift+control+x ; shift + control + s
+#     /home/loreto/filu/lnEnv/start_proc/sublime_start.sh
+
+# shift+control+x ; shift + control + d
+#     /home/loreto/filu/lnEnv/start_proc/doublecmd_start.sh
+
+# shift+control+x ; shift + control + z
+#     /usr/bin/flatpak run dev.zed.Zed --user-data-dir /home/loreto/filu/lnEnv/config/appls/zed
+
+
+alt + x ; alt + s
+    ${ln_START_PROC_DIR}/sublime_start.sh
+    # /home/loreto/filu/lnEnv/start_proc/sublime_start.sh
+
+alt + x ; alt + d
+    ${ln_START_PROC_DIR}/doublecmd_start.sh
+
+alt + x ; alt + z
+    /usr/bin/flatpak run dev.zed.Zed --user-data-dir ${ln_ENV_DIR}/config/appls/zed
+
+alt + x ; alt + e
+    ${ln_START_PROC_DIR}/sublime_start.sh  ${ln_ENV_DIR}/config/appls/sxhkd/sxhkdrc
+
+
+# alt + shift + Escape
+#     sxhkd -r /tmp/sxhkd.log -s /tmp/sxhkd_status.fifo &
+    # pkill -x sxhkd && -r /tmp/sxhkd_status.fifo &
+    # pkill -x sxhkd && -s sxhkd &

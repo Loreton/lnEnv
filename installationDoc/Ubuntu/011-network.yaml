@@ -1,0 +1,9 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 30-10-2025 12.11.37
+#
+
+sudo apt install net-tools
+flatpak install flathub org.angryip.ipscan
+flatpak install flathub io.github.zingytomato.netpeek ### troppo elementare da solo indirizzo e porte
+flatpak install flathub org.nmap.Zenmap

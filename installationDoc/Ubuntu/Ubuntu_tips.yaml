@@ -1,0 +1,52 @@
+
+DNS_resolve:
+    pbm: mi trovo /etc/resolve.conv con nameserver 127.0.0.53 e questo comporta che ignora il mio dnsmasq che si trova su un altro server
+
+    ref1: https://askubuntu.com/questions/1333643/how-to-disable-127-0-0-53-as-dns
+        soluzione:
+            - sudo vi /etc/systemd/resolved.conf
+            - change
+                DNSStubListener=yes to DNSStubListener=no
+            - sudo systemctl restart systemd-resolved.service
+            - cat /etc/resolv.conf
+        sembra funzionare
+
+
+
+    ref2: https://gist.github.com/zoilomora/f7d264cefbb589f3f1b1fc2cea2c844c?permalink_comment_id=4085711
+        We did not have NetworkManager service installed (fresh ubuntu 20.04). We kept the systemd-resolved service running and changed the /etc/resolv.conf symlink to use another resolv.conf file.
+        """
+            Default symlink was this:
+            /etc/resolv.conf  ->  /run/systemd/resolve/stub-resolv.conf
+
+            We changed it to:
+            /etc/resolv.conf  ->  /run/systemd/resolve/resolv.conf
+
+            This means we don't use a 127.0.0.53 cached resolver,
+            but we keep using the generated resolv.conf file from the systemd-resolved service.
+            Which is overwritten/managed by netplan
+        """
+        NON verificato... testing ref1
+
+
+    ref3:
+        - https://gist.github.com/zoilomora/f7d264cefbb589f3f1b1fc2cea2c844c?permalink_comment_id=4085711
+        - https://bobcares.com/blog/disable-systemd-resolved-in-ubuntu/
+        Stages:
+            Disable and stop the systemd-resolved service:
+              sudo systemctl disable systemd-resolved.service
+              sudo systemctl stop systemd-resolved
+
+            put the following line in the [main] section of your:
+                sudo vi /etc/NetworkManager/NetworkManager.conf
+                [main]
+                dns=default
+
+            Delete the symlink /etc/resolv.conf:
+              sudo rm -f /etc/resolv.conf
+
+            Restart network-manager:
+              sudo service network-manager restart
+
+        NON funziona perché non esiste network-manager service
+

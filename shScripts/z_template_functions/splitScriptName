@@ -1,0 +1,27 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+
+
+
+
+
+
+
+function _ln_splitScriptName() {
+    local caller=$*
+
+     # link_* e real_* saranno diversi nel caso lo script sia stato chiamato tramite un symlink
+    link_FullPath=$caller
+    real_script_FullPath="$(readlink -fvs  $caller)"       # OTTIMA
+    scriptDir="$(dirname $real_script_FullPath)"
+    real_scriptName="$(basename $real_script_FullPath)"
+    scriptName=$real_scriptName
+    sym_link="$(basename $link_FullPath)" # se chiamato via link è diverso dal real
+    [[ $real_scriptName != $sym_link ]] && link_scriptName=${sym_link} || link_scriptName=''
+
+    noext_scriptName="$(basename $real_scriptName .sh)" # remove extension
+    [[ $real_scriptName != $link_scriptName ]] && local link="(symlink: ${link_scriptName})" || local link=''
+}

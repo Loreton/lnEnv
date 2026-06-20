@@ -1,0 +1,4 @@
+# - UPGRADE pip
+    python -m pip install --upgrade pip
+    # se ci sono errori...
+    pip3 install --upgrade pip==9.0.3

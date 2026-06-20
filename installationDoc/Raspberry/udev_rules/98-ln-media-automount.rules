@@ -1,0 +1,118 @@
+# vim:enc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=udevrules:
+#
+# /etc/udev/rules.d/98-my-media-automount.rules
+# http://www.binarytides.com/linux-commands-hardware-info/
+#       lscpu
+#       sudo lsusb
+#       sudo lsusb -v
+#       lsblk
+#       udevadm info -a -n /dev/sda1
+#       blkid -o udev -p /dev/sda1
+
+# --------------------------------------
+# - udevadm control --reload-rules
+# --------------------------------------
+
+# ---- skip all
+GOTO="LnExit"
+
+# ignore the system hard drive
+KERNEL!="sd[a-z]*", GOTO="LnExit"
+# ACTION=="add", PROGRAM!="/sbin/blkid %N", GOTO="LnExit"
+
+# --- Ln: Import FS infos
+IMPORT{program}="/sbin/blkid -o udev -p %N"
+
+# --- Ln: common mount options
+ACTION=="add", ENV{common_options}="defaults,noauto,relatime"
+
+# --- Ln: Filesystem-specific mount options
+ACTION=="add", ENV{ID_FS_TYPE}=="exfat",     ENV{mount_options}="$env{common_options},utf8=1,uid=pi,gid=pi,dmask=002,fmask=113"
+ACTION=="add", ENV{ID_FS_TYPE}=="vfat|ntfs", ENV{mount_options}="$env{common_options},utf8=1,uid=pi,gid=pi,dmask=002,fmask=113"
+
+
+# =============================================
+# check UUID if known
+#   otherwise
+# get the label if present
+#   otherwise
+# assign one based on device/partition
+# =============================================
+ENV{ID_FS_UUID}=="41cd5baa-7a62-4706-b8e8-02c43ccee8d9", ENV{dir_name}="SD_Alcor_2GB_Swap",                      GOTO="LnExit"
+ENV{ID_FS_UUID}=="5D2D-B09A",                            ENV{dir_name}="SD_Alcor_2GB",      ENV{readwrite}="rw", GOTO="Ln_UUID_Device"
+ENV{ID_FS_UUID}=="34F4-73E2",                            ENV{UUID_dir_name}="/mnt/Ln32GB",       ENV{readwrite}="rw", GOTO="Ln_UUID_Device"
+
+# =============================================
+# setting di alcune variabili nel caso
+#   non vengano individuati gli UUID
+# =============================================
+# --- Ln: Get a label if present, otherwise specify one
+ENV{ID_FS_LABEL}!="", ENV{dir_name}="%E{ID_FS_LABEL}"
+ENV{ID_FS_LABEL}=="", ENV{dir_name}="usbhd-%k"
+# --- Ln: Variabili usate nello script se lanciato
+ENV{Ln.Device}="%k"
+ENV{Ln.MountDir}='/media/%E{dir_name}'
+ENV{Ln.WhoAmI}='udev'
+
+# create the dir in /media and symlink it to /mnt
+ACTION=="add", RUN+="/bin/mkdir -p '%E{Ln.MountDir}'"
+GOTO="Ln_NOT_UUID_DEVICE"
+
+
+# ==========================
+LABEL="Ln_UUID_Device"
+# ==========================
+# ACTION=="add", RUN+="/bin/mkdir -p '%E{UUID_dir_name}'"
+# ACTION=="add",    ENV{ID_FS_TYPE}=="vfat|ntfs", RUN+="/usr/local/bin/LnUdevMount.sh '%E{ID_FS_UUID}' '%E{Ln.MountDir}' "
+# ACTION=="add",    ENV{ID_FS_TYPE}=="vfat|ntfs", RUN+="/usr/bin/python3 /home/pi/Loreto/etc/media/LnMount.py '%E{ID_FS_UUID}'"
+
+# ACTION=="add", RUN+="/bin/mkdir -p %E{UUID_dir_name}", RUN+="/bin/mount -o $env{mount_options} /dev/%k %E{UUID_dir_name}"
+GOTO="LnExit"
+
+
+
+# ACTION=="add", ENV{mount_options}="nousers,rw,flush,utf8=1,uid=pi,gid=pi,dmask=002,fmask=113"
+
+# filesystem-specific mount options (777/666 dir/file perms for ntfs/vfat)
+# ACTION=="add", ENV{ID_FS_TYPE}=="vfat|ntfs", ENV{mount_options}="$env{mount_options},$env{readwrite},uid=pi,gid=pi,dmask=000,fmask=111,utf8"
+# ACTION=="add", ENV{ID_FS_TYPE}=="vfat|ntfs", ENV{mount_options}="$env{mount_options},gid=100,dmask=000,fmask=111,nls=utf8,noexec,sync,locale=it_IT.UTF-8"
+
+# automount ntfs filesystems using ntfs-3g driver
+# ACTION=="add", ENV{ID_FS_TYPE}=="ntfs", RUN+="/bin/mount -t ntfs-3g -o %E{mount_options} /dev/%k '%E{Ln.MountDir}'"
+
+
+
+# clean up after device removal
+# ACTION=="remove", ENV{dir_name}!="", RUN+="/bin/umount -l '/media/%E{dir_name}'", RUN+="/bin/rmdir '%E{Ln.MountDir}'"
+
+# ACTION=="add",    ENV{ID_FS_TYPE}=="vfat|ntfs", RUN+="/usr/local/bin/LnUdevMount.sh '%E{ID_FS_UUID}' '%E{Ln.MountDir}' "
+# ACTION=="add",    ENV{ID_FS_TYPE}=="vfat|ntfs", RUN+="/usr/bin/python3 /home/pi/Loreto/etc/media/LnMount.py '%E{ID_FS_UUID}'"
+# ACTION=="add",    ENV{ID_FS_UUID}=="B222175022171945", RUN+="/usr/local/bin/LnUdevMount.sh B222175022171945"
+
+
+# ==========================
+LABEL="Ln_NOT_UUID_DEVICE"
+# ==========================
+ACTION=="add", RUN+="/bin/mkdir -p %E{Ln.MountDir}", RUN+="/bin/mount -o $env{mount_options} /dev/%k %E{Ln.MountDir}"
+
+# --- Clean up after removal
+# ACTION=="remove", ENV{ID_FS_UUID}=="B222175022171945", RUN+="/usr/local/bin/LnUdevMount.sh 0"
+ACTION=="remove", ENV{dir_name}!="", RUN+="/bin/umount -l %E{Ln.MountDir}", RUN+="/bin/rmdir %E{Ln.MountDir}"
+
+# --- Exit
+
+
+
+
+# --- Global mount options
+ACTION=="add", ENV{mount_options}="relatime"
+
+# automount all other filesystems
+ACTION=="add", ENV{ID_FS_TYPE}!="ntfs", RUN+="/bin/mount -t auto -o %E{mount_options} /dev/%k '%E{Ln.MountDir}'"
+
+# exit
+# ==========================
+LABEL="LnExit"
+# ==========================
+
+

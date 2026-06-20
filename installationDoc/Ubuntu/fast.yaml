@@ -1,0 +1,11 @@
+
+descr:
+    Minimal zero-dependency utility for testing your internet download speed from terminal.
+
+ref:
+    https://snapcraft.io/fast
+
+instll:
+    sudo snap install fast
+
+tutorial:

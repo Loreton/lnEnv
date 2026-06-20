@@ -1,0 +1,72 @@
+note:
+    Il modo migliore per installare più versioni di python è usare pyenv
+    Una volta installato si può usare il comando nativo
+
+pyenv:
+    https://help.clouding.io/hc/en-us/articles/13555555842588-How-to-install-different-versions-of-Python-on-Ubuntu
+    https://www.baeldung.com/linux/python-multiple-versions#:~:text=The%20right%20way%20to%20install,causing%20trouble%20with%20Linux%20packages.
+
+install:
+    Install Python using pyenv
+    If you need to install specific versions of Python or work with multiple versions of Python on your system, a popular option is to use pyenv.
+    pyenv is a tool that allows you to easily install and manage multiple versions of Python on your system.
+
+
+Steps to install penv:
+    First, install the necessary dependencies using the following command:
+        sudo apt update && sudo apt install git curl make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl
+
+    Then, download and install pyenv by executing these commands:
+        sudo curl https://pyenv.run | bash
+
+    Configure pyenv (questo non lo uso in quanto creo direttamente i venv con la versione che desidero):
+        Once pyenv is installed, you need to configure your shell profile for pyenv to work properly.
+        Add the following lines to the end of your file with nano or vi in .bashrc o .bash_profile:
+
+            echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+            echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+            echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+        oppure:
+            eseguire quanto segue per arere penv nelle PATH
+            export PYENV_ROOT="$HOME/.pyenv" && [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+        
+        ...comunque:
+            usare update-alternative per la gestione delle versioni
+
+        su un sistema ho trovato che .pyenv/bin/pyenv non funzionava. l'ho rimpiazzato con:
+            cd .pyenv/bin && ln -s ../libexec/pyenv
+
+    pyenv install --list
+    pyenv install 3.12.5
+
+    to set Python 3.9.10 as the global version of Python, run:
+        pyenv global 3.12.5
+        pyenv global 3.10
+    meglio usare:
+        pyenv local 3.10
+        pyenv local 3.12.5
+    oppure ancora meglio:
+        mkdir webFlask
+        cd webFlask/
+        /path/pythonxxxx -m venv .venv
+
+    If you need to know the pyenv version you can run the following command:
+        pyenv --version
+
+
+    rimuovere le linee dal .bashrc per eliminare pynev e sfruttare update-alternatives per la gestione delle versioni
+
+    sudo update-alternatives --install /usr/bin/python python /home/loreto/.pyenv/versions/3.12.5/bin/python3.12 1
+    sudo update-alternatives --install /usr/bin/python python /home/loreto/.pyenv/versions/3.11.9/bin/python3.11 1
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+
+
+    sudo update-alternatives --config python
+
+
+    create_venv_3.12:
+        VENV_DIR="${HOME}/.lnVenv/mqttmonitor" && PYTHON_VERSION="${HOME}/.pyenv/versions/3.12.5/bin/python3.12"
+        echo "creating python env Version ${VENV_DIR}" && ${PYTHON_VERSION} -m venv ${VENV_DIR} && source ${VENV_DIR}/bin/activate
+        vedere l'alias: .venv_mqttmonitor
+        # python -m venv /home/pi/.ln_venv

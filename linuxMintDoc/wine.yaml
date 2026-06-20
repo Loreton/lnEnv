@@ -1,0 +1,26 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 04-12-2025 12.21.28
+#
+
+
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 04-12-2025 12.21.28
+#
+
+wine:
+sudo apt install wine   
+
+
+xnview: # non funziona ....
+    ref:
+        https://flathub.org/en/apps/org.winehq.Wine
+
+    install:
+        flatpak install flathub org.winehq.Wine
+
+    run:
+        flatpak run org.winehq.Wine
+
+

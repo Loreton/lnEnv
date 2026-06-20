@@ -1,0 +1,15 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 18.36.06
+#
+
+
+angryip:
+    ref:
+        https://flathub.org/en/apps/org.angryip.ipscan
+
+    install:
+        flatpak install flathub org.angryip.ipscan
+
+    run:
+        flatpak run org.angryip.ipscan

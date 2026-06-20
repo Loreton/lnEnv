@@ -1,0 +1,31 @@
+# vim:enc=utf-8:nu:ai:si:et:ts=4:sw=4:ft=udevrules:
+#
+# /etc/udev/rules.d/98-my-media-automount.rules
+# http://www.binarytides.com/linux-commands-hardware-info/
+#       lscpu
+#       sudo lsusb
+#       sudo lsusb -v
+#       lsblk
+#       udevadm info -a -n /dev/sda1
+#       blkid -o udev -p /dev/sda1
+
+# --------------------------------------
+# - udevadm control --reload-rules
+# --------------------------------------
+
+# ---- skip all
+# GOTO="LnExit"
+
+SUBSYSTEM=="block", ENV{ID_FS_UUID}=="0E4D094B0E4D094B", ENV{UDISKS_IGNORE}="1"
+SUBSYSTEM=="block", ENV{ID_FS_UUID}=="843671A53671993E", ENV{UDISKS_IGNORE}="1"
+SUBSYSTEM=="block", ENV{ID_FS_UUID}=="441d4b2e-2e17-451d-8835-485e388f6595", ENV{UDISKS_IGNORE}="1"
+
+
+
+
+# exit
+# ==========================
+LABEL="LnExit"
+# ==========================
+
+

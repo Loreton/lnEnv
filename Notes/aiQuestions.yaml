@@ -1,0 +1,186 @@
+Question_01_wifiManager:
+    esp32 con platformio.
+    avrei bisogno di un modulo wifiManager non-bloccante che permetta:
+
+    1. avere multi ssid. si collega a quello con il segnale più alto)
+    2. deve verificare la connessione e se disconnesso fa il discovery per ricercare la rete con il segnale più alto
+    3. lo scan interval viene preimpostato
+    4. gestione eventi per disconnessione o altro (non importante se si riece a gestire diversamente)
+
+    inserisco alcune variabili che possono essere indicative:
+        m_scanInterval;
+        m_scanIntervalWhenConnected;
+        m_scanIntervalWhenNotConnected;
+        m_maxWifiTimeout; // Timeout massimo senza connessione (ad esempio 5 minuti)
+        m_rssiGap = 7 o 10 o altro; // gap necessario per cambiare il corrente SSID con uno migliore
+
+
+    gradirei una classe.ccp e classe.h separate ed un file di esempio per effettuare i test
+    la classe dovrebbe avere almeno i seguenti moduli:
+        - il costruttore senza paramtri
+        - init(args,....)
+        - update() per verificare lo stato
+        - addSSID(ssid, password) // per aggiungere le reti ed evitare di scrivere le password  nel codice
+
+
+
+
+
+
+
+
+Answer_01 Opera Aria:
+    Ciao! Creare un modulo **WiFiManager** non bloccante per l'ESP32 che soddisfi le tue esigenze è un'ottima idea!
+    Ecco un esempio di come potresti strutturare una classe per gestire la connessione a più SSID,
+    verificare la connessione e gestire gli intervalli di scansione.
+
+    ### Struttura della Classe WiFiManager
+
+    ```cpp
+    #include <WiFi.h>
+    #include <WiFiMulti.h>
+
+    class WiFiManager {
+    public:
+        WiFiManager(int scanInterval, int scanIntervalWhenConnected, int scanIntervalWhenNotConnected, int maxWifiTimeout, int rssiGap)
+            : m_scanInterval(scanInterval),
+              m_scanIntervalWhenConnected(scanIntervalWhenConnected),
+              m_scanIntervalWhenNotConnected(scanIntervalWhenNotConnected),
+              m_maxWifiTimeout(maxWifiTimeout),
+              m_rssiGap(rssiGap) {
+            WiFiMulti.addAP("SSID1", "password1");
+            WiFiMulti.addAP("SSID2", "password2");
+            // Aggiungi altri SSID qui
+        }
+
+        void connect() {
+            unsigned long startAttemptTime = millis();
+            while (WiFiMulti.run() != WL_CONNECTED) {
+                if (millis() - startAttemptTime > m_maxWifiTimeout) {
+                    Serial.println("Timeout di connessione!");
+                    return;
+                }
+                delay(m_scanInterval);
+            }
+            Serial.println("Connesso a: " + WiFi.SSID());
+        }
+
+        void checkConnection() {
+            if (WiFi.status() != WL_CONNECTED) {
+                Serial.println("Disconnesso, avvio la scansione...");
+                scanForBestSSID();
+            }
+        }
+
+        void scanForBestSSID() {
+            int bestSignal = -100; // Valore RSSI iniziale
+            String bestSSID = "";
+
+            int n = WiFi.scanNetworks();
+            for (int i = 0; i < n; ++i) {
+                int rssi = WiFi.RSSI(i);
+                if (rssi > bestSignal + m_rssiGap) {
+                    bestSignal = rssi;
+                    bestSSID = WiFi.SSID(i);
+                }
+            }
+
+            if (bestSSID != "") {
+                Serial.println("Collegamento a: " + bestSSID);
+                WiFi.begin(bestSSID.c_str());
+            }
+        }
+
+    private:
+        int m_scanInterval;
+        int m_scanIntervalWhenConnected;
+        int m_scanIntervalWhenNotConnected;
+        int m_maxWifiTimeout;
+        int m_rssiGap;
+    };
+    ```
+
+    ### Spiegazione del Codice
+
+    1. **Costruttore**: Inizializza le variabili e aggiunge gli SSID alla lista di WiFiMulti.
+    2. **connect()**: Tenta di connettersi all'SSID con il segnale più forte. Se non riesce a connettersi entro il timeout massimo, stampa un messaggio di errore.
+    3. **checkConnection()**: Controlla se la connessione è attiva. Se non lo è, avvia la scansione per trovare la rete migliore.
+    4. **scanForBestSSID()**: Scansiona le reti disponibili e si connette a quella con il segnale più forte, tenendo conto del gap RSSI.
+
+    ### Variabili Indicative
+
+    - **m_scanInterval**: Intervallo di scansione preimpostato.
+    - **m_maxWifiTimeout**: Timeout massimo senza connessione (es. 5 minuti).
+    - **m_rssiGap**: Gap necessario per cambiare l'SSID corrente con uno migliore.
+
+    ### Considerazioni Finali
+
+    Questa classe ti offre una base solida per gestire la connessione WiFi in modo non bloccante.
+    Puoi espandere ulteriormente la classe per gestire eventi specifici o altre funzionalità secondo le tue necessità.
+
+    Se hai bisogno di ulteriori modifiche o chiarimenti, fammi sapere! 😊
+
+#########################################
+Question_01_wifiManager:
+#########################################
+    gradirei una classe.ccp e classe.h separate
+    un file di esempio per effettuare i test
+    la classe dovrebbe avere almeno i seguenti moduli:
+        - il costruttore senza paramtri
+        - init(args,....)
+        - update() per verificare lo stato
+        - addSSID(ssid, password) // per aggiungere le reti ed evitare di scrivere le password  nel codice
+
+
+
+
+
+
+Capisco che stai riscontrando errori di collegamento durante la compilazione del tuo progetto in PlatformIO. Gli errori di "undefined reference" indicano che il linker non riesce a trovare le implementazioni delle funzioni dichiarate nella tua classe `WiFiManager`. Ecco alcuni passaggi per risolvere il problema:
+
+### 1. Verifica i File
+Assicurati che i file `WiFiManager.h` e `WiFiManager.cpp` siano correttamente posizionati nella cartella del tuo progetto. La struttura dovrebbe apparire così:
+
+```
+MyProject/
+├── src/
+│   ├── main_test.ino
+│   └── WiFiManager.cpp
+│   └── WiFiManager.h
+```
+
+### 2. Controlla le Dichiarazioni e le Implementazioni
+Assicurati che tutte le funzioni dichiarate nel file `WiFiManager.h` siano implementate nel file `WiFiManager.cpp`. Ad esempio, verifica che le seguenti funzioni siano presenti in `WiFiManager.cpp`:
+
+- `WiFiManager::WiFiManager()`
+- `WiFiManager::init(int, int, int, int, int)`
+- `WiFiManager::addSSID(String const&, String const&)`
+- `WiFiManager::update()`
+- `WiFiManager::getCurrentSSID()`
+- `WiFiManager::getCurrentRSSI()`
+
+### 3. Controlla il File `platformio.ini`
+Assicurati che il tuo file `platformio.ini` sia configurato correttamente. Dovrebbe includere le librerie necessarie e le impostazioni per il tuo progetto. Ecco un esempio di base:
+
+```ini
+[env:esp32]
+platform = espressif32
+board = esp32dev
+framework = arduino
+```
+
+### 4. Ricompila il Progetto
+Dopo aver verificato i file e le configurazioni, prova a pulire e ricompilare il progetto. Puoi farlo eseguendo i seguenti comandi nel terminale di PlatformIO:
+
+```bash
+pio run --target clean
+pio run
+```
+
+### 5. Controlla i Log di Compilazione
+Se gli errori persistono, controlla i log di compilazione per eventuali messaggi di errore aggiuntivi che potrebbero fornire ulteriori indizi su cosa non va.
+
+### 6. Esempio di Codice Completo
+Assicurati di avere il codice completo e corretto per `WiFiManager.h` e `WiFiManager.cpp`. Se hai bisogno di un esempio completo, fammi sapere e posso fornirti un codice di esempio.
+
+Se dopo aver seguito questi passaggi hai ancora problemi, sentiti libero di condividere ulteriori dettagli o il tuo codice, e sarò felice di aiutarti ulteriormente! 😊

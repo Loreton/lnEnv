@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cat /etc/apt/sources.list.d/raspi.list
+
+#echo "apt-get clean && sudo apt-get autoremove && sudo apt-get update -y && sudo apt-get upgrade -y"
+# sudo apt-get clean && sudo apt-get autoremove && sudo apt-get update -y && sudo apt-get upgrade -y 
+
+echo "apt-get clean && sudo apt-get autoremove && sudo apt-get update -y "
+sudo apt-get clean && sudo apt-get autoremove && sudo apt-get update -y 
+echo sudo apt-get update --allow-releaseinfo-change

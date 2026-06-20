@@ -1,0 +1,15 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 18.36.20
+#
+
+
+kicad:
+    ref:
+        https://flathub.org/en/apps/org.kicad.KiCad
+
+    install:
+        flatpak install flathub org.kicad.KiCad
+
+    run:
+        flatpak run org.kicad.KiCad

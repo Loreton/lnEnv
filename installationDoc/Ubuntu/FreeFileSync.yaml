@@ -1,0 +1,6 @@
+FreeFileSync:
+
+    download dal sito:
+        https://freefilesync.org/thank-you.php?tx=23S15522HL333892S # scaricherà uno zip con dentro un .run ed un .key
+    unzip /home/loreto/Downloads/FreeFileSync_12.0_Linux.tar.gz
+    lanciare il .run

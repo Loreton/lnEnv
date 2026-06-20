@@ -1,0 +1,229 @@
+    # ------ Samples Dashboard Start
+    -   dashboardId: dashboard_13
+        dashboardName: Samples
+        dashboardPrefixTopic: ""
+        dashboardIcon: dashboard
+        dashboardColor: '#9C27B0'
+        panels:
+
+
+        # ----- Sample Backlog Tasmota
+        -   panelName: Tasmota Backlog Sample
+            topic: cmnd/Tasmota_topic/backlog
+            seperateSubscribeTopic: stat/Tasmota_topic/RESULT
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_18
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+            options:
+            -   label: Power State
+                payload: power
+                $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#ebca06'
+
+            -   label: Summary State
+                payload: summary_state
+                icon: assignment
+                iconColor: '#0df430'
+                $$hashKey: object:983
+
+            -   label: Power ON
+                payload: power on
+                icon: bulb_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+
+            -   label: Power OFF
+                payload: power off
+                icon: bulb_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+
+            -   label: Disable Timers
+                payload: Timers 0
+                icon: timer_off
+                iconColor: '#0fe7ed'
+                $$hashKey: object:152
+
+            -   label: Enable Timers
+                payload: Timers 1
+                icon: timer
+                iconColor: '#17ec0e'
+                $$hashKey: object:401
+
+            -   label: Disable Device
+                payload: "Timers 0; Pulsetime 1" # tra apici a causa del ';'
+                icon: thumb_down
+                iconColor: '#0d85ef'
+                $$hashKey: object:959
+
+            -   label: Enable device
+                payload: "Timers 1; Pulsetime 0" # tra apici a causa del ';'
+                icon: thumb_up
+                iconColor: '#36e80d'
+                $$hashKey: object:9963
+
+            -   label: Auto-ON xx secs
+                payload: "PowerOnState 5; Pulsetime xx" # tra apici a causa del ';'
+                icon: touch_app
+                iconColor: '#f1d514'
+                $$hashKey: object:1655
+
+            -   label: Auto-OFF xx secs
+                payload: "PowerOnState 0; Pulsetime xx" # tra apici a causa del ';'
+                icon: touch_app
+                iconColor: '#9E9E9E'
+                $$hashKey: object:790
+
+
+
+        # ----- Sample LnCmnd Shelly
+        -   panelName: Shelly LnCmnd Sample
+            topic: LnCmnd/Shelly_Topic/toTelegram
+            seperateSubscribeTopic: shellies/Shelly_Topic/relay/0
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_19
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+            options:
+
+            -   label: Power State
+                payload: power
+                $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#ebca06'
+
+            -   label: Summary State
+                payload: summary_state
+                icon: assignment
+                iconColor: '#0df430'
+                $$hashKey: object:983
+
+            -   label: "ON"
+                payload: "on"
+                icon: bulb_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+
+            -   label: "OFF"
+                payload: "off"
+                icon: bulb_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+
+            -   label: Disable Timers
+                payload: Timers_Disable
+                icon: timer_off
+                iconColor: '#0fe7ed'
+                $$hashKey: object:152
+
+            -   label: Enable Timers
+                payload: timers_enable
+                icon: timer
+                iconColor: '#17ec0e'
+                $$hashKey: object:401
+
+            -   label: URL
+                payload: get_url
+                icon: settings
+                iconColor: '#06cbe5'
+                $$hashKey: object:3474
+
+            -   label: Disable Device
+                payload: disable_device
+                icon: thumb_down
+                iconColor: '#0d85ef'
+                $$hashKey: object:959
+
+            -   label: Enable device
+                payload: enable_device
+                icon: thumb_up
+                iconColor: '#36e80d'
+                $$hashKey: object:9963
+
+            -   label: Enable Mqtt
+                payload: Mqtt_Enable
+                icon: cloud_off
+                iconColor: '#d7eb0d'
+                $$hashKey: object:213
+
+            -   label: Enable Cloud
+                payload: Cloud_Enable
+                icon: cloud_queue
+                iconColor: '#0ed8f3'
+                $$hashKey: object:222
+
+            -   label: Auto-ON xx secs
+                payload: auto_on xx
+                icon: touch_app
+                iconColor: '#f1d514'
+                $$hashKey: object:1655
+
+            -   label: Auto-OFF xx secs
+                payload: auto_off xx
+                icon: touch_app
+                iconColor: '#9E9E9E'
+                $$hashKey: object:790
+
+
+        -   panelName: Tasmota Switch Sample
+            topic: cmnd/Scaldasonno/POWER
+            seperateSubscribeTopic: stat/Scaldasonno/RESULT
+            payloadOn: 'ON'
+            payloadOff: 'OFF'
+            panelId: panel_4
+            type: switch
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: true
+            jsonPath: $.POWER
+            enableNotification: true
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+
+
+        -   panelName: Shelly Switch Sample
+            topic: shellies/Shelly_Letto/relay/0/command
+            seperateSubscribeTopic: shellies/Shelly_Letto/relay/0
+            payloadOn: 'on'
+            payloadOff: 'off'
+            panelId: panel_5
+            type: switch
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            showReceivedTimeStamp: true
+            panelMergeClass: ' merge-right  '
+            showSentTimeStamp: true
+            mqttType: pubsub
+            isJSONPayload: false
+            jsonPath: $.POWER
+            enableNotification: true
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+
+    # ------ Samples Dashboard END

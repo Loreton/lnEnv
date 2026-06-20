@@ -1,0 +1,10 @@
+
+PipeView:
+    ref:
+        https://www.geeksforgeeks.org/pv-command-in-linux-with-examples/
+
+    install:
+        sudo apt update
+        sudo apt install pv
+
+

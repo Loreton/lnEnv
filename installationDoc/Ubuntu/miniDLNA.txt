@@ -1,0 +1,30 @@
+https://pimylifeup.com/raspberrypi-minidlna/
+
+o meglio
+https://www.raspberrypi.org/forums/viewtopic.php?t=251651
+
+sudo apt update && sudo apt upgrade
+sudo apt install minidlna
+
+
+sudo apt-get install ntfs-3g
+sudo blkid
+
+
+
+sudo vi /etc/minidlna.conf
+
+media_dir=V,home/pi/_mnt/LN1TB_A/LnPi23_Dlna/Videos
+media_dir=A,home/pi/_mnt/LN1TB_A/LnPi23_Dlna/Music
+media_dir=P,home/pi/_mnt/LN1TB_A/LnPi23_Dlna/Pictures
+
+friendly_name=LnPi23_DLNA
+
+sudo setfacl -m g:minidlna:rx /media/pi
+
+sudo systemctl status minidlna
+sudo systemctl force-reload minidlna
+sudo systemctl restart minidlna
+sudo systemctl start minidlna
+
+# sudo service minidlna restart && sudo service minidlna force-reload

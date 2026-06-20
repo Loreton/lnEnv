@@ -1,0 +1,218 @@
+
+
+# Tasmota_sonoff
+#  Partire da:
+#       https://github.com/arendst/Tasmota/wiki
+#  https://github.com/arendst/Sonoff-Tasmota/wiki/Arduino-IDE
+#      IMPORTANT: For Windows users, before executing arduino.exe add an empty folder called portable in the known folder.
+#
+#       Install ESP8266 board software
+#         Open Arduino IDE and select File → Preferences and add the following text
+#               for field Additional Boards Manager URLs: http://arduino.esp8266.com/stable/package_esp8266com_index.json and select OK.
+#         Open Tools → Boards... → Boards Manager... and scroll down and click on esp8266 by ESP8266 Community.
+#               Click the Install button to download and install the latest ESP8266 board software. Select Close.
+#
+#       Download Tasmota
+#           Download the latest Tasmota release Source code from
+#               https://github.com/arendst/Sonoff-Tasmota/releases and unzip to another known folder.
+
+
+https://tasmota.github.io/docs/devices/Sonoff-Basic/
+
+Una volta programmato collegare Il sonoff sulla seriale tramite l'interfaccia sulla porta USB
+ed utilizzare "Termite" come programma per accedere alla seriale.
+Non serve spingere il tasto per dare i comandi.
+
+oppure eseguire i comandi tramite l console
+oppure attraverso MQTT
+
+Esempio:
+    console oppure via USB:
+        Backlog SSID1 TPL-Casetta; Password1 xxxx.Adsl; SSID2 Tenda-M300; Password2 xxxx.Adsl
+    WEB:
+        space=%20
+        ';'=%3B
+        http://192.168.1.50/cm?&cmnd=Backlog%20Status%201%3BPower1%20on%3BDelay%2020%3BPower1%20off%3BStatus%204
+    MQTT:
+        cmnd/%topic%/<command> <parameter>
+        cmnd/tasmota_01/Backlog SSID2 Tenda-M300
+
+commands:
+
+    setSSID:
+        # Backlog SSID1 PEPPEWIFI; Password1 PicchiGiuseppe2019; SSID2 WebPocket-4545; Password2 BBBA6CAC
+        # Backlog SSID1 UNIAGRARIA; Password2 UAVottobre2020; SSID2 WebPocket-4545; Password2 BBBA6CAC
+        # SSID1 TPL-Casetta; Password1 xxxx.Adsl; SSID2 WebPocket-4545; Password2 BBBA6CAC
+        SSID1 TPL-Casetta; Password1 xxxx.Adsl; SSID2 LoretoHotSpot; Password2 Loretohspot;
+
+    MQTT:
+        # mqtthost broker.hivemq.com; mqttport 1883; mqttuser Loreto; mqttpassword xxx;
+        mqtthost lnmqtt.duckdns.org; mqttport 1883; mqttuser Loreto; mqttpassword xxxxMqtt;
+
+        SetOption3: MQTT
+                0 = disable MQTT
+            x   1 = enable MQTT (default)
+
+        SetOption10: # When the device MQTT topic changes
+            x   0 = remove retained message on old topic LWT (default)
+                1 = send "Offline" to old topic LWT
+
+        PowerRetain: MQTT power retain state
+            x   0 / off = disable MQTT power retain on status update (default)
+                1 / on = enable MQTT power retain on status update
+
+        ButtonRetain:
+            x   0 = disable use of MQTT retain flag (default)
+                1 = enable MQTT retain flag on button press
+
+        SwitchRetain:
+            x   0 = disable use of MQTT retain flag (default)
+                1 = enable MQTT retain flag on switch press
+
+
+
+    Script:
+        # For specific power control, using backlog like a script
+        Backlog Status 1; Power1 on; Delay 20; Power1 off; Status 4
+        # http://<ip>/cm?&cmnd=....
+        # http://<ip>/cm?user=admin&password=joker&cmnd=...
+        http://192.168.1.50/cm?&cmnd=Backlog%20Status%201%3BPower1%20on%3BDelay%2020%3BPower1%20off%3BStatus%204
+
+
+    LedState: # Manage LED state
+        0 = disable use of LED as much as possible
+    x   1 = show power state on LED (LED on when power on) (default) (inverted for Sonoff Touch/T1)
+        2 = show MQTT subscriptions as a LED blink
+        3 = show power state and MQTT subscriptions as a LED blink
+        4 = show MQTT publications as a LED blink
+        5 = show power state and MQTT publications as a LED blink
+        6 = show all MQTT messages as a LED blink
+        7 = show power state and MQTT messages as a LED blink
+        8 = LED on when Wi-Fi and MQTT are connected.
+
+
+    SetOption4: # Return MQTT response as
+        *   0 = RESULT topic (default)
+            1 = %COMMAND% topic
+
+    SetOption26:  # Use indexes even when only one relay is present
+        *   0 = messages use POWER (default)
+            1 = messages use POWER1
+
+    SetOption53: # Display hostname and IP address in GUI
+        *   0 = disable (default)
+            1 = enable
+
+    SetOption56:  # Wi-Fi network scan to select strongest signal on restart (network has to be visible)
+            0 = disable (default)
+        x   1 = enable
+
+    SetOption57:  # Wi-Fi network re-scan every 44 minutes with alternate to +10dB stronger signal if detected (only visible networks)
+            0 = disable
+        *   1 = enable (default)
+
+    SetOption59:  # Send tele/%topic%/STATE in addition to stat/%topic%/RESULT for commands: State, Power and any command causing a light to be turned on.
+            0 = disable (default)
+        x   1 = enable
+
+    SetOption63: # Set relay state feedback scan at restart (#5594, #5663)
+        *   0 = Scan power state at restart (default)
+            1 = Disable power state scanning at restart
+
+            setOption63 is executed after PowerOnState or restart initialization.
+
+    SetOption65: # Device recovery using fast power cycle detection
+            0 = enabled (default)
+            1 = disabled
+
+    SetOption90: # Disable sending MQTT with non-JSON messages
+        x   0 = send all MQTT (default)
+            1 = send only MQTT messages with JSON payloads
+
+    SetOption103: #    Set TLS mode
+        x   0 = disable TLS
+            1 = enable TLS
+
+    SetOption104:  #  Disable MQTT retained messages (some brokers don't support them)
+        x   0 = retained messages enabled (default)
+            1 = retained messages disabled
+
+    SetOption140:
+        x   0 = open clean MQTT session (default)
+            1 = open persistent MQTT session
+
+    PowerOnState: #  Control relay state after powering up the device.
+        x   0 / OFF = keep relay(s) OFF after power up
+            1 / ON = turn relay(s) ON after power up
+            2 / TOGGLE = toggle relay(s) from last saved state
+            3 = switch relay(s) to their last saved state (default)
+            4 = turn relay(s) ON and disable further relay control
+            5 = after a PulseTime period turn relay(s) ON (acts as inverted PulseTime mode)
+
+            The PowerOnState device configuration parameter is applied when
+            the device is initially powered up.
+            It does not apply to device warm restarts.
+            SetOption63 is executed after PowerOnState or restart initialization.
+
+
+
+
+    PulseTime:
+            0 / off Disabilita la funzione PULSETIME per il relè <x>
+            1..111  Imposta la funzione PULSETIME per il relè <x> con incrementi di 0,1 secondi,
+                fino alla regolazione di 11 secondi complessivi (111)
+            112..64900  Imposta la funzione PULSETIME per il relè <x> con incrementi di 1 secondo,
+                a partire dai 12 secondi
+                (aggiungere 100 all’intervallo desiderato in secondi
+                eg. 113 = 13 secondi e 220 = 120 secondi).
+                N.b. Affinché PULSETIME funzioni in modo corretto,
+                è necessario che il tempo di durata del TELEPERIOD impostato sia
+                maggiore del valore impostato con PULSETIME.
+
+            cmnd/sonoff/PULSETIME 20 (2 secondi)
+            cmnd/sonoff/PULSETIME 130 (30 secondi) in quanto 30=30+100
+
+            il valore impostato  prevarrà fino a:
+            cmnd/sonoff/PULSETIME 0
+
+
+    IPAddress<x>:    Set networking IP (XXX.XXX.XXX.XXX) addresses
+        IPAddress1 = set device IP address
+                        0.0.0.0 = use dynamic IP address (DHCP)
+                        XXX.XXX.XXX.XXX = set static IP address
+        IPAddress2 = set gateway IP address
+        IPAddress3 = set subnet mask
+        IPAddress4 = set DNS server IP address
+
+    TelePeriod: #  See current value and force publish STATE and SENSOR message
+                0 = disable telemetry messages
+                1 = reset telemetry period to firmware default (TELE_PERIOD)
+        30      10..3600 = set telemetry period in seconds (default = 300)
+
+
+
+
+default_settings:
+    # Non funziona... vuole TLS
+    Backlog mqtthost 2a2611463b584dbdbc2da5059b1ae8ff.s1.eu.hivemq.cloud; mqttport 1883; mqttuser Loreto; mqttpassword Loreto_2021;
+    Backlog mqtthost 2a2611463b584dbdbc2da5059b1ae8ff.s1.eu.hivemq.cloud; mqttport 8883; mqttuser Loreto; mqttpassword Loreto_2021;
+    # Funziona ma è libero a tutti
+    Backlog mqtthost broker.hivemq.com; mqttport 1883; mqttuser Loreto; mqttpassword dummy_password;
+
+
+my_all_settings:
+    Backlog topic TasmotaAvail_003; FriendlyName TasmotaAvail_003; DeviceName TasmotaAvail_003;
+
+    ButtonDebounce 50; LedState 1; ButtonRetain 0; PowerRetain 0; SetOption26 0;
+        Retained suggested:
+        # BUT, a message in your MQTT broker flagged as 'retained' will always override the PowerOnState
+    PowerOnState 3; ButtonRetain 0; SwitchRetain 0; PowerRetain 0; SetOption63 0
+    Teleperiod 30; SetOption56 1; SetOption57 1;
+
+    timezone 99; latitude 42.291476; longitude 12.957694; altitude 800; # casetta
+
+    mqtthost lnmqtt.duckdns.org; mqttport 1883; mqttuser Loreto; mqttpassword xxxxMqtt;
+    SSID1 TPL-Casetta; Password1 xxxx.Adsl; SSID2 LoretoHotSpot; Password2 Loretohspot;
+
+
+

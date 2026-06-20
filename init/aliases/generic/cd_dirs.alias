@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 13-06-2026 14.31.43
+#
+
+# function @_system_real_path() {
+#     echo $(readlink -fvs  '${1}');
+# }
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+    alias ${alias_prefix}cd.pylnlib='cd ${ln_GIT_REPO_DIR}/pyLnLib'
+    alias ${alias_prefix}cd.genericPython='cd ${ln_PROGRAMMING_DIR}/genericPython'
+    alias ${alias_prefix}cd.lnsync='cd ${ln_GIT_REPO_DIR}/lnSync'
+    alias ${alias_prefix}cd.deviceManager='cd ${ln_GIT_REPO_DIR}/lnDevices/deviceManager'
+    alias ${alias_prefix}cd.esptool='cd ${ln_GIT_REPO_DIR}/lnEsptool'
+    # alias ${alias_prefix}cd.gitcommit='cd ${ln_PY_SCRIPTS_DIR}/git_commit'
+    alias ${alias_prefix}cd.gitcommit='cd ${ln_GIT_REPO_DIR}/gitCommit'
+    alias ${alias_prefix}cd.pylnlib='cd ${ln_GIT_REPO_DIR}/pyLnLib'
+
+fi

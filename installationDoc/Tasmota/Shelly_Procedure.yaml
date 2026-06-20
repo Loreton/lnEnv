@@ -1,0 +1,39 @@
+Ref:
+  https://github.com/yaourdt/mgos-to-tasmota
+  https://www.youtube.com/watch?v=_oRr8FZyyQ0
+
+
+  Before flashing this firmware, connect your device to a WIFI network with internet access.
+  Connettersi alla rete wifi dello shelly e puntare a http://192.168.4.1
+  From your browser, open the update URL for your device from the table below.
+  Replace shellyip with the IP address of your Shelly.
+
+
+shelly1:
+    url_sample: http://shellyip/ota?url=http://dl.dasker.eu/firmware/mg2tasmota-Shelly1.zip
+    url_real: http://192.168.1.190/ota?url=http://dl.dasker.eu/firmware/mg2tasmota-Shelly1.zip
+    tasmota_template: {"NAME":"Shelly 1","GPIO":[0,0,0,0,21,82,0,0,0,0,0,0,0],"FLAG":0,"BASE":46}
+
+  The device will restart one or two times and attempt to download the traget firmware.
+  If this download succeeds, the device will restart again, and you will see a new WIFI network labeled tasmota-????, HAA-????, or ESPURNA-????.
+  This process should take no longer than 4 - 5 minutes, depending on your network connection.
+
+  If you replace mg2tasmota by mg2haa in the update URLs, your device will install the Home Accessory Architect firmware instead of Tasmota. For mg2espurna instead of mg2tasmota, ESPurna Firmware will be installed.
+
+  Dopo di che collegarsi a quella rete
+  http://192.168.4.1
+  configurare la rete wifi a cui collegarsi
+  note:
+    Collegarsi e mandare un ping in backgroud sull'indirizzo IP del device.
+    Si dovrebbero notare i restart del device
+  da console:
+    reset 5   # 5 = erase all flash and reset parameters to firmware defaults but keep Wi-Fi settings and restart
+  menu:
+    firmware upgrade: per sicurezza (ma forse non serve)
+    configure other:
+      paste tasmota_template and flag Activate checkbox
+      write device_name
+
+  a questo punto si può proseguire come per un normale tasmota....
+
+

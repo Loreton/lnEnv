@@ -1,0 +1,62 @@
+
+# Calibre:
+#    ref:
+#       https://flathub.org/apps/com.calibre_ebook.calibre
+#    install:
+#       sudo flatpak install com.calibre_ebook.calibre
+#    run: flatpak run com.calibre_ebook.calibre
+
+
+
+
+ref:
+   https://linux.how2shout.com/how-to-install-kitty-terminal-on-ubuntu-22-04-or-20-04/
+
+install binary code:
+   curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin launch=n
+
+
+   Add kitty to PATH:
+   After running the above-given command, the binary for Kitty Terminal will automatically save under a directory, path:
+      ~/.local/kitty.app/bin/
+
+   Now, let’s create a symlink for it to run it directly using any Terminal:
+      sudo ln -s ~/.local/kitty.app/bin/kitty /usr/local/bin/
+
+
+   For Application Launcher:
+      cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
+
+   To open text and image files in Kitty via FIle manager then also run the given command as well:
+      cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/applications/
+
+
+
+
+   8. Kitty Terminal Customization:
+      To customize Kitty, we need to create a configuration file for it. Use the given command to do that:
+      mkdir -p ~/.config/kitty/
+      touch ~/.config/kitty/kitty.conf
+
+
+   Once you have created the Configuration file, edit it and add the codes for the elements of the Terminal you want to customize:
+      vi ~/.config/kitty/kitty.conf
+
+      #Font-Family
+      font_family Fantasque Sans Mono
+      italic_font auto
+      bold_font auto
+      bold_italic_font auto
+
+      #Font size (in pts)
+      font_size 14.0
+      #Foreground color
+      foreground #ffffff
+      #Background color
+      background #7d2ac9
+
+      ref default config: https://git.sr.ht/~andrewzah/dotfiles/tree/f5d3edfb0b719f4a11f12a89d87d233c1b6749d9/item/config/kitty/kitty.conf
+
+   Hints:
+      https://sw.kovidgoyal.net/kitty/kittens/hints/
+      https://sw.kovidgoyal.net/kitty/open_actions/

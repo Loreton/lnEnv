@@ -1,0 +1,26 @@
+https://github.com/billziss-gh/sshfs-win
+
+# HOME directory - importante il punto finale.
+# sshfs.k usa la key per autenticarsi
+net use S: \\sshfs.k\pi@192.168.1.31\.
+
+# ROOT directory - ma poi non si riesce a disconnettere il device
+net use S: \\sshfs.k\pi@192.168.1.31\/
+
+# ROOT directory
+net use S: \\sshfs.k\pi@192.168.1.31\..\..
+# ROOT directory - chiede utenza e password
+net use S: \\sshfs.r\pi@192.168.1.31
+
+# Specifica directory
+net use S: \\sshfs.k\pi@192.168.1.31\..\..\my_dir
+
+# gui manager
+https://github.com/feo-cz/win-sshfs
+
+
+Sembra funzionare
+"c:\Program Files\SSHFS-Win\bin\sshfs-win.exe"     cmd pi@192.168.1.31: -F C:\Users\Loreto\.ssh\config  Z:
+"/mnt/c/Program Files/SSHFS-Win/bin/sshfs-win.exe" cmd pi@192.168.1.31: -f -F C:\\Users\\Loreto\\.ssh\\config  Z:
+
+sshfs-win cmd user@10.0.0.1: X: -f -o uid=-1,gid=-1,umask=027,create_umask=027

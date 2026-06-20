@@ -1,0 +1,61 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 26-12-2024 09.18.25
+#
+
+ubuntu:
+    https://installati.one/install-amule-ubuntu-22-04/
+    sudo apt -y install amule
+
+
+
+Rawspberry:
+    https://arkosoft.it/blog/download-amule-su-raspberry/
+    https://www.instructables.com/How-to-get-aMule-on-Raspberry-Pi/
+
+install:
+    sudo apt update && sudo apt upgrade
+
+    sudo apt-get install amule amule-daemon
+
+    sudo adduser amule
+        psw: loreto.2024
+
+    copiare vecchia configurazione in:
+        /home/amule/.aMule
+        sudo chmod -R 775 /home/amule/.aMule
+        sudo adduser pi amule
+
+        ln -s /home/amule/.aMule /home/pi/.aMule
+
+
+config:
+    sudo vi /etc/default/amule-daemon
+    inserire "amule" e "/home/amule"
+
+
+    vi .aMule/amule.conf (da utente loreto)
+
+    generare una pwd per ECPassword:
+        echo -n aMule.Admin|md5sum|cut -d ' ' -f1
+            ECPassword=d7f1296e2f94978c09de00d9e628c4ee
+
+    generare una pwd per WebServer:
+        echo -n aMule.Web|md5sum|cut -d ' ' -f1
+        [WebServer]
+            Enabled=1
+            Password=cb601b036f942635ecfd61744a7fa07f
+
+
+    aprire le porte:
+        - 4711/tcp(WebAccess) sul fw o router
+        - 4662/tcp
+        - 4665/udp
+        - 4672/udp
+
+
+    sudo systemctl restart amule-daemon.service
+
+GUI:
+    https://launchpad.net/ubuntu/jammy/amd64/amule-utils-gui/1:2.3.3-2
+    wget http://launchpadlibrarian.net/564470582/amule-utils-gui_2.3.3-2_amd64.deb

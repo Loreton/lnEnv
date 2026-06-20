@@ -1,0 +1,96 @@
+        # ----- Sample Command Shelly
+        -   panelName: Shelly Command Sample
+            topic: shellies/topic_name/relay/0/command
+            seperateSubscribeTopic: shellies/topic_name/relay/0
+            hasCustomIcon: true
+            showReceivedTimeStamp: true
+            showSentTimeStamp: true
+            isJSONPayload: false
+            panelId: panel_19
+            type: combo-box
+            mqttType: pubsub
+            panelWidth: '100'
+            retain: false
+            qos: 0
+            confirmBeforePublish: true
+            confirmationMessage: Are you sure?
+            panelMergeClass: 'merge-left   '
+            options:
+
+            -   label: Power State
+                payload: .
+                $$hashKey: object:2428
+                icon: radio_button_checked
+                iconColor: '#ebca06'
+
+            -   label: Summary State
+                payload: LnCmnd.summary_state
+                icon: assignment
+                iconColor: '#0df430'
+                $$hashKey: object:983
+
+            -   label: URL
+                payload: LnCmnd.get_url
+                icon: settings
+                iconColor: '#06cbe5'
+                $$hashKey: object:3474
+
+            -   label: "ON"
+                payload: "on"
+                icon: bulb_on
+                iconColor: '#ef0c0c'
+                $$hashKey: object:7705
+
+            -   label: "OFF"
+                payload: "off"
+                icon: bulb_off
+                iconColor: '#9E9E9E'
+                $$hashKey: object:8338
+
+            -   label: Disable Timers
+                payload: LnCmnd.Timers_Disable
+                icon: timer_off
+                iconColor: '#0fe7ed'
+                $$hashKey: object:152
+
+            -   label: Enable Timers
+                payload: LnCmnd.timers_enable
+                icon: timer
+                iconColor: '#17ec0e'
+                $$hashKey: object:401
+
+            -   label: Disable Device
+                payload: LnCmnd.disable_device
+                icon: thumb_down
+                iconColor: '#0d85ef'
+                $$hashKey: object:959
+
+            -   label: Enable device
+                payload: LnCmnd.enable_device
+                icon: thumb_up
+                iconColor: '#36e80d'
+                $$hashKey: object:9963
+
+            -   label: Enable Mqtt
+                payload: LnCmnd.Mqtt_Enable
+                icon: cloud_off
+                iconColor: '#d7eb0d'
+                $$hashKey: object:213
+
+            -   label: Enable Cloud
+                payload: LnCmnd.Cloud_Enable
+                icon: cloud_queue
+                iconColor: '#0ed8f3'
+                $$hashKey: object:222
+
+            -   label: Auto-ON xx secs
+                payload: LnCmnd.auto_on xx
+                icon: touch_app
+                iconColor: '#9E9E9E'
+                $$hashKey: object:1655
+
+            -   label: Auto-OFF xx secs
+                payload: LnCmnd.auto_off xx
+                icon: touch_app
+                iconColor: '#f1d514'
+                $$hashKey: object:790

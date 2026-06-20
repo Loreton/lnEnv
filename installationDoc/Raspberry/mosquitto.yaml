@@ -1,0 +1,64 @@
+ref:
+    https://randomnerdtutorials.com/how-to-install-mosquitto-broker-on-raspberry-pi/
+
+retained_messages:
+    http://www.steves-internet-guide.com/mqtt-retained-messages-example/
+
+install:
+    sudo apt update && sudo apt upgrade
+    sudo apt install -y mosquitto mosquitto-clients
+
+    sudo systemctl enable mosquitto.service
+
+    mosquitto -v
+
+cleard_DB:
+    sudo systemctl stop mosquitto.service
+    sudo rm /var/lib/mosquitto/mosquitto.db
+    sudo systemctl start mosquitto.service
+
+config:
+    sudo vi /etc/mosquitto/mosquitto.conf
+    add lines:
+        log_dest topic
+        log_type error
+        log_type warning
+        log_type notice
+        log_type information
+        connection_messages true
+        log_timestamp true
+
+        allow_anonymous false
+
+
+    cd /etc/mosquitto
+    # sudo mosquitto_passwd -c passwords my_username (my_username=Loreto)
+    sudo mosquitto_passwd -c  /etc/mosquitto/psw_file Loreto (my_username=Loreto)
+    sudo mosquitto_passwd -D passwords Loreto  # delete user
+
+        password: LoretoMqtt
+
+    mqtt
+    sudo systemctl start mosquitto
+
+
+    Terminale1:
+        # mosquitto_sub -d -u username -P password -t dev/test
+        mosquitto_sub -d -u Loreto -P Mqtt_password -t dev/test
+        mosquitto_sub -d -u steve -P stevemqtt -t dev/test
+    Terminale2:
+        # mosquitto_pub -d -u username -P password -t dev/test -m "Ciao a tutti"
+        mosquitto_pub -d -u Loreto -P Mqtt_password -t dev/test -m "Ciao a tutti"
+        mosquitto_pub -d -u steve -P stevemqtt -t dev/test -m "Ciao a tutti"
+
+
+
+
+ERRORS:
+    errore nella creazione del pid file (ver. 2.0.11)
+    sudo chown mosquitto:mosquitto /var/run/mosquitto
+    modificato:
+        pid_file /var/run/mosquitto.pid --> pid_file /var/run/mosquitto/mosquitto_201.pid
+    nel file di configurazione:
+        sudo vi /etc/mosquitto/mosquitto.conf
+

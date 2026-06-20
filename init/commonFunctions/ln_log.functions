@@ -1,0 +1,105 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 30-11-2025 09.50.13
+#
+
+# expected fEXECUTE='--go'
+#######################################################à
+# required global variables:
+#     $fLOG: 1=printLog 0=ignore
+#     $fOFFSET: offset line in function (vale per le funzioni caricate son source....)
+#     $fVERBOSE: 1=print deciption
+# inputargs:
+#     $1: stacklevel
+#     $3: data to be printed
+#######################################################à
+function @lnLog() {
+    local fDEBUG=0
+    # Controlla se il primo argomento (stacklevel) sia un intero (positivo o negativo)
+    local stacklevel=0 
+    if [[ "$1" =~ ^-?[0-9]+$ ]]; then
+        stacklevel=$1
+        shift 1
+    fi
+    [[ $fLOG == '0' ]] && return
+
+
+    local offset=${fOFFSET:-0}
+    if [[ "$fDEBUG" == '1' ]]; then
+        echo "fLOG:      $fLOG"
+        echo "fEXECUTE:  $fEXECUTE"
+    fi
+    
+    # echo "stacklevel: $stacklevel - offset: $offset"
+    local stacklen=${#BASH_LINENO[@]}
+
+    local script="${BASH_SOURCE[$stacklevel+1]}"
+    local script_name=$(basename $script)
+
+    local func="${FUNCNAME[$stacklevel+1]:-MAIN}"
+    local line_no=$(( ${BASH_LINENO[$stacklevel]:-0} + offset ))
+    
+    FUNC_NAME=0
+    if [[ "$FUNC_NAME" == "1" ]]; then
+        local caller="${func}:${line_no}"
+        if [[ $func == "source" ]]; then
+            caller="${script_name}:${line_no}"
+        fi
+    else
+        local caller="${script_name}:${line_no}"
+    fi
+
+    # set +u
+    # set -u
+    local fVerbose=${fVERBOSE:-1}
+    [[ "$fVerbose" == '1' ]] && echo -e "${blueH}[${caller}]: ${green}$@"
+}
+
+
+function @lnLogv() {
+    export saved_fLOG=$fLOG
+    @lnLog $@
+    export fLOG=$saved_fLOG
+    unset saved_fLOG
+}
+
+
+
+
+
+
+
+
+
+# if ! declare -F @lnLog > /dev/null; then
+# fi
+
+function @lnLog_OK() {
+    if [[ $fLOG == '0' ]]; then
+       return
+    fi
+    local offset=0
+    # Controlla se il primo argomento Ã¨ un intero (positivo o negativo)
+    if [[ "$1" =~ ^-?[0-9]+$ ]]; then
+        offset=$1
+        shift 1
+    fi
+
+    local stacklevel=1
+    local stacklen=${#BASH_LINENO[@]}
+    local script="${BASH_SOURCE[$stacklevel]}"
+    local script_name=$(basename $script)
+    local func="${FUNCNAME[$stacklevel]:-MAIN}"
+    local line=$(( ${BASH_LINENO[0]:-0} + offset ))
+
+
+    local caller="${func}:${line}"
+    if [[ $func == "source" ]]; then
+        caller="${script_name}:${line}"
+    fi
+    caller="${script_name}:${line}"
+
+    echo -e "${blueH}[${caller}]: $@"
+}
+unset -f @lnLog_OK

@@ -1,0 +1,14 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 25-11-2025 18.54.05
+#
+
+
+
+
+if [[ "${lapTopPC_lc}" == *" ${hostname_lc} "* ]]; then
+    alias ${alias_prefix}calc="${ln_LINUX_PORTABLE_DIR}/qalculate/qalc"
+    alias ${alias_prefix}calculator="${ln_LINUX_PORTABLE_DIR}/qalculate/qalculate"
+fi
+

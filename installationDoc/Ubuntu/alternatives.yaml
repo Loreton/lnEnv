@@ -1,0 +1,38 @@
+https://linuxconfig.org/change-default-python-version-on-raspbian-gnu-linux
+
+check:
+    ls /usr/bin/python*
+        /usr/bin/python  /usr/bin/python2  /usr/bin/python2.7  /usr/bin/python3  /usr/bin/python3.2
+
+    ls /usr/local/bin/python*
+        /usr/local/bin/python3  /usr/local/bin/python3.8  /usr/local/bin/python3.8-config  /usr/local/bin/python3-config
+
+create_entry:
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1
+    sudo update-alternatives --install /usr/bin/python python /usr/local/bin/python3.8 2
+
+    sudo update-alternatives --install /usr/bin/python python /home/loreto/.pyenv/versions/3.12.5/bin/python3.12 1
+    sudo update-alternatives --install /usr/bin/python python /home/loreto/.pyenv/versions/3.11.9/bin/python3.11 1
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+
+
+    sudo update-alternatives --config python
+
+
+
+remove-entry:
+    sudo update-alternatives --remove python /usr/bin/python3.7
+
+
+To swap between python version use update-alternatives command:
+    sudo update-alternatives --config python
+
+
+    # --- EDITOR
+    cmd: sudo update-alternatives --install /usr/bin/editor  editor  /bin/nano 1
+    cmd: sudo update-alternatives --install /usr/bin/editor  editor  /usr/bin/vim 2
+         sudo update-alternatives --install /usr/bin/editor editor /usr/bin/subl 50
+
+
+    sudo update-alternatives --config editor

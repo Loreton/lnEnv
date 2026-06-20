@@ -1,0 +1,30 @@
+
+
+vivaldi browser:
+    # https://www.linuxcapable.com/how-to-install-vivaldi-browser-on-ubuntu-22-04-lts/
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install software-properties-common apt-transport-https wget ca-certificates gnupg2 ubuntu-keyring -y
+
+    # import GPGkey
+    wget -O- https://repo.vivaldi.com/archive/linux_signing_key.pub | sudo gpg --dearmor | sudo tee /usr/share/keyrings/vivaldi.gpg
+
+    # import and add repository
+    echo deb [arch=amd64 signed-by=/usr/share/keyrings/vivaldi.gpg] https://repo.vivaldi.com/archive/deb/ stable main | sudo tee /etc/apt/sources.list.d/vivaldi.list
+
+    sudo apt update && sudo apt install vivaldi-stable -y
+    vivaldi --version
+
+    system_settings --> Default Application --> Web --> Vivaldi
+
+    vivaldi settings:
+        set as Default browser
+        startup with  home page
+
+        shift-ctrl-E --> Extensions
+        install BitWarden from Chrome web store
+
+
+vivaldi_code:
+    9RF-HCK-HPE-JXC
+    MTX-XL3-LA4-XW4
+    RRL-WAV-7VL-DTX

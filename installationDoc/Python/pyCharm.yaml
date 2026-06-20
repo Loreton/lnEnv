@@ -1,0 +1,30 @@
+# updated by ...: Loreto Notarantonio
+# Date .........: 29-10-2025 16.30.24
+
+
+Loreto:
+    https://www.jetbrains.com/help/pycharm/installation-guide.html#standalone_linux
+
+
+    Install using tar archiv
+    There is a separate tarball for ARM64 processors.
+        Download the tarball: https://www.jetbrains.com/pycharm/download/?section=linux
+
+
+    Unpack the pycharm-*.tar.gz file to a different folder, if your current Download folder doesn't support file execution:
+
+    tar xzf pycharm-*.tar.gz -C <new_archive_folder>
+    The recommended installation location according to the filesystem hierarchy standard (FHS) is /opt. To install PyCharm into this directory, enter the following command:
+
+    sudo tar xzf pycharm-*.tar.gz -C /opt/
+    To verify integrity of the downloaded archive, use the SHA checksum linked from the Download page.
+
+    Switch to the bin subdirectory:
+
+    cd <new archive folder>/pycharm-*/bin
+    For example,
+
+    cd /opt/pycharm-2022.2.4/bin
+    Run pycharm from the bin subdirectory.
+
+    ./pycharm

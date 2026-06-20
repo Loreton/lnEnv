@@ -1,0 +1,13 @@
+elinks:
+    terminal: non va bene per il router
+
+links2:
+    terminal: non va bene per il router
+    non va bene nella parte grafica
+
+midori:
+    fork di firefox, open source an light
+    sembra ottimo in grafica.
+
+icecat: # bisogna fare la build
+    https://github.com/SolidHal/icecat-arm

@@ -1,0 +1,15 @@
+ref:
+    https://www.youtube.com/watch?v=GXxTxBPKecQ
+BIOS:
+    disabilitare Secure Boot
+
+Windows10:
+    Verificare se UEFI:
+        system->bios=UEFI
+    Disabilitare Fast Startup (System->power)
+
+Disk:
+    ubuntu_partition: 50GB
+    LnDisk_NTFS:
+        LnFree: 30GB
+        LnDisk: 30GB

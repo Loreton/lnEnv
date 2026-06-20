@@ -1,0 +1,14 @@
+ref:
+    - https://linuxhint.com/resize-the-ext4-partition/
+    - https://blog.karmacomputing.co.uk/shrink-existing-partition-mdraid-linux-ext4-using-resize2fs/
+
+
+resize:
+    lsblk -f
+    df -T (df -hT)
+    run:
+        e2fsck -f /dev/sdxy
+
+    sudo resize2fs /dev/sdb1 32g
+    Se inferiore al minimo consentito dà segnalazione:
+        New size smaller than minimum (83681918)

@@ -1,0 +1,23 @@
+
+
+xnview :
+    # https://unixcop.com/install-xnview-mp-on-ubuntu-20-04-22-04-lts/
+    sudo apt update && sudo apt upgrade -y
+
+    wget https://download.xnview.com/XnViewMP-linux-x64.deb
+    sudo dpkg -i XnViewMP-linux-x64.deb
+
+
+
+
+    Flatpak, formerly known as xdg-app, is a utility for software deployment and package management for Linux.
+    It is advertised as offering a sandbox environment in which users can run application software in isolation from the rest of the system.
+
+    So install the Flatpak manager with running the following command:
+        sudo apt install flatpak -y
+
+    Enable Flatpak using the following command:
+        sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
+    Install the app using the following flatpak command:
+        flatpak install flathub com.xnview.XnViewMP

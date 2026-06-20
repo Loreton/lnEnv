@@ -1,0 +1,13 @@
+Enable SSH when creating SD card:
+    Just create a simple empty file on bootfs named ssh
+
+pi5:
+    cannot open access to console, the root account is locked see sulogin(8) man page for more details
+    ref:
+        https://forums.raspberrypi.com/viewtopic.php?t=179344'm trying to experimen
+
+    actions:
+        t with adding init=/bin/sh to cmdline.txt, but I'm not having any luck getting it working.
+
+        When I used systemd.unit=emergency.target, I did get a command line, but the filesystem was read-only.
+        I'd get a variation of the following when I use init=/bin/sh or init=/bin/bash. It seemed to be starting the shell, but not associating it with the terminal properly

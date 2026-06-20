@@ -1,0 +1,28 @@
+ref:
+    https://askubuntu.com/questions/1479260/in-ubuntu-22-04-how-to-make-a-taskbar-shortcut-with-a-certain-icon-that-runs
+
+install:
+
+
+    Create a file at ~/.local/share/applications/doublecmd-private.desktop
+    Paste these lines into the file, and save it.
+
+
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=DoubleCommander Private
+Exec=/home/loreto/lnFreex/doublecmd/doubblecmd
+Icon=/home/loreto/lnFreex/doublecmd/doubblecmd.png
+Type=Application
+StartupNotify=true
+Categories=Network;WebBrowser;
+
+
+    Make the file executable:
+        chmod +x ~/.local/share/applications/doublecmd-private.desktop
+        You might need to log out and back in.
+        Search for "DoubleCommander Private" in Activities.
+        To open the Activities search, you can either click Activities in the top left of your screen, or you can press the Windows key on your keyboard.
+        Right-click your new "DoubleCommander Private" icon that appears in those search results.
+        Choose "Add to Favorites".
+        (You'll then see the icon in your taskbar.)

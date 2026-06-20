@@ -1,0 +1,51 @@
+; ------------------------------------
+
+[Unit]
+Description=telegram bot usato per eseguire comandi su sonoff e shelly inviando comandi verso il mio Mqtt-Client
+After=multi-user.target
+
+
+[Service]
+Environment="BROKER_NAME=LnMqtt"
+Environment="BOT_NAME=LnCasettaBot"
+Environment="ETC_DIR=/home/pi/.ln/etc/lnpi31"
+Environment="LOGGER_DIR=/tmp/telegramBot"
+Environment="CONFIG_DIR={ETC_DIR}/config/TelegramBot"
+
+# NON lo crea....
+ExecStartPre=/bin/mkdir -m 740 -p /tmp/telegramBot
+ExecStartPre=/bin/chown pi /tmp/telegramBot
+
+# non prende le variabili
+StandardOutput=file:/tmp/telegramBot/stdout.log
+StandardError=file:/tmp/telegramBot/stderr.log
+
+Type=simple
+User=pi
+Group=pi
+
+        ; --config-dir $CONFIG_DIR \
+        ; --logger-dir $LOGGER_DIR \
+ExecStart=/usr/local/bin/python3.9 /home/pi/production/TelegramBot.zip \
+        --bot-name $BOT_NAME \
+        --broker-name $BROKER_NAME \
+        --systemd
+
+
+
+Restart=always
+RestartSec=10
+
+
+[Install]
+WantedBy=multi-user.target
+
+; ------------------------------------
+; - mi danno errore ....
+; WorkingDirectory=/home/pi/production
+; SyslogIdentifier=%n
+; StandardOutput=file:/tmp/mqtt/stdout.log
+; StandardError=file:/tmp/mqtt/stderr.log
+; StandardOutput=stdout.log
+; StandardError=stderr.log
+

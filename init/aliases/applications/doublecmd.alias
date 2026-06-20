@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 14-12-2025 18.53.45
+#
+
+
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+    export fEXECUTE="--go" ### fEXECUTE
+    ### ------
+    ### creazione del link per inserire il .xbindekeysrc nella $HOME/.xbindekeysrc
+    if ! declare -F @createLink > /dev/null; then
+        source create_links.functions ### fEXECUTE
+    fi
+    fname='doubleCmdStart.desktop'
+    @createLink "${ln_START_PROC_DIR}/.desktop/${fname}"  "${HOME}/.local/share/applications/${fname}"
+    ### ------
+
+    # alias ${alias_prefix}edit="${ln_SUBLIME_BIN}"
+    # alias ${alias_prefix}subl="${ln_SUBLIME_START_PROC}"
+    # alias subl="${ln_SUBLIME_BIN}"
+    # alias subl="${ln_SUBLIME_BIN}"
+
+    ###... per aprire un file selezionato nella shell
+    # alias ${alias_prefix}x="${ln_PY_SCRIPTS_DIR}/prod/xClip.py"
+    # alias ${alias_prefix}xcl*ip="${ln_PY_SCRIPTS_DIR}/prod/xClip.py"
+fi
+
+

@@ -1,0 +1,75 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 16-05-2026 15.14.51
+#
+
+
+ref:
+    https://chat.deepseek.com/a/chat/s/3803c161-674f-4c41-a9b9-4deb28d53256
+
+Config_proposta:
+    [Browser] ---> Apache (porta 80/443)
+                   │
+                   ├── reverse proxy verso:
+                   │      ├── http://sonoff-ip/ (stato luci/innaffio)
+                   │      └── http://telecamera-ip/stream (mjpeg)
+                   │
+                   └── mod_wsgi o mod_proxy_uwsgi
+                        └── Applicazione Python (Flask/Django)
+                              ├── pagine web con pulsanti
+                              ├── lettura stato dispositivi
+                              └── invio comandi ai Sonoff (HTTP locale)
+
+steps_PI:
+    sudo apt update
+    sudo apt install apache2 apache2-utils
+    sudo apt install libapache2-mod-wsgi-py3   # per Python 3
+    sudo a2enmod proxy
+    sudo a2enmod proxy_http
+    sudo a2enmod rewrite
+    sudo systemctl restart apache2
+
+
+python_venv:
+    ref:
+        https://aruljohn.com/blog/install-python-raspberry-pi-pyenv/
+
+    curl https://pyenv.run | bash
+    Quello script installa automaticamente:
+        pyenv
+        pyenv-virtualenv
+        pyenv-update (plugin)
+        repository Git in ~/.pyenv
+    e configura tutto in modo “default”.
+
+
+    oppure ...meglio:
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+    Add these 4 lines to the bottom to your ~/.bashrc so that they'll run when you open a new Terminal session:
+        export PYENV_ROOT="$HOME/.pyenv"
+        [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+        eval "$(pyenv init - bash)"
+
+    Now, install Python 3.14.0. Run this:
+        pyenv install 3.14
+
+    After a successful installation of Python, set 14.0 as the default version globally:
+        pyenv global 3.14.0
+
+    Also, set it in the current shell session:
+        pyenv shell 3.14.0
+
+    Verify that Python 3.14.0 is installed and the default version:
+        python -V
+    You will get the output as:
+        Python 3.14.0
+
+
+    sudo apt install python3-pip python3-venv
+    sudo mkdir -p /opt/myapp
+    sudo chown $USER:$USER /opt/myapp
+    cd /opt/myapp
+    python3 -m venv venv
+    source venv/bin/activate
+    pip install flask requests

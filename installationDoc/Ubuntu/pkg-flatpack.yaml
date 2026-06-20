@@ -1,0 +1,285 @@
+
+
+
+
+
+
+flatpack:
+   ref:
+      https://linuxiac.com/how-to-install-flatpak-apps-on-ubuntu-24-04-lts/
+
+      # - https://flatpak.org/setup/Ubuntu
+      # - https://itsfoss.com/flatpak-guide/
+
+   # sudo apt install gnome-software-plugin-flatpak
+   # sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+   # sudo apt install gnome-software
+   sudo apt install flatpak
+   sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+   https://flathub.org/
+
+
+   # sudo apt install gnome-software-plugin-flatpak
+   # sudo apt install flatpak
+
+
+   # ls -la /var/lib/flatpak/exports/bin
+   # ls -la /var/lib/flatpak/apps
+   # find /var/lib/flatpak/app -maxdepth 1 -type d -exec du -hs {} \;
+
+Telegram:
+   ref: https://flathub.org/apps/org.telegram.desktop
+
+   install:
+      flatpak install flathub org.telegram.desktop
+
+   launch:
+      flatpak run org.telegram.desktop
+
+
+xnview:
+   ref: https://flathub.org/apps/com.xnview.XnViewMP
+
+   install:
+      flatpak install flathub com.xnview.XnViewMP
+
+   launch:
+      flatpak run com.xnview.XnViewMP
+
+
+
+VSCode: NON FUNZIONA
+   ref: https://flathub.org/apps/com.visualstudio.code
+
+   install:
+      flatpak install flathub com.visualstudio.code
+
+   launch:
+      flatpak run com.visualstudio.code
+
+
+
+pyCharm: NON FUNZIONA
+   ref: https://flathub.org/apps/com.jetbrains.PyCharm-Community
+
+   install:
+      flatpak install flathub com.jetbrains.PyCharm-Community
+
+   launch:
+      flatpak run com.jetbrains.PyCharm-Community
+
+
+pdfarranger  (PDF):
+   ref: https://snapcraft.io/pdfarranger
+   install:
+        sudo snap install pdfarranger
+        flatpak install flathub pdfarranger
+
+
+
+okular (PDF):
+   ref:
+      https://flathub.org/apps/org.kde.okular
+   install:
+      flatpak install flathub org.kde.okular
+   run:
+      flatpak run org.kde.okular
+
+
+
+Xournal++ (PDF):
+   ref:
+      https://flathub.org/apps/com.github.xournalpp.xournalpp?ref=itsfoss.com
+   install:
+      flatpak install flathub com.github.xournalpp.xournalpp
+   run:
+      flatpak run com.github.xournalpp.xournalpp
+
+
+
+
+Kompare:
+   descr: Diff/Patch Frontend
+   ref:     https://flathub.org/it/apps/org.kde.kompare
+   install: flatpak install flathub org.kde.kompare
+   run: flatpak run org.kde.kompare
+
+Meld:
+   descr: Compare and merge your files
+   ref:     https://flathub.org/it/apps/org.gnome.meld
+   install: flatpak install flathub org.gnome.meld
+   install: flatpak run flathub org.gnome.meld
+
+
+audacity:
+   ref:
+      https://flathub.org/apps/org.audacityteam.Audacity
+   install:
+      flatpak install flathub org.audacityteam.Audacity
+   run:
+      flatpak run org.audacityteam.Audacity
+
+
+# Serial port
+cutecom:
+   ref:
+      https://flathub.org/apps/com.gitlab.cutecom.cutecom
+   install:
+      flatpak install flathub com.gitlab.cutecom.cutecom
+   run:
+      flatpak run com.gitlab.cutecom.cutecom
+
+# Serial port
+moserial:
+   ref:
+      https://flathub.org/apps/flathub org.gnome.moserial
+   install:
+      flatpak install flathub org.gnome.moserial
+   run:
+      flatpak run org.gnome.moserial
+
+
+filezilla sftp:
+   ref:
+      https://flathub.org/apps/flathub org.filezillaproject.Filezilla
+   install:
+      flatpak install flathub org.filezillaproject.Filezilla
+   run:
+      flatpak run org.filezillaproject.Filezilla
+
+
+youtube downloader:
+   ref:
+      https://github.com/aandrew-me/ytDownloader
+      https://flathub.org/apps/io.github.aandrew_me.ytdn
+   install:
+      flatpak install flathub io.github.aandrew_me.ytdn
+   run:
+      flatpak run io.github.aandrew_me.ytdn
+
+
+VLC:
+   ref:
+      https://flathub.org/apps/org.videolan.VLC
+   install:
+      flatpak install flathub org.videolan.VLC
+   run:
+      flatpak run org.videolan.VLC
+
+
+WineHQ:
+   ref:
+      https://flathub.org/apps/org.winehq.Wine
+   install:
+      flatpak install flathub org.winehq.Wine
+   run:
+      flatpak run org.winehq.Wine
+
+
+sqlitebrowser:
+# DB Browser for SQLite is a high quality, visual, open source tool to create, design, and edit database files compatible with SQLite.
+   ref:
+      https://flathub.org/apps/org.sqlitebrowser.sqlitebrowser
+   install:
+      flatpak install flathub org.sqlitebrowser.sqlitebrowser
+   run:
+      flatpak run org.sqlitebrowser.sqlitebrowser
+
+DBeaverCommunity:
+### universal DB viewer
+### Free multi-platform database tool for developers, SQL programmers, database administrators and analysts. Supports all popular databases:
+### MySQL, PostgreSQL, MariaDB, SQLite, Oracle, DB2, SQL Server, Sybase, MS Access, Teradata, Firebird, Derby, etc.
+   ref:
+      https://flathub.org/apps/io.dbeaver.DBeaverCommunity
+   install:
+      flatpak install flathub io.dbeaver.DBeaverCommunity
+   run:
+      flatpak run io.dbeaver.DBeaverCommunity
+
+
+OpenShot:
+### OpenShot Video Editor is an award-winning, open-source video editor, available on Linux, Mac, Chrome OS, and Windows.
+### OpenShot can create stunning videos, films, and animations with an easy-to-use interface and rich set of features.
+   ref:
+      https://flathub.org/apps/org.openshot.OpenShot
+   install:
+      flatpak install flathub org.openshot.OpenShot
+   run:
+      flatpak run org.openshot.OpenShot
+
+
+photoflare:
+# This is an effort to bring quick, simple but powerful image editing to the masses.
+# PhotoFlare is inspired by the image editor currently only available on Microsoft Windows – PhotoFiltre.
+# However, it will not be a straight clone.
+# It is being built from the ground up to be much improved and cross platform too!
+   ref:
+      https://flathub.org/apps/io.photoflare.photoflare
+   install:
+      flatpak install flathub io.photoflare.photoflare
+   run:
+      flatpak run io.photoflare.photoflare
+
+Thonny:
+# Python IDE for beginners
+# Thonny is a simple Python IDE with features useful for learning programming.
+# It comes with a debugger which is able to visualize all the conceptual steps taken to run a
+# Python program (executing statements, evaluating expressions, maintaining the call stack).
+# There is a GUI for installing 3rd party packages and special mode for learning about references.
+   ref:
+      https://flathub.org/apps/org.thonny.Thonny
+   install:
+      flatpak install org.thonny.Thonny
+   run:
+      flatpak run org.thonny.Thonny
+
+ArduinoIDEV2:
+# Python IDE for beginners
+# Thonny is a simple Python IDE with features useful for learning programming.
+# It comes with a debugger which is able to visualize all the conceptual steps taken to run a
+# Python program (executing statements, evaluating expressions, maintaining the call stack).
+# There is a GUI for installing 3rd party packages and special mode for learning about references.
+   ref:
+      https://flathub.org/apps/cc.arduino.IDE2
+   install:
+      flatpak install flathub cc.arduino.IDE2
+   run:
+      flatpak run cc.arduino.IDE2
+
+sequeler:
+#  Friendly SQL Client
+#  Easily connect to your local or remote database
+#  Store your Database Connections in the library, connect over SSH tunnel, type and execute
+#  SQL commands directly in the app, and do everything you need
+#  to do without the necessity of opening the terminal.
+   ref:
+      https://flathub.org/apps/com.github.alecaddd.sequeler
+   install:
+      flatpak install flathub com.github.alecaddd.sequeler
+   run:
+      flatpak run com.github.alecaddd.sequeler
+
+weasis:
+# A free/libre/open medical DICOM viewer
+# Weasis is a multipurpose standalone and web-based DICOM viewer with a highly modular architecture.
+# It is a very popular clinical viewer used in healthcare by hospitals, health networks, multicenter research trials, and patients.
+   ref:
+      https://flathub.org/apps/io.github.nroduit.Weasis
+   install:
+      flatpak install flathub io.github.nroduit.Weasis
+   run:
+      flatpak run io.github.nroduit.Weasis
+
+   Se da errore Caused by java.awt.HeadlessException:
+      No X11 DISPLAY variable was set,
+      or no headful library support was found,
+      but this program performed an operation which requires it,
+
+      ref: https://github.com/nroduit/Weasis/issues/449
+      As the X11 fallback seems buggy, the workaround with Flatpak is:
+      run flatpak run --socket=x11 --nosocket=wayland io.github.nroduit.Weasis
+
+      or
+      Install Flatseal:
+         flatpak install flathub com.github.tchx84.Flatseal
+

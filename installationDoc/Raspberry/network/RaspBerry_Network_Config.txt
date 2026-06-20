@@ -1,0 +1,117 @@
+https://www.raspberrypi.org/documentation/configuration/
+
+
+eth0
+https://www.raspberrypi.org/documentation/configuration/tcpip/README.md
+
+Wireless command line
+https://www.raspberrypi.org/documentation/configuration/wireless/wireless-cli.md
+
+
+my_wpa_supplicant al 2020-05-26
+
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=IT
+
+network={
+    ssid="FraPi-19440872_XX"
+    scan_ssid=1
+    psk="password"
+    proto=RSN
+    key_mgmt=WPA-PSK
+    group=TKIP
+    auth_alg=OPEN
+    id_str="Pina_Telecom"
+    priority=2
+}
+
+network={
+    ssid="LnFP5"
+    scan_ssid=1
+    psk="password"
+    proto=RSN
+    key_mgmt=WPA-PSK
+    group=TKIP
+    auth_alg=OPEN
+    id_str="Pina_Telecom5"
+    priority=3
+}
+
+
+network={
+    ssid="Ln-Info"
+    scan_ssid=1
+    psk="password"
+    proto=RSN
+    key_mgmt=WPA-PSK
+    group=TKIP
+    auth_alg=OPEN
+    id_str="Ln_Infostrada"
+    priority=4
+}
+
+network={
+    ssid="Ln-Info5"
+    scan_ssid=1
+    psk="password"
+    proto=RSN
+    key_mgmt=WPA-PSK
+    group=TKIP
+    auth_alg=OPEN
+    id_str="Ln_Infostrada_5GHz"
+    priority=5
+}
+
+network={
+    ssid="TPL-Casetta"
+    scan_ssid=1
+    psk="password"
+    proto=RSN
+    key_mgmt=WPA-PSK
+    group=TKIP
+    auth_alg=OPEN
+    id_str="TPL-Casetta_2.5GHz"
+    priority=7
+}
+
+network={
+    ssid="TPL-Casetta_5G"
+    scan_ssid=1
+    psk="password"
+    proto=RSN
+    key_mgmt=WPA-PSK
+    group=CCMP
+    auth_alg=OPEN
+    id_str="TPL-Casetta_5G"
+    priority=8
+}
+
+network={
+    ssid="MR200_2.5G"
+    scan_ssid=1
+    psk="password"
+    proto=RSN
+    key_mgmt=WPA-PSK
+    group=CCMP
+    auth_alg=OPEN
+    id_str="MR200_2.5G"
+    priority=9
+}
+
+network={
+    ssid="MR200_5G"
+    scan_ssid=1
+    psk="password"
+    proto=RSN
+    key_mgmt=WPA-PSK
+    group=CCMP
+    priority=10
+    auth_alg=OPEN
+    id_str="MR200_5G"
+}
+
+# network={
+#   ssid="TPL-Casetta"
+#   psk="password"
+# }

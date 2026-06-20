@@ -1,0 +1,68 @@
+/etc/apt/sources.list:
+    deb http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
+    # Uncomment line below then 'apt-get update' to enable 'apt-get source'
+    #deb-src http://raspbian.raspberrypi.org/raspbian/ buster main contrib non-free rpi
+
+UPDATE:
+    sudo apt-get clean
+    sudo apt-get autoremove && sudo apt-get update && sudo apt-get upgrade -y
+
+sudo apt-get -f install  ???
+
+UTILITIES:
+    sudo apt-get install sysstat
+    sudo apt-get install vim
+
+sudo iostat -c 2 2
+
+
+# ----- WATCHDOG
+https://raspberrypi.stackexchange.com/questions/1401/how-do-i-hard-reset-a-raspberry-pi
+
+
+LnPi31B ~ $: cat /etc/os-release  #  by Loreto:  29-12-2020 10.30.07
+PRETTY_NAME="Raspbian GNU/Linux 10 (buster)"
+NAME="Raspbian GNU/Linux"
+VERSION_ID="10"
+VERSION="10 (buster)"
+VERSION_CODENAME=buster
+ID=raspbian
+ID_LIKE=debian
+HOME_URL="http://www.raspbian.org/"
+SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+
+
+LnPi41:~ $: cat /etc/os-release  #  by Loreto:  29-12-2020 10.29.56
+PRETTY_NAME="Raspbian GNU/Linux 10 (buster)"
+NAME="Raspbian GNU/Linux"
+VERSION_ID="10"
+VERSION="10 (buster)"
+VERSION_CODENAME=buster
+ID=raspbian
+ID_LIKE=debian
+HOME_URL="http://www.raspbian.org/"
+SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+
+
+
+LOCALE:
+    $HOME/.profile:
+        LANG="en_US.UTF-8"
+        LANGUAGE="en_US:en"
+    oppure:
+        inserire en_US.UTF-8 UTF-8 in  /etc/locale.gen
+
+
+    meglio:
+        https://www.tecmint.com/set-system-locales-in-linux/#:~:text=If%20you%20want%20to%20change,and%20removes%20definitions%20for%20LANGUAGE.
+        sudo update-locale LANG=LANG=en_US.UTF-8 LANGUAGE
+
+Automount:
+    disable:  # sembra funzionare, altrime
+        /home/pi/.config/pcmanfm/LXDE-pi/pcmanfm.conf
+            [volume]
+            mount_on_startup=0
+            mount_removable=0
+

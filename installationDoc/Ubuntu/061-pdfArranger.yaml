@@ -1,0 +1,12 @@
+# updated by ...: Loreto Notarantonio
+# Date .........: 17-10-2025 14.42.58
+
+ref: https://github.com/pdfarranger/pdfarranger
+
+pdfarranger:
+    ref: https://snapcraft.io/pdfarranger
+    install:
+        sudo snap install pdfarranger
+
+
+        flatpak install flathub org.telegram.desktop -y

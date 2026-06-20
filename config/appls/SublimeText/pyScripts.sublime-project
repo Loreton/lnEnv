@@ -1,0 +1,28 @@
+{
+"folders":
+    [
+
+
+
+        // ---- sublime user
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/User", "name": "Sublime user(linuxPortables)", },
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages", "name": "Sublime user", },
+
+        // ---- terminator
+        // {"path": "/home/loreto/.config/terminator/plugins", "name": "terminatorPlugins", },
+
+        // ---- lnEnv
+        // {"path": "/home/loreto/filu/lnEnv", "name": "", "folder_exclude_patterns": ["lnFreex"], },
+
+
+		{ "path": "/home/loreto/filu/lnEnv/pyScripts",
+			"follow_symlinks": true,
+		    // "folder_exclude_patterns": ["xxx"],
+            // "folder_include_patterns": ["ssh*/", ],
+        },
+
+
+
+
+    ],
+}

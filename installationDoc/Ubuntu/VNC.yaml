@@ -1,0 +1,73 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 22-12-2024 12.15.01
+#
+
+Ubuntu:
+    vncserver:
+        https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-vnc-on-ubuntu-22-04
+        or
+        https://linuxize.com/post/how-to-install-and-configure-vnc-on-ubuntu-20-04/
+
+    install:
+        sudo apt update
+        sudo apt install xfce4 xfce4-goodies
+        sudo apt install tightvncserver
+
+        sudo apt install tigervnc-viewer
+    start:
+        vncpasswd (Loreto)
+        vncserver
+
+    stop:
+        vncserver -kill :1
+
+    config:
+        mv ~/.vnc/xstartup ~/.vnc/xstartup.bak
+        vi ~/.vnc/xstartup
+        enter:
+            #!/bin/bash
+            xrdb $HOME/.Xresources
+            startxfce4 &
+        chmod +x ~/.vnc/xstartup
+        vncserver -localhost
+
+        vncserver :1 -useold -verbose -localhost no -rfbport 5910
+    VNCclient:
+        https://hostman.com/tutorials/how-to-install-vnc-on-ubuntu/
+
+        tightvnc_client:
+            https://www.tightvnc.com/download.php
+
+
+
+
+
+Raspberry:
+    ref:
+        https://www.ionos.com/digitalguide/server/configuration/setting-up-virtual-network-computing-on-raspberry-pi/
+
+    install:
+        sudo apt-get update
+        sudo apt-get install realvnc-vnc-server
+        sudp apt-get install realvnc-vnc-viewer
+
+
+
+tigervncserver:
+    ref:
+        https://www.ionos.com/digitalguide/server/configuration/setting-up-virtual-network-computing-on-raspberry-pi/
+
+    install:
+        sudo apt-get update
+        sudo apt -y install tigervnc-standalone-server
+        vncpasswd (Loreto)
+
+    start:
+        tigervncserver -xstartup /usr/bin/gnome-session-classic -SecurityTypes VncAuth,TLSVnc -geometry 800x600 -localhost no :1
+    stop:
+        tigervncserver -kill :1
+
+    sembra non funzionare
+
+

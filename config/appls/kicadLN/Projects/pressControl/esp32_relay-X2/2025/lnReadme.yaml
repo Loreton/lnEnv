@@ -1,0 +1,22 @@
+Kicad purtroppo non accede ai dischi esterni.
+
+Per accedere alle mie librerie
+
+Aggiungere in Preferences->configure Path:
+    LORETO_LIBRARIES            /home/loreto/lnprofile/appls/kicadLN/lnLibraries
+
+Aggiungere in Manage Symbol Libraries->Global Libraries:
+    lnConnectors        ${LORETO_LIBRARIES}/lnConnectors.kicad_sym
+    lnDevice            ${LORETO_LIBRARIES}/lnDevice.kicad_sym
+
+    ...se dovesse servire... anche questi
+    lnDiodiTransistors  ${LORETO_LIBRARIES}/lnDiodiTransistors.kicad_sym
+    ln_IC               ${LORETO_LIBRARIES}/ln_IC.kicad_sym
+    lnMicroController   ${LORETO_LIBRARIES}/lnMicroController.kicad_sym
+
+
+Inoltre anche il plot PDF va fatto nella directory:
+    /home/loreto/.lnprofile/appls/kicad_Work/pdf
+
+In caso di altri problemi copiare la directory in un disco locale
+

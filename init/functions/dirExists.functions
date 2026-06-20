@@ -1,0 +1,42 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+
+# # @_ln_echo_script_name $BASH_SOURCE
+
+function @_dirExists() {
+    local ret_val=0
+    local dir_path="${1:-"null_file"}" # default null
+    local dir_path="${1}"
+    [[ $dir_path == '' ]] && echo "missing directory path" && return $ret_val
+
+    if [[ -d "$dir_path" ]]; then
+        ret_val=1
+    else
+        echo "path: $dir_path NOT FOUND"
+    fi
+    return $ret_val
+}
+
+
+function @_parentDirExists() {
+    local ret_val=0
+    local dir_path="${1:-"null_file"}" # default null
+    local dir_path="${1}"
+
+    [[ $dir_path == '' ]] && echo "missing directory path" && return $ret_val
+    local dir_name=$(basename $dir_path)
+    local parent_dir=$(dirname $dir_path)
+
+
+    if [[ -d "$parent_dir" ]]; then
+        ret_val=1
+    else
+        echo "path: $parent_dir NOT FOUND"
+    fi
+    return $ret_val
+}
+
+

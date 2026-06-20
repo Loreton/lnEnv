@@ -1,0 +1,16 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 14-02-2026 17.10.44
+#
+
+
+
+# Serial port
+cutecom:
+   ref:
+      https://flathub.org/apps/com.gitlab.cutecom.cutecom
+   install:
+      flatpak install flathub com.gitlab.cutecom.cutecom
+   run:
+      flatpak run com.gitlab.cutecom.cutecom
+

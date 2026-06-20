@@ -1,0 +1,13 @@
+
+
+
+settings:
+   settings --> Appearance --> "icon size 20"
+   settings --> Appearance --> "Auto hide the dock"
+
+
+   # facendo click sull'icona dell'app la minimizza o la mostra
+   gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
+
+   # per avere anche i secondi nel clock
+   gsettings set org.gnome.desktop.interface clock-show-seconds true

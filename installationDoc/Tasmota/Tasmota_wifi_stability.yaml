@@ -1,0 +1,96 @@
+
+
+# Tasmota_sonoff
+#  Partire da:
+#       https://github.com/arendst/Tasmota/wiki
+#  https://github.com/arendst/Sonoff-Tasmota/wiki/Arduino-IDE
+#      IMPORTANT: For Windows users, before executing arduino.exe add an empty folder called portable in the known folder.
+#
+#       Install ESP8266 board software
+#         Open Arduino IDE and select File → Preferences and add the following text
+#               for field Additional Boards Manager URLs: http://arduino.esp8266.com/stable/package_esp8266com_index.json and select OK.
+#         Open Tools → Boards... → Boards Manager... and scroll down and click on esp8266 by ESP8266 Community.
+#               Click the Install button to download and install the latest ESP8266 board software. Select Close.
+#
+#       Download Tasmota
+#           Download the latest Tasmota release Source code from
+#               https://github.com/arendst/Sonoff-Tasmota/releases and unzip to another known folder.
+
+
+https://tasmota.github.io/docs/devices/Sonoff-Basic/
+
+
+
+Opzioni Wi-Fi e stabilità:
+    Backlog SetOption56 1; SetOption57 1; SetOption65 1; WifiPower 17; WifiConfig 5
+    SetOption56 1 → migliora riconnessione/roaming
+    SetOption57 1 → disabilita sleep Wi-Fi aggressivo
+    SetOption65 1 → ottimizza gestione rete
+    WifiConfig 5 → riconnessione intelligente su multi-AP
+    WifiPower 17 → potenza TX più stabile
+
+Watchdog Wi-Fi (riavvio solo se offline):
+    Rule1
+    ON Wifi#Disconnected DO RuleTimer1 900 ENDON
+    ON Wifi#Connected DO RuleTimer1 0 ENDON
+    ON Rules#Timer=1 DO Restart 1 ENDON
+    Rule1 1
+
+    Riavvia solo se resta offline per 15 minuti
+    Evita reboot inutili
+
+
+
+Reboot giornaliero (opzionale):
+    Con NTP → alle 04:00:
+        Rule2 ON Time#Minute=0 DO IF (%time%=="04:00") Restart 1 ENDIF ENDON
+        Rule2 1
+
+    Senza NTP → 24h dall’accensione:
+        Rule3 ON System#Boot DO Backlog RuleTimer3 86400 ENDON ON Rules#Timer=3 DO Backlog Restart 1; RuleTimer3 86400 ENDON
+        Rule3 1
+
+
+
+
+Debug / Controllo:
+    Vedere Rules:
+        Rule1
+        Rule2
+        Rule3
+
+    Vedere timer attivi:
+        RuleTimer1
+        RuleTimer3
+
+    Mostrare eventi in tempo reale (utile durante i test):
+       SetOption4 1
+
+    Ricorda di disattivarlo dopo: SetOption4 0
+
+    Controllare segnale Wi-Fi:
+        Status 5
+
+
+
+
+Backlog totale pronto:
+    Backlog
+    SetOption56 1;
+    SetOption57 1;
+    SetOption65 1;
+    WifiPower 17;
+    WifiConfig 5;
+
+    Rule1 0;
+    Rule1 ON Wifi#Disconnected DO RuleTimer1 900 ENDON ON Wifi#Connected DO RuleTimer1 0 ENDON ON Rules#Timer=1 DO Restart 1 ENDON;
+    Rule1 1;
+
+    Rule3 0;
+    Rule3 ON System#Boot DO Backlog RuleTimer3 86400 ENDON ON Rules#Timer=3 DO Backlog Restart 1; RuleTimer3 86400 ENDON;
+    Rule3 1;
+
+    SetOption4 0
+
+
+

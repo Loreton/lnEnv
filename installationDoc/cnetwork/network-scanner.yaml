@@ -1,0 +1,12 @@
+
+Ubuntu:
+    Angry IP Scanner:
+        https://angryip.org
+        https://sourceforge.net/projects/ipscan/
+
+zenmap: (nmap versione GUI)
+    ref:
+        https://nmap.org
+        https://ultahost.com/knowledge-base/install-zenmap-on-ubuntu/
+
+    sudo apt update && sudo apt-get install zenmap

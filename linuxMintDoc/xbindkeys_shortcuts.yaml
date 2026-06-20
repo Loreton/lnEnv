@@ -1,0 +1,29 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 15-06-2026 19.13.58
+#
+
+
+xbindkeys:
+    ref:
+        https://www.nongnu.org/xbindkeys/
+
+        https://mauriziosiagri.wordpress.com/tag/xbindkeys-config/
+
+    install:
+        sudo apt-get install xbindkeys
+        xbindkeys --defaults > $HOME/.xbindkeysrc
+
+    start:
+        /usr/bin/xbindkeys
+
+    restart:
+        killall -HUP xbindkeys
+    
+    other:
+        # prompt to capture shortcut
+        xbindkeys  -k
+        # current keys
+        xbindkeys_show
+
+

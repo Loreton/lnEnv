@@ -1,0 +1,170 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 14-02-2026 09.40.40
+#
+
+
+# ./esptool.py --port /dev/ttyUSB0 flash_id
+# ./esptool.py --port /dev/ttyUSB0 read_flash 0x00000 0x100000 sonoff-r2-1mb.orig.bin
+# ./esptool.py --port /dev/ttyUSB0 erase_flash
+# ./esptool.py --port /dev/ttyUSB0 write_flash -fs 1MB -fm dout 0x0 tasmota.bin
+
+BAUD_RATE=115200
+BAUD_RATE=460800
+fTrue=0
+fFalse=1
+
+############################################################
+function @isValidPort() {
+    local port_number="${1:-2222}"
+    if [[ $port_number =~ ^[0-2]+$ ]]; then
+        return $fTrue
+    else
+        echo "Enter a valid number for usb port [0-2]"
+        return $fFalse
+    fi
+}
+
+
+############################################################
+function checkSavingFilePath() {
+    local image_file="${1:-"undefined"}"
+    local parent_dir=$(dirname $image_file)
+    if [[ ! -d "$parent_dir" || "$image_file" == '/' ]]; then
+        echo "["$parent_dir"] not valid. Please enter a valid firmware filename"
+        return $fFalse
+    elif [[ -e "$image_file" ]]; then
+        echo "["$image_file"] already exists!"
+        return $fFalse
+    else
+        return $fTrue
+    fi
+}
+
+############################################################
+function @fileExists() {
+    local image_file="${1:-"undefined"}"
+    if [[ ! -f "$image_file" ]]; then
+        echo "["$image_file"] does not exist!"
+        return $fTrue
+    else
+        return $fFalse
+    fi
+}
+
+
+############################################################
+function @execute() {
+    local cmd="${1:-''}"
+    echo -e "\n${cmd}\n"
+    if [[ "$fEXECUTE" == '--go' ]]; then
+        $cmd
+    fi
+}
+
+
+############################################################
+function @esptoolID() {
+    set -u
+    local port_number="${1:--1}"
+    if ! @isValidPort "$port_number"; then return; fi
+    usb_port="/dev/ttyUSB${port_number}"
+
+    cmd="esptool --port ${usb_port} -b $BAUD_RATE flash-id"
+    @execute "$cmd"
+
+}
+
+
+
+
+############################################################
+function @esptoolErase() {
+    set -u
+    local port_number="${1:--1}"
+    if ! @isValidPort "$port_number"; then return; fi
+    usb_port="/dev/ttyUSB${port_number}"
+
+    cmd="esptool --port ${usb_port} -b $BAUD_RATE erase-flash"
+    @execute "$cmd"
+
+}
+
+
+
+
+############################################################
+function @esptoolRead() {
+    set -u
+    local port_number="${1:--1}"
+    local image_file="${2:-"undefined"}"
+    if ! @isValidPort "$port_number"; then return; fi
+    if ! checkSavingFilePath "$image_file"; then return; fi
+
+    usb_port="/dev/ttyUSB${port_number}"
+
+    cmd="esptool --port ${usb_port} -b $BAUD_RATE read-flash 0 ALL ${image_file}"
+    @execute "$cmd"
+}
+
+
+
+
+############################################################
+function @esptoolWrite() {
+    set -u
+    local port_number="${1:--1}"
+    local image_file="${2:-"undefined"}"
+    if ! @isValidPort "$port_number"; then return; fi
+    if @fileExists "$image_file"; then return; fi
+
+
+    usb_port="/dev/ttyUSB${port_number}"
+
+    cmd="esptool --port ${usb_port} -b $BAUD_RATE write-flash 0 "${image_file}" --erase-all"
+    @execute "$cmd"
+}
+
+
+
+
+############################################################
+function @esptoolVerify() {
+    set -u
+    local port_number="${1:--1}"
+    local image_file="${2:-"undefined"}"
+    if ! @isValidPort "$port_number"; then return; fi
+    if ! @fileExists "$image_file"; then return; fi
+
+
+    usb_port="/dev/ttyUSB${port_number}"
+
+    cmd="esptool --port ${usb_port} -b $BAUD_RATE verify-flash 0 "${image_file}""
+    @execute "$cmd"
+}
+
+
+
+
+
+
+
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+    # --- attivazione venv
+    alias ${alias_prefix}esptool='cd ${ln_PROGRAMMING_DIR}/gitREPO/lnEsptool && source .lnactivate'
+else
+    unset -f @esptoolRead
+    unset -f @esptoolWrite
+    unset -f @esptoolVerify
+    unset -f @esptoolID
+    unset -f @esptoolErase
+fi
+
+alias ${alias_prefix}esptool.read="@esptoolRead"
+alias ${alias_prefix}esptool.write="@esptoolWrite"
+alias ${alias_prefix}esptool.verify="@esptoolVerify"
+alias ${alias_prefix}esptool.id="@esptoolID"
+alias ${alias_prefix}esptool.erase="@esptoolErase"

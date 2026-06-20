@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 13-06-2026 18.03.55
+#
+
+
+
+
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+
+    ###... per aprire un file selezionato nella shell (vedi anche $HOME/.xbindkeysrc)
+    alias ${alias_prefix}x="${ln_UTILS_DIR}/xClip/xClip.py"
+    # alias ${alias_prefix}xcl*ip="${ln_PY_SCRIPTS_DIR}/xClip/xClip.py"
+    alias ${alias_prefix}xcl*ip="${ln_UTILS_DIR}/xClip/xClip.py"
+
+fi
+
+

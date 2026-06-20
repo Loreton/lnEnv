@@ -1,0 +1,1504 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sound",
+				"sound_files"
+			],
+			[
+				"sou",
+				"soundList"
+			],
+			[
+				"file",
+				"file_path"
+			],
+			[
+				"ye",
+				"yield"
+			],
+			[
+				"get",
+				"getFileList_glob"
+			],
+			[
+				"se",
+				"setDynNameLength"
+			],
+			[
+				"mo",
+				"module_formatted"
+			],
+			[
+				"check",
+				"check_local"
+			],
+			[
+				"__",
+				"__\t__magic__"
+			],
+			[
+				"che",
+				"check_remote"
+			],
+			[
+				"healt",
+				"health_check"
+			],
+			[
+				"content_",
+				"content_str"
+			],
+			[
+				"targe",
+				"target_file"
+			],
+			[
+				"search",
+				"searchFile"
+			],
+			[
+				"searc",
+				"searchFile"
+			],
+			[
+				"extrac",
+				"extract_file"
+			],
+			[
+				"sta",
+				"stacklevel"
+			],
+			[
+				"archi",
+				"archive_file"
+			],
+			[
+				"extr",
+				"extract_to"
+			],
+			[
+				"extra",
+				"extract_to"
+			],
+			[
+				"copy",
+				"copy_to"
+			],
+			[
+				"REM",
+				"REMOVE_PREV_DIR"
+			],
+			[
+				"P",
+				"PYZ"
+			],
+			[
+				"app",
+				"app_name"
+			],
+			[
+				"EC",
+				"EXCEUCTION_DIR"
+			],
+			[
+				"EX",
+				"EXCEUCTION_DIR"
+			],
+			[
+				"EXEC",
+				"EXCEUCTION_DIR"
+			],
+			[
+				"BU",
+				"BUNDLE_DIR"
+			],
+			[
+				"sea",
+				"search_paths"
+			],
+			[
+				"save",
+				"saved_choices"
+			],
+			[
+				"sho",
+				"show_fles"
+			],
+			[
+				"gdri",
+				"gdrive_users"
+			],
+			[
+				"temp",
+				"temp_dir"
+			],
+			[
+				"pyLnLib",
+				"pyLnLib_name"
+			],
+			[
+				"pyLnLib_",
+				"pyLnLib_SRC"
+			],
+			[
+				"py",
+				"pyLnLib_name"
+			],
+			[
+				"rel",
+				"rel_path"
+			],
+			[
+				"pa",
+				"path"
+			],
+			[
+				"pyLn",
+				"pyLnLib_SRC"
+			],
+			[
+				"fo",
+				"forceExit"
+			],
+			[
+				"ty",
+				"types"
+			],
+			[
+				"add",
+				"add_custom_levels"
+			],
+			[
+				"ma",
+				"magentaH"
+			],
+			[
+				"is_",
+				"is_recursive"
+			],
+			[
+				"is",
+				"is_recursive"
+			],
+			[
+				"f",
+				"file_path"
+			],
+			[
+				"fie",
+				"file_path"
+			],
+			[
+				"whit",
+				"whiteH"
+			],
+			[
+				"fil",
+				"files_to_check"
+			],
+			[
+				"Dumm",
+				"DummyPrintLogger"
+			],
+			[
+				"c",
+				"chdir"
+			],
+			[
+				"zip",
+				"zipReadFile"
+			],
+			[
+				"sear",
+				"search_paths"
+			],
+			[
+				"prj",
+				"PROJECT_NAME"
+			],
+			[
+				"reso",
+				"resolvePath"
+			],
+			[
+				"lnL",
+				"LnLIB"
+			],
+			[
+				"sour",
+				"sourcePATH"
+			],
+			[
+				"Erro",
+				"Error"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"tes",
+				"test_logger"
+			],
+			[
+				"Tre",
+				"True"
+			],
+			[
+				"con",
+				"consoleHandler"
+			],
+			[
+				"test",
+				"testLogger"
+			],
+			[
+				"Lo",
+				"LoggerColoredSimple"
+			],
+			[
+				"max",
+				"max_retries"
+			],
+			[
+				"ven",
+				"venvPath"
+			],
+			[
+				"venv",
+				"venvPath"
+			],
+			[
+				"scri",
+				"scriptPath"
+			],
+			[
+				"yello",
+				"yellowH"
+			],
+			[
+				"loro",
+				"loretorc_link"
+			],
+			[
+				"lor",
+				"loretorc_file"
+			],
+			[
+				"loreto",
+				"loretorc_file"
+			],
+			[
+				"lore",
+				"loretorc_path"
+			],
+			[
+				"bi",
+				"bootDevice"
+			],
+			[
+				"g_de",
+				"g_DEVICE"
+			],
+			[
+				"set",
+				"setColors"
+			],
+			[
+				"proce",
+				"process_strings"
+			],
+			[
+				"un",
+				"unnecessary"
+			],
+			[
+				"profil",
+				"profile_name"
+			],
+			[
+				"mac",
+				"matching_profiles"
+			],
+			[
+				"lnS",
+				"lnSync_Class"
+			],
+			[
+				"yaml",
+				"yaml_data"
+			],
+			[
+				"load",
+				"load_yaml"
+			],
+			[
+				"force_",
+				"force_log"
+			],
+			[
+				"LN",
+				"LNResolver"
+			],
+			[
+				"stack",
+				"stacklevel"
+			],
+			[
+				"ln",
+				"lnOrchestrator"
+			],
+			[
+				"dumm",
+				"dummy_merge2"
+			],
+			[
+				"separato",
+				"separator_line"
+			],
+			[
+				"_",
+				"_underscore"
+			],
+			[
+				"stri",
+				"stripped_line"
+			],
+			[
+				"vali",
+				"valid_profiles"
+			],
+			[
+				"unn",
+				"unnecessary_strings"
+			],
+			[
+				"unne",
+				"unnecessary_strings"
+			],
+			[
+				"rclo",
+				"rclone_colors"
+			],
+			[
+				"erro",
+				"error_strings"
+			],
+			[
+				"error",
+				"error_strings"
+			],
+			[
+				"colo",
+				"color_map"
+			],
+			[
+				"defa",
+				"default_color_map"
+			],
+			[
+				"sync",
+				"synchCMD"
+			],
+			[
+				"foler",
+				"folder"
+			],
+			[
+				"bas",
+				"baseCMD_STR"
+			],
+			[
+				"remot",
+				"remote_path"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"sycn",
+				"synchCMD"
+			],
+			[
+				"runn",
+				"runnerCommand"
+			],
+			[
+				"er",
+				"error_strings"
+			],
+			[
+				"dr",
+				"dry_run"
+			],
+			[
+				"comm",
+				"command_line"
+			],
+			[
+				"comman",
+				"command_line"
+			],
+			[
+				"color",
+				"color_str"
+			],
+			[
+				"err",
+				"errors_str"
+			],
+			[
+				"run",
+				"runProgram_Class"
+			],
+			[
+				"log_",
+				"log_filepath"
+			],
+			[
+				"profi",
+				"profile"
+			],
+			[
+				"spli",
+				"splitted_command"
+			],
+			[
+				"ssh",
+				"ssh_opt"
+			],
+			[
+				"arg_dr",
+				"args_dry_run"
+			],
+			[
+				"exclu",
+				"exclude_filename"
+			],
+			[
+				"rsy",
+				"rsync_opt"
+			],
+			[
+				"ssh_",
+				"ssh_cmd"
+			],
+			[
+				"process",
+				"processFolder"
+			],
+			[
+				"folde",
+				"folders"
+			],
+			[
+				"choice",
+				"choiceKeys"
+			],
+			[
+				"folder",
+				"folder_name"
+			],
+			[
+				"fole",
+				"folder_name"
+			],
+			[
+				"fol",
+				"folder_name"
+			],
+			[
+				"src",
+				"src_path"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "pyLnLib.sublime-project",
+			"settings":
+			{
+				"buffer_size": 669,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					6,
+					2,
+					"left_delete",
+					null,
+					"AgAAAJQCAAAAAAAAlAIAAAAAAADGAAAACgkJLy8geyAicGF0aCI6ICIvaG9tZS9sb3JldG8vZmlsdS9sbkVudi9weVNjcmlwdHMiLAoJCS8vIAkiZm9sbG93X3N5bWxpbmtzIjogdHJ1ZSwKCQkvLyAgICAgImZvbGRlcl9leGNsdWRlX3BhdHRlcm5zIjogWyJ4eHgiXSwKICAgICAgICAvLyAgICAgImZvbGRlcl9pbmNsdWRlX3BhdHRlcm5zIjogWyJzc2gqLyIsIF0sCiAgICAgICAgLy8gfSwKkwIAAAAAAACTAgAAAAAAAAEAAAAK",
+					"DAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAFoDAAAAAAAAlAIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					7,
+					3,
+					"right_delete",
+					null,
+					"AwAAAJMCAAAAAAAAkwIAAAAAAAABAAAACpMCAAAAAAAAkwIAAAAAAAABAAAACpMCAAAAAAAAkwIAAAAAAAABAAAACg",
+					"DAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAJMCAAAAAAAAkwIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					12,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAFYCAAAAAAAAWQIAAAAAAAAAAAAA",
+					"DAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAGACAAAAAAAAYAIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					16,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAFYCAAAAAAAAVgIAAAAAAAADAAAALy8g",
+					"DAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAGMCAAAAAAAAYwIAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					5,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAANYBAAAAAAAA1gEAAAAAAAADAAAALy8g",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAPkBAAAAAAAA+QEAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					1,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAANYBAAAAAAAA2QEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD2AQAAAAAAAPYBAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/tests/beep_test.py",
+			"settings":
+			{
+				"buffer_size": 3019,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					2,
+					"left_delete",
+					null,
+					"AgAAAHQAAAAAAAAAdAAAAAAAAAABAAAAIHMAAAAAAAAAcwAAAAAAAAABAAAAOw",
+					"AQAAAAAAAAABAAAAdQAAAAAAAAB1AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					4,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAHMAAAAAAAAAdAAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAcwAAAAAAAABzAAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					5,
+					7,
+					"swap_line_down",
+					null,
+					"DgAAAJ0AAAAAAAAAvAAAAAAAAAAAAAAAdAAAAAAAAAB0AAAAAAAAAB8AAABzeXMuZG9udF93cml0ZV9ieXRlY29kZSA9IFRydWUKtgAAAAAAAADVAAAAAAAAAAAAAAB+AAAAAAAAAH4AAAAAAAAAHwAAAHN5cy5kb250X3dyaXRlX2J5dGVjb2RlID0gVHJ1ZQrCAAAAAAAAAOEAAAAAAAAAAAAAAJcAAAAAAAAAlwAAAAAAAAAfAAAAc3lzLmRvbnRfd3JpdGVfYnl0ZWNvZGUgPSBUcnVlCsMAAAAAAAAA4gAAAAAAAAAAAAAAowAAAAAAAACjAAAAAAAAAB8AAABzeXMuZG9udF93cml0ZV9ieXRlY29kZSA9IFRydWUK2wAAAAAAAAD6AAAAAAAAAAAAAACkAAAAAAAAAKQAAAAAAAAAHwAAAHN5cy5kb250X3dyaXRlX2J5dGVjb2RlID0gVHJ1ZQoIAQAAAAAAACcBAAAAAAAAAAAAALwAAAAAAAAAvAAAAAAAAAAfAAAAc3lzLmRvbnRfd3JpdGVfYnl0ZWNvZGUgPSBUcnVlCgkBAAAAAAAAKAEAAAAAAAAAAAAA6QAAAAAAAADpAAAAAAAAAB8AAABzeXMuZG9udF93cml0ZV9ieXRlY29kZSA9IFRydWUK",
+					"AQAAAAAAAAABAAAAdAAAAAAAAAB0AAAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					9,
+					1,
+					"ln_author_version",
+					{
+						"update": true
+					},
+					"AQAAABkAAAAAAAAAZAAAAAAAAABLAAAAIyB1cGRhdGVkIGJ5IC4uLjogTG9yZXRvIE5vdGFyYW50b25pbwojIERhdGUgLi4uLi4uLi4uOiAxMy0wNi0yMDI2IDE3LjM0LjU3",
+					"AQAAAAAAAAABAAAA6gAAAAAAAADqAAAAAAAAAAAAAAAAAPC/"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"dup",
+				"File: Duplicate"
+			],
+			[
+				"ren",
+				"File: Rename File"
+			],
+			[
+				"del",
+				"File: Delete"
+			],
+			[
+				"mov",
+				"File: Move"
+			],
+			[
+				"inc",
+				"Increment Selection"
+			],
+			[
+				"de",
+				"File: Delete"
+			],
+			[
+				"mo",
+				"File: Move"
+			],
+			[
+				"dupl",
+				"File: Duplicate"
+			],
+			[
+				"mv",
+				"File: Move"
+			],
+			[
+				"m",
+				"File: Move"
+			],
+			[
+				"bash",
+				"Set Syntax: Bash"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"pack",
+				"Package Control: Advanced Install Packages"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"mof",
+				"Sublime Merge: Folder History"
+			],
+			[
+				"hex",
+				"Preferences: HexViewer Settings – Default"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"syn yaml",
+				"Set Syntax: YAML"
+			],
+			[
+				"rn",
+				"Run"
+			],
+			[
+				"penv",
+				"Pretty JSON: Validate"
+			],
+			[
+				"dul",
+				"File: Duplicate"
+			],
+			[
+				"du",
+				"File: Duplicate"
+			],
+			[
+				"re",
+				"File: Revert"
+			],
+			[
+				"i",
+				"Increment Selection"
+			],
+			[
+				"synt",
+				"Set Syntax: Batch File"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ruler",
+				"Wrap at Ruler"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"rule",
+				"Wrap at Ruler"
+			],
+			[
+				"in",
+				"Increment Selection"
+			],
+			[
+				"extern",
+				"ExternalTool:"
+			],
+			[
+				"exter",
+				"ExternalTool:"
+			],
+			[
+				"json",
+				"Pretty JSON: Format JSON"
+			],
+			[
+				"jso",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"DUP",
+				"File: Duplicate"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ali",
+				"Preferences: AlignTab Context Menu"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"syn",
+				"Set Syntax: Batch File"
+			],
+			[
+				"duo",
+				"Help: Documentation"
+			],
+			[
+				"aligntab",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"",
+				"AlignTab"
+			],
+			[
+				"dp",
+				"Plugin Development: Profile Events"
+			],
+			[
+				"plugi",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"sort",
+				"CSV: Sort by column (Ascending)"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"copy",
+				"Clipboard Manager: Copy"
+			],
+			[
+				"csv",
+				"CSV: Justify columns"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"duip",
+				"File: Duplicate"
+			],
+			[
+				"dulp",
+				"File: Duplicate"
+			],
+			[
+				"incre",
+				"Increment Selection"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"todo",
+				"Set Syntax: Todo"
+			],
+			[
+				"files",
+				"File: Save All"
+			],
+			[
+				"yaml form",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"notes",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projectn",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projecn",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projectNo",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"not",
+				"ProjectNotes: Open file"
+			],
+			[
+				"tog",
+				"Toggle Readonly"
+			],
+			[
+				"synta",
+				"Preferences: Settings ÃÂ¢ÃÂÃÂ Syntax Specific"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"sintax",
+				"Preferences: Settings ÃÂ¢ÃÂÃÂ Syntax Specific"
+			],
+			[
+				"term",
+				"Terminal: Open"
+			],
+			[
+				"ngin",
+				"Set Syntax: nginx"
+			],
+			[
+				"env",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"\\",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"ini",
+				"Set Syntax: INI"
+			],
+			[
+				"delf",
+				"Code Folding: Fold"
+			],
+			[
+				"r",
+				"Rename File"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 202.0,
+		"history":
+		[
+			"print(os.environ.get(\"ln_LINUX_PORTABLE_DIR\"))",
+			"print(os.environ.get(\"ln_LINUX_PORTABLE_DIR\")",
+			"print(os.environ.get(\"ln_LINUX_PORTABLE_DIR\"))",
+			"print(os.environ(get(\"ln_LINUX_PORTABLE_DIR\")))",
+			"print(os.environ(get(\"ln_LINUX_PORTABLE_DIR\"))",
+			"print(os.environ(get(\"ln_LINUX_PORTABLE_DIR))",
+			"print(\"ciao\")",
+			"print(os.environ.get(\"XCLIP_ROOT_DIR_FILE\"))",
+			"print(os.env.get(\"XCLIP_ROOT_DIR_FILE\"))",
+			"os.getenv(\"HOME\")",
+			"os.getenv(\"ln_PDF_VIEWER\")",
+			"x=os.getenv(\"ln_PDF_VIEWER\")",
+			"print(os.getenv(\"ln_PDF_VIEWER\"))",
+			"print(os.getenv(\"ln_PDF_VIEWER\")",
+			"print(x)",
+			"x",
+			"x=os.getenv(\"ln_PDF_VIEWER\")",
+			"print(x)",
+			"print(xx)",
+			"x=os.getenv(\"LORETO1\")",
+			"print(\"CIAO\")",
+			"print(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\n",
+			"print(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\nprint(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\nprint(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/tests"
+	],
+	"file_history":
+	[
+		"/home/loreto/filu/lnEnv/config/appls/xbindkey/.xbindkeysrc",
+		"/home/loreto/filu/Applications/lnAppls/buildProject/python_build.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/tests/test_Beep.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/tests/setup_for_testing.sh",
+		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/python.alias",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/keyboard_prompt.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/files/file_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/files/__init__.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/__init__.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/__main__.py",
+		"/home/loreto/filu/lnEnv/init/aliases/generic/cd_dirs.alias",
+		"/home/loreto/filu/lnEnv/pyScripts/varie/dir_list.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/logger/ln_colored_logger.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/tests/test_logger.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/_test_modules/test_DummyPrinterLogger.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/logger/logger_colored.py",
+		"/home/loreto/filu/Programming/gitREPO/gitCommit/pyproject.toml",
+		"/home/loreto/filu/Programming/gitREPO/gitCommit/src/gitcommit/modules/__init__.py",
+		"/home/loreto/filu/Programming/gitREPO/gitCommit/.python-version",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyproject.toml",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/__init__.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/pyproject.toml",
+		"/home/loreto/filu/lnEnv/config/appls/SublimeText/pyScripts.sublime-project",
+		"/home/loreto/filu/lnEnv/pyScripts/ssh_tunnel_watchdog/__main__.py",
+		"/home/loreto/filu/lnEnv/pyScripts/ssh_tunnel_watchdog/source/ssh_tunnel_watchdog_01.py",
+		"/home/loreto/filu/lnEnv/pyScripts/ssh_tunnel_watchdog/source/ssh_tunnel_watchdog.py",
+		"/home/loreto/filu/lnEnv/pyScripts/ssh_tunnel_watchdog/source/ssh_tunnel_watchdog_.py",
+		"/home/loreto/filu/Programming/gemini/gemini_run.py",
+		"/home/loreto/filu/lnEnv/pyScripts/ssh_tunnel_watchdog/AIQuestions/question_2026-05-15_19.01.md",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/lndict/ln_dict_resolver_class.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/system/acquire_lock.py",
+		"/home/loreto/filu/lnEnv/pyScripts/ssh_tunnel_watchdog/source/parse_input.py",
+		"/home/loreto/filu/lnEnv/pyScripts/ssh_tunnel_watchdog/conf/config.yaml",
+		"/home/loreto/filu/lnEnv/pyScripts/ssh_tunnel_watchdog/source/__init__.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/files/file_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/logger/logger_colored.py",
+		"/home/loreto/filu/lnEnv/config/appls/SublimeText/lnSync.sublime-project",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/_test_modules/test_file_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/files/yaml_loader_class.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/files/zip_file_utils.py",
+		"/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/ssh.alias",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/xbindkeys.alias",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/conf/rclone_options.yaml",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/files/ini_loader.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/_test_modules/test_logger.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/source/core/lnsync_class.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/lnSync/pyLnLib/logger/dummy_logger.py",
+		"/home/loreto/.pyENV/versions/3.13.9/lib/python3.13/configparser.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/files/__init__.py",
+		"/home/loreto/filu/lnEnv/pyLnLib_moved/pyLnLib/file_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/.venv/lib/python3.13/site-packages/pip/_vendor/rich/traceback.py",
+		"/home/loreto/filu/lnEnv/init/script_utils/build_project.py",
+		"/tmp/lnsync/config_after_resolve.yaml",
+		"/home/loreto/filu/lnEnv/init/script_utils/buildProject.py",
+		"/home/loreto/filu/lnEnv/shScripts/z_templates_bash/Strings.sh",
+		"/home/loreto/filu/Applications/bundles/lnSync/run.sh",
+		"/home/loreto/filu/Applications/bundles/lnSync/lnrun.sh",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/__main__.py",
+		"/tmp/run.sh",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/dist/run.sh",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/source/core/parse_input.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/ln_run_stream_class.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/keyboard_prompt.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/git_status.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/parse_input.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/process_args.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/ln_run.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/update_library.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/get_last_tag.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/get_git_root.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/change_log.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/main.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/loreto_packages.txt",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/library.json",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries_wkdevel/lnTimeClock_OLD/library.json",
+		"/home/loreto/filu/lnEnv/init/script_utils/rclone.sh",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/conf/profiles/nloreto_gdrive.yaml",
+		"/home/loreto/filu/lnEnv/init/aliases/generic/rclone.alias",
+		"/home/loreto/filu/lnEnv/init/aliases/generic/01-system.functions",
+		"/home/loreto/filu/lnEnv/.config_secret/rclone/rclone.conf",
+		"/home/loreto/filu/lnEnv/init/aliases/generic/gdrive.alias",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/ln_OpenFileUnderCursor.py",
+		"/home/loreto/filu/lnEnv/start_proc/sublime_start.sh",
+		"/tmp/sublime_start.log",
+		"/home/loreto/filu/Applications/linuxPortable/rclone/amd64/rclone",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/rclone.yaml",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/yaml_loader_class.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/file_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/zip_file_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/logger_colored_v021.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/conf/@lnSync_config.yaml",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/@project_links.lst",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/get_file_fs_zip.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/test_pyLnLib.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/dummy_logger.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/pyLnLib/__init__.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib_V01/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/pyLnLib/logger_colored_v021.py",
+		"/home/loreto/filu/Programming/genericPython/test_pyLnLib.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/pyLnLib/ln_run.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/pyLnLib/dummy_logger.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/pyproject.toml",
+		"/home/loreto/filu/lnEnv/pyLnLib/pyproject.toml",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/get_file_fs_zip.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/file_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/context.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/yaml_loader_class.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/logger_sample.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/ln_run_stream_class.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/logger_sample.py",
+		"/tmp/xClip.log",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/write_file.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/logger_sample_v01.py",
+		"/home/loreto/filu/lnEnv/init/functions/_appo/03-Loretorc.functions_saved",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/__init__.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/zip_file_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/yaml_loader_class_GPT_last.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/yaml_loader_class_GPT_last.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/yaml_loader_class_v01.py",
+		"/home/loreto/filu/lnEnv/pyLnLib_new/ln_dict_class.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/ln_run.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/file_zip_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/pyLnLib/is_zip_file.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/yaml_loader_class.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/yaml_loader_class_v01.py"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 134.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"src",
+			"choice",
+			"dirlist",
+			"lnLib",
+			").glob",
+			"args.",
+			"setNameLength",
+			"_caller_BAD",
+			"callerFunc",
+			"max_len",
+			"FUNCTION",
+			"logging.INFO",
+			"NOTIFY",
+			" ",
+			"SSH stderr:",
+			"SSH Err",
+			"SSH err",
+			"run",
+			"load_config",
+			"setRotatingLogger",
+			"file_logger_level",
+			"include_folders",
+			"xbindkey",
+			"g_STEVE",
+			"steve103",
+			"searchFileInZip",
+			">>>>>>>",
+			"os.chmod",
+			"searchingFile",
+			"getFileContent",
+			"CMDOUTPUT",
+			"search",
+			"searchingZipFile",
+			"searchingFile",
+			"Color",
+			"return_and_exit",
+			"searchingFile",
+			"n base_p",
+			"searchingFilesystem",
+			"Optional",
+			"searchingFile",
+			"EXCECUTION_DIR",
+			"EXCEUCTION_DIR",
+			"((",
+			"+ ",
+			"len",
+			"leftStr1",
+			"len",
+			"exist_ok",
+			"BUNDLE_DIR",
+			" bundle(t",
+			"bundle",
+			".bundle_stage",
+			"bundle_stage",
+			"PROJECT_NAME",
+			"@",
+			"DIR=\"$(cd \"$(dirname \"$0\")\" && pwd)\"",
+			"bundle_stage",
+			"find_file",
+			"Elapsed time",
+			"print",
+			"processConsoleLine",
+			"unnecessary_starting_with",
+			"rsync_process_strings",
+			"unnecessary_starting_with",
+			"rclone",
+			"pdb",
+			"choice_folders",
+			"display_folders",
+			"self.colors",
+			"elf.colors",
+			"TAB",
+			"separator_line",
+			"display_folders",
+			"selectSubFolders",
+			"DummyNoPrintLogger",
+			"LoggerColoredSimple",
+			"keyboardPrompt",
+			"promp",
+			".rclonebin",
+			"promp",
+			"INIT",
+			"_util",
+			"DEBU",
+			"pdb",
+			"rclon",
+			"gdrive",
+			"upper",
+			"rclone",
+			"nlor",
+			"}rclone",
+			"rclone",
+			"PYZ_TO_UTIL",
+			"build",
+			"build_lib_zip",
+			"extraction_path",
+			"searchingZipFile",
+			"pdb",
+			"\"conf",
+			"pdb",
+			"INCLUDE_DIRS",
+			"pyLnLib_SRC",
+			"prepare_stage",
+			"pyLnLib_SRC",
+			"build",
+			"build_lib_zip",
+			"ZIP_OUTPUT",
+			"lnlib_name",
+			"LIB_SRC",
+			"BASE_DIR",
+			"build",
+			"LIB_SRC",
+			"build_lib_zip",
+			"zipapp",
+			"zipfile",
+			"exit",
+			"SimpleNamespace",
+			"ctx",
+			"extraction_dir",
+			"searchingZipFile",
+			"read_rclone_conf",
+			"ch",
+			"DummyNoPrintLogger",
+			"logger",
+			"DummyLogger",
+			"searchingZipFile",
+			"module",
+			"functon"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"d",
+			""
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "pyLnLib.sublime-project",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 669,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								505,
+								505
+							]
+						],
+						"settings":
+						{
+							"ln_author_version.updated": false,
+							"ln_program_version.updated": false,
+							"syntax": "Packages/JSON/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/tests/beep_test.py",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3019,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								171,
+								178
+							]
+						],
+						"settings":
+						{
+							"ln_author_version.updated": true,
+							"ln_program_version.updated": false,
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 31.0
+	},
+	"input":
+	{
+		"height": 50.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.LSP Log Panel":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.SFTP":
+	{
+		"height": 96.0,
+		"history":
+		[
+		]
+	},
+	"output.diagnostics":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.exec":
+	{
+		"height": 136.0,
+		"history":
+		[
+		]
+	},
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.hex_viewer_inspector":
+	{
+		"height": 124.0,
+		"history":
+		[
+		]
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "pyLnLib.sublime-project",
+	"replace":
+	{
+		"height": 58.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ren",
+				".ln/LnDoc/Network/Varie/RaspBerry_Network_Config.txt"
+			],
+			[
+				"dupl",
+				".ln/shDevel/ddns/prev/DDNS_updates_V20220721_profiles.sh"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/filu/lnEnv/config/appls/SublimeText/lnEnv.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 350.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"lsp_show_inlay_hints": false
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 255.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

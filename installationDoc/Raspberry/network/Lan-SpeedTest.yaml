@@ -1,0 +1,50 @@
+NC:
+    server: nc -vvlnp 12345 >/dev/null
+    client: dd if=/dev/zero bs=1M count=1K | nc -vvn 192.168.1.31 12345
+    result:
+        Connection to 192.168.1.31 12345 port [tcp/*] succeeded!
+        1024+0 records in
+        1024+0 records out
+        1073741824 bytes (1.1 GB, 1.0 GiB) copied, 90.8611 s, 11.8 MB/s
+
+
+iperf:
+    server: iperf -s
+    client: iperf -c 192.168.1.31
+    result:
+        ------------------------------------------------------------
+        Client connecting to 192.168.1.31, TCP port 5001
+        TCP window size:  512 KByte (default)
+        ------------------------------------------------------------
+        [  3] local 192.168.1.5 port 57533 connected with 192.168.1.31 port 5001
+        [ ID] Interval       Transfer     Bandwidth
+        [  3]  0.0-10.0 sec   114 MBytes  95.1 Mbits/sec
+
+    client: iperf -c 192.168.1.31iperf -c 192.168.1.5 -P 10 -t 30
+    result:
+        ------------------------------------------------------------
+        Client connecting to 192.168.1.5, TCP port 5001
+        TCP window size: 43.8 KByte (default)
+        ------------------------------------------------------------
+        [ 12] local 192.168.1.31 port 45034 connected with 192.168.1.5 port 5001
+        [  3] local 192.168.1.31 port 45018 connected with 192.168.1.5 port 5001
+        [  6] local 192.168.1.31 port 45022 connected with 192.168.1.5 port 5001
+        [  4] local 192.168.1.31 port 45016 connected with 192.168.1.5 port 5001
+        [  7] local 192.168.1.31 port 45024 connected with 192.168.1.5 port 5001
+        [  8] local 192.168.1.31 port 45026 connected with 192.168.1.5 port 5001
+        [  5] local 192.168.1.31 port 45020 connected with 192.168.1.5 port 5001
+        [  9] local 192.168.1.31 port 45028 connected with 192.168.1.5 port 5001
+        [ 10] local 192.168.1.31 port 45030 connected with 192.168.1.5 port 5001
+        [ 11] local 192.168.1.31 port 45032 connected with 192.168.1.5 port 5001
+        [ ID] Interval       Transfer     Bandwidth
+        [  9]  0.0-30.0 sec  34.1 MBytes  9.54 Mbits/sec
+        [  4]  0.0-30.0 sec  34.0 MBytes  9.50 Mbits/sec
+        [  6]  0.0-30.0 sec  34.0 MBytes  9.49 Mbits/sec
+        [  5]  0.0-30.0 sec  34.1 MBytes  9.53 Mbits/sec
+        [ 10]  0.0-30.1 sec  34.1 MBytes  9.53 Mbits/sec
+        [ 11]  0.0-30.0 sec  34.1 MBytes  9.53 Mbits/sec
+        [ 12]  0.0-30.1 sec  34.1 MBytes  9.52 Mbits/sec
+        [  8]  0.0-30.1 sec  34.2 MBytes  9.55 Mbits/sec
+        [  3]  0.0-30.1 sec  34.2 MBytes  9.55 Mbits/sec
+        [  7]  0.0-30.1 sec  34.2 MBytes  9.54 Mbits/sec
+        [SUM]  0.0-30.1 sec   341 MBytes  95.1 Mbits/sec

@@ -1,0 +1,18 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 15-11-2025 09.01.28
+#
+
+
+org.telegram.desktop:
+    ref:
+        https://flathub.org/en/apps/org.telegram.desktop
+
+    install:
+        flatpak install flathub org.telegram.desktop
+
+    run:
+        flatpak run org.telegram.desktop
+
+
+

@@ -1,0 +1,129 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+# scriptFullPath="$(readlink -f ${BASH_SOURCE[0]})"       # OTTIMA
+# scriptDir="$(dirname $scriptFullPath)"
+# scriptName="$(basename $scriptFullPath)"
+# echo "----------- $scriptName"
+
+# # @_ln_echo_script_name $BASH_SOURCE
+
+
+
+
+###############################
+# override del cd per scrivere 
+# la directory nel file indicato
+###############################
+function cdxx() { # al momento sostituito da .cdd
+    local dir=${1:-$HOME}
+    builtin cd $dir
+    echo $PWD > "${XCLIP_ROOT_DIR_FILE}"
+}
+
+
+
+###############################
+###############################
+function @_system_real_pathxxxxx() {
+    echo $(readlink -fvs  "${1}");
+}
+
+
+
+
+#########################################################
+# trap ctrl-c and call ctrl_c()
+#########################################################
+: '
+'
+trap ctrl_c INT
+function ctrl_c() {
+    echo "** Trapped CTRL-C"
+    trappedCode=1
+    return
+}
+
+
+
+
+
+#########################################################
+# tar current directory
+#########################################################
+function @_tarCurrentDir() {
+    MOSSO nel file /home/loreto/lnprofile/sh_scripts/varie/tar_CurrentDir.sh
+    return
+
+    # --- preleviamo subito il nome della directory
+    local thisPath="${PWD}"
+    local thisRealPath="$(readlink -fvs  "${PWD}")"
+    local parentPath="$(dirname ${thisRealPath})"
+    local currDirName="$(basename ${thisRealPath})"
+    # --- ci spostiamo sopra
+
+
+    local g_userNAME="$USER"
+    local g_userID=$( id -g $g_userNAME )
+    local g_groupID=$( id -u $g_userNAME )
+    local g_groupNAME=$( id -gn $g_userNAME )
+
+
+    # local EXCLUDE='--exclude=*/.aMule/copied/* \
+    #          --exclude=*/.aMule/Incoming/* \
+    #          --exclude=*/.aMule/Temp/* \
+    #          --exclude=*/.pio/* \
+    #          --exclude=*/__pycache__/* \
+    #          --exclude=*/.git/* \
+    #          '
+
+    local EXCLUDE='--exclude=*/.aMule/copied/*  --exclude=*/.aMule/Incoming/*  --exclude=*/.aMule/Temp/*  --exclude=*/.pio/*  --exclude=*/__pycache__/*  --exclude=*/.git/*  '
+
+    # DATE=$(date +'%Y-%m-%d')
+    local DATE=$(date +"%Y%m%d_%H%M%S")
+    local HOST_NAME=$(hostname -s)
+
+
+
+
+    [[ "$currDirName" == '.lnProfile' ]] && dir_name='lnProfile' || dir_name=$currDirName
+    local tarFilePath="${parentPath}/${dir_name}_${DATE}.tgz"
+
+    # Make sure to put --exclude before the source and destination items.
+    # sudo tar --exclude='/home/pi/PiProd/.git' -czf $tarFile --absolute-names --files-from=$listFiles
+    cmd="sudo tar --absolute-names ${EXCLUDE} -czvf ${tarFilePath} $dir_name"
+
+    trappedCode=0
+    echo
+    echo "dir name:      $dir_name"
+    echo "tar file:      ${tarFilePath}"
+    echo
+    echo "current path:  $thisRealPath"
+    echo "parentPath:    ${parentPath}"
+    echo
+    echo "command:       ${cmd}"
+    echo
+    echo "press enter to coninue (ctrl-c to exit)"
+    read
+
+
+    echo "trappedCode: $trappedCode"
+    if [[ "$trappedCode" -eq 0 ]]; then
+        local savedPath="${PWD}"
+        cd ..
+
+        echo "executing:\n  $cmd"
+        sudo tar --absolute-names ${EXCLUDE} -czvf ${tarFilePath} $dir_name
+        sudo chown ${g_userNAME}:${g_groupNAME} ${tarFilePath}
+
+        ### test file
+        tar -tzvf $tarFilePath
+        echo
+        echo "$tarFilePath has been created"
+        echo
+        echo "command executed:\n  $cmd"
+        cd $savedPath
+    fi
+}

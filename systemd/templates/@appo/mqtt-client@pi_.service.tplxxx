@@ -1,0 +1,45 @@
+# ------------------------------------
+# updated by ...: Loreto Notarantonio
+# Date .........: 06-08-2022 19.02.05
+# ------------------------------------
+
+[Unit]
+Description=mqtt-client used to capture data from mqtt_broker for tasmota and shelly devices
+After=multi-user.target
+
+
+[Service]
+Type=simple
+User=pi
+# per gestire i child
+KillMode=process
+
+Environment="APPL_NAME=Mqtt-Client"
+Environment="BROKER_NAME=LnMqtt"
+Environment="BOT_NAME=LnCasettaBot"
+Environment="MARIADB_SERVER=LnPi23"
+Environment="LOGGER_DIR=/tmp/Mqtt-Client"
+Environment="RUNTIME_DIR=/home/pi/.ln/runtime/lnpi41"
+
+# lo stop è gestito automaticamente da systemd
+ExecStart=/usr/bin/python \
+            /home/pi/.ln/scripts/stable/Mqtt-Client.zip \
+            --broker-name $BROKER_NAME \
+            --appl-name $APPL_NAME \
+            --logger-dir $LOGGER_DIR \
+            --runtime-dir $RUNTIME_DIR \
+            --logger-console error \
+            --logger-level warning \
+            --systemd
+
+            BROKER_NAME='LnMqtt'
+            BOT_NAME='LnCasettaBot'
+
+# Restart=always
+Restart=always
+RestartSec=60
+
+
+[Install]
+WantedBy=multi-user.target
+

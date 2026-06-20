@@ -1,0 +1,8 @@
+
+    sudo update-alternatives --install /usr/bin/python python /home/loreto/.pyenv/versions/3.12.5/bin/python3.12 1
+    sudo update-alternatives --install /usr/bin/python python /home/loreto/.pyenv/versions/3.11.9/bin/python3.11 1
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.10 1
+
+
+    sudo update-alternatives --config python
+

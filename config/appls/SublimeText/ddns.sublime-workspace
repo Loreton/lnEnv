@@ -1,0 +1,1374 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"rclo",
+				"rclone_node"
+			],
+			[
+				"profile",
+				"profile_name"
+			],
+			[
+				"profil",
+				"profile_name"
+			],
+			[
+				"profi",
+				"profile_name"
+			],
+			[
+				"req",
+				"req_profile"
+			],
+			[
+				"gete",
+				"generic_common_options"
+			],
+			[
+				"log",
+				"log_options"
+			],
+			[
+				"ma",
+				"mainOptions"
+			],
+			[
+				"file",
+				"filesystem"
+			],
+			[
+				"resolv",
+				"resolve_vars"
+			],
+			[
+				"fla",
+				"flatten_nested_list"
+			],
+			[
+				"zip",
+				"zip_extract_file"
+			],
+			[
+				"force",
+				"forceERROR"
+			],
+			[
+				"upda",
+				"update_path"
+			],
+			[
+				"ke",
+				"keypath"
+			],
+			[
+				"colo",
+				"coloredLogger_Class"
+			],
+			[
+				"to",
+				"to_yaml"
+			],
+			[
+				"to_",
+				"to_yaml"
+			],
+			[
+				"origi",
+				"original_yaml_data"
+			],
+			[
+				"get",
+				"get_keypath"
+			],
+			[
+				"key",
+				"keypaths"
+			],
+			[
+				"fL",
+				"fFLATTTEN"
+			],
+			[
+				"set",
+				"setup_vars"
+			],
+			[
+				"dire",
+				"directory_parser"
+			],
+			[
+				"des",
+				"dest_server_parser"
+			],
+			[
+				"dest",
+				"dest_server"
+			],
+			[
+				"se",
+				"search_paths"
+			],
+			[
+				"find",
+				"findFileInPaths"
+			],
+			[
+				"fil",
+				"filepath"
+			],
+			[
+				"forc",
+				"force_update"
+			],
+			[
+				"resu",
+				"result"
+			],
+			[
+				"f",
+				"fUpdated"
+			],
+			[
+				"is",
+				"isDirty"
+			],
+			[
+				"fo",
+				"forceUpdate"
+			],
+			[
+				"la",
+				"last_sync_filename"
+			],
+			[
+				"remo",
+				"remote_path"
+			],
+			[
+				"las",
+				"last_sync_date_file"
+			],
+			[
+				"lap",
+				"lapTopPC"
+			],
+			[
+				"act",
+				"activate_path"
+			],
+			[
+				"alias",
+				"alias_list"
+			],
+			[
+				"my_",
+				"my_template"
+			],
+			[
+				"venv",
+				"venv_name"
+			],
+			[
+				"crea",
+				"createYamlEnvarFile"
+			],
+			[
+				"yello",
+				"yellowH"
+			],
+			[
+				"red",
+				"redH"
+			],
+			[
+				"ve",
+				"venv_dir"
+			],
+			[
+				"color",
+				"colorReset"
+			],
+			[
+				"ln_",
+				"ln_VIRTUAL_ENV_PROMPT"
+			],
+			[
+				"yaml",
+				"yamlFile_resolved"
+			],
+			[
+				"yamlFil",
+				"yamlFile_resolved"
+			],
+			[
+				"eval",
+				"eval_command"
+			],
+			[
+				"expo",
+				"export"
+			],
+			[
+				"creat",
+				"createYamlEnvarFile"
+			],
+			[
+				"lnF",
+				"ln_FREEx"
+			],
+			[
+				"retu",
+				"return_value"
+			],
+			[
+				"ur",
+				"url"
+			],
+			[
+				"pid",
+				"pi_dest_dir"
+			],
+			[
+				"PI",
+				"LN_PROFILE_PI"
+			],
+			[
+				"LN",
+				"LN_PROFILEx"
+			],
+			[
+				"P",
+				"PIXX"
+			],
+			[
+				"db",
+				"db_name"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"sub",
+				"subNet_dict"
+			],
+			[
+				"opt",
+				"opt_name"
+			],
+			[
+				"rec",
+				"rec_type"
+			],
+			[
+				"g",
+				"g_Args"
+			],
+			[
+				"remote",
+				"remote_path"
+			],
+			[
+				"exc",
+				"excel_filename"
+			],
+			[
+				"ope",
+				"openwrt_version"
+			],
+			[
+				"dr",
+				"dry_run"
+			],
+			[
+				"configu",
+				"configureDhcp"
+			],
+			[
+				"confg",
+				"configLan"
+			],
+			[
+				"ena",
+				"enableDhcp"
+			],
+			[
+				"TAB",
+				"TAByellow"
+			],
+			[
+				"igno",
+				"ignore_line"
+			],
+			[
+				"p",
+				"purpleH"
+			],
+			[
+				"ip_",
+				"ip_current"
+			],
+			[
+				"ip",
+				"ip_exists"
+			],
+			[
+				"Ta",
+				"TABred"
+			],
+			[
+				"Archer",
+				"archerC20"
+			],
+			[
+				"add",
+				"addIpAddress"
+			],
+			[
+				"bl",
+				"blue"
+			],
+			[
+				"lan",
+				"lan_exists"
+			],
+			[
+				"TABpurpl",
+				"TABpurpleH"
+			],
+			[
+				"dn",
+				"dns_addr"
+			],
+			[
+				"conf",
+				"configLan"
+			],
+			[
+				"wri",
+				"writeFile"
+			],
+			[
+				"scri",
+				"script_dir"
+			],
+			[
+				"redi",
+				"loadRedirectRules"
+			],
+			[
+				"domai",
+				"domain_output"
+			],
+			[
+				"host",
+				"host_output"
+			],
+			[
+				"redir",
+				"redirects_dict"
+			],
+			[
+				"targe",
+				"target_data"
+			],
+			[
+				"vserv",
+				"vserver_fields"
+			],
+			[
+				"dest_",
+				"dest_server"
+			],
+			[
+				"auto",
+				"autogen_file"
+			],
+			[
+				"new",
+				"new_rec"
+			],
+			[
+				"open",
+				"openwrt_version"
+			],
+			[
+				"targ",
+				"target_data"
+			],
+			[
+				"hos",
+				"host_name"
+			],
+			[
+				"hosts",
+				"hosts_dict"
+			],
+			[
+				"sec",
+				"sectionToDict"
+			],
+			[
+				"str",
+				"str_end"
+			],
+			[
+				"st",
+				"str_end"
+			],
+			[
+				"retrie",
+				"retrieved_file"
+			],
+			[
+				"pro",
+				"process_sections"
+			],
+			[
+				"doma",
+				"domains"
+			],
+			[
+				"co",
+				"host_counter"
+			],
+			[
+				"ta",
+				"target_content"
+			],
+			[
+				"sh",
+				"sheet_dict"
+			],
+			[
+				"col",
+				"col_value"
+			],
+			[
+				"col_",
+				"col_value"
+			],
+			[
+				"she",
+				"sheet_dict"
+			],
+			[
+				"_shee",
+				"_sheet"
+			],
+			[
+				"shee",
+				"sheet_dict"
+			],
+			[
+				"ln",
+				"lnExcelBook_Class"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"cont",
+				"content"
+			],
+			[
+				"ro",
+				"row_name"
+			],
+			[
+				"serv",
+				"server_name"
+			],
+			[
+				"exce",
+				"excelFilename"
+			],
+			[
+				"g_",
+				"g_GO"
+			],
+			[
+				"ind",
+				"index_php"
+			],
+			[
+				"apa",
+				"apache_user"
+			],
+			[
+				"vho",
+				"vhosts_list"
+			],
+			[
+				"in",
+				"include_line"
+			],
+			[
+				"pri",
+				"printf"
+			],
+			[
+				"es",
+				"esptool"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "ddns.sublime-project",
+			"settings":
+			{
+				"buffer_size": 914,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"left_delete",
+					null,
+					"AQAAAIADAAAAAAAAgAMAAAAAAAAQAQAAICAgICAgICAvLyB7InBhdGgiOiAiL2hvbWUvbG9yZXRvL2ZpbHUvRGV2ZWwvZ2l0UkVQTy9sbk1vZHVsZXMiIH0sCiAgICAgICAgewogICAgICAgICAgICAiYmluYXJ5X2ZpbGVfcGF0dGVybnMiOiBbIiouYmluIiwgIiouemlwIl0sCiAgICAgICAgICAgICJwYXRoIjogIi9ob21lL2xvcmV0by9maWx1L0RldmVsL2dpdFJFUE8vbG5TeW5jIiwKICAgICAgICB9LAogICAgICAgIC8vIHsicGF0aCI6ICIvaG9tZS9sb3JldG8vZmlsdS9EZXZlbC9naXRSRVBPL2xuTW9kdWxlcyIgfSw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACQBAAAAAAAAIADAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					6,
+					1,
+					"left_delete",
+					null,
+					"AQAAAP8CAAAAAAAA/wIAAAAAAACAAAAACiAgICAgICAgLy8gLS0tIGxuRGV2aWNlcyB3aXRoIGV4Y2VsICsgb3BlbldSVAogICAgICAgIC8vIHsgInBhdGgiOiAiL2hvbWUvbG9yZXRvL2ZpbHUvRGV2ZWwvZ2l0UkVQTy9sbkRldmljZXMiLCAibmFtZSI6ICIiLCB9LAo",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB/AwAAAAAAAP8CAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					7,
+					2,
+					"right_delete",
+					null,
+					"AgAAAP8CAAAAAAAA/wIAAAAAAAABAAAACv8CAAAAAAAA/wIAAAAAAAABAAAACg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD/AgAAAAAAAP8CAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"dup",
+				"File: Duplicate"
+			],
+			[
+				"dupl",
+				"File: Duplicate"
+			],
+			[
+				"ren",
+				"File: Rename File"
+			],
+			[
+				"mo",
+				"File: Move"
+			],
+			[
+				"del",
+				"File: Delete"
+			],
+			[
+				"mov",
+				"File: Move"
+			],
+			[
+				"mof",
+				"Sublime Merge: Folder History"
+			],
+			[
+				"hex",
+				"Preferences: HexViewer Settings – Default"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"syn yaml",
+				"Set Syntax: YAML"
+			],
+			[
+				"bash",
+				"Set Syntax: Bash"
+			],
+			[
+				"rn",
+				"Run"
+			],
+			[
+				"penv",
+				"Pretty JSON: Validate"
+			],
+			[
+				"m",
+				"File: Move"
+			],
+			[
+				"de",
+				"File: Delete"
+			],
+			[
+				"dul",
+				"File: Duplicate"
+			],
+			[
+				"du",
+				"File: Duplicate"
+			],
+			[
+				"mv",
+				"File: Move"
+			],
+			[
+				"re",
+				"File: Revert"
+			],
+			[
+				"i",
+				"Increment Selection"
+			],
+			[
+				"synt",
+				"Set Syntax: Batch File"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"ruler",
+				"Wrap at Ruler"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"rule",
+				"Wrap at Ruler"
+			],
+			[
+				"in",
+				"Increment Selection"
+			],
+			[
+				"extern",
+				"ExternalTool:"
+			],
+			[
+				"exter",
+				"ExternalTool:"
+			],
+			[
+				"inc",
+				"Increment Selection"
+			],
+			[
+				"json",
+				"Pretty JSON: Format JSON"
+			],
+			[
+				"jso",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"DUP",
+				"File: Duplicate"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"ali",
+				"Preferences: AlignTab Context Menu"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"syn",
+				"Set Syntax: Batch File"
+			],
+			[
+				"duo",
+				"Help: Documentation"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"aligntab",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"",
+				"AlignTab"
+			],
+			[
+				"dp",
+				"Plugin Development: Profile Events"
+			],
+			[
+				"plugi",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"sort",
+				"CSV: Sort by column (Ascending)"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"copy",
+				"Clipboard Manager: Copy"
+			],
+			[
+				"csv",
+				"CSV: Justify columns"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"duip",
+				"File: Duplicate"
+			],
+			[
+				"dulp",
+				"File: Duplicate"
+			],
+			[
+				"incre",
+				"Increment Selection"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"todo",
+				"Set Syntax: Todo"
+			],
+			[
+				"files",
+				"File: Save All"
+			],
+			[
+				"yaml form",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"notes",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projectn",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projecn",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projectNo",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"not",
+				"ProjectNotes: Open file"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"tog",
+				"Toggle Readonly"
+			],
+			[
+				"synta",
+				"Preferences: Settings ÃÂ¢ÃÂÃÂ Syntax Specific"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"sintax",
+				"Preferences: Settings ÃÂ¢ÃÂÃÂ Syntax Specific"
+			],
+			[
+				"term",
+				"Terminal: Open"
+			],
+			[
+				"ngin",
+				"Set Syntax: nginx"
+			],
+			[
+				"pack",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"env",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"\\",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"ini",
+				"Set Syntax: INI"
+			],
+			[
+				"delf",
+				"Code Folding: Fold"
+			],
+			[
+				"r",
+				"Rename File"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 202.0,
+		"history":
+		[
+			"os.getenv(\"HOME\")",
+			"os.getenv(\"ln_PDF_VIEWER\")",
+			"x=os.getenv(\"ln_PDF_VIEWER\")",
+			"print(os.getenv(\"ln_PDF_VIEWER\"))",
+			"print(os.getenv(\"ln_PDF_VIEWER\")",
+			"print(x)",
+			"x",
+			"x=os.getenv(\"ln_PDF_VIEWER\")",
+			"print(x)",
+			"print(xx)",
+			"x=os.getenv(\"LORETO1\")",
+			"print(\"CIAO\")",
+			"print(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\n",
+			"print(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\nprint(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\nprint(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/home/loreto/filu/lnENV/start_proc/sublimeStart_prev.sh",
+		"/home/loreto/filu/lnENV/config/appls/SublimeText/lnSync.sublime-project",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/projectModules/lnSync_Class.py",
+		"/home/loreto/filu/lnENV/init/aliases/generic/ssh.alias",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/conf/rsync_options.yaml",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/conf/rclone_options.yaml",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/conf/profiles_templates.yaml",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/dict/lnDict_Class.py",
+		"/home/loreto/filu/lnENV/init/main/setLoretoEnvironment",
+		"/home/loreto/filu/lnENV/start_proc/sublimeStart.sh",
+		"/home/loreto/filu/lnENV/start_proc/doublecmdStart.sh",
+		"/home/loreto/filu/lnENV/config/envars/yaml/ddns_domains.yaml",
+		"/home/loreto/filu/lnENV/config/appls/rclone/rclone.conf",
+		"/home/loreto/filu/lnENV/config/envars/yaml/ln_system_variables.yaml",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/dict/lnDict_Class_OK_01-10-2026.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnLib_lnk/lnDict_Class.py",
+		"/home/loreto/filu/lnENV/config/pc/lnpi22/www/html/devicesTableToHtml.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/logger/coloredLogger_Class.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnLib_lnk/coloredLogger_Class.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/conf/@lnSync_config.yaml",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/__main__.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/files/fileUtils.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnLib_lnk/fileUtils.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/files/writeFile.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/projectModules/ParseInput.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/@SAVED/modules_01/ParseInput/ParseInput_Template.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/conf/destination_profiles.yaml",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/@SAVED/modules_01/ParseInput/Mqtt_ParseInput.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/projectModules/ParseInput_prev2.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnLib_lnk/writeFile.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/files/loadYamlFile.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnLib_lnk/loadYamlFile.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/__init__.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/@SAVED/modules_02/dictUtils.py",
+		"/tmp/lnSync/filesystem_01.yaml",
+		"/home/loreto/.lnVENV/lnSync_3.13.9/lib/python3.13/site-packages/benedict/dicts/base/base_dict.py",
+		"/home/loreto/.lnVENV/lnSync_3.13.9/lib/python3.13/site-packages/benedict/core/clone.py",
+		"/home/loreto/.lnVENV/lnSync_3.13.9/lib/python3.13/site-packages/benedict/dicts/__init__.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/.venv/lib/python3.13/site-packages/benedict/dicts/__init__.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/.venv/lib/python3.13/site-packages/benedict/dicts/base/base_dict.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/.venv/lib/python3.13/site-packages/benedict/core/clone.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/conf/directories.yaml",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/@project_links.lst",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/subprocess/runProgram_Class.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/varie/keyboardPrompt.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/@SAVED/modules_02/lnUtils.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/files/readFileContent.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/.env",
+		"/home/loreto/filu/lnENV/shScripts/varie/zipLnLib.sh",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/files/loadIniFile.py",
+		"/home/loreto/filu/lnENV/shScripts/varie/project_links.sh",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/dict/dictToSimpleNamespace.py",
+		"/home/loreto/filu/Lesla/Cars/Sandero - GG296KA/Documenti/Telaio numero.txt",
+		"/home/loreto/filu/Lesla/Cars/Duster - GG614CY/Documenti/Telaio numero.txt",
+		"/home/loreto/filu/Lesla/Cars/Duster - FR598NR/Documenti/FR598NR Telaio VF1HJD20160607083.txt",
+		"/home/loreto/filu/Devel/gitREPO/lnModules/loadIniFile.py",
+		"/home/loreto/filu/Devel/gitREPO/lnModules/fileUtils.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules_lnk/fileUtils.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/coloredLogger_Class.py",
+		"/home/loreto/filu/Devel/gitREPO/lnModules/coloredLogger_simple.py",
+		"/tmp/conf/rclone.lnk.conf",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules_lnk/loadIniFile.py",
+		"/tmp/xClip.log",
+		"/home/loreto/filu/Devel/gitREPO/lnModules/loadYamlFile.py",
+		"/home/loreto/filu/Devel/gitREPO/lnModules/lnRun.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/file_ini.py",
+		"/tmp/lnsync/config_loaded.yaml",
+		"/home/loreto/filu/Devel/gitREPO/lnModules/lnDict_Class.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules_lnk/lnDict_Class.py",
+		"/home/loreto/filu/Devel/gitREPO/lnModules/lnDict_Class_ok0.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/file_yaml.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/runProgram_Class.py",
+		"/home/loreto/filu/lnENV/systemd/scripts/DeviceDiscovery-console.sh",
+		"/home/loreto/filu/lnENV/init/commonFunctions/lnLog.functions",
+		"/home/loreto/filu/lnENV/config/envars/loretoVariables.sh",
+		"/home/loreto/filu/lnENV/systemd/scripts/lncasettabot-service.sh",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/ln_InsertStringLauncher.py",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/ln_InsertString.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/@modulesDir/00_test__init__/__main__.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/@modulesDir/00_test__init__/Source/__init__.py",
+		"/tmp/lnsync/config.yaml",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/lnDict_Class.py",
+		"/home/loreto/filu/lnENV/init/aliases/python-pyEnv/ln_venv_activate_master",
+		"/home/loreto/filu/lnENV/init/commonFunctions/esegui.functions",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/.lnactivate",
+		"/home/loreto/filu/lnENV/shScripts/varie/copy_files.sh",
+		"/home/loreto/filu/lnENV/shScripts/varie/project_links_.sh",
+		"/home/loreto/filu/lnENV/shScripts/varie/xClip.sh",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/lnDict.py",
+		"/home/loreto/filu/lnENV/pyScripts/varie/python_ZipProject.sh",
+		"/home/loreto/filu/lnENV/init/aliases/python-pyEnv/python.alias",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/dictUtils.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/lnDict_simple.py",
+		"/home/loreto/.lnVENV/lnSync_3.13.9/lib/python3.13/site-packages/loguru/_logger.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/.venv/lib/python3.13/site-packages/loguru/_logger.py",
+		"/home/loreto/filu/Devel/gitREPO/lnPyLib/dictUtils.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/flattenDict.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/ln_dotMap.py",
+		"/home/loreto/.lnVENV/lnSync_3.13.9/lib/python3.13/site-packages/pip/_internal/metadata/pkg_resources.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/.venv/lib/python3.13/site-packages/pip/_internal/metadata/pkg_resources.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/loadYamlFile.py",
+		"/home/loreto/filu/Devel/gitREPO/lnDevices/deviceManager/Source/lnModules/ParseInput.py",
+		"/home/loreto/filu/Devel/gitREPO/lnDevices/deviceManager/Source/__init__.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/projectModules/ParseInput_prev.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/toYaml.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/writeFile.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/fileUtils.py",
+		"/tmp/lnSync/config.yaml",
+		"/home/loreto/filu/lnENV/pyScripts/prod/xClip.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/lnModules/readFileContent.py",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/Versions/ln_programVersion.py",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/Versions/.python-version",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/ln_UpdateFileVersion.py",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/ln_authorVersion.py",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/ln_insertAuthorAndProgramVersion_OK0.py_",
+		"/home/loreto/filu/lnENV/init/commonFunctions/createLinks.functions",
+		"/home/loreto/filu/lnENV/init/commonFunctions/createLinks.functions_saved",
+		"/home/loreto/filu/lnENV/init/commonFunctions/isAbsolute.functions",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/Modules/lnSync_Class.py",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/User/Default (Linux).sublime-keymap",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/HexViewer/Default (Linux).sublime-keymap",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/HexViewer/hex_viewer.sublime-settings",
+		"/home/loreto/filu/Lesla/Personali/Loreto/Office/Word/unreadeble/Natale2006-Elena.DOC",
+		"/home/loreto/filu/Lesla/Personali/Loreto/Office/Word/Natale2005-Elena2.xml",
+		"/home/loreto/filu/Lesla/Personali/Loreto/Office/Word/Natale2005-Elena2.DOC",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/Main/prepare_gVars.py",
+		"/home/loreto/filu/Devel/gitREPO/lnSync/Source/Main/ParseInput.py",
+		"/home/loreto/filu/lnENV/linuxMintDoc/doubleCommander.yaml"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 134.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"ln_DOUBLECMD_BIN",
+			"ln_DOUBLECMD_DIR",
+			"ln_SUBLIME_BIN",
+			"ln_SUBLIME_DIR",
+			"ln_DOUBLECMD_DIR",
+			"duck",
+			"beveri",
+			"options_per_fat32",
+			"dq",
+			"select_program",
+			"__getattr__",
+			"__setattr__",
+			"__setitem__",
+			"to_dict",
+			"set_keypath",
+			"NoneType",
+			"NoneT",
+			"e.sub",
+			"help_color",
+			"mainOptions",
+			"dest_node",
+			"dir_server_common",
+			"node",
+			"selectProfile",
+			"def ",
+			"logger.function",
+			"logger.functio",
+			"de.na",
+			"lnDict",
+			"node_in_rclone_clonf",
+			"type",
+			"ram.b",
+			"rogram.bi",
+			"job-",
+			"job_id",
+			"self.args_dry_run",
+			"dry_run",
+			"self.args_dry_run",
+			"args_requested_folders",
+			"folde",
+			"gv.logger",
+			"getFileContent",
+			"yaml.load",
+			"selectSubFolders",
+			"selectSubFolders_01",
+			"selectSubFolders",
+			"title",
+			"pdb",
+			"self.temp_dir",
+			"options",
+			"genericcommon",
+			"-dir-name",
+			"ments descripti",
+			"elete-aft",
+			"dir_server_common",
+			"directory",
+			"dest_node",
+			"delete-",
+			"lnDict(",
+			"deepcopy",
+			"force-rc",
+			"force_rc",
+			"myDirs",
+			"read_rclone_conf",
+			"set_rclone_conf",
+			"get_rclone_conf",
+			"write_last_sync_file",
+			"keyboardPrompt",
+			"C.",
+			"gv",
+			"C.",
+			" =",
+			"C.",
+			"lnUt",
+			"zip_extract_file",
+			"self.forceCRITICAL",
+			"forceERROR",
+			"self.forceERROR",
+			"self.rclone_conf",
+			"getFileContent",
+			"  ",
+			"cks=inspect.st",
+			"aceback.extract_",
+			"cks=inspect.",
+			"traceback",
+			"inspect.stack(",
+			"load_ini",
+			"loadYaml",
+			"my_serarch_paths",
+			"getFileContent",
+			"readFileContent",
+			"os",
+			"this",
+			"benedict",
+			"Path",
+			"PosixPath",
+			"PurePosixPath",
+			"PureWindowsPath",
+			"import pdb; pdb.set",
+			"gv.logger.",
+			".logger",
+			"save_yaml",
+			"update_path",
+			"fSET_KEYPATH",
+			"update_path",
+			"set_keypath",
+			"SmartDict",
+			"set_keypath",
+			"prin",
+			"setColoredLogger",
+			"set_keypath",
+			"self.kp_sep",
+			"set_keypath",
+			"def _recursive_fl",
+			"f set_keypa",
+			"def get_keypa",
+			"ef merge",
+			"f upda",
+			"ef __getit",
+			"def __getatt",
+			"ef __setitem_",
+			"ef __repr_",
+			"def ",
+			"__contains__",
+			"__repr__",
+			"SmartDict",
+			"to_dict(self):",
+			"self.kp_se"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "ddns.sublime-project",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 914,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								219,
+								219
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSON/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 50.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.LSP Log Panel":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.SFTP":
+	{
+		"height": 96.0,
+		"history":
+		[
+		]
+	},
+	"output.diagnostics":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.exec":
+	{
+		"height": 136.0,
+		"history":
+		[
+		]
+	},
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.hex_viewer_inspector":
+	{
+		"height": 124.0,
+		"history":
+		[
+		]
+	},
+	"output.mdpopups":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "ddns.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ren",
+				".ln/LnDoc/Network/Varie/RaspBerry_Network_Config.txt"
+			],
+			[
+				"dupl",
+				".ln/shDevel/ddns/prev/DDNS_updates_V20220721_profiles.sh"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/filu/lnENV/config/appls/SublimeText/lnSync.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 335.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"lsp_show_inlay_hints": false
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 255.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

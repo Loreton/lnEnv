@@ -1,0 +1,7 @@
+Wolfram_Engine:
+  site:
+      https://raspberrypi.stackexchange.com/questions/120248/what-is-wolfram-engine-and-can-i-delete-it
+  commands:
+    # sudo apt-get purge wolfram-engine
+    sudo apt-get purge --auto-remove wolfram*
+    sudo apt clean

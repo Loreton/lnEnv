@@ -1,0 +1,34 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 29-12-2024 09.07.10
+#
+
+wine:
+    snap:
+        ref: https://snapcraft.io/install/wine-platform-runtime/ubuntu#install
+        sudo apt update
+        sudo apt install snapd
+
+        sudo snap install wine-platform-runtime
+
+    flathub:
+        flatpak install flathub org.winehq.Wine
+        flatpak run org.winehq.Wine
+
+    apt:
+        https://www.cherryservers.com/blog/install-wine-ubuntu
+
+        sudo apt update && sudo apt upgrade
+        sudo dpkg --add-architecture i386
+        sudo mkdir -pm755 /etc/apt/keyrings
+        sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
+        sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/jammy/winehq-jammy.sources
+        sudo apt update
+        sudo apt install --install-recommends winehq-stable -y
+        wine --version
+        winecfg
+
+        wineboot
+
+
+        

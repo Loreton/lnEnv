@@ -1,0 +1,16 @@
+{
+  "name": "lnENV",
+  "version": "0.0.1",
+  "description": "Ambiente di lavoro di Loreto, portabile",
+  "keywords": [
+    "env",
+    "debug",
+    "macros"
+  ],
+  "authors": [
+    {
+      "name": "Loreto"
+    }
+  ],
+  "license": "no-licence"
+}

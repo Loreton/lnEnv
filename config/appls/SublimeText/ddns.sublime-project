@@ -1,0 +1,27 @@
+{
+    "folders":
+    //  project format
+    // ref: https://www.sublimetext.com/docs/projects.html
+            // "folder_exclude_patterns": ["PressControl_222"],
+            // "file_exclude_patterns": ["*.css"],
+    [
+
+
+
+        // ---- sublime user
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/User", "name": "Sublime user(linuxPortables)", },
+        // {"path": "/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages", "name": "Sublime user", },
+
+        // ---- terminator
+        // {"path": "/home/loreto/.config/terminator/plugins", "name": "terminatorPlugins", },
+
+        // ---- lnEnv
+        {"path": "/home/loreto/filu/lnEnv", /*"name": "",*/ "folder_exclude_patterns": ["lnFreex"], },
+
+        {
+            "binary_file_patterns": ["*.bin", "*.zip"],
+            "path": "/home/loreto/filu/Programming/gitREPO/ddns",
+        },
+
+    ],
+}

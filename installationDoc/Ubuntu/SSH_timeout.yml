@@ -1,0 +1,29 @@
+
+The ServerAliveInterval will send a keepalive every x seconds
+(default is 0, which disables this feature if not set to something else).
+This will be done ServerAliveCountMax times if no response is received.
+The default value of ServerAliveCountMax is 3 (see manpage ssh_config).
+Example: If you set ServerAliveInterval to 60 and leave ServerAliveCountMax as it is,
+this means the keepalive will only wait for 3 * 60 = 180 seconds = 3 minutes before quiting.
+
+To increase this to e.g. 2 hours of trying to keep the connection alive, you can do:
+
+Per command:
+    Therefore you should consider to set
+    ssh -o "ServerAliveInterval 60" -o "ServerAliveCountMax 120" <SERVER_ADDRESS>
+
+
+Persistent keepalive:
+    To make it persistent write it
+    to /etc/ssh/ssh_config (will apply system-wide):
+        ServerAliveInterval 60
+        ServerAliveCountMax 120
+    or
+    ~/.ssh/config (will apply user-only):
+        ServerAliveInterval 60
+        ServerAliveCountMax 120
+
+    to /etc/ssh/sshd_config (will apply system-wide):
+        ClientAliveInterval 300
+        ClientAliveCountMax 2
+

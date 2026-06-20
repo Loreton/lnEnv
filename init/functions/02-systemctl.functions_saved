@@ -1,0 +1,181 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+# # @_ln_echo_script_name $BASH_SOURCE
+
+
+function has_substring() {
+    [[ "$1" == *"$2"* ]]
+}
+
+
+
+function @_ln_leftStr() {
+    local defaultPad=' '
+    local str=$1
+    local len=$2
+    local pad="${3:-${defaultPad}}"
+    while ((${#str} < len)); do
+      str+=$pad
+    done
+    echo "$str"
+}
+
+
+
+
+###  @_ln_create_link  "${HOME}/lnprofile" "$HOME/.ln" "--go"
+function @_ln_create_link() {
+    dir_name=$1
+    link_name=$2
+    action=$3
+    # set -x
+    if [[ -d "$dir_name" ]]; then
+        cmd="ln -sf $dir_name $link_name"
+
+        d_command="${cyanH}$(@_ln_leftStr $dir_name 60 ' ') ${blueH}${link_name}"
+        echo -en "${yellowH}[$action] ${d_command} ${colorReset}"
+
+        ### verifica se link esiste di giÃÂÃÂ 
+        if [[ -d $link_name ]]; then
+            local real_FullPath="$(readlink -fvs  $link_name)"
+            if [[ $real_FullPath == $dir_name ]]; then
+                echo -e "${yellowH}(already exists)"
+            else
+                echo -e "${TABredH}wrong link"
+                echo -e "${TAB}${TAByellowH}new link will point to: ${purpleH}${dir_name}"
+                [[ "$action" == "--go" ]] && rm -f $link_name && $cmd
+            fi
+        else
+            echo -e "${yellowH}not exists"
+            echo -e "${TAB}${TAByellowH}creating link"
+            [[ "$action" == "--go" ]] && $cmd
+        fi
+
+    else
+        echo -e "${TABredH}$dir_name not exists"
+    fi
+}
+
+
+function @_dd_lnpi31_to_img() {
+    DATE=$(date +'%Y-%m-%d')
+    fileOut="/media/loreto/LnDisk_SD_ext4/myData/Backups/lnpi31/lnpi31_${DATE}.img.gz"
+    OPTIONS='conv=sync,noerror bs=512 count=62521343 status=progress'
+    OPTIONS='conv=sync,noerror bs=128k status=progress'
+    echo """
+    # *******************************************
+    # *  Lato server di destinazione
+    # *******************************************
+
+    # * Attivazione reverse tunnel
+        ssh -R -N 9001:localhost:9001 pi@192.168.1.31
+
+    # * Start NetCat Server con redirezione output su file
+        nc -l -p 9001 | dd of=$fileOut
+
+
+    #### **** Lato client raspBerry con uso di netCat
+    # * dare il comando:  sudo fdisk -l /dev/mmcblk0 (per leggere sectors-end)
+
+        sudo dd if=/dev/mmcblk0 ${OPTIONS} | nc localhost 9001
+
+    # versione con compressione on fly ed output in locale (lo user ha accesso alla destinazione)
+        sudo dd if=/dev/mmcblk0 ${OPTIONS} | gzip -c | nc localhost 9001
+
+
+    #### **** Lato client raspBerry to ssh remoto
+        OPTIONS='conv=sync,noerror bs=128k status=progress'
+        DATE=$(date +'%Y-%m-%d')
+        sudo dd if=/dev/mmcblk0 ${OPTIONS} | gzip -c | ssh loreto@192.168.1.47 'dd of=$fileOut'
+
+    """
+
+}
+
+
+
+
+function @_rw_speed() {
+    file_name=$1
+    if [[ -z "$file_name" ]]; then
+        echo
+        echo
+        echo -e "${TAByellowH}please enter fullpath filename and filesize"
+        echo -e "${TAB}ex.:$cyanH"
+        echo -e "${TAB}${TAB}/media/loreto/LnDisk_SD_ntfs/tmp/speed.text 100M"
+        echo -e "${TAB}${TAB}/media/loreto/SD1TB_FAT32/tmp/speed.test    100M"
+        echo -e "${TAB}${TAB}/tmp/speed.test 100M"
+        echo
+        return
+    fi
+    [[ -f "$file_name" ]] && rm -f ${file_name}
+    echo "checking write speed on file: ${file_name}"
+    file_size="100M"
+    dd if=/dev/zero of="${file_name}" bs=${file_size} count=1 oflag=dsync
+    echo "checking read speed on file: $file_name"
+    dd if="${file_name}" of=/dev/zero bs=${file_size} count=1 oflag=dsync
+    [[ -f "${file_name}" ]] && rm -f ${file_name}
+}
+
+
+# function @_systemctl_aliases() {
+#     local alias_name="$1"
+
+#     local APPL_NAME="$2"
+#     local appl_name=${APPL_NAME,,}
+
+#     local USER_NAME="$3" # "user:pippo" oppure ''
+#     local _fixed_part="${USER_NAME%:*}"            # 'user'
+#     local user_name="${USER_NAME##*:}"            # 'pippo'
+
+#     if [[ -z ${user_name} ]]; then
+#         local service_name="${appl_name}.service"
+#     else
+#         local service_name="${appl_name}@${user_name}.service"
+#     fi
+
+#     alias ${alias_name}.systemctl.status="sudo systemctl status $service_name"
+#     alias ${alias_name}.systemctl.start="sudo systemctl start $service_name && sudo systemctl status $service_name"
+#     alias ${alias_name}.systemctl.stop="sudo systemctl stop $service_name"
+#     alias ${alias_name}.systemctl.disable="sudo systemctl stop $service_name && sudo systemctl disable $service_name && sudo systemctl daemon-reload"
+#     alias ${alias_name}.systemctl.enable="sudo systemctl daemon-reload && sudo systemctl enable $service_name && sudo systemctl daemon-reload"
+#     alias ${alias_name}.systemctl.restart="sudo systemctl restart $service_name && sudo systemctl status $service_name"
+#     # alias ${alias_name}.systemctl.journal="sudo journalctl -f -u $service_name"
+#     alias ${alias_name}.systemctl.journal="sudo journalctl -u $service_name"
+
+#     if [[ ${alias_name} == ".nginx" ]]; then
+#         alias ${alias_name}.update="${ln_MAIN_CONFIG_DIR}/nginx/nginx_update_config.sh"
+#         alias ${alias_name}.log="tail -f /var/log/nginx/*access*.log /var/log/nginx/error.log"
+#     fi
+# }
+
+
+###############################################################################################################ÃÂÃÂ 
+# @_systemctl_aliases_with_script  "alias_name"    "appl_name"    "user:${USER}" "prj_dir"
+###############################################################################################################ÃÂÃÂ 
+# function @_systemctl_aliases_with_script() {
+#     local alias_name="$1"
+#     local APPL_NAME="$2"
+#     local appl_name=${APPL_NAME,,}
+#     local user_name="$3"
+#     local prjdir="$4"
+#     local PRJ_DIR="${ln_GIT_REPO_DIR}/${prjdir}"
+#     local PRJ_DIR="${prjdir}"
+
+#     alias ${alias_name}.cd="cd ${PRJ_DIR}"
+
+#     alias ${alias_name}.log="cd /tmp/$appl_name"
+#     # alias ${alias_name}.run="${ln_SYSTEMD_SCRIPT_DIR}/${appl_name}-service.sh"
+#     # alias ${alias_name}.main="${ln_SYSTEMD_SCRIPT_DIR}/${appl_name}-service.sh --main"
+#     # alias ${alias_name}.compiled="${ln_SYSTEMD_SCRIPT_DIR}/${appl_name}-service.sh --compiled"
+#     # alias ${alias_name}.liveprod="${ln_SYSTEMD_SCRIPT_DIR}/${appl_name}-service.sh --liveprod"
+#     # alias ${alias_name}.edit="$editor ${ln_SYSTEMD_SCRIPT_DIR}/${appl_name}-service.sh"
+
+#     ### vai a creare gli alias specifici per systemctl
+#     @_systemctl_aliases "$alias_name" "$APPL_NAME" "$user_name"
+# }
+
+

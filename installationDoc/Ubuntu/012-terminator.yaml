@@ -1,0 +1,22 @@
+ref:
+    https://linuxcapable.com/how-to-install-terminator-on-ubuntu-linux/
+
+install:
+    # https://www.linuxcapable.com/how-to-install-vivaldi-browser-on-ubuntu-22-04-lts/
+    sudo apt update && sudo apt upgrade -y
+
+    Method 1 (from ubuntu repository):
+        sudo apt install terminator
+
+    Method 2 Install Terminator via PPA (Latest Up-To-Date Version):
+        Import Terminator Team PPA:
+        sudo add-apt-repository ppa:gnome-terminator/ppa -y
+        sudo apt update && sudo apt install terminator
+
+
+    Optional: Make Terminator default terminal
+    If you want Mint to open Terminator when you press Ctrl+Alt+T:
+        sudo update-alternatives --config x-terminal-emulator
+
+
+

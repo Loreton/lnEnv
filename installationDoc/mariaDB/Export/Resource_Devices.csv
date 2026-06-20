@@ -1,0 +1,65 @@
+﻿"device name";"device_type";"ip_address";"tg_and_topic_name";"bot_name";"mqtt_broker";"room";"tg_id";"num relays";"pulsetime_sec";"mac";"tg_admin_users";"Archer_MR200";"Tenda_N300";"dnsMasq";"updated_by";"description";"isAlive"
+"TL-EAP110";"Unknown";"192.168.1.4";\N;\N;\N;"tetto";\N;"0";\N;"00:31:92:81:A4:88";\N;"4";"4";"4";"device_discovery";"TL-EAP110";"2021-12-19 10:15:53"
+"TL-WPA4220";"Unknown";"192.168.1.120";\N;\N;\N;"corridoio";\N;"0";\N;"0C:80:63:D5:DF:06";\N;"120";\N;"120";"device_discovery";"TL-WPA4220 Corridoio";"2021-12-19 10:15:59"
+"TL-WPA4220";\N;\N;\N;\N;\N;"unused";\N;"0";\N;"0C:80:63:D5:DF:60";\N;\N;\N;"125";"LnPi31";"TL-WPA4220-unused";\N
+"TL-WPA4220";"Unknown";"192.168.1.121";\N;\N;\N;"vano Pompe";\N;"0";\N;"0C:80:63:E8:8F:B0";\N;"121";"121";"121";"device_discovery";"TL-WPA4220-vanopompe";"2021-12-19 10:15:59"
+"Telecamera IPC365";"Unknown";"192.168.1.102";\N;\N;\N;"tettoia ingresso casa";\N;"0";\N;"14:6B:9C:3A:F4:14";\N;\N;\N;"102";"device_discovery";"Telecamera IPC365";"2021-12-19 10:15:58"
+"2021-11-25 11:13:58";"Unknown";"192.168.1.203";\N;\N;\N;\N;\N;\N;\N;"14:B2:E5:4E:2B:0C";\N;\N;\N;\N;"device_discovery";"Unknown";"2021-12-19 10:16:00"
+"Silvia-PC";"Unknown";"192.168.1.11";\N;\N;\N;"Cameretta";\N;"0";\N;"1C:75:08:F2:B0:4F";\N;"11";\N;"11";"device_discovery";"Silvia-PC";"2021-12-19 10:15:54"
+"Xiaomi-Note5-Loreto";\N;\N;\N;\N;\N;\N;\N;"0";\N;"20:A6:0C:22:C1:25";\N;\N;\N;"13";"LnPi31";"Xiaomi-Loreto";\N
+"undefined-13:7D";\N;\N;\N;\N;\N;\N;\N;"0";\N;"4E:6E:A3:0D:13:7D";\N;\N;\N;\N;"LnPi31";"undefined-13:7D";\N
+"LnPhone";"Unknown";"192.168.1.15";\N;\N;\N;\N;\N;"0";\N;"4E:FC:50:23:AB:4D";\N;"15";\N;\N;"device_discovery";"Ln_Realme_ 7_5G";"2021-12-19 10:15:54"
+"Archer-MR200-01";\N;\N;\N;\N;\N;"camera letto";\N;"0";\N;"50:D4:F7:BC:21:24";\N;\N;\N;\N;\N;"Archer MR200 wifi-5G";\N
+"Archer-MR200.casetta.home.";"Unknown";"192.168.1.1";\N;\N;\N;"camera letto";\N;"0";\N;"50:D4:F7:BC:21:25";\N;"6";\N;"6";"device_discovery";"Archer MR200 lan_or_wifi_2_4G";"2021-12-19 10:15:53"
+"Archer-MR200-00";\N;\N;\N;\N;\N;"camera letto";\N;"0";\N;"52:D4:F7:9C:21:25";\N;\N;\N;"6";"LnPi31";"Archer MR200 Wan";\N
+"ESP_7E6EF7";"Unknown";"192.168.1.202";\N;\N;\N;\N;\N;"0";\N;"60:01:94:7E:6E:F7";\N;\N;\N;\N;"device_discovery";"ESP_7E6EF7";"2021-12-19 10:16:00"
+"undefined-CA:42";"Unknown";"192.168.1.180";\N;\N;\N;\N;\N;"0";\N;"64:95:6C:E4:CA:42";\N;\N;\N;\N;"device_discovery";"undefined-CA:42";"2021-12-19 10:15:59"
+"unknown-F5DD";\N;\N;\N;\N;\N;\N;\N;"0";\N;"80:91:33:E6:F5:DD";\N;\N;\N;"142";"LnPi31";"unknown-F5DD";\N
+"Silvia PC WiFi";"Unknown";"192.168.1.12";\N;\N;\N;"Cameretta";\N;"0";\N;"90:00:4E:96:7F:4B";\N;"12";\N;"12";"device_discovery";"undefined-7F:4B";"2021-12-19 10:15:54"
+"__Undefined __2021-12-14 21:05:36";"Unknown";"192.168.1.206";\N;\N;\N;\N;\N;\N;\N;"90:78:B2:75:E2:65";\N;\N;\N;\N;"device_discovery";"__Undefined __2021-12-14 21:05:36";"2021-12-14 21:10:35"
+"undefined-B5:EB";"Unknown";"192.168.1.204";\N;\N;\N;\N;\N;"0";\N;"96:9F:ED:3F:B5:EB";\N;\N;\N;\N;"device_discovery";"undefined-B5:EB";"2021-12-16 17:25:35"
+"LnPi22.casetta.home.";"Unknown";"192.168.1.22";\N;\N;\N;"salone";\N;"0";\N;"B8:27:EB:12:C9:5D";\N;"22";\N;"22";"device_discovery";"LnPi22.casetta.home.";"2021-12-19 10:15:54"
+"LnPi31-wlan";\N;\N;\N;\N;\N;"salone";\N;"0";\N;"B8:27:EB:37:4A:6E";\N;"131";\N;"131";"LnPi31";"Raspberry PI3B+ wlan";\N
+"LnPi31-eth0";\N;\N;\N;\N;\N;"salone";\N;"0";\N;"B8:27:EB:62:1F:3B";\N;"31";"31";"31";"LnPi31";"Raspberry PI3B+ eth0 or wlan";\N
+"LnPi23.casetta.home.";"Unknown";"192.168.1.23";\N;\N;\N;"salone";\N;"0";\N;"B8:27:EB:F1:56:67";\N;"23";\N;"23";"device_discovery";"LnPi23.casetta.home.";"2021-12-19 10:15:54"
+"TL-MR3220_JK";\N;\N;\N;\N;\N;"corridoio";\N;"0";\N;"C0:4A:00:BC:03:CC";\N;\N;\N;"3";"LnPi31";"TPLink MR3220 3G/4";\N
+"unknown-03CD";\N;\N;\N;\N;\N;"?";\N;"0";\N;"C0:4A:00:BC:03:CD";\N;"3";\N;"141";"LnPi31";"TPLink MR3220 3G/4";\N
+"unknown-8EFA";\N;\N;\N;\N;\N;\N;\N;"0";\N;"C4:4F:33:97:8E:FA";\N;\N;\N;\N;"LnPi31";"unknown-8EFA";\N
+"unknown-DFAF";\N;\N;\N;\N;\N;\N;\N;"0";\N;"DC:4F:22:92:DF:AF";\N;"50";\N;"143";"LnPi31";"unknown-DFAF";\N
+"Telecamera ieGeek";"Unknown";"192.168.1.101";\N;\N;\N;"Camera Letto";\N;"0";\N;"E0:09:BF:30:8E:C2";\N;"112";\N;"101";"device_discovery";"ieGeek-Camera";"2021-12-19 10:15:58"
+"Tenda-M300";\N;\N;\N;\N;\N;"not registered";\N;"0";\N;"E8:65:D4:02:EF:D8";\N;"2";\N;"2";"LnPi31";"Tenda M300";\N
+"TL-WPA4220";"Unknown";"192.168.1.124";\N;\N;\N;"legnaia";\N;"0";\N;"EC:08:6B:AC:66:E0";\N;\N;"124";"124";"device_discovery";"TL-WPA4220-legnaia";"2021-12-19 10:15:59"
+"undefined-55:AC";\N;\N;\N;\N;\N;\N;\N;"0";\N;"F4:60:E2:96:55:AC";\N;\N;\N;\N;\N;"undefined-55:AC";\N
+"2021-10-26 14:57:21";"application";\N;"Ale_Bot_Mqtt";"Ale_Bot";\N;\N;"-383545627";"0";\N;"2021-10-26 14:57:21";"nLoreto";\N;\N;\N;\N;\N;\N
+"2021-10-26 15:00:25";"application";\N;"Ale_Bot_Telegram";"Ale_Bot";\N;\N;"-422926917";"0";\N;"2021-10-26 15:00:25";"nLoreto";\N;\N;\N;\N;\N;\N
+"AreazioneInferiore";"tasmota";"192.168.1.54";"AreazioneInferiore";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"vano pompe";"-593695681";"1";"1800";"DC:4F:22:96:C2:1D";"nLoreto";"54";"54";"54";"device_discovery";"Areazione-Inferiore";"2021-12-19 10:15:55"
+"AreazioneSuperiore";"tasmota";"192.168.1.56";"AreazioneSuperiore";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"pozzetto cisterna superiore";"-348421457";"1";"1800";"84:0D:8E:58:90:A1";"nLoreto";"56";"56";"56";"device_discovery";"Areazione_Superiore";"2021-12-19 10:15:56"
+"Computer";"tasmota";"192.168.1.59";"Computer";"LnBot";"lnmqtt.duckdns.org:1883";"Cameretta";"-732074742";"1";"0";"BC:DD:C2:85:B6:99";\N;"59";"59";"59";"Mqtt-Client";"SWA1_01";\N
+"Crepuscolare";"tasmota";"192.168.1.204";"Crepuscolare";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"Quadro elettrico";"-677540507";"1";"0";"DC:4F:22:BE:44:45";"nLoreto";"64";"64";"64";"Mqtt-Client";"Crepuscolare";"2021-12-17 08:45:53"
+"FaroLetto";"tasmota";"192.168.1.57";"FaroLetto";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"Camera Letto";"-473772665";"1";"600";"C8:2B:96:4C:0D:B2";"nLoreto";"57";"57";"57";"device_discovery";"FaroLetto";"2021-12-19 10:15:56"
+"LineaEsterna";"shelly";"192.168.1.83";"LineaEsterna";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"quadro elettrico";"-596866030";"1";"0";"8C:AA:B5:61:64:86";"nLoreto";"83";\N;"83";"device_discovery";"LineaEsterna";"2021-12-19 10:15:58"
+"2021-10-26 15:00:22";"application";\N;"LnBeveBot_Mqtt";"LnBeveBot";\N;\N;"-589571102";"0";\N;"2021-10-26 15:00:22";"nLoreto";\N;\N;\N;\N;\N;\N
+"2021-10-26 15:00:08";"application";\N;"LnBeveBot_Telegram";"LnBeveBot";\N;\N;"1637484875";"0";\N;"2021-10-26 15:00:08";"nLoreto";\N;\N;\N;\N;\N;\N
+"2021-10-26 14:58:24";"application";\N;"LnBot_Mqtt";"LnBot";\N;\N;"-450805511";"0";\N;"2021-10-26 14:58:24";"nLoreto";\N;\N;\N;\N;\N;\N
+"2021-10-26 14:58:18";"application";\N;"LnBot_Telegram";"LnBot";\N;\N;"-545131594";"0";\N;"2021-10-26 14:58:18";"nLoreto";\N;\N;\N;\N;\N;\N
+"2021-10-26 14:58:09";"application";\N;"LnCasettaBot_Mqtt";"LnCasettaBot";\N;\N;"-584205814";"0";\N;"2021-10-26 14:58:09";"nLoreto";\N;\N;\N;\N;\N;\N
+"LnCasettaBot_Telegram";"application";\N;"LnCasettaBot_Telegram";"LnCasettaBot";\N;\N;"-453685059";"0";\N;"2021-10-26 14:57:44";"nLoreto";\N;\N;\N;\N;\N;\N
+"LoadSuperiore";"tasmota";"192.168.1.55";"LoadSuperiore";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"vano pompe";"-381886065";"1";"120";"DC:4F:22:93:17:93";"nLoreto";"55";"55";"55";"device_discovery";"Load_Superiore";"2021-12-19 10:15:55"
+"Mqtt-Client";"application";\N;"Mqtt-Client";"LnBot";\N;\N;"-797744995";\N;\N;"2021-11-21 16:07:33";"nLoreto";\N;\N;\N;\N;\N;\N
+"PressControl";"tasmota";"192.168.1.52";"PressControl";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"vano pompe";"-451564560";"1";"1800";"60:01:94:C2:40:01";"nLoreto";"52";"52";"52";"device_discovery";"Press_Control";"2021-12-19 10:15:55"
+"Scaldabagno";"tasmota";"192.168.1.58";"Scaldabagno";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"quadro elettrico";"-544619118";"1";"1800";"DC:4F:22:D5:95:9F";"nLoreto";"58";"58";"58";"device_discovery";"Scaldabagno";"2021-12-19 10:15:56"
+"Scaldasonno";"shelly";"192.168.1.82";"Scaldasonno";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"camera letto";"-585268553";"1";"0";"8C:AA:B5:61:4B:69";"nLoreto";"82";"82";"82";"device_discovery";"Scaldasonno";"2021-12-19 10:15:58"
+"ShellyLetto";"shelly";"192.168.1.81";"ShellyLetto";"LnBot";"lnmqtt.duckdns.org:1883";"camera letto";"-568414730";"1";"0";"8C:AA:B5:55:4C:EB";"nLoreto";"81";"81";"81";"device_discovery";"Shelly_Letto";"2021-12-19 10:15:58"
+"TasmotaAvail_001";"tasmota";\N;"TasmotaAvail_001";"LnBot";"lnmqtt.duckdns.org:1883";\N;\N;\N;"0";"C8:2B:96:4C:0D:96";\N;\N;\N;\N;"LnPi31";"TasmotaAvail_001";"2021-12-06 10:19:08"
+"TasmotaAvail_002";"tasmota";\N;"TasmotaAvail_002";"LnBot";"lnmqtt.duckdns.org:1883";\N;\N;\N;"0";"C8:2B:96:4C:0E:72";\N;\N;\N;\N;"LnPi31";"TasmotaAvail_002";"2021-12-06 10:24:36"
+"TasmotaAvail_003";"tasmota";\N;"TasmotaAvail_003";"LnBot";"lnmqtt.duckdns.org:1883";\N;\N;\N;"0";"D8:F1:5B:8D:4D:BE";\N;\N;\N;\N;"LnPi31";"TasmotaAvail_003";"2021-12-06 10:29:20"
+"TavoloLavoro";"tasmota";"192.168.1.53";"TavoloLavoro";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"pozzetto tavolo lavoro";"-453816467";"1";"0";"C8:2B:96:4F:D3:67";"nLoreto";"53";"53";"53";"device_discovery";"TavoloLavoro";"2021-12-19 10:15:55"
+"TavoloLavoroOld";"tasmota";"192.168.1.51";"TavoloLavoroOld";"LnBot";"lnmqtt.duckdns.org:1883";"vano pompe";"-478553650";"1";"0";"DC:4F:22:92:FF:69";"nLoreto";"51";"51";"51";"device_discovery";"TavoloLavoroOld";"2021-12-19 10:15:55"
+"TelegramBot";"application";\N;"TelegramBot";"LnCasettaBot";\N;\N;\N;\N;\N;"2021-12-25 09:05:42";\N;\N;\N;\N;\N;\N;\N
+"ThermorossiControl";"tasmota";"192.168.1.65";"ThermorossiControl";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"Cucina";"-696007625";"1";"0";"C8:2B:96:4F:D5:51";"nLoreto";"65";\N;"65";"device_discovery";"ThermorossiControl";"2021-12-19 10:15:57"
+"ThermorossiPower";"tasmota";"192.168.1.66";"ThermorossiPower";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"Cucina";"-602501682";"1";"0";"BC:DD:C2:85:AE:EB";"nLoreto";"66";\N;"66";"device_discovery";"ThermorossiPower";"2021-12-19 10:15:57"
+"VallecupolaPresepe";"tasmota";\N;"VCPresepe";"LnCasettaBot";"broker.hivemq.com:1883";"Vallecupola";"-708825595";"1";"0";"F4:CF:A2:00:84:50";"nLoreto";\N;\N;\N;"LnPi31";"PresepeVallecupola";"2021-12-06 17:37:52"
+"VallecupolaPresepeGenerale";"tasmota";"192.168.1.61";"VCPresepeGenerale";"LnCasettaBot";"broker.hivemq.com:1883";"Vallecupola";"-660190510";"1";"0";"BC:DD:C2:85:AB:47";"nLoreto";"61";"61";"61";"device_discovery";"SWA1_03";"2021-12-19 10:15:56"
+"VentilatoreCamera";"tasmota";"192.168.1.60";"VentilatoreCamera";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"camera letto";"-619748665";"1";"0";"BC:DD:C2:85:2E:00";"nLoreto";"60";"60";"60";"device_discovery";"Ventolatore per riscaldamento";"2021-12-19 10:15:56"
+"VescoviControl";"tasmota";"192.168.1.63";"VescoviControl";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"Vano Caldaia";"-750594993";"1";"0";"DC:4F:22:D3:B3:2F";"nLoreto";"63";\N;"63";"device_discovery";"stufa_Vesscovi_Start";"2021-12-19 10:15:57"
+"VescoviPower";"tasmota";"192.168.1.62";"VescoviPower";"LnCasettaBot";"lnmqtt.duckdns.org:1883";"Vano Caldaia";"-607801595";"1";"0";"DC:4F:22:D5:6B:69";"nLoreto";"62";"62";"62";"device_discovery";"Stufa_Vescovi_Power";"2021-12-19 10:15:57"

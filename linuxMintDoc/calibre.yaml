@@ -1,0 +1,15 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 18.32.37
+#
+
+
+calibre_ebook:
+    ref:
+        https://flathub.org/en/apps/com.calibre_ebook.calibre
+
+    install:
+        flatpak install flathub com.calibre_ebook.calibre
+
+    run:
+        flatpak run com.calibre_ebook.calibre

@@ -1,0 +1,148 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 29-12-2020 12.33.50
+#
+
+# @_ln_echo_script_name $BASH_SOURCE
+
+
+################################################################################################
+# - COMMON Aliases Startddn
+################################################################################################
+
+#------------------------
+#- SSH
+#------------------------
+# alias ${alias_prefix}ssh="__SSH  pi@192.168.1"
+alias ${alias_prefix}ssh.config="/usr/bin/subl ${HOME}/.ssh/config"
+alias ${alias_prefix}22="ssh pi@192.168.1.22" # LnPi22
+alias ${alias_prefix}22casetta="ssh pi@lncasetta.duckdns.org -p 22022"
+
+alias ${alias_prefix}23="ssh pi@192.168.1.23" # LnPi23
+alias ${alias_prefix}23.casetta="ssh pi@lncasetta.duckdns.org -p 22023"
+alias ${alias_prefix}23.mooo="ssh pi@lncasetta.mooo.com -p 22023"
+
+alias ${alias_prefix}31="ssh loreto@192.168.1.31" # LnPi31
+alias ${alias_prefix}31.password="ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password loreto@192.168.1.31" # LnPi31
+alias ${alias_prefix}31.casetta="ssh loreto@lncasetta.duckdns.org -p 22031"
+alias ${alias_prefix}31.mooo="ssh loreto@lncasetta.mooo.com -p 22031"
+
+alias ${alias_prefix}41="ssh pi@192.168.1.41" # LnPi41
+alias ${alias_prefix}41.3="ssh pi@192.168.3.41"
+alias ${alias_prefix}41bev7="ssh pi@beverinoA07.crabdance.com -p 41022"
+alias ${alias_prefix}41bev9="ssh pi@beverinoA09.crabdance.com -p 41022"
+alias ${alias_prefix}41pina="ssh pi@rmpina.duckdns.org -p 41022"
+
+alias ${alias_prefix}51="ssh pi@LnPi51" # LnPi51
+alias ${alias_prefix}51.password="ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password  pi@LnPi51" # LnPi51
+alias ${alias_prefix}51.casetta="ssh pi@lncasetta.duckdns.org -p 22051"
+alias ${alias_prefix}51.mooo="ssh pi@lncasetta.mooo.com -p 22051"
+
+alias ${alias_prefix}ssh.alwaysdata="ssh loreton@ssh-loreton.alwaysdata.net"
+alias ${alias_prefix}ssh.tty_sdf="ssh loreto@tty.sdf.org"
+
+alias ${alias_prefix}ezsilvia="ssh ezbook-silvia -X -p 22"
+alias ${alias_prefix}ezsilvia.casetta="ssh -X loreto@lncasetta.duckdns.org -p 22043"
+alias ${alias_prefix}ezsilvia.mooo="ssh -X loreto@lncasetta.mooo.com -p 22043"
+
+
+
+function @_tunnel_casetta() {
+    local fExecute=${1:-no_go}
+    local  ArcherC6='-L8002:192.168.5.2:80'
+    local ArcherC20='-L8003:192.168.5.3:80'
+    local    CPE210='-L8006:192.168.1.6:443'
+    local    EAP110='-L8007:192.168.1.7:80'
+    local   MQTT_31='-L8883:192.168.3.1:1883'
+
+    echo -e "${TAByellowH}CPE210:    https://localhost:${CPE210: 2:4}"
+    echo -e "${TAByellowH}EAP110:    http://localhost:${EAP110: 2:4}"
+    echo -e "${TAByellowH}ArcherC6:  http://localhost:${ArcherC6: 2:4}"
+    echo -e "${TAByellowH}ArcherC20: http://localhost:${ArcherC20: 2:4}"
+    echo -e "${TAByellowH}MQTT_31:   http://localhost:${MQTT_31: 2:4}"
+    # echo -e "${TAByellowH}localhost:22001 to archerC6:22"
+    # echo -e "${TAByellowH}localhost:22002 to archerC20:22"
+    local bridgeServer="pi@lncasetta.mooo.com -p 22051"
+    cmd="ssh -N \
+            ${MQTT_31} \
+            ${ArcherC6} \
+            ${ArcherC20} \
+            ${CPE210} \
+            ${EAP110} \
+            ${bridgeServer}"
+
+    echo -e ${TABcyanH}$cmd
+    [[ "$fExecute" == '--go' ]] && $cmd || echo -e "\n${TABgreen}Enter --go to execute command\n"
+}
+
+alias ${alias_prefix}tunnel.8443.bev07="ssh -L8443:beverinoa07.crabdance.com:443 pi@beverinoA07.crabdance.com -p 41022"
+alias ${alias_prefix}tunnel.8443.bev09="ssh -L8443:beverinoa09.crabdance.com:443 pi@beverinoA09.crabdance.com -p 41022"
+
+# alias ${alias_prefix}tunnel.router_casetta_8080="ssh -L8080:192.168.1.1:80 pi@lncasetta.duckdns.org -p 22051"
+# alias ${alias_prefix}tunnel.mqtt_casetta_1883="ssh -L1883:192.168.1.31:1883 pi@lncasetta.duckdns.org -p 22051"
+
+alias ${alias_prefix}tunnel.casetta="@_tunnel_casetta"
+
+
+# alias ${alias_prefix}41r="ssh pi@lncasetta.duckdns.org -p 22031"
+# alias ${alias_prefix}22r="ssh pi@lncasetta.duckdns.org -p 22022"
+# alias ${alias_prefix}23r="ssh pi@lncasetta.duckdns.org -p 22023"
+
+# function @_steve_tunnels() {
+#     local server=$1
+#     local port=$2
+#     alias        ${alias_prefix}steve.ssh="ssh pi@${ip_STEVE} -p ${port}"
+#     alias        ${alias_prefix}steve.dyn="ssh -D 8888 -C pi@${ip_STEVE} -p ${port}" # -N
+#     alias     ${alias_prefix}steve.tunnel="ssh -L8888:localhost:80 pi@${ip_STEVE} -p ${port}"
+#     alias     ${alias_prefix}steve.router="ssh -L60001:192.168.1.1:80 pi@${ip_STEVE} -p ${port}"
+    # alias        ${alias_prefix}steve.ssh
+    # alias        ${alias_prefix}steve.dyn
+    # alias     ${alias_prefix}steve.tunnel
+    # alias     ${alias_prefix}steve.router
+# }
+
+
+
+### - Steve 107
+# port=60028
+# alias        .steve.107.ssh="ssh pi@${ip_STEVE} -p ${port}"
+# alias ${alias_prefix}steve.107.tunnel_dyn="ssh -D 8888 -C pi@${ip_STEVE} -p ${port}" # -N
+# alias     .steve.107.tunnel="ssh -L8888:localhost:80 pi@${ip_STEVE} -p ${port}"
+
+# alias     .steve107.router="ssh -L60001:192.168.1.1:80 pi@${ip_STEVE} -p ${port}"
+# alias     .steve_set_103="@_steve_tunnels 103 60022"
+# alias     .steve_set_107="@_steve_tunnels 107 60028"
+ext_PORT=60022
+alias     ${alias_prefix}steve_103.ssh="ssh pi@${ip_STEVE} -p ${ext_PORT}"
+alias     ${alias_prefix}steve_103.dyn="ssh -D 8888 -C pi@${ip_STEVE} -p ${ext_PORT}" # -N
+alias     ${alias_prefix}steve_103.tunnel="ssh -L8888:localhost:80 pi@${ip_STEVE} -p ${ext_PORT}"
+alias     ${alias_prefix}steve_103.router="ssh -L60001:192.168.1.1:80 pi@${ip_STEVE} -p ${ext_PORT}"
+
+ext_PORT=60028
+alias     ${alias_prefix}steve_107.ssh="ssh pi@${ip_STEVE} -p ${ext_PORT}"
+alias     ${alias_prefix}steve_107.dyn="ssh -D 8888 -C pi@${ip_STEVE} -p ${ext_PORT}" # -N
+alias     ${alias_prefix}steve_107.tunnel="ssh -L8888:localhost:80 pi@${ip_STEVE} -p ${ext_PORT}"
+alias     ${alias_prefix}steve_107.router="ssh -L60001:192.168.1.1:80 pi@${ip_STEVE} -p ${ext_PORT}"
+unset ext_PORT
+
+
+function .ssh() {
+    ssh pi@192.168.1.${1}
+}
+
+function .mexec() {
+    local command="$@"
+    hosts='pi@192.168.1.22 pi@192.168.1.23 pi@192.168.1.31 pi@192.168.1.41  pi@beverinoA07.crabdance.com'
+    hosts='pi@192.168.1.41'
+    for host in $hosts; do
+        echo
+        echo -e "${TABcyanH}------------------------------------------"
+        echo -e "${TAB} on server: ${host}"
+        echo -e "${TAB}------------------------------------------$colorReset"
+        ssh -o ConnectTimeout=5 ${host} "$command"
+    done
+}
+
+
+

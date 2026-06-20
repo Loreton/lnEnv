@@ -1,0 +1,33 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 15-06-2026 21.41.43
+#
+
+
+multiple_shortcut_keys - sxhdk:
+    sudo apt update && sudo apt install sxhkd
+
+    mkdir -p ~/.config/sxhkd/
+    cp /usr/share/doc/sxhkd/examples/sxhkdrc ~/.config/sxhkd/sxhkdrc
+
+    .zed ~/.config/sxhkd/sxhkdrc
+
+
+Set sxhkd to Autostart:
+    You'll want sxhkd to run automatically every time you log into your computer.
+    Open the "Startup Applications" tool from your Linux Mint menu.
+    Click "Add".
+    Fill in the dialog box:
+    Name: sxhkd
+    Command: sxhkd
+    Comment: Hotkey daemon (optional)
+
+
+For this session, start sxhkd from the terminal:
+    sxhkd &
+    Reloading Configuration:
+        If you edit your ~/.config/sxhkd/sxhkdrc file, you need to tell sxhkd to reload.
+        The easiest way is to run pkill sxhkd followed by sxhkd & in a terminal.
+
+
+    xev -event keyboard

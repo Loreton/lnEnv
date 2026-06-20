@@ -1,0 +1,14 @@
+
+
+# Codium (VSCode alternative)
+VSCode/Codium:
+    ref:
+        https://linux.how2shout.com/install-vscodium-on-ubuntu-22-04-20-04-linux/#1_Install_VSCodium_using_SNAP
+
+    install:
+        sudo snap install codium --classic
+
+    refresh:
+        sudo snap list codium
+        sudo snap refresh codium
+

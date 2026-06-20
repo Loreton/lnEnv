@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# sudo /etc/init.d/networking stop; sudo /etc/init.d/networking start
+
+# .... per Pi 3B+ forse è sufficiente questo
+sudo service network-manager restart

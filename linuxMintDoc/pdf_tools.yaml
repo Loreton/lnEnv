@@ -1,0 +1,25 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 04-12-2025 13.16.33
+#
+
+
+Con nessuno posso ritagliare un rettangolo e copuarlo come imagine
+Allora usare Flameshot per catturare l'immagine
+e Xournal++ per fare paste
+
+flatpak install flathub org.flameshot.Flameshot
+
+flatpak install flathub org.kde.okular
+flatpak uninstall flathub org.kde.okular
+
+
+flatpak install flathub io.github.JakubMelka.Pdf4qt
+flatpak install flathub com.github.xournalpp.xournalpp
+flatpak install flathub com.sejda.Sejda
+
+
+
+# banale
+flatpak uninstall flathub net.sourceforge.Pdfedit
+flatpak install flathub net.sourceforge.Pdfedit

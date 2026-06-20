@@ -1,0 +1,29 @@
+{
+    "folders":
+    //  project format
+    // ref: https://www.sublimetext.com/docs/projects.html
+            // "folder_exclude_patterns": ["PressControl_222"],
+            // "file_exclude_patterns": ["*.css"],
+    [
+
+        {  // XAMPP - PHP
+            "lnfile": "/etc/hosts",
+            "lnfile": "/opt/lampp/etc/httpd.conf",
+            "lnfile": "/var/wwww/website01/conf/httpd-vhosts.conf",
+            "lnfile": "/opt/lampp/phpmyadmin/config.inc.php",
+            "path": "/opt/lampp/etc", "name": "xampp_etc",
+            "path": "/var/wwww/website01", "name": "http_website01",
+            "path": "/opt/lampp", "name": "lamp",
+        },
+
+        {  // site
+            "lnfile": "/opt/lampp/etc/httpd.conf",
+            "lnfile": "/opt/lampp/etc/my.cnf", // mysql.conf
+            "lnfile": "/var/www/vhosts_list.conf",
+            "path": "/opt/lampp/etc", "name": "xampp_etc",
+            "path": "/var/www",
+            "name": "",
+            "path": "/home/loreto/lnprofile/xampp",
+        },
+    ],
+}

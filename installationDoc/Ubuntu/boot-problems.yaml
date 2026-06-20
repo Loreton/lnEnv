@@ -1,0 +1,4 @@
+https://askubuntu.com/questions/1305015/how-to-fix-uefi-windows-10-ubuntu-20-04-dual-boot-on-a-toshiba-dynabook
+
+
+efibootmgr -v

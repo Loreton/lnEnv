@@ -1,0 +1,162 @@
+ref:
+    https://www.fosslinux.com/92855/install-ftp-server-linux-mint.htm
+
+
+install:
+    sudo apt update && sudo apt full-upgrade -y
+    sudo apt install vsftpd
+
+    sudo systemctl stop vsftpd
+    sudo systemctl enable --now vsftpd
+
+    sudo vi /etc/vsftpd.conf
+
+remove:
+    sudo apt remove vsftpd --purge
+
+
+firewall:
+    sudo ufw status (se non è attivo ....skip)
+
+    sudo ufw allow 20/tcp
+    sudo ufw allow 21/tcp
+    sudo ufw allow 990/tcp
+    sudo ufw allow 5000:10000/tcp
+
+# type1:
+#     add_user:
+#         sudo adduser xerox_printer      passwd=Xerox.2025
+#         sudo mkdir /home/xerox_printer/ftp
+#         sudo chown nobody:nogroup /home/xerox_printer/ftp
+#         sudo chmod a-w /home/xerox_printer/ftp
+
+#         sudo adduser brother_printer    passwd=Brother.2025
+#         sudo mkdir /home/brother_printer/ftp
+#         sudo chown nobody:nogroup /home/brother_printer/ftp
+#         sudo chmod a-w /home/brother_printer/ftp
+
+#         sudo vi /etc/ssh/sshd_config
+#         Add the line below to this file:
+#             DenyUsers xerox_printer
+#             DenyUsers brother_printer
+#         sudo systemctl restart ssh
+    
+#     create directory:
+#         come user loreto:
+#             sudo chown brother_printer brother
+
+#             mkdir xerox
+#             sudo chown xerox_printer xerox
+
+type2: # ref: https://www.digitalocean.com/community/tutorials/how-to-set-up-vsftpd-for-a-user-s-directory-on-ubuntu-16-04
+    add_user2: 
+        export myUSER="xerox_printer"
+        sudo adduser ${myUSER}      passwd=Xerox.2025
+        sudo mkdir /home/${myUSER}/ftp
+        sudo chown nobody:nogroup /home/${myUSER}/ftp
+        sudo chmod a-w /home/${myUSER}/ftp
+
+        Next, we’ll create the directory where files can be uploaded and assign ownership to the user:
+        sudo mkdir /home/${myUSER}/ftp/uploads
+        sudo chown ${myUSER}:${myUSER} /home/${myUSER}/ftp/uploads
+
+        Finally, we’ll add a test.txt file to use when we test later on:
+        echo "vsftpd test file" | sudo tee /home/${myUSER}/ftp/uploads/test.txt
+
+        altri users:
+        export myUSER="brother_printer"
+        export myUSER="lnprinter"
+
+        sudo ls -la /home/lnprinter/ftp
+            r-xr-xr-x  2 nobody    nogroup   4096 Nov 29 16:58 .
+            drwxr-x--- 5 lnprinter lnprinter 4096 Nov 29 16:58 ..
+
+        Next, we’ll create the directory where files can be uploaded and assign ownership to the user:
+        sudo mkdir /home/lnprinter/ftp/uploads
+        sudo chown lnprinter:lnprinter /home/lnprinter/ftp/uploads
+
+        Finally, we’ll add a test.txt file to use when we test later on:
+        echo "vsftpd test file" | sudo tee /home/lnprinter/ftp/uploads/test.txt
+
+    /etc/vsftpd.conf:
+        sudo cp -p /etc/vsftpd.conf /etc/vsftpd.orig.conf
+        sudo vi /etc/vsftpd.conf
+        assicurarsi i seguenti valori:
+            anonymous_enable=NO
+            write_enable=YES
+            local_umask=022
+            chroot_local_user=YES
+
+        aggiungere:
+            user_sub_token=$USER
+            local_root=/home/$USER/ftp
+
+            pasv_min_port=40000
+            pasv_max_port=40100
+
+            userlist_enable=YES
+            userlist_file=/etc/vsftpd.userlist
+            userlist_deny=NO
+
+            # allow_writeable_chroot=YES
+
+        /etc/vsftpd.userlist:
+            echo "${myUSER}" | sudo tee -a /etc/vsftpd.userlist
+            cat /etc/vsftpd.userlist
+            
+            ...oppure
+            sudo vi /etc/vsftpd.userlist
+            aggiungere il nome dello user:
+                lnprinter
+
+        /etc/ssh/sshd_config:
+            DenyUsers xerox_printer
+            DenyUsers brother_printer
+            sudo systemctl restart ssh
+
+
+        sudo systemctl restart vsftpd
+
+
+
+
+
+config:
+    sudo vi /etc/vsftpd.conf
+    uncomment following:
+        anonymous_enable=NO
+        local_enable=YES
+        write_enable=YES
+        local_umask=022
+
+        pasv_min_port=5000
+        pasv_max_port=10000
+
+        # listen=YES
+        # chroot_local_user=YES
+
+    4. Add the following lines at the end of the config file:
+
+
+
+
+    comunque copiare il file
+        "/home/loreto/lnprofile/projects/vsFTPd/vsftpd.conf"
+    direttamente su /etc/vsftpd.conf
+
+
+
+    sudo systemctl restart vsftpd && sudo systemctl status vsftpd
+
+
+
+
+problems 500 OOPS vsftpd refusing to run with writable root inside chroot():
+    ref:
+        - https://www.liquidweb.com/kb/error-500-oops-vsftpd-refusing-to-run-with-writable-root-inside-chroot-solved/
+
+        Alternatively, you can bypass the writable check in the vsftpd config file by running the following command.
+        echo 'allow_writeable_chroot=YES' >> /etc/vsftpd/vsftpd.conf && systemctl restart vsftpd
+
+
+

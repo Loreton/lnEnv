@@ -1,0 +1,47 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+# scriptFullPath="$(readlink -f ${BASH_SOURCE[0]})"       # OTTIMA
+# scriptDir="$(dirname $scriptFullPath)"
+# scriptName="$(basename $scriptFullPath)"
+# echo "----------- $scriptName"
+
+# @_ln_echo_script_name $BASH_SOURCE
+
+
+
+function @_systemctl_aliases() {
+    local alias_name="$1"
+
+    local APPL_NAME="$2"
+    local appl_name=${APPL_NAME,,}
+
+    local user_name="$3"
+
+    if [[ -z ${user_name} ]]; then
+        local service_name="${appl_name}.service"
+    else
+        local service_name="${appl_name}@${user_name}.service"
+    fi
+
+    alias ${alias_name}.status="sudo systemctl status $service_name"
+    alias ${alias_name}.start="sudo systemctl start $service_name && sudo systemctl status $service_name"
+    alias ${alias_name}.stop="sudo systemctl stop $service_name"
+    alias ${alias_name}.disable="sudo systemctl stop $service_name && sudo systemctl disable $service_name && sudo systemctl daemon-reload"
+    alias ${alias_name}.enable="sudo systemctl daemon-reload && sudo systemctl enable $service_name && sudo systemctl daemon-reload"
+    alias ${alias_name}.restart="sudo systemctl restart $service_name && sudo systemctl status $service_name"
+    # alias ${alias_name}.systemctl.journal="sudo journalctl -f -u $service_name"
+    alias ${alias_name}.journal="sudo journalctl -u $service_name"
+
+}
+
+
+
+if [[ ${hostname_lc} == "lnpi51" ]]; then
+    @_systemctl_aliases  "${alias_prefix}lncasettabot"  "LnCasettaBot"  "${USER}"
+    @_systemctl_aliases  "${alias_prefix}mqttmonitor"    "mqttMonitor"  "${USER}"
+fi
+
+

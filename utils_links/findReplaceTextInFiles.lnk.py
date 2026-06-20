@@ -1,0 +1,1 @@
+/home/loreto/filu/lnEnv/pyScripts/findAndReplace/findReplaceTextInFiles.py

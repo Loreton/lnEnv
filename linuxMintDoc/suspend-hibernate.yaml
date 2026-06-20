@@ -1,0 +1,94 @@
+linux mint, vorrei avere il pc sempre acceso, con lo schermo spento e non deve mai andare in sospensione opuure in ibernazione.
+Nelle impostazioni ho configurato: suspend when inactive=Never
+Continua ad andare in sospensione.
+Come mai?
+
+
+-----------------
+Broadcast message from root@ezbook-silvia (Wed 2025-11-26 12:51:33 CET):
+
+The system will enter hybrid sleep now!
+
+
+Controlla i log dell’ultimo avvio (mostra chi ha richiesto la sospensione):
+    sudo journalctl -b -1 --no-pager | grep -iE 'hybrid|hibernate|suspend|sleep|systemd-sleep|systemd-logind|upower|acpi'
+
+Mostra le righe intorno al momento della notifica (più utili per capire il “caller”):
+    sudo journalctl -b -1 --no-pager -u systemd-logind -u systemd-sleep --since "10 minutes ago"
+
+Controlla gli inhibitor attivi (dopo il resume, o ora per vedere lo stato):
+    sudo systemd-inhibit --list
+
+Controlla i timer attivi (potrebbe essere uno timer che lancia il comando):
+    systemctl list-timers --all
+
+Cerca script/servizi che invocano hybrid-sleep:
+    sudo grep -R --line-number "hybrid-sleep|systemctl suspend|systemctl hybrid-sleep" /etc /usr /home 2>/dev/null
+
+Controlla UPower (se è un problema di batteria critica):
+    cat /etc/UPower/UPower.conf
+
+
+
+Cosa fare subito per impedire nuove sospensioni/ibridi (misure rapide e reversibili)
+
+    Maschera i target di sospensione (immediato e molto efficace):
+        sudo systemctl mask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+    Per annullare la mascheratura:
+        sudo systemctl unmask sleep.target suspend.target hibernate.target hybrid-sleep.target
+
+    Oppure (metodo consigliato) applica la modifica permanente a systemd-logind:
+        # /etc/systemd/logind.conf — attuale
+        [Login]
+        # IdleAction=ignore
+        # HandleLidSwitch=suspend
+        # HandleLidSwitchDocked=ignore
+        # HandleLidSwitchExternalPower=suspend
+
+
+        # /etc/systemd/logind.conf — example to disable suspend/hibernate/lid actions
+        [Login]
+        IdleAction=ignore
+        HandleLidSwitch=ignore
+        HandleLidSwitchDocked=ignore
+        HandleLidSwitchExternalPower=ignore
+
+        # dopo la modifica
+        [Login]
+        #NAutoVTs=6
+        #ReserveVT=6
+        #KillUserProcesses=no
+        #KillOnlyUsers=
+        #KillExcludeUsers=root
+        #InhibitDelayMaxSec=5
+        #UserStopDelaySec=10
+        #HandlePowerKey=poweroff
+        #HandlePowerKeyLongPress=ignore
+        #HandleRebootKey=reboot
+        #HandleRebootKeyLongPress=poweroff
+        #HandleSuspendKey=suspend
+        #HandleSuspendKeyLongPress=hibernate
+        #HandleHibernateKey=hibernate
+        #HandleHibernateKeyLongPress=ignore
+        #HandleLidSwitch=suspend
+        HandleLidSwitch=ignore
+        #HandleLidSwitchExternalPower=suspend
+        HandleLidSwitchExternalPower=ignore
+        #HandleLidSwitchDocked=ignore
+        #PowerKeyIgnoreInhibited=no
+        #SuspendKeyIgnoreInhibited=no
+        #HibernateKeyIgnoreInhibited=no
+        #LidSwitchIgnoreInhibited=yes
+        #RebootKeyIgnoreInhibited=no
+        #HoldoffTimeoutSec=30s
+        #IdleAction=ignore
+        #IdleActionSec=30min
+        #RuntimeDirectorySize=10%
+        #RuntimeDirectoryInodesMax=
+        #RemoveIPC=yes
+        #InhibitorsMax=8192
+
+
+
+        poi riavvia logind: sudo systemctl restart systemd-logind

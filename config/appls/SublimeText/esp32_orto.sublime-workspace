@@ -1,0 +1,2168 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"scrip",
+				"script_path"
+			],
+			[
+				"dfla",
+				"dflags_sh"
+			],
+			[
+				"dfl",
+				"dflags_sh"
+			],
+			[
+				"dat",
+				"datetime"
+			],
+			[
+				"prom",
+				"prompt_finale"
+			],
+			[
+				"file",
+				"filename_buffer_len"
+			],
+			[
+				"f",
+				"fnameBUFFER_len"
+			],
+			[
+				"uint",
+				"uint16_t"
+			],
+			[
+				"out",
+				"out_file"
+			],
+			[
+				"BO",
+				"BOTchatid"
+			],
+			[
+				"las",
+				"lastAdminChatId"
+			],
+			[
+				"ln_",
+				"ln_ENV_DIR"
+			],
+			[
+				"ski",
+				"skipping_files"
+			],
+			[
+				"venv",
+				"venvPath"
+			],
+			[
+				"expo",
+				"export_parser"
+			],
+			[
+				"open",
+				"openwrt_config"
+			],
+			[
+				"exce",
+				"excel_config"
+			],
+			[
+				"subp",
+				"subparsers"
+			],
+			[
+				"writ",
+				"write_datetime"
+			],
+			[
+				"P",
+				"PosixPath"
+			],
+			[
+				"confi",
+				"config_filename"
+			],
+			[
+				"retu",
+				"return_list"
+			],
+			[
+				"config",
+				"config_file"
+			],
+			[
+				"con",
+				"config_filepath"
+			],
+			[
+				"scri",
+				"script_path"
+			],
+			[
+				"col",
+				"coloredLogger"
+			],
+			[
+				"ali",
+				"alias_prefix"
+			],
+			[
+				"act",
+				"activate_path"
+			],
+			[
+				"alias",
+				"alias_list"
+			],
+			[
+				"my_",
+				"my_template"
+			],
+			[
+				"crea",
+				"createYamlEnvarFile"
+			],
+			[
+				"yello",
+				"yellowH"
+			],
+			[
+				"red",
+				"redH"
+			],
+			[
+				"ve",
+				"venv_dir"
+			],
+			[
+				"color",
+				"colorReset"
+			],
+			[
+				"yaml",
+				"yamlFile_resolved"
+			],
+			[
+				"yamlFil",
+				"yamlFile_resolved"
+			],
+			[
+				"eval",
+				"eval_command"
+			],
+			[
+				"creat",
+				"createYamlEnvarFile"
+			],
+			[
+				"lnF",
+				"ln_FREEx"
+			],
+			[
+				"ur",
+				"url"
+			],
+			[
+				"pid",
+				"pi_dest_dir"
+			],
+			[
+				"PI",
+				"LN_PROFILE_PI"
+			],
+			[
+				"LN",
+				"LN_PROFILEx"
+			],
+			[
+				"db",
+				"db_name"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"sub",
+				"subNet_dict"
+			],
+			[
+				"colo",
+				"colorReset"
+			],
+			[
+				"opt",
+				"opt_name"
+			],
+			[
+				"rec",
+				"rec_type"
+			],
+			[
+				"g",
+				"g_Args"
+			],
+			[
+				"remote",
+				"remote_path"
+			],
+			[
+				"exc",
+				"excel_filename"
+			],
+			[
+				"ope",
+				"openwrt_version"
+			],
+			[
+				"dr",
+				"dry_run"
+			],
+			[
+				"configu",
+				"configureDhcp"
+			],
+			[
+				"confg",
+				"configLan"
+			],
+			[
+				"ena",
+				"enableDhcp"
+			],
+			[
+				"se",
+				"setPrimaryRouter"
+			],
+			[
+				"TAB",
+				"TAByellow"
+			],
+			[
+				"igno",
+				"ignore_line"
+			],
+			[
+				"p",
+				"purpleH"
+			],
+			[
+				"ip_",
+				"ip_current"
+			],
+			[
+				"ip",
+				"ip_exists"
+			],
+			[
+				"Ta",
+				"TABred"
+			],
+			[
+				"Archer",
+				"archerC20"
+			],
+			[
+				"add",
+				"addIpAddress"
+			],
+			[
+				"bl",
+				"blue"
+			],
+			[
+				"lan",
+				"lan_exists"
+			],
+			[
+				"TABpurpl",
+				"TABpurpleH"
+			],
+			[
+				"dn",
+				"dns_addr"
+			],
+			[
+				"conf",
+				"configLan"
+			],
+			[
+				"wri",
+				"writeFile"
+			],
+			[
+				"des",
+				"dest_port"
+			],
+			[
+				"redi",
+				"loadRedirectRules"
+			],
+			[
+				"domai",
+				"domain_output"
+			],
+			[
+				"host",
+				"host_output"
+			],
+			[
+				"set",
+				"set_file_paths"
+			],
+			[
+				"redir",
+				"redirects_dict"
+			],
+			[
+				"targe",
+				"target_data"
+			],
+			[
+				"vserv",
+				"vserver_fields"
+			],
+			[
+				"dest_",
+				"dest_server"
+			],
+			[
+				"remo",
+				"remote_path"
+			],
+			[
+				"auto",
+				"autogen_file"
+			],
+			[
+				"new",
+				"new_rec"
+			],
+			[
+				"targ",
+				"target_data"
+			],
+			[
+				"hos",
+				"host_name"
+			],
+			[
+				"hosts",
+				"hosts_dict"
+			],
+			[
+				"sec",
+				"sectionToDict"
+			],
+			[
+				"str",
+				"str_end"
+			],
+			[
+				"st",
+				"str_end"
+			],
+			[
+				"retrie",
+				"retrieved_file"
+			],
+			[
+				"pro",
+				"process_sections"
+			],
+			[
+				"doma",
+				"domains"
+			],
+			[
+				"co",
+				"host_counter"
+			],
+			[
+				"ta",
+				"target_content"
+			],
+			[
+				"sh",
+				"sheet_dict"
+			],
+			[
+				"col_",
+				"col_value"
+			],
+			[
+				"she",
+				"sheet_dict"
+			],
+			[
+				"_shee",
+				"_sheet"
+			],
+			[
+				"shee",
+				"sheet_dict"
+			],
+			[
+				"get",
+				"getSheet"
+			],
+			[
+				"ln",
+				"lnExcelBook_Class"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"cont",
+				"content"
+			],
+			[
+				"to",
+				"to_benedict"
+			],
+			[
+				"ro",
+				"row_name"
+			],
+			[
+				"serv",
+				"server_name"
+			],
+			[
+				"g_",
+				"g_GO"
+			],
+			[
+				"ind",
+				"index_php"
+			],
+			[
+				"apa",
+				"apache_user"
+			],
+			[
+				"vho",
+				"vhosts_list"
+			],
+			[
+				"in",
+				"include_line"
+			],
+			[
+				"pri",
+				"printf"
+			],
+			[
+				"es",
+				"esptool"
+			],
+			[
+				"esp",
+				"_esptool_read"
+			],
+			[
+				"_pl",
+				"_platformio_run"
+			],
+			[
+				"sheet",
+				"sheet_name"
+			],
+			[
+				"n",
+				"name"
+			],
+			[
+				"pla",
+				"platformio_dir"
+			],
+			[
+				"pl",
+				"platformio_dir"
+			],
+			[
+				"read",
+				"readPin"
+			],
+			[
+				"O",
+				"OUTPUT"
+			],
+			[
+				"press",
+				"pressControlState"
+			],
+			[
+				"pin",
+				"pin_struct"
+			],
+			[
+				"pre",
+				"pressControlRelay"
+			],
+			[
+				"pres",
+				"pressControlRelay"
+			],
+			[
+				"s",
+				"state"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "esp32_orto.sublime-project",
+			"settings":
+			{
+				"buffer_size": 2861,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/01-PYENV.functions",
+			"settings":
+			{
+				"buffer_size": 3507,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAACMWAAAAAAAAkBYAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADRFQAAAAAAANEVAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					8,
+					1,
+					"left_delete",
+					null,
+					"AQAAADgWAAAAAAAAOBYAAAAAAAAIAAAAbG50aW1lcl8",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA4FgAAAAAAAEAWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					10,
+					1,
+					"insert",
+					{
+						"characters": "_lin"
+					},
+					"BAAAAD0WAAAAAAAAPhYAAAAAAAAAAAAAPhYAAAAAAAA/FgAAAAAAAAAAAAA/FgAAAAAAAEAWAAAAAAAAAAAAAEAWAAAAAAAAQRYAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA9FgAAAAAAAD0WAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					11,
+					1,
+					"left_delete",
+					null,
+					"AQAAAEAWAAAAAAAAQBYAAAAAAAABAAAAbg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABBFgAAAAAAAEEWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					12,
+					1,
+					"insert",
+					{
+						"characters": "braty"
+					},
+					"BQAAAEAWAAAAAAAAQRYAAAAAAAAAAAAAQRYAAAAAAABCFgAAAAAAAAAAAABCFgAAAAAAAEMWAAAAAAAAAAAAAEMWAAAAAAAARBYAAAAAAAAAAAAARBYAAAAAAABFFgAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABAFgAAAAAAAEAWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					13,
+					2,
+					"left_delete",
+					null,
+					"AgAAAEQWAAAAAAAARBYAAAAAAAABAAAAeUMWAAAAAAAAQxYAAAAAAAABAAAAdA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABFFgAAAAAAAEUWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					14,
+					1,
+					"insert",
+					{
+						"characters": "ries"
+					},
+					"BAAAAEMWAAAAAAAARBYAAAAAAAAAAAAARBYAAAAAAABFFgAAAAAAAAAAAABFFgAAAAAAAEYWAAAAAAAAAAAAAEYWAAAAAAAARxYAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABDFgAAAAAAAEMWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					17,
+					1,
+					"left_delete",
+					null,
+					"AQAAAHAWAAAAAAAAcBYAAAAAAAAOAAAAL2xuVGltZXJfZXNwMzI",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABwFgAAAAAAAH4WAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					19,
+					1,
+					"left_delete",
+					null,
+					"AQAAAHAWAAAAAAAAcBYAAAAAAAASAAAAICYmIEBzZXRQbGF0Zm9ybWlv",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABwFgAAAAAAAIIWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					36,
+					2,
+					"left_delete",
+					null,
+					"AgAAAD4WAAAAAAAAPhYAAAAAAAAJAAAAbGlicmFyaWVzPRYAAAAAAAA9FgAAAAAAAAEAAABf",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA+FgAAAAAAAEcWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					38,
+					1,
+					"insert",
+					{
+						"characters": "lntelegram"
+					},
+					"CgAAADgWAAAAAAAAORYAAAAAAAAAAAAAORYAAAAAAAA6FgAAAAAAAAAAAAA6FgAAAAAAADsWAAAAAAAAAAAAADsWAAAAAAAAPBYAAAAAAAAAAAAAPBYAAAAAAAA9FgAAAAAAAAAAAAA9FgAAAAAAAD4WAAAAAAAAAAAAAD4WAAAAAAAAPxYAAAAAAAAAAAAAPxYAAAAAAABAFgAAAAAAAAAAAABAFgAAAAAAAEEWAAAAAAAAAAAAAEEWAAAAAAAAQhYAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA4FgAAAAAAADgWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					39,
+					1,
+					"insert",
+					{
+						"characters": "_"
+					},
+					"AQAAAEIWAAAAAAAAQxYAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABCFgAAAAAAAEIWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					41,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAHEWAAAAAAAAchYAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABxFgAAAAAAAHEWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					43,
+					1,
+					"",
+					null,
+					"AQAAAHIWAAAAAAAAgRYAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAByFgAAAAAAAHIWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					55,
+					1,
+					"paste",
+					null,
+					"AQAAAHIWAAAAAAAAhBYAAAAAAAAPAAAAMDBfdGVzdF9tb2R1bGVz",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACBFgAAAAAAAHIWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					61,
+					1,
+					"insert",
+					{
+						"characters": "/"
+					},
+					"AQAAAHEWAAAAAAAAchYAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABxFgAAAAAAAHEWAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					63,
+					1,
+					"",
+					null,
+					"AQAAAHIWAAAAAAAAhhYAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAByFgAAAAAAAHIWAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "/home/loreto/filu/lnEnv/shScripts/py_env/venv_creation.sh",
+			"settings":
+			{
+				"buffer_size": 5532,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					23,
+					1,
+					"left_delete",
+					null,
+					"AQAAAG8DAAAAAAAAbwMAAAAAAAABAAAAIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABwAwAAAAAAAHADAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					28,
+					1,
+					"right_delete",
+					null,
+					"AQAAAE4EAAAAAAAATgQAAAAAAAABAAAAIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABOBAAAAAAAAE4EAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					38,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAOEEAAAAAAAADAUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADgBAAAAAAAAOAEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					39,
+					1,
+					"swap_line_up",
+					null,
+					"EgAAAOEEAAAAAAAA4QQAAAAAAAArAAAAICAgIGlmIFtbIC1mICIudmVudi9iaW4vYWN0aXZhdGUiIF1dOyB0aGVuCrYEAAAAAAAA4QQAAAAAAAAAAAAAtgQAAAAAAAC2BAAAAAAAACsAAAAgICAgaWYgW1sgLWYgIi52ZW52L2Jpbi9hY3RpdmF0ZSIgXV07IHRoZW4KZQQAAAAAAACQBAAAAAAAAAAAAABlBAAAAAAAAGUEAAAAAAAAKwAAACAgICBpZiBbWyAtZiAiLnZlbnYvYmluL2FjdGl2YXRlIiBdXTsgdGhlbgpkBAAAAAAAAI8EAAAAAAAAAAAAAGQEAAAAAAAAZAQAAAAAAAArAAAAICAgIGlmIFtbIC1mICIudmVudi9iaW4vYWN0aXZhdGUiIF1dOyB0aGVuClsEAAAAAAAAhgQAAAAAAAAAAAAAWwQAAAAAAABbBAAAAAAAACsAAAAgICAgaWYgW1sgLWYgIi52ZW52L2Jpbi9hY3RpdmF0ZSIgXV07IHRoZW4KIAQAAAAAAABLBAAAAAAAAAAAAAAgBAAAAAAAACAEAAAAAAAAKwAAACAgICBpZiBbWyAtZiAiLnZlbnYvYmluL2FjdGl2YXRlIiBdXTsgdGhlbgqjAwAAAAAAAM4DAAAAAAAAAAAAAKMDAAAAAAAAowMAAAAAAAArAAAAICAgIGlmIFtbIC1mICIudmVudi9iaW4vYWN0aXZhdGUiIF1dOyB0aGVuCpoDAAAAAAAAxQMAAAAAAAAAAAAAmgMAAAAAAACaAwAAAAAAACsAAAAgICAgaWYgW1sgLWYgIi52ZW52L2Jpbi9hY3RpdmF0ZSIgXV07IHRoZW4KQQMAAAAAAABsAwAAAAAAAAAAAABBAwAAAAAAAEEDAAAAAAAAKwAAACAgICBpZiBbWyAtZiAiLnZlbnYvYmluL2FjdGl2YXRlIiBdXTsgdGhlbgr5AgAAAAAAACQDAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAALBQAAAAAAAAsFAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					43,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAwDAAAAAAAADAMAAAAAAAANAAAAL2Jpbi9hY3RpdmF0ZQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAMAwAAAAAAABkDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					48,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAQDAAAAAAAABAMAAAAAAAABAAAAZg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAFAwAAAAAAAAUDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					49,
+					1,
+					"insert",
+					{
+						"characters": "e"
+					},
+					"AQAAAAQDAAAAAAAABQMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAEAwAAAAAAAAQDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					52,
+					1,
+					"left_delete",
+					null,
+					"AQAAAP0CAAAAAAAA/QIAAAAAAAADAAAAaWYg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAwAAAAAAAP0CAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					56,
+					1,
+					"insert",
+					{
+						"characters": " &&"
+					},
+					"AwAAAA0DAAAAAAAADgMAAAAAAAAGAAAAOyB0aGVuDgMAAAAAAAAPAwAAAAAAAAAAAAAPAwAAAAAAABADAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAANAwAAAAAAABMDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					57,
+					1,
+					"insert",
+					{
+						"characters": " rm"
+					},
+					"AwAAABADAAAAAAAAEQMAAAAAAAAAAAAAEQMAAAAAAAASAwAAAAAAAAAAAAASAwAAAAAAABMDAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAQAwAAAAAAABADAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					58,
+					1,
+					"insert",
+					{
+						"characters": " -f"
+					},
+					"AwAAABMDAAAAAAAAFAMAAAAAAAAAAAAAFAMAAAAAAAAVAwAAAAAAAAAAAAAVAwAAAAAAABYDAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAATAwAAAAAAABMDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					59,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAABYDAAAAAAAAFwMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAWAwAAAAAAABYDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					60,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"$0\""
+					},
+					"AQAAABcDAAAAAAAAGQMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAXAwAAAAAAABcDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					61,
+					1,
+					"insert",
+					{
+						"characters": ".venv"
+					},
+					"BQAAABgDAAAAAAAAGQMAAAAAAAAAAAAAGQMAAAAAAAAaAwAAAAAAAAAAAAAaAwAAAAAAABsDAAAAAAAAAAAAABsDAAAAAAAAHAMAAAAAAAAAAAAAHAMAAAAAAAAdAwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAYAwAAAAAAABgDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					68,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAB8DAAAAAAAARQMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAASAwAAAAAAABIDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					69,
+					1,
+					"swap_line_down",
+					null,
+					"BgAAAI0DAAAAAAAAswMAAAAAAAAAAAAAHwMAAAAAAAAfAwAAAAAAACYAAAAgICAgW1sgLWUgIi52ZW52IiBdXSAmJiBybSAtZiAiLnZlbnYiCuYDAAAAAAAADAQAAAAAAAAAAAAAZwMAAAAAAABnAwAAAAAAACYAAAAgICAgW1sgLWUgIi52ZW52IiBdXSAmJiBybSAtZiAiLnZlbnYiCu8DAAAAAAAAFQQAAAAAAAAAAAAAwAMAAAAAAADAAwAAAAAAACYAAAAgICAgW1sgLWUgIi52ZW52IiBdXSAmJiBybSAtZiAiLnZlbnYiCg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA4AwAAAAAAADgDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					74,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAAMgDAAAAAAAAzQMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADIAwAAAAAAAMgDAAAAAAAAAAAAAAAgbEA"
+				],
+				[
+					79,
+					1,
+					"insert",
+					{
+						"characters": "lnactivat"
+					},
+					"CgAAANoDAAAAAAAA2wMAAAAAAAAEAAAAdmVudskDAAAAAAAAyQMAAAAAAAAEAAAAICAgINcDAAAAAAAA2AMAAAAAAAAAAAAA2AMAAAAAAADZAwAAAAAAAAAAAADZAwAAAAAAANoDAAAAAAAAAAAAANoDAAAAAAAA2wMAAAAAAAAAAAAA2wMAAAAAAADcAwAAAAAAAAAAAADcAwAAAAAAAN0DAAAAAAAAAAAAAN0DAAAAAAAA3gMAAAAAAAAAAAAA3gMAAAAAAADfAwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADaAwAAAAAAAN4DAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					80,
+					1,
+					"insert",
+					{
+						"characters": "e"
+					},
+					"AQAAAN8DAAAAAAAA4AMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADfAwAAAAAAAN8DAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					93,
+					1,
+					"insert",
+					{
+						"characters": "\n"
+					},
+					"AQAAADMFAAAAAAAAPAUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAzBQAAAAAAADMFAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					94,
+					1,
+					"paste_and_indent",
+					null,
+					"AQAAADwFAAAAAAAASQUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAA8BQAAAAAAADwFAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					98,
+					1,
+					"insert",
+					{
+						"characters": "acti"
+					},
+					"BAAAAEQFAAAAAAAARQUAAAAAAAAEAAAAdmVudkUFAAAAAAAARgUAAAAAAAAAAAAARgUAAAAAAABHBQAAAAAAAAAAAABHBQAAAAAAAEgFAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABIBQAAAAAAAEQFAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					99,
+					1,
+					"insert_completion",
+					{
+						"completion": "activate",
+						"format": "text",
+						"keep_prefix": false,
+						"must_insert": false,
+						"trigger": "activate"
+					},
+					"AgAAAEQFAAAAAAAARAUAAAAAAAAEAAAAYWN0aUQFAAAAAAAATAUAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABIBQAAAAAAAEgFAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					103,
+					1,
+					"left_delete",
+					null,
+					"AQAAAOkFAAAAAAAA6QUAAAAAAAABAAAAIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADqBQAAAAAAAOoFAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					116,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAAgBAAAAAAAAUQEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD9AAAAAAAAAP0AAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					120,
+					1,
+					"insert",
+					{
+						"characters": "esegui"
+					},
+					"BgAAADwBAAAAAAAAPQEAAAAAAAAGAAAAbG5fbG9nPQEAAAAAAAA+AQAAAAAAAAAAAAA+AQAAAAAAAD8BAAAAAAAAAAAAAD8BAAAAAAAAQAEAAAAAAAAAAAAAQAEAAAAAAABBAQAAAAAAAAAAAABBAQAAAAAAAEIBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABCAQAAAAAAADwBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					152,
+					1,
+					"paste",
+					null,
+					"AQAAABgBAAAAAAAAIQEAAAAAAAAGAAAAQGxuTG9n",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAeAQAAAAAAABgBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					155,
+					1,
+					"left_delete",
+					null,
+					"AwAAACMBAAAAAAAAIwEAAAAAAAABAAAAICIBAAAAAAAAIgEAAAAAAAABAAAAICEBAAAAAAAAIQEAAAAAAAABAAAAIA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAkAQAAAAAAACQBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					163,
+					1,
+					"insert",
+					{
+						"characters": "\n\n"
+					},
+					"AwAAABEEAAAAAAAAFgQAAAAAAAAAAAAAFgQAAAAAAAAbBAAAAAAAAAAAAAASBAAAAAAAABIEAAAAAAAABAAAACAgICA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAARBAAAAAAAABEEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					164,
+					1,
+					"paste",
+					null,
+					"AQAAABcEAAAAAAAAIAQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAXBAAAAAAAABcEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					175,
+					1,
+					"paste_and_indent",
+					null,
+					"AQAAACEEAAAAAAAAaQQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAhBAAAAAAAACEEAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					177,
+					1,
+					"join_lines",
+					null,
+					"AQAAACAEAAAAAAAAIQQAAAAAAAAFAAAACiAgICA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAATBAAAAAAAABMEAAAAAAAAAAAAAAAAAAA"
+				],
+				[
+					179,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAGgDAAAAAAAAjgMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABPAwAAAAAAAE8DAAAAAAAAAAAAAABAXUA"
+				],
+				[
+					180,
+					1,
+					"swap_line_down",
+					null,
+					"CAAAANYDAAAAAAAA/AMAAAAAAAAAAAAAaAMAAAAAAABoAwAAAAAAACYAAAAgICAgW1sgLWUgIi52ZW52IiBdXSAmJiBybSAtZiAiLnZlbnYiCi8EAAAAAAAAVQQAAAAAAAAAAAAAsAMAAAAAAACwAwAAAAAAACYAAAAgICAgW1sgLWUgIi52ZW52IiBdXSAmJiBybSAtZiAiLnZlbnYiCjgEAAAAAAAAXgQAAAAAAAAAAAAACQQAAAAAAAAJBAAAAAAAACYAAAAgICAgW1sgLWUgIi52ZW52IiBdXSAmJiBybSAtZiAiLnZlbnYiCjkEAAAAAAAAXwQAAAAAAAAAAAAAEgQAAAAAAAASBAAAAAAAACYAAAAgICAgW1sgLWUgIi52ZW52IiBdXSAmJiBybSAtZiAiLnZlbnYiCg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB1AwAAAAAAAHUDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					182,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAIsEAAAAAAAA3QQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABGBAAAAAAAAEYEAAAAAAAAAAAAAABAXUA"
+				],
+				[
+					191,
+					1,
+					"left_delete",
+					null,
+					"AgAAAJkEAAAAAAAAmQQAAAAAAAAEAAAAY21kPUcEAAAAAAAARwQAAAAAAAAEAAAAY21kPQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAIAAABLBAAAAAAAAEcEAAAAAAAAAAAAAAAA8L+dBAAAAAAAAJkEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					195,
+					1,
+					"insert",
+					{
+						"characters": "\\"
+					},
+					"AgAAAEcEAAAAAAAASAQAAAAAAAAAAAAAIQQAAAAAAAAiBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAIAAAAhBAAAAAAAACEEAAAAAAAAAAAAAACAX0BHBAAAAAAAAEcEAAAAAAAAAAAAAACAX0A"
+				],
+				[
+					196,
+					1,
+					"left_delete",
+					null,
+					"AgAAAEgEAAAAAAAASAQAAAAAAAABAAAAXCEEAAAAAAAAIQQAAAAAAAABAAAAXA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAIAAAAiBAAAAAAAACIEAAAAAAAAAAAAAAAA8L9JBAAAAAAAAEkEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					197,
+					1,
+					"insert",
+					{
+						"characters": "\\"
+					},
+					"AgAAAEcEAAAAAAAASAQAAAAAAAAAAAAAIQQAAAAAAAAiBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAIAAAAhBAAAAAAAACEEAAAAAAAAAAAAAAAA8L9HBAAAAAAAAEcEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					198,
+					1,
+					"left_delete",
+					null,
+					"AgAAAEgEAAAAAAAASAQAAAAAAAABAAAAXCEEAAAAAAAAIQQAAAAAAAABAAAAXA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAIAAAAiBAAAAAAAACIEAAAAAAAAAAAAAAAA8L9JBAAAAAAAAEkEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					214,
+					1,
+					"paste",
+					null,
+					"AQAAAEgEAAAAAAAAVQQAAAAAAAA+AAAAbG4gLXNmICIke3ZlbnZQYXRofSIgLnZlbnYiICMjIy4gY3JlYXRlIGxpbmsgdG8gcHl0aG9uIHZlcnNpb24",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABIBAAAAAAAAIYEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					219,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAFEBAAAAAAAAmgEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAdAQAAAAAAAB0BAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					224,
+					1,
+					"paste",
+					null,
+					"AQAAAGIBAAAAAAAAbAEAAAAAAAAIAAAAbG5Fc2VndWk",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABiAQAAAAAAAGoBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					229,
+					1,
+					"insert",
+					{
+						"characters": "create_l"
+					},
+					"CAAAAIcBAAAAAAAAiAEAAAAAAAAGAAAAZXNlZ3VpiAEAAAAAAACJAQAAAAAAAAAAAACJAQAAAAAAAIoBAAAAAAAAAAAAAIoBAAAAAAAAiwEAAAAAAAAAAAAAiwEAAAAAAACMAQAAAAAAAAAAAACMAQAAAAAAAI0BAAAAAAAAAAAAAI0BAAAAAAAAjgEAAAAAAAAAAAAAjgEAAAAAAACPAQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACHAQAAAAAAAI0BAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					230,
+					1,
+					"insert",
+					{
+						"characters": "ink"
+					},
+					"AwAAAI8BAAAAAAAAkAEAAAAAAAAAAAAAkAEAAAAAAACRAQAAAAAAAAAAAACRAQAAAAAAAJIBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACPAQAAAAAAAI8BAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					237,
+					1,
+					"insert",
+					{
+						"characters": "\""
+					},
+					"AQAAAKUEAAAAAAAApgQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAClBAAAAAAAAKUEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					244,
+					1,
+					"paste",
+					null,
+					"AQAAAGcEAAAAAAAAcgQAAAAAAAAhAAAAW1sgLWUgIi52ZW52IiBdXSAmJiBybSAtZiAiLnZlbnYi",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACIBAAAAAAAAGcEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					245,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAAHIEAAAAAAAAcwQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAByBAAAAAAAAHIEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					259,
+					1,
+					"paste",
+					null,
+					"AQAAAHMEAAAAAAAAhgQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABzBAAAAAAAAHMEAAAAAAAAAAAAAACwc0A"
+				],
+				[
+					264,
+					1,
+					"insert_snippet",
+					{
+						"contents": "\"${0:$SELECTION}\""
+					},
+					"AgAAAIEEAAAAAAAAgQQAAAAAAAAFAAAALnZlbnaBBAAAAAAAAIgEAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACGBAAAAAAAAIEEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					267,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAI0EAAAAAAAAjwQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACmBAAAAAAAAKYEAAAAAAAAAAAAAABAdEA"
+				],
+				[
+					269,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAK0EAAAAAAAArwQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADIBAAAAAAAAMgEAAAAAAAAAAAAAABwcUA"
+				],
+				[
+					271,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAJYDAAAAAAAAmAMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACzAwAAAAAAALMDAAAAAAAAAAAAAACQckA"
+				],
+				[
+					273,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAL4DAAAAAAAAwAMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADdAwAAAAAAAN0DAAAAAAAAAAAAAACwc0A"
+				],
+				[
+					275,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAAgEAAAAAAAACgQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAApBAAAAAAAACkEAAAAAAAAAAAAAADQdEA"
+				],
+				[
+					277,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAGMEAAAAAAAAZQQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABnBAAAAAAAAGcEAAAAAAAAAAAAAADwdUA"
+				],
+				[
+					283,
+					1,
+					"insert",
+					{
+						"characters": "s"
+					},
+					"AQAAAJIBAAAAAAAAkwEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACSAQAAAAAAAJIBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					287,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"BAAAAGQEAAAAAAAAZAQAAAAAAAACAAAAIyAJBAAAAAAAAAkEAAAAAAAAAgAAACMgvwMAAAAAAAC/AwAAAAAAAAIAAAAjIJcDAAAAAAAAlwMAAAAAAAACAAAAIyA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAC0AwAAAAAAAGsEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					292,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAGgEAAAAAAAAagQAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACFBAAAAAAAAIUEAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					295,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAFEBAAAAAAAAUwEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAB0AQAAAAAAAHQBAAAAAAAAAAAAAACwc0A"
+				],
+				[
+					304,
+					1,
+					"left_delete",
+					null,
+					"AgAAAGYEAAAAAAAAZgQAAAAAAACYAAAAICAgICMgQGNyZWF0ZUxpbmsgIiR7dmVudlBhdGh9IiAiLnZlbnYiCiAgICAjIEBsbkVzZWd1aSAicm0gLWYgIi52ZW52IiIKICAgICMgQGxuRXNlZ3VpICJsbiAtc2YgIiR7dmVudlBhdGh9IiAudmVudiIgIyMjLiBjcmVhdGUgbGluayB0byBweXRob24gdmVyc2lvbgplBAAAAAAAAGUEAAAAAAAAAQAAAAo",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABmBAAAAAAAAP4EAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					310,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAFEBAAAAAAAAUQEAAAAAAAACAAAAIyA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABzAQAAAAAAAHMBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					312,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAFEBAAAAAAAAUwEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABxAQAAAAAAAHEBAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					318,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAAgBAAAAAAAACgEAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABQAQAAAAAAAFABAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"dup",
+				"File: Duplicate"
+			],
+			[
+				"mov",
+				"File: Move"
+			],
+			[
+				"del",
+				"File: Delete"
+			],
+			[
+				"ren",
+				"File: Rename File"
+			],
+			[
+				"dupl",
+				"File: Duplicate"
+			],
+			[
+				"de",
+				"File: Delete"
+			],
+			[
+				"check",
+				"Build With: Python - Syntax Check"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"syntax check",
+				"Build With: Python - Syntax Check"
+			],
+			[
+				"mar",
+				"Set Syntax: Markdown"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"synntax ini",
+				"Preferences: Settings – Syntax Specific"
+			],
+			[
+				"bash",
+				"Set Syntax: Bash"
+			],
+			[
+				"lsp ",
+				"Preferences: LSP-pylsp Settings"
+			],
+			[
+				"pylsp",
+				"Preferences: LSP-pylsp Settings"
+			],
+			[
+				"lsp py",
+				"Preferences: LSP-pylsp Settings"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"mo",
+				"File: Move"
+			],
+			[
+				"rn",
+				"Run"
+			],
+			[
+				"penv",
+				"Pretty JSON: Validate"
+			],
+			[
+				"m",
+				"File: Move"
+			],
+			[
+				"dul",
+				"File: Duplicate"
+			],
+			[
+				"du",
+				"File: Duplicate"
+			],
+			[
+				"mv",
+				"File: Move"
+			],
+			[
+				"re",
+				"File: Revert"
+			],
+			[
+				"i",
+				"Increment Selection"
+			],
+			[
+				"synt",
+				"Set Syntax: Batch File"
+			],
+			[
+				"ruler",
+				"Wrap at Ruler"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"rule",
+				"Wrap at Ruler"
+			],
+			[
+				"in",
+				"Increment Selection"
+			],
+			[
+				"extern",
+				"ExternalTool:"
+			],
+			[
+				"exter",
+				"ExternalTool:"
+			],
+			[
+				"inc",
+				"Increment Selection"
+			],
+			[
+				"json",
+				"Pretty JSON: Format JSON"
+			],
+			[
+				"jso",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"DUP",
+				"File: Duplicate"
+			],
+			[
+				"ali",
+				"Preferences: AlignTab Context Menu"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"syn",
+				"Set Syntax: Batch File"
+			],
+			[
+				"duo",
+				"Help: Documentation"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"aligntab",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"",
+				"AlignTab"
+			],
+			[
+				"dp",
+				"Plugin Development: Profile Events"
+			],
+			[
+				"plugi",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"sort",
+				"CSV: Sort by column (Ascending)"
+			],
+			[
+				"copy",
+				"Clipboard Manager: Copy"
+			],
+			[
+				"csv",
+				"CSV: Justify columns"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"duip",
+				"File: Duplicate"
+			],
+			[
+				"dulp",
+				"File: Duplicate"
+			],
+			[
+				"incre",
+				"Increment Selection"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"todo",
+				"Set Syntax: Todo"
+			],
+			[
+				"files",
+				"File: Save All"
+			],
+			[
+				"yaml form",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"notes",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projectn",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projecn",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projectNo",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"not",
+				"ProjectNotes: Open file"
+			],
+			[
+				"tog",
+				"Toggle Readonly"
+			],
+			[
+				"synta",
+				"Preferences: Settings ÃÂ¢ÃÂÃÂ Syntax Specific"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"sintax",
+				"Preferences: Settings ÃÂ¢ÃÂÃÂ Syntax Specific"
+			],
+			[
+				"term",
+				"Terminal: Open"
+			],
+			[
+				"ngin",
+				"Set Syntax: nginx"
+			],
+			[
+				"pack",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"env",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"\\",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"ini",
+				"Set Syntax: INI"
+			],
+			[
+				"delf",
+				"Code Folding: Fold"
+			],
+			[
+				"r",
+				"Rename File"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 202.0,
+		"history":
+		[
+			"print(os.environ.get(\"ln_SH_SCRIPTS_DIR\"))",
+			"print(os.environ.get(\"ln_SH_SCRIPTS_DIR\")",
+			"os.environ.get(\"ln_PY_SCRIPTS_DIR\")",
+			"os.path.environ.get(\"ln_PY_SCRIPTS_DIR\")",
+			"clear",
+			"os.getenv(\"HOME\")",
+			"os.getenv(\"ln_PDF_VIEWER\")",
+			"x=os.getenv(\"ln_PDF_VIEWER\")",
+			"print(os.getenv(\"ln_PDF_VIEWER\"))",
+			"print(os.getenv(\"ln_PDF_VIEWER\")",
+			"print(x)",
+			"x",
+			"x=os.getenv(\"ln_PDF_VIEWER\")",
+			"print(x)",
+			"print(xx)",
+			"x=os.getenv(\"LORETO1\")",
+			"print(\"CIAO\")",
+			"print(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\n",
+			"print(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\nprint(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\nprint(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/loreto/filu/lnEnv",
+		"/home/loreto/filu/lnEnv/init",
+		"/home/loreto/filu/lnEnv/init/aliases",
+		"/home/loreto/filu/lnEnv/init/aliases/applications",
+		"/home/loreto/filu/lnEnv/init/aliases/generic",
+		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv",
+		"/home/loreto/filu/lnEnv/linuxMintDoc"
+	],
+	"file_history":
+	[
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/telegramModule_esp32/platformio.ini",
+		"/home/loreto/filu/lnEnv/shScripts/py_env/venv_creation_v01.sh",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/diff.yaml",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnTime_esp32/platformio.ini",
+		"/home/loreto/filu/lnEnv/init/commonFunctions/create_links.functions",
+		"/home/loreto/filu/lnEnv/init/commonFunctions/esegui.functions",
+		"/tmp/xClip.log",
+		"/home/loreto/filu/lnEnv/config/appls/SublimeText/esp32_orto.sublime-project",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/src/lnLogger_Class.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/src/lnLogger_Class.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-23_09.02.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/src/mySensore.cpp",
+		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/01-PYENV.functions",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-23_14.28.md",
+		"/home/loreto/filu/Programming/gemini/gemini_submit.py",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-23_14.27.md",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-23_14.26.md",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-23_14.24.md",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-23_14.25.md",
+		"/home/loreto/filu/Programming/gemini/gemini_prepare_data_v02.py",
+		"/home/loreto/filu/Programming/gemini/gemini_runner.py",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-23_13.36.21.md",
+		"/home/loreto/filu/Programming/gemini/gemini_ask.py",
+		"/home/loreto/filu/Programming/gemini/gemini_project.py",
+		"/home/loreto/filu/Programming/gemini/gemini_submit_saved.py",
+		"/home/loreto/filu/Programming/gemini/gemini_prepare_data_v01.py",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-23_13.39.48.md",
+		"/home/loreto/.config/terminator/plugins/LnOpenAnyFile.py",
+		"/tmp/terminator_lnOpenAnyFile.log",
+		"/home/loreto/filu/lnEnv/config/applsSaved/IdeaPadSlim3/terminator/plugins/LnOpenAnyFile.py",
+		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/python.alias",
+		"/usr/lib/python3/dist-packages/terminatorlib/terminal.py",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/sublime_text",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/test/lnLogger_test.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/test/test_getTimeStamp.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/platformio.ini",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-23_08.20.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/wifiManager_esp32/platformio.ini",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/lnSync_/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/.gitignore",
+		"/home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/xClip.alias",
+		"/home/loreto/filu/lnEnv/config/applsSaved/IdeaPadSlim3/terminator/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/orto_esp32/lib/lnLogger_Class/lnLogger_Class.cpp",
+		"/home/loreto/filu/Programming/gitREPO_SAVED/orto_esp32_saved/lib/lnLogger_Class/lnLogger_Class.cpp",
+		"/home/loreto/filu/Programming/gitREPO_SAVED/orto_esp32_saved/lib/lnLogger_Class/lnLogger_Class.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-22_16.17.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/AIQuestions/question_2026-02-22_16.08.txt",
+		"/home/loreto/filu/Programming/gemini/gemini_prepare_data.py",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/.piorun",
+		"/home/loreto/filu/lnEnv/start_proc/piorun.sh",
+		"/home/loreto/filu/lnEnv/init/commonFunctions/ln_log.functions",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/project_dflags.sh",
+		"/home/loreto/filu/lnEnv/start_proc/piorun_dflags.sh",
+		"/home/loreto/filu/lnEnv/init/commonFunctions/colors.functions",
+		"/home/loreto/filu/lnEnv/init/commonFunctions/@load_main_functions.sh",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/wifiManager_esp32/project_dflags.sh",
+		"/home/loreto/filu/lnEnv/start_proc/piorun_saved01.sh",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/src/test/main_test.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/src/WiFiManager.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/src/WiFiManager.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/AIQuestions/question_2026-02-21_16.58.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/AIQuestions/question_2026-02-21_17.02.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/AIQuestions/question_2026-02-21_17.17.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/AIQuestions/question_2026-02-21_17.28.txt",
+		"/home/loreto/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_wifi/include/esp_wifi_types.h",
+		"/home/loreto/.platformio/packages/framework-arduinoespressif32/libraries/WiFi/src/WiFiType.h",
+		"/home/loreto/filu/Programming/gitREPO_SAVED/wifiManager/include/WiFiManager.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/AIQuestions/question_2026-02-21_15.34.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/AIQuestions/question_2026-02-21_15.54.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/AIQuestions/question_2026-02-21_16.04.txt",
+		"/home/loreto/filu/lnEnv/config/envars/include/esp32_ssid_credentials.h",
+		"/home/loreto/filu/lnEnv/config/envars/include/wifiManager_ssid_credentials.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/platformio.ini",
+		"/home/loreto/filu/Programming/gitREPO/esp32/pressControl/include/main.h",
+		"/home/loreto/filu/lnEnv/config/envars/include/ssidsTypeArray.h",
+		"/home/loreto/filu/lnEnv/config/envars/include/@ln_esp32_telegram_credentials.h",
+		"/home/loreto/filu/lnEnv/config/envars/include/ssid_casetta.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/create-gh_repo.sh",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/checkPins_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/lnLogger_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32_ex/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/WiFiManager_Class.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/create-repo.sh",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/checkPins_esp32/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/esp32LnLibrary/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/checkPins_esp32/README.md",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/wifiManager_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/telegramBot_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/serialRead_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/relayManager_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/passiveBuzzer_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/outPinController_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/lnTimer_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/lnTime_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/lnString_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/buttonLongPress_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/src/WiFiManager.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/include/WiFiManager.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/platformio.ini",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/src/main_test.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnEsp32Libraries/lnLogger_Class/lnLogger_Class.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/esp32LnLibrary/.git/config",
+		"/home/loreto/filu/lnEnv/shScripts/setFiles/setFilesReadOnly.sh",
+		"/home/loreto/filu/lnEnv/shScripts/setFiles/setFilesReadOnly_V2.sh",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/fd-find.yaml",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/src/WiFiManager_new01.cpp_",
+		"/home/loreto/filu/lnEnv/Notes/aiQuestions.yaml",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/AIQuestions/question_2026-02-20_17.53.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/AIQuestions/question_2026-02-20_17.54.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/AIQuestions/question_2026-02-20_17.57.txt",
+		"/home/loreto/filu/Programming/gemini/.venv/bin/python",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/src/test/main_test.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/pressControl/src/process/wifiProcess.cpp",
+		"/home/loreto/filu/lnEnv/Notes/todo.yaml",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/include/WiFiManager_Class.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/pressControl/a_pressControlLib/wifiManager_Class/WiFiManager_Class.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/pressControl/a_pressControlLib/wifiManager_Class/WiFiManager_Class.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/orto_esp32/lib/wifiManager_Class/WiFiManager_Class.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/lib/lnLogger_Class/lnLogger_Class.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/src/test/main_test.cpp_",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/lib/lnTime_Class/include/LnTime_Class.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/wifiManager/lib/serialRead/include/lnSerialRead.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/orto_esp32/lib/wifiManager_Class/test/main_test.cpp"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 119.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"AsyncTelegram2.h",
+			"meld",
+			"#undef LOG_MODULE_LEVEL",
+			"this_rtc",
+			"ESP32Time",
+			"this_rtc",
+			"ESP32Time this_rtc",
+			"this_rtc",
+			"SemaphoreHandle_t",
+			"getTimeStamp",
+			"printf(\"%s - %s\", getTimeStamp(m",
+			"@gemini",
+			"NOME_MODELLO",
+			"client",
+			"setGeminiEnv",
+			"filename",
+			"choi",
+			"process_url",
+			"self.process_url",
+			"ter proc",
+			"Serial.printf(\"%s[%s][%s][%3s]",
+			"./AIQuestions/question_2026-02-23_09.02.txt",
+			"logLineBUFFER",
+			"m_FILENAME_BUFFER_LENGTH",
+			"logLineBUFFER",
+			"msecToHMS",
+			"onst char* msecToHMS(",
+			"'_",
+			"lin",
+			"xClip",
+			"fIncludeFunction",
+			"getTimeStamp",
+			"BASH_SOURCE",
+			"BASH_SOUR",
+			"@lnEsegui",
+			"esegui",
+			"@lnLog \"      ",
+			"@lnLog \"${TAB",
+			"echo -e \"",
+			"CMD_DESCR",
+			"__ln_MODULE_DEBUG_TEST__",
+			"getGitProjectDir",
+			"__ln_MODULE_DEBUG_TEST__",
+			"iFi Event",
+			"printScanResults",
+			"Fi.scanComplete()",
+			"printScanResults",
+			"m_connectionStartTime",
+			"onWiFiEvent",
+			"--- FIL",
+			"WiFiEvent_t",
+			"ARDUINO_EVENT_WIFI_STA_GOT_IP",
+			"onWiFiEvent",
+			"memc",
+			"readFile",
+			"fVERBOSE",
+			"MAX_PASS_LENGTH",
+			"MAX_PASS_LEN",
+			"MAX_SSID_LEN",
+			"MAX_SSID_LENNGTH",
+			"MAX_PASS_LEN",
+			"MAX_SSID_LEN",
+			"MAX_PASS_LEN",
+			"MAX_SSID_LEN",
+			"begin(",
+			"WiFi.status() == WL_",
+			"s_instance",
+			"@geminiExec",
+			"m_lastScanTime",
+			"String",
+			"Serial.println",
+			"clean",
+			"cred",
+			"m_networks",
+			"loretoNetworks",
+			"*.o",
+			"_Class",
+			"ssid is alrea",
+			"Connected to:",
+			"startScan",
+			"m_scanIntervalWhenNotConnected",
+			"m_scanIntervalWhenConnected",
+			"WiFi.onEvent([this](WiFiEvent_t event) {\n        this->onWiFiEvent(event);\n    });",
+			"Question",
+			"wifiMulti",
+			"WiFiMulti",
+			"wifiMulti",
+			"@geminiExec",
+			"WiFiManager",
+			"`",
+			"wifiConfigs",
+			"m_rssiGap",
+			"m_maxWifiTimeout",
+			"myWiFiManager",
+			"setConnectCallback",
+			"waitForEnter",
+			"loretoNetworksCount",
+			"atSecondModulo",
+			"BASH",
+			"sq",
+			"parseInput2",
+			"prefix_find_command",
+			"pattern",
+			"buildPatttern",
+			"prefix_find_command",
+			"verifyAttributes",
+			"--go",
+			"filesReadOnly",
+			".filesReadOnly",
+			"orto",
+			"fEXECUTE",
+			"g_fEXECUTE",
+			"sq",
+			"lnLog ",
+			"@lnEsegui",
+			"esegui ",
+			"chart",
+			"while",
+			" ",
+			"chart",
+			"getTempCByIndex",
+			"generate_content",
+			"ith open",
+			"m_filenameBufferLength",
+			"fIncludeFunction",
+			"SENSOR_PIN",
+			"fnameBUFFER",
+			"? "
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "esp32_orto.sublime-project",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2861,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSON/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 810.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/01-PYENV.functions",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1423.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/loreto/filu/lnEnv/shScripts/py_env/venv_creation.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5532,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								338,
+								338
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1242.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 124.0,
+		"history":
+		[
+		]
+	},
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "esp32_orto.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ren",
+				".ln/LnDoc/Network/Varie/RaspBerry_Network_Config.txt"
+			],
+			[
+				"dupl",
+				".ln/shDevel/ddns/prev/DDNS_updates_V20220721_profiles.sh"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/filu/lnEnv/config/appls/SublimeText/esp32.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 350.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"e"
+			]
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 293.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

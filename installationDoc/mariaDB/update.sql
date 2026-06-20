@@ -1,0 +1,1 @@
+update Devices SET DnsMasq_AddrReserv="-" WHERE DnsMasq_AddrReserv="N"

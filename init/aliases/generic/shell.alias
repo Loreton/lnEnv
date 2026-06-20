@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 18-02-2026 18.21.38
+#
+
+
+#----- most used
+# alias ${alias_prefix}tar_currdir="${ln_SH_SCRIPTS_DIR}/varie/tar_CurrentDir.sh"
+alias ${alias_prefix}tarCurrentDir="${ln_SH_SCRIPTS_DIR}/varie/tar_CurrentDir.sh"
+alias ${alias_prefix}project_links="${ln_SH_SCRIPTS_DIR}/varie/project_links.sh"
+
+
+
+
+alias ${alias_shell_prefix}tar_lndata="${ln_SH_SCRIPTS_DIR}/varie/tar_LoretoData.sh"
+alias ${alias_shell_prefix}zip_currdir="${ln_SH_SCRIPTS_DIR}/varie/zip_CurrentDir.sh"
+
+
+alias ${alias_shell_prefix}createCA="${ln_SH_SCRIPTS_DIR}/CA/create_CA.sh"
+
+
+
+# alias ${alias_shell_prefix}myip="${ln_LIVE_PRODUCTION}/myIP.lnk.sh"
+alias ${alias_shell_prefix}create_user="${ln_SH_SCRIPTS_DIR}/varie/createUsers.sh"
+
+### per xbindkeys + xclip
+alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >$file; cat $file; echo "	written to file $file"; }'  ### importante il singolo apice
+
+
+
+
+
+
+#--- new
+alias ${alias_prefix}check_PidFile="${ln_SH_SCRIPTS_DIR}/varie/check_PidFile.sh"
+alias ${alias_prefix}myIP="${ln_SH_SCRIPTS_DIR}/varie/myIP.sh"
+alias ${alias_prefix}crontab_update="${ln_SH_SCRIPTS_DIR}/varie/crontab_update.sh"
+alias ${alias_prefix}zip_project="${ln_PY_SCRIPTS_DIR}/varie/python_ZipProject.sh"
+alias ${alias_prefix}mount="${ln_SH_SCRIPTS_DIR}/mount/ln_mount.sh --action mount"
+alias ${alias_prefix}umount="${ln_SH_SCRIPTS_DIR}/mount/ln_mount.sh --action umount"
+alias ${alias_prefix}ddns_update="${ln_SH_SCRIPTS_DIR}/ddns/ddns_update_wLog.sh"
+
+alias ${alias_prefix}freeFileSync="${ln_SH_SCRIPTS_DIR}/create_links/create_Utils_links.sh"
+
+
+
+

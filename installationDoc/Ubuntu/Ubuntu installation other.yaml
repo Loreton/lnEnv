@@ -1,0 +1,49 @@
+#
+
+
+
+
+
+
+IPv6:
+    ref: https://linuxconfig.org/how-to-disable-ipv6-address-on-ubuntu-18-04-bionic-beaver-linux
+    check: ip a
+    temporary:
+        - sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+        - sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+    permanent:
+        sudo vi /etc/sysctl.conf
+        ... add the following lines
+            - net.ipv6.conf.all.disable_ipv6=1
+            - net.ipv6.conf.default.disable_ipv6=1
+        oppure forse il seguente comando lo scrive per me
+            sudo sysctl -p /etc/sysctl.conf
+
+
+
+
+
+backup:
+    sudo tar -cvf SilviaPC_ubuntu22.04.tar \
+        .config \
+        .ssh \
+        .vim \
+        .bashrc \
+        .gitconfig \
+        .ln \
+        /etc/hosts
+
+
+Youtube problem:
+    1:
+        killall pulseaudio; rm -r ~/.config/pulse/*
+        pulseaudio -k
+    2:
+        sudo apt-get install ffmpeg
+
+    3:
+        sudo apt install ubuntu-restricted-extras
+
+        https://help.ubuntu.com/stable/ubuntu-help/video-sending.html.en
+        Disable Hardware Acceleration on browser

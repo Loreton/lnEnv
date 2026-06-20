@@ -1,0 +1,13 @@
+Ref:
+
+    https://tasmota.github.io/docs/devices/Geekcreit-Sonoff-2-Channel-Relay/
+    https://tasmota.github.io/docs/devices/Geekcreit-Sonoff-2-Channel-Relay/#geekcreitsonoff-2ch
+
+    To use GPIO9 and GPIO10 of the ESP8285, open the console and enter =>
+    SetOption51 on # NOOOO
+
+
+
+PDF:
+    /home/loreto/lnprofile/LnDoc/Tasmota/Vescovi-2ch.pdf
+    Vescovi-2ch.pdf

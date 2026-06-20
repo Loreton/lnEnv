@@ -1,0 +1,48 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 04-12-2025 12.21.28
+#
+
+
+
+QR-ScanGen: # forse il più semplice
+    ref:
+        https://flathub.org/en/apps/tech.emendir.QR-ScanGen
+
+    install:
+        flatpak install flathub tech.emendir.QR-ScanGen
+
+    run:
+        flatpak run tech.emendir.QR-ScanGen
+
+
+CoBang: # forse il migliore
+    ref:
+        https://flathub.org/en/apps/vn.hoabinh.quan.CoBang
+
+    install:
+        flatpak install flathub vn.hoabinh.quan.CoBang
+
+    run:
+        flatpak run vn.hoabinh.quan.CoBang
+
+Decoder: # crea anche QRcode per wifi ma per il resto non ho capito come funziona
+    ref:
+        https://flathub.org/en/apps/com.belmoussaoui.Decoder
+
+    install:
+        flatpak install flathub com.belmoussaoui.Decoder
+
+    run:
+        flatpak run com.belmoussaoui.Decoder
+
+Barcode Scanner: # Ottimo, forse meglio di coBang
+    ref:
+        https://flathub.org/en/apps/org.kde.qrca
+
+    install:
+        flatpak install flathub org.kde.qrca
+
+    run:
+        flatpak run org.kde.qrca
+

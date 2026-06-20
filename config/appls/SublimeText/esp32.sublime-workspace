@@ -1,0 +1,1501 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"force",
+				"force_update"
+			],
+			[
+				"roo",
+				"rootDirs"
+			],
+			[
+				"yello",
+				"yellowH"
+			],
+			[
+				"dir",
+				"dirname"
+			],
+			[
+				"f",
+				"fCommit"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"exe",
+				"executeCommands"
+			],
+			[
+				"cur",
+				"cur_view"
+			],
+			[
+				"magent",
+				"magentaH"
+			],
+			[
+				"filepa",
+				"file_path"
+			],
+			[
+				"st",
+				"stdout"
+			],
+			[
+				"comm",
+				"commit"
+			],
+			[
+				"setP",
+				"setPassiveBuzzer"
+			],
+			[
+				"set",
+				"setLedHeartBeat"
+			],
+			[
+				"LED",
+				"LED_ERROR"
+			],
+			[
+				"uin",
+				"uint16_t"
+			],
+			[
+				"uint",
+				"uint16_t"
+			],
+			[
+				"on",
+				"onMinuteCB"
+			],
+			[
+				"m_",
+				"m_chatId"
+			],
+			[
+				"it",
+				"it's"
+			],
+			[
+				"lnLO",
+				"lnLOG_ERROR"
+			],
+			[
+				"file",
+				"filepath"
+			],
+			[
+				"main",
+				"mainLogPrefix"
+			],
+			[
+				"re",
+				"retry_counter"
+			],
+			[
+				"fir",
+				"firstRun"
+			],
+			[
+				"int",
+				"int8_t"
+			],
+			[
+				"statu",
+				"statusMsg"
+			],
+			[
+				"is",
+				"isNetworkAvailable"
+			],
+			[
+				"cha",
+				"chat_id"
+			],
+			[
+				"sen",
+				"sendMsg"
+			],
+			[
+				"tim",
+				"timeOK"
+			],
+			[
+				"ln",
+				"ln_clock"
+			],
+			[
+				"wifi",
+				"wifiInit"
+			],
+			[
+				"new",
+				"new_sec"
+			],
+			[
+				"last",
+				"last_5sec"
+			],
+			[
+				"m_is",
+				"m_ipIsActive"
+			],
+			[
+				"par",
+				"parseInput"
+			],
+			[
+				"best",
+				"bestIdx"
+			],
+			[
+				"DISCONNE",
+				"STA_DISCONNECTED"
+			],
+			[
+				"newN",
+				"newName"
+			],
+			[
+				"sho",
+				"show_out"
+			],
+			[
+				"top",
+				"top_dir"
+			],
+			[
+				"LOG_",
+				"LOG_MODULE_LEVEL"
+			],
+			[
+				"if",
+				"ifmain\tif __name__ == '__main__'"
+			],
+			[
+				"scrip",
+				"script_path"
+			],
+			[
+				"dfla",
+				"dflags_sh"
+			],
+			[
+				"dfl",
+				"dflags_sh"
+			],
+			[
+				"dat",
+				"datetime"
+			],
+			[
+				"prom",
+				"prompt_finale"
+			],
+			[
+				"out",
+				"out_file"
+			],
+			[
+				"BO",
+				"BOTchatid"
+			],
+			[
+				"las",
+				"lastAdminChatId"
+			],
+			[
+				"ln_",
+				"ln_ENV_DIR"
+			],
+			[
+				"ski",
+				"skipping_files"
+			],
+			[
+				"venv",
+				"venvPath"
+			],
+			[
+				"expo",
+				"export_parser"
+			],
+			[
+				"open",
+				"openwrt_config"
+			],
+			[
+				"exce",
+				"excel_config"
+			],
+			[
+				"subp",
+				"subparsers"
+			],
+			[
+				"writ",
+				"write_datetime"
+			],
+			[
+				"P",
+				"PosixPath"
+			],
+			[
+				"confi",
+				"config_filename"
+			],
+			[
+				"retu",
+				"return_list"
+			],
+			[
+				"config",
+				"config_file"
+			],
+			[
+				"con",
+				"config_filepath"
+			],
+			[
+				"scri",
+				"script_path"
+			],
+			[
+				"col",
+				"coloredLogger"
+			],
+			[
+				"ali",
+				"alias_prefix"
+			],
+			[
+				"act",
+				"activate_path"
+			],
+			[
+				"alias",
+				"alias_list"
+			],
+			[
+				"my_",
+				"my_template"
+			],
+			[
+				"crea",
+				"createYamlEnvarFile"
+			],
+			[
+				"red",
+				"redH"
+			],
+			[
+				"ve",
+				"venv_dir"
+			],
+			[
+				"color",
+				"colorReset"
+			],
+			[
+				"yaml",
+				"yamlFile_resolved"
+			],
+			[
+				"yamlFil",
+				"yamlFile_resolved"
+			],
+			[
+				"eval",
+				"eval_command"
+			],
+			[
+				"creat",
+				"createYamlEnvarFile"
+			],
+			[
+				"lnF",
+				"ln_FREEx"
+			],
+			[
+				"ur",
+				"url"
+			],
+			[
+				"pid",
+				"pi_dest_dir"
+			],
+			[
+				"PI",
+				"LN_PROFILE_PI"
+			],
+			[
+				"LN",
+				"LN_PROFILEx"
+			],
+			[
+				"db",
+				"db_name"
+			],
+			[
+				"sub",
+				"subNet_dict"
+			],
+			[
+				"colo",
+				"colorReset"
+			],
+			[
+				"opt",
+				"opt_name"
+			],
+			[
+				"rec",
+				"rec_type"
+			],
+			[
+				"g",
+				"g_Args"
+			],
+			[
+				"remote",
+				"remote_path"
+			],
+			[
+				"exc",
+				"excel_filename"
+			],
+			[
+				"ope",
+				"openwrt_version"
+			],
+			[
+				"dr",
+				"dry_run"
+			],
+			[
+				"configu",
+				"configureDhcp"
+			],
+			[
+				"confg",
+				"configLan"
+			],
+			[
+				"ena",
+				"enableDhcp"
+			],
+			[
+				"se",
+				"setPrimaryRouter"
+			],
+			[
+				"TAB",
+				"TAByellow"
+			],
+			[
+				"igno",
+				"ignore_line"
+			],
+			[
+				"p",
+				"purpleH"
+			],
+			[
+				"ip_",
+				"ip_current"
+			],
+			[
+				"ip",
+				"ip_exists"
+			],
+			[
+				"Ta",
+				"TABred"
+			],
+			[
+				"Archer",
+				"archerC20"
+			],
+			[
+				"add",
+				"addIpAddress"
+			],
+			[
+				"bl",
+				"blue"
+			],
+			[
+				"lan",
+				"lan_exists"
+			],
+			[
+				"TABpurpl",
+				"TABpurpleH"
+			],
+			[
+				"dn",
+				"dns_addr"
+			],
+			[
+				"conf",
+				"configLan"
+			],
+			[
+				"wri",
+				"writeFile"
+			],
+			[
+				"des",
+				"dest_port"
+			],
+			[
+				"redi",
+				"loadRedirectRules"
+			],
+			[
+				"domai",
+				"domain_output"
+			],
+			[
+				"host",
+				"host_output"
+			],
+			[
+				"redir",
+				"redirects_dict"
+			],
+			[
+				"targe",
+				"target_data"
+			],
+			[
+				"vserv",
+				"vserver_fields"
+			],
+			[
+				"dest_",
+				"dest_server"
+			],
+			[
+				"remo",
+				"remote_path"
+			],
+			[
+				"auto",
+				"autogen_file"
+			],
+			[
+				"targ",
+				"target_data"
+			],
+			[
+				"hos",
+				"host_name"
+			],
+			[
+				"hosts",
+				"hosts_dict"
+			],
+			[
+				"sec",
+				"sectionToDict"
+			],
+			[
+				"str",
+				"str_end"
+			],
+			[
+				"retrie",
+				"retrieved_file"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "esp32.sublime-project",
+			"settings":
+			{
+				"buffer_size": 3152,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					3,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAMwDAAAAAAAAzAMAAAAAAAADAAAALy8g",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAOADAAAAAAAA4AMAAAAAAAAAAAAAAADwvw"
+				],
+				[
+					5,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAMwDAAAAAAAAzwMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADxAwAAAAAAAPEDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					7,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAMwDAAAAAAAAzAMAAAAAAAADAAAALy8g",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD0AwAAAAAAAPQDAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					9,
+					1,
+					"toggle_comment",
+					{
+						"block": false
+					},
+					"AQAAAMwDAAAAAAAAzwMAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADxAwAAAAAAAPEDAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"contents": "Searching 804 files for \"ln_YAML_VARIABLES_FILE\" (case sensitive)\n\n~/filu/lnEnv/init/__old/setLoretoEnvironment:\n   83              #... files\n   84              export           ln_BATCH_VARIABLES_FILE=\"${ln_SECRET_DIR}/loretoVariables.sh\"\n   85:             export            ln_YAML_VARIABLES_FILE=\"${ln_SECRET_DIR}/yaml/ln_system_variables.yaml\"\n   86  \n   87  \n   ..\n  297          @lnLog \".....\"\n  298  \n  299:         createYamlEnvarFile             ${ln_YAML_VARIABLES_FILE}\n  300          echo\n  301:         @lnLog \"${whiteH} ----------------- ${ln_YAML_VARIABLES_FILE} --------------------------\"\n  302          @lnLog \"${blue}\"\n  303:         head -15 $ln_YAML_VARIABLES_FILE\n  304          @lnLog \".....\"\n  305  \n\n~/filu/lnEnv/init/main/setLoretoEnvironment:\n   80              #... files\n   81              export           ln_BATCH_VARIABLES_FILE=\"${ln_SECRET_DIR}/loretoVariables.sh\"\n   82:             export            ln_YAML_VARIABLES_FILE=\"${ln_SECRET_DIR}/yaml/ln_system_variables.yaml\"\n   83  \n   84  \n   ..\n  281          @lnLog \".....\"\n  282  \n  283:         createYamlEnvarFile             ${ln_YAML_VARIABLES_FILE}\n  284          [[ $fLOG == \"1\" ]] && echo\n  285:         @lnLog \"${whiteH} ----------------- ${ln_YAML_VARIABLES_FILE} --------------------------\"\n  286          @lnLog \"${blue}\"\n  287:         head -15 $ln_YAML_VARIABLES_FILE\n  288          @lnLog \".....\"\n  289  \n\n8 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 1433,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ren",
+				"File: Rename File"
+			],
+			[
+				"du",
+				"File: Duplicate"
+			],
+			[
+				"dup",
+				"File: Duplicate"
+			],
+			[
+				"mv",
+				"File: Move"
+			],
+			[
+				"del",
+				"File: Delete"
+			],
+			[
+				"dupl",
+				"File: Duplicate"
+			],
+			[
+				"de",
+				"File: Delete"
+			],
+			[
+				"mov",
+				"File: Move"
+			],
+			[
+				"mo",
+				"File: Move"
+			],
+			[
+				"edit",
+				"Project: Edit Project"
+			],
+			[
+				"dip",
+				"Package Control: Disable Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Increment Selection"
+			],
+			[
+				"inc",
+				"Increment Selection"
+			],
+			[
+				"yam",
+				"Set Syntax: YAML"
+			],
+			[
+				"compare acti",
+				"CompareBuff: compare with..."
+			],
+			[
+				"compar",
+				"Compare with..."
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"dp",
+				"Plugin Development: Profile Events"
+			],
+			[
+				"check",
+				"Build With: Python - Syntax Check"
+			],
+			[
+				"python",
+				"Set Syntax: Python"
+			],
+			[
+				"syntax check",
+				"Build With: Python - Syntax Check"
+			],
+			[
+				"mar",
+				"Set Syntax: Markdown"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"synntax ini",
+				"Preferences: Settings – Syntax Specific"
+			],
+			[
+				"bash",
+				"Set Syntax: Bash"
+			],
+			[
+				"lsp ",
+				"Preferences: LSP-pylsp Settings"
+			],
+			[
+				"pylsp",
+				"Preferences: LSP-pylsp Settings"
+			],
+			[
+				"lsp py",
+				"Preferences: LSP-pylsp Settings"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"rn",
+				"Run"
+			],
+			[
+				"penv",
+				"Pretty JSON: Validate"
+			],
+			[
+				"m",
+				"File: Move"
+			],
+			[
+				"dul",
+				"File: Duplicate"
+			],
+			[
+				"re",
+				"File: Revert"
+			],
+			[
+				"i",
+				"Increment Selection"
+			],
+			[
+				"synt",
+				"Set Syntax: Batch File"
+			],
+			[
+				"ruler",
+				"Wrap at Ruler"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"rule",
+				"Wrap at Ruler"
+			],
+			[
+				"extern",
+				"ExternalTool:"
+			],
+			[
+				"exter",
+				"ExternalTool:"
+			],
+			[
+				"json",
+				"Pretty JSON: Format JSON"
+			],
+			[
+				"jso",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"DUP",
+				"File: Duplicate"
+			],
+			[
+				"ali",
+				"Preferences: AlignTab Context Menu"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"syn",
+				"Set Syntax: Batch File"
+			],
+			[
+				"duo",
+				"Help: Documentation"
+			],
+			[
+				"aligntab",
+				"AlignTab: Live Preview Mode"
+			],
+			[
+				"",
+				"AlignTab"
+			],
+			[
+				"plugi",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"sort",
+				"CSV: Sort by column (Ascending)"
+			],
+			[
+				"copy",
+				"Clipboard Manager: Copy"
+			],
+			[
+				"csv",
+				"CSV: Justify columns"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"duip",
+				"File: Duplicate"
+			],
+			[
+				"dulp",
+				"File: Duplicate"
+			],
+			[
+				"incre",
+				"Increment Selection"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"pyth",
+				"Set Syntax: Python"
+			],
+			[
+				"todo",
+				"Set Syntax: Todo"
+			],
+			[
+				"files",
+				"File: Save All"
+			],
+			[
+				"yaml form",
+				"Pretty JSON: Format JSON Lines"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"notes",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projectn",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projecn",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"projectNo",
+				"ProjectNotes: edit Settings"
+			],
+			[
+				"not",
+				"ProjectNotes: Open file"
+			],
+			[
+				"tog",
+				"Toggle Readonly"
+			],
+			[
+				"synta",
+				"Preferences: Settings ÃÂ¢ÃÂÃÂ Syntax Specific"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"sintax",
+				"Preferences: Settings ÃÂ¢ÃÂÃÂ Syntax Specific"
+			],
+			[
+				"term",
+				"Terminal: Open"
+			],
+			[
+				"ngin",
+				"Set Syntax: nginx"
+			],
+			[
+				"pack",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"env",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"\\",
+				"Snippet: #!/usr/bin/env"
+			],
+			[
+				"ini",
+				"Set Syntax: INI"
+			],
+			[
+				"delf",
+				"Code Folding: Fold"
+			],
+			[
+				"r",
+				"Rename File"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 202.0,
+		"history":
+		[
+			"print(os.environ.get(\"ln_SH_SCRIPTS_DIR\"))",
+			"print(os.environ.get(\"ln_SH_SCRIPTS_DIR\")",
+			"os.environ.get(\"ln_PY_SCRIPTS_DIR\")",
+			"os.path.environ.get(\"ln_PY_SCRIPTS_DIR\")",
+			"clear",
+			"os.getenv(\"HOME\")",
+			"os.getenv(\"ln_PDF_VIEWER\")",
+			"x=os.getenv(\"ln_PDF_VIEWER\")",
+			"print(os.getenv(\"ln_PDF_VIEWER\"))",
+			"print(os.getenv(\"ln_PDF_VIEWER\")",
+			"print(x)",
+			"x",
+			"x=os.getenv(\"ln_PDF_VIEWER\")",
+			"print(x)",
+			"print(xx)",
+			"x=os.getenv(\"LORETO1\")",
+			"print(\"CIAO\")",
+			"print(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\n",
+			"print(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\nprint(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));\nprint(\"\\n\".join([view.file_name() for view in sublime.active_window().views() if view and view.file_name()]));"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+	],
+	"file_history":
+	[
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/User/AlignTab.sublime-settings",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnCheckPins_esp32/src/lnCheckPins.cpp",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/Versions/ln_UpdateFileVersion.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/get_git_root.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/git_status.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/process_args.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/change_log.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/main.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/ln_run.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/git_commit.py",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/git.alias",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/__init__.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/get_last_tag.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/ln_logger.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/functions.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/parse_input.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/update_library.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/saved/git_commit.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/__init__.py",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/Source/core_init/context.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/keyboard_prompt.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/logger_types.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/pyLnLib/ln_run.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/context.py",
+		"/home/loreto/filu/lnEnv/config/appls/SublimeText/esp32.sublime-project",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/ln_setFileAttribute.py",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/lnUtils.py",
+		"/home/loreto/filu/Programming/gitREPO/lnPyLib/generic/ln_utils.py",
+		"/home/loreto/filu/Programming/gitREPO/lnPyLib/generic/keyboard_prompt.py",
+		"/home/loreto/filu/Programming/gitREPO/lnPyLib/generic/AnsiColors_Class.py",
+		"/home/loreto/filu/lnEnv/.gitignore",
+		"/home/loreto/filu/lnEnv/config/appls/rclone/rclone.conf",
+		"/home/loreto/filu/lnEnv2/.gitignore",
+		"/home/loreto/filu/lnEnv/.git/config",
+		"/home/loreto/filu/lnEnv2/.git/config",
+		"/home/loreto/filu/lnEnv/pyLnLib/parse_input.py",
+		"/home/loreto/filu/lnEnv/pyLnLib/colors.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/helpCommands.py",
+		"/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment",
+		"/tmp/xClip.log",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/mainUtils/__init__.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/mainUtils/parse_input.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/mainUtils/ln_logger.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/mainUtils/subprocess_run.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/mainUtils/logger_types.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/logger_types.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/subprocess_run.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/ln_logger.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/__init__.py",
+		"/home/loreto/filu/lnEnv/pyScripts/modules/git_root.py",
+		"/home/loreto/filu/Programming/gitREPO/lnPyLib/logger/colored_logger_class.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/ln_logger_p02.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/ln_logger_p01.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/context.py",
+		"/home/loreto/filu/lnEnv/library.json",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/test_main.py",
+		"/home/loreto/filu/lnEnv/config/pc/ezbook-silvia/crontab/crontab.conf",
+		"/home/loreto/filu/lnEnv/config/pc/aspire5750g/crontab/crontab.conf",
+		"/home/loreto/filu/lnEnv/config/appls/SublimeText/pressControl_ESP32.sublime-project",
+		"/home/loreto/filu/lnEnv/config/appls/SublimeText/generic.sublime-project",
+		"/home/loreto/filu/lnEnv/config/appls/SublimeText/esp32_orto.sublime-project",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/git_commit_new03.py",
+		"/home/loreto/filu/lnEnv/pyScripts/py_env/venv_creation.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/__init__.py_",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/__init__.py_",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/colors.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/AIQuestions/question_2026-03-31_16.35.md",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/logger_colored_simple_n02.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/logger_colored_simple.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/utils/subprocess_run_n02.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/git_commit_new02.py",
+		"/home/loreto/filu/Programming/gemini/gemini_run.py",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/AIQuestions/question_2026-03-31_16.34.md",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/git_commit_new01.py",
+		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/gemini.functions",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/AIQuestions/question_2026-03-31_16.33.md",
+		"/home/loreto/filu/lnEnv/pyScripts/py_env/lnvenv_info.py",
+		"/home/loreto/filu/lnEnv/pyScripts/py_env/ln_venv_activate_master_new.sh",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/git_commit_p02.py",
+		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/01-PYENV.functions",
+		"/home/loreto/filu/lnEnv/init/main/Loretorc",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/xbindkeys.alias",
+		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/platformio.functions",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/doublecmd.alias",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/sublime.alias",
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/git_all.py",
+		"/home/loreto/filu/lnEnv/shScripts/varie/test_link.sh",
+		"/home/loreto/filu/lnEnv/init/commonFunctions/create_links.functions",
+		"/home/loreto/filu/lnEnv/init/aliases/generic/files.alias",
+		"/home/loreto/filu/lnEnv/init/main/@bashrc_20251121",
+		"/home/loreto/filu/lnEnv/config/pc/ideapadslim3/hosts",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnCheckPins_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnTelegram_esp32/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnVerifyPins_esp32/src/lnCheckPins.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnVerifyPins_esp32/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnTelegramSendHttp_esp32/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnLogger_esp32/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries_wkdevel/outPinController_esp32/outPinController_Class.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnVerifyPins_esp32/src/checkPins_prev.cpp_",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnVerifyPins_esp32/src/lnVerifyPins.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnVerifyPins_esp32/platformio.ini",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnVerifyPins_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnVerifyPins_esp32/lib/lnSerialRead_esp32/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputManager_esp32/src/lnOutputManager.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputManager_esp32/src/main_TEST.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputManager_esp32/platformio.ini",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries_wkdevel/checkPins_esp32/platformio.ini",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries_wkdevel/checkPins_esp32/test/checkPins.cpp",
+		"/home/loreto/filu/Applications/linuxPortable/SublimeText4/Data/Packages/userLoreto/ln_OpenFileUnderCursor.py",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries_wkdevel/outPinController_esp32/outPinController_Class.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputDevice_esp32/src/lnOutputManager.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputDevice_esp32/src/lnOutputManager.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputDevice_esp32/src/main_TEST.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputDevice_esp32/AIQuestions/main_question.txt",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputDevice_esp32/src/lnOutputDevice.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputDevice_esp32/library.json",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnOutputDevice_esp32/CHANGELOG.md",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries_wkdevel/buttonLongPress_esp32/.git/config",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnButtonManager_esp32/src/main_TEST.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnButtonManager_esp32/src/lnButtonManager.h",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnButtonManager_esp32/src/lnButtonManager.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries_wkdevel/buttonLongPress_esp32/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnTimeClock_esp32/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries_wkdevel/buttonLongPress_esp32/library.json",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries_wkdevel/buttonLongPress_esp32/ButtonLongPress_Class.cpp",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnButtonManager_esp32/AIQuestions/question_2026-03-16_11.41.md",
+		"/home/loreto/filu/Programming/gitREPO/esp32/lnLibraries/lnButtonManager_esp32/AIQuestions/question_2026-03-16_11.45.md",
+		"/home/loreto/filu/Programming/gitREPO/esp32/orto_esp32/include/pin_Definitions.h"
+	],
+	"find":
+	{
+		"height": 38.0
+	},
+	"find_in_files":
+	{
+		"height": 119.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"ln_YAML_VARIABLES_FILE",
+			"}gitc",
+			"lnRun",
+			"_log",
+			"stack",
+			"ecute",
+			"descr",
+			".desc",
+			".argu",
+			"root_dir",
+			"ERROR!",
+			"execute",
+			"get_last_tag",
+			"gv.GIT_ROOT",
+			"GIT_ROOT",
+			"gv.GIT_ROOT ",
+			"get_last_tag",
+			"args.root_dir",
+			"gitStatus",
+			"multi_choices",
+			"check_MC",
+			"view",
+			"dprint",
+			"myPrint",
+			"LoggerLike",
+			"generate_changelog",
+			"gv.GIT_ROOT",
+			"GIT_ROOT",
+			"subprocess_run",
+			"mainUtils",
+			"envars",
+			"no changes occurre",
+			"C.",
+			"Color",
+			"getGitRoot",
+			"get_last_tag",
+			"processArgs",
+			"processVersion",
+			"update_library",
+			"generate_changelog",
+			"get_last_tag",
+			"generate_changelog",
+			"datetime",
+			"Path",
+			"json",
+			"lnRun",
+			"validate",
+			"bump",
+			"processVersion",
+			"get_last_tag",
+			"datetime",
+			"Path",
+			"re",
+			"json",
+			"lnRun",
+			"SimpleNamespace",
+			"datetime",
+			"Path",
+			"get_git_root",
+			"set_fileHandler",
+			"= CHANGELOG.md previe",
+			"RotatingFileHandler",
+			"Optional",
+			"callerFunc",
+			"threads_str",
+			"use_color",
+			"LoggerLike",
+			"get_git_root",
+			"lnRun",
+			"GIT_ROOT",
+			"generate_changelog",
+			"chang",
+			"stacklevel=1",
+			"LIBRARY_FILE",
+			"library.json",
+			"dry_run",
+			"toLogger=",
+			"toLogger=gv.lo",
+			"envars",
+			"  ",
+			"│  ",
+			"LoggerColoredSimple",
+			"LoggerColoredSimple2",
+			"DummyLogger",
+			"tils.col",
+			"Color",
+			"DummyLogger",
+			"LoggerColoredSimple",
+			"gv.lo",
+			"lnRun",
+			" logger",
+			"lnRun",
+			"readESP32Project",
+			"}gemini",
+			"pdb",
+			"get_last_tag",
+			"pdb",
+			"last_tag",
+			"Last tag:",
+			"processArgs",
+			"pdb",
+			"get_last_tag",
+			"import pdb; pdb.set_trace(); # by Loreto",
+			"get_last_tag",
+			"processVersion",
+			"push",
+			"gitStatus",
+			"processArgs",
+			"gitStatus",
+			"start Command list ",
+			"=== RELEASE PLAN ===",
+			"ln_VIRTUAL_ENV_PROMPT",
+			"vers",
+			".not",
+			"commits_raw.splitlines",
+			"lnRun",
+			"generate_changelog",
+			"lnRun",
+			"dry_run",
+			"== RELEASE PLAN ===",
+			"=== Command list ==",
+			"Last tag:",
+			"=== RELEASE PLAN ===",
+			"lnRun",
+			"processArgs",
+			"gVars",
+			"processArgs",
+			"processVersion"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'"
+		],
+		"reverse": false,
+		"scrollbar_highlights": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"use_gitignore": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "esp32.sublime-project",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								943,
+								1085
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JSON/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1433,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										278,
+										300
+									],
+									[
+										459,
+										481
+									],
+									[
+										556,
+										578
+									],
+									[
+										665,
+										687
+									],
+									[
+										937,
+										959
+									],
+									[
+										1118,
+										1140
+									],
+									[
+										1237,
+										1259
+									],
+									[
+										1346,
+										1368
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								937,
+								959
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/home/loreto/filu/Programming/gitREPO/lnSync",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.clipboard_manager":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"output.exec":
+	{
+		"height": 157.0,
+		"history":
+		[
+		]
+	},
+	"output.find_results":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"pinned_build_system": "",
+	"project": "esp32.sublime-project",
+	"replace":
+	{
+		"height": 68.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ren",
+				".ln/LnDoc/Network/Varie/RaspBerry_Network_Config.txt"
+			],
+			[
+				"dupl",
+				".ln/shDevel/ddns/prev/DDNS_updates_V20220721_profiles.sh"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/filu/lnEnv/config/appls/SublimeText/sshTunnel.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 350.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"e"
+			]
+		],
+		"width": 592.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 293.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

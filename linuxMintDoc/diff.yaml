@@ -1,0 +1,36 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 09-11-2025 18.36.20
+#
+
+
+kompare:
+    ref:
+        https://flathub.org/en/apps/org.kde.kompare
+
+    install:
+        flatpak install flathub org.kde.kompare
+
+    run:
+        flatpak run org.kde.kompare
+
+    errore:
+        se da errore:
+            The URL file:///home/loreto/filenamexxxx does not exist on your system
+        allora:
+            flatpak info --show-permissions org.kde.kompare
+            flatpak override --user org.kde.kompare --filesystem=home
+
+
+meld:
+    ref:
+        https://flathub.org/en/apps/org.gnome.meld
+
+    install:
+        flatpak install flathub org.gnome.meld
+
+    run:
+        flatpak run org.gnome.meld
+
+
+

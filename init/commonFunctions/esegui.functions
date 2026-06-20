@@ -1,0 +1,79 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 16-05-2026 09.29.31
+#
+
+pwd="${BASH_SOURCE%/*}" ###. get parent dir
+if ! declare -F @lnLog        > /dev/null; then source ${pwd}/ln_log.functions; fi
+unset pwd
+
+# if ! declare -F @lnLog > /dev/null; then
+#     pwd=$(dirname $BASH_SOURCE)
+#     source ${pwd}/ln_log.functions
+#     unset pwd
+# fi
+
+#-------------------------------------
+# required fEXECUTE='--go' or '...other'
+#-------------------------------------
+# fEXECUTE='-----'
+function @lnEsegui() {
+    cmd=$1
+    exit_on_error=${2:-exit_on_error}
+    # echo "fEXECUTE: $fEXECUTE"
+    local STACKLEVEL=1
+    [[ -z "$fEXECUTE" ]] && fEXECUTE='--dry-run'
+
+    if [[ "$fEXECUTE" == '--go' ]]; then
+        action_color="${yellowH}"
+    else
+        action_color="${purpleH}"
+    fi
+
+    if [[ "$fEXECUTE" == '--go' ]]; then
+        @lnLog $STACKLEVEL "$yellowH $cmd ${colorReset}"
+        eval $cmd
+        rCode=$?
+        if [[ ! "$rCode" -eq 0 ]]; then
+            @lnLog $STACKLEVEL "rcode=$rCode"
+            [[ "$exit_on_error" == "exit_on_error" ]] && exit $rCode
+        fi
+    else
+        @lnLog $STACKLEVEL "$action_color $cmd ${colorReset}"
+    fi
+}
+
+####################################################
+# requires fEXECUTE='--go'
+# arg_01: Command description
+# arg_02: Command to be executed
+# arg_03: "exit_on_error"
+####################################################
+function @lnEseguiDescr() {
+    local CMD_DESCR=${1:-}
+    local cmd=$2
+    local exit_on_error=${3:-no_exit_on_error}
+
+    if [[ "$fEXECUTE" == '--go' ]]; then
+        local action_color="${yellowH}[executing]: "
+    else
+        local action_color="${purpleH}[dry-run]: "
+    fi
+
+    [[ ! -z $CMD_DESCR ]] && { echo -ne "${fEXECUTE}${cyanH} ${CMD_DESCR}${colorReset}"; }
+
+    if [[ "$fEXECUTE" == '--go' ]]; then
+        @lnLog "$yellowH $cmd ${colorReset}"
+        eval $cmd
+        rCode=$?
+        if [[ ! "$rCode" -eq 0 ]]; then
+            @lnLog "rcode=$rCode"
+            [[ "$exit_on_error" == "exit" ]] && exit $rCode
+        fi
+    else
+        @lnLog "$action_color $cmd ${colorReset}"
+    fi
+
+}
+

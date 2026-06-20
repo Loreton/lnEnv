@@ -1,0 +1,58 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 16-07-2018 15.32.10
+#
+# please READ: https://www.verot.net/amule_monitor.htm?lang=en-GB
+#
+# amule_remote_status.sh v 0.1
+#
+# Bash script to look display the status of a remote amule + amulecmd setup
+#
+# by Colin Verot   colin@verot.net
+#
+# this script is free to use, just keep the copyright notice
+#
+
+host=localhost
+port=5555
+port=4712
+pass=,.Loreto,.
+
+# we first get the general data
+r=`amulecmd -h $host -p $port -P $pass -c status`
+
+# we parse it
+download=`echo $r | grep -o 'Download: .* Up' | sed -e 's/Download: //' -e 's/ > Up//'`
+upload=`echo $r | grep -o 'Upload: .* Cl' | sed -e 's/Upload: //' -e 's/ > Cl//'`
+ed2k=`echo $r | grep -o 'ED2K: .* Kad' | sed -e 's/ED2K: //' -e 's/ > Kad//'`
+kad=`echo $r | grep -o 'Kad: .* Dow' | sed -e 's/Kad: //' -e 's/ > Dow//'`
+
+# and then display it nicely
+echo "amulecmd : listens on $host:$port"
+echo "Download : $download"
+echo "Upload   : $upload"
+echo "ED2K     : $ed2k"
+echo "Kad      : $kad"
+
+# we now get the current list of files, in a temp file
+amulecmd -h $host -p $port -P $pass -c 'show DL' > /tmp/amulecmd
+touch /tmp/amulecmd2
+
+# we parse this file line by line, reformating it
+cat /tmp/amulecmd | grep '>' | (
+    while read line;
+        do l=`echo $line | sed -e 's/> [A-Z0-9]\{32\} \(.*\) \[\([0-9\.]*\)%\] \([0-9]\{1,\}\/[0-9]\{1,\}\) - \(.*\)/\\2%#\\3#\\1#\\4/'`;
+        echo $l >> /tmp/amulecmd2 ;
+    done
+)
+
+# we output the list of files, formatted in columns
+echo
+cat /tmp/amulecmd2 | sort -r -g | column -s '#' -t
+
+# we delete the temp files
+rm /tmp/amulecmd
+rm /tmp/amulecmd2
+
+exit 0;

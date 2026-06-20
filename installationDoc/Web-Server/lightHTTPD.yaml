@@ -1,0 +1,39 @@
+DOC:
+    https://redmine.lighttpd.net/projects/lighttpd/wiki/Docs
+
+Install:
+    https://pimylifeup.com/raspberry-pi-lighttpd/
+
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get remove apache2
+    sudo apt-get install lighttpd
+
+
+Python-cgi:
+    si parte da:
+        https://raspberrypiprojects.com/how-to-install-lighttpd-on-raspberry-pi-os-with-php-and-python/
+    https://www.youtube.com/watch?v=pmmnbMeSQF8&t=2s  al minuto 5
+
+    sudo lighttpd-enable-mod cgi
+    sudo vi /etc/lighttpd/lighttpd.conf
+        cgi.assign = ( ".py" => "/usr/bin/python" )
+    sudo systemctl force-reload lighttpd.service
+    sudo vi /var/www/html/test.py
+        print("Hello word")
+
+
+SSL: https://redmine.lighttpd.net/projects/lighttpd/wiki/HowToSimpleSSL
+    sudo cd /etc/lighttpd/certs
+    sudo openssl req -new -x509 -keyout lighttpd.pem -out lighttpd.pem -days 365 -nodes
+    sudo chmod 400 lighttpd.pem
+
+    Then edit /etc/lighttpd/lighttpd.conf and add:
+
+    $SERVER["socket"] == ":443" {
+      ssl.engine = "enable"
+      ssl.pemfile = "/etc/lighttpd/certs/lighttpd.pem"
+    }
+
+Wiki:
+    https://wiki.archlinux.org/title/lighttpd

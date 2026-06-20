@@ -1,0 +1,6 @@
+https://phoenixnap.com/kb/enable-ssh-raspberry-pi
+
+
+raspi-config
+select Interfacing Option
+select SSH option

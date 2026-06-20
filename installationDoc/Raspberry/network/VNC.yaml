@@ -1,0 +1,13 @@
+https://www.tomshardware.com/how-to/fix-cannot-currently-show-desktop-error-raspberry-pi
+
+Ho dedotto che il problema indicato dal link di sopra
+nel mio caso era dovuto al fatto che non partiva la gui al boot.
+
+quindi:
+    raspi-config--> boot options--> Desktop/CLI --> B3 Desktop (se volessi entrare come root)
+    raspi-config--> boot options--> Desktop/CLI --> B3 Desktop Autologin (per entrare com pi di default)
+
+ma non funziona con il Pi4:
+    tail -f /var/log/syslog
+    sudo systemctl status vncserver-x11-serviced.service
+

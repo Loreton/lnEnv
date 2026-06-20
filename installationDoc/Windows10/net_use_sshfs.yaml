@@ -1,0 +1,40 @@
+UNC Syntax
+
+The complete UNC syntax is as follows:
+   \\sshfs\[LOCUSER=]REMUSER@HOST[!PORT][\PATH]
+   \\sshfs.r\[LOCUSER=]REMUSER@HOST[!PORT][\PATH]
+   \\sshfs.k\[LOCUSER=]REMUSER@HOST[!PORT][\PATH]
+   \\sshfs.kr\[LOCUSER=]REMUSER@HOST[!PORT][\PATH]
+   REMUSER: is the remote user (i.e. the user on the SSHFS host whose credentials are being used for access).
+   HOST: is the SSHFS host.
+   PORT: is the remote port on the SSHFS host (optional; default is 22).
+   PATH: is the remote path. This is interpreted as follows:
+
+   sshfs prefix: maps to HOST:~REMUSER/PATH on the SSHFS host (i.e. relative to REMUSER's home directory).
+      sshfs.r : prefix maps to HOST:/PATH on the SSHFS host (i.e. relative to the HOST's root directory).
+      sshfs.k : prefix maps to HOST:~REMUSER/PATH and uses the ssh key in %USERPROFILE%/.ssh/id_rsa (where %USERPROFILE% is the home directory of the local Windows user).
+      sshfs.kr: prefix maps to HOST:/PATH and uses the ssh key in %USERPROFILE%/.ssh/id_rsa.
+   LOCUSER: is the local Windows user (optional; USERNAME or DOMAIN+USERNAME format).
+
+   Please note that this functionality is rarely necessary with latest versions of WinFsp.
+   GUI front ends
+
+t1:
+   net use X:  \\sshfs.k\pi@192.168.1.23!22\..\.. /PERSISTENT:NO # via key
+   net use X:  \\sshfs\pi@192.168.1.23!22\..\.. /PERSISTENT:NO  # via Password
+   net use X:  \\sshfs\pi@192.168.1.31!22\..\.. /USER:pi /PERSISTENT:NO  # via Password
+
+t2:
+   "c:\Program Files\SSHFS-Win\bin\sshfs-win.exe" svc \sshfs.k\pi@192.168.1.23!22\..\.. Y:
+   rimane attiva la finestra window
+   i logical link linux sono riconosciuti
+
+t3:
+   "c:\Program Files\SSHFS-Win\bin\sshfs-win.exe" cmd pi@192.168.1.23:../.. -F C:\Users\Loreto\.ssh\config  X:
+   i logical link linux NON sono riconosciuti
+
+
+t4:
+   usage: /usr/bin/sshfs [user@]host:[dir] mountpoint [options]
+   "c:\Program Files\SSHFS-Win\bin\sshfs.exe" pi@192.168.1.23:../.. Y: -F C:\Users\Loreto\.ssh\config
+

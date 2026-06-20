@@ -1,0 +1,47 @@
+ref:
+    https://linuxhint.com/setup-ftp-raspberry-pi/
+    https://askubuntu.com/questions/741164/how-to-change-vsftpds-default-directory-to-instead-of-the-users-home-directo
+    https://phoenixnap.com/kb/raspberry-pi-ftp-server
+
+install:
+    sudo apt update && sudo apt full-upgrade -y
+    sudo apt install vsftpd
+    sudo apt remove vsftpd --purge
+
+    sudo systemctl stop vsftpd
+    sudo systemctl enable vsftpd
+
+    sudo vi /etc/vsftpd.conf
+
+
+config:
+    listen=YES
+    write_enable=YES
+    local_umask=022
+    chroot_local_user=YES
+    anonymous_enable=NO
+
+    4. Add the following lines at the end of the config file:
+    user_sub_token=$USER
+    local_root=/home/$USER/FTP
+
+    comunque copiare il file
+        "/home/loreto/lnprofile/projects/vsFTPd/vsftpd.conf"
+    direttamente su /etc/vsftpd.conf
+
+
+
+    sudo systemctl restart vsftpd && sudo systemctl status vsftpd
+
+
+
+
+problems 500 OOPS vsftpd refusing to run with writable root inside chroot():
+    ref:
+        - https://www.liquidweb.com/kb/error-500-oops-vsftpd-refusing-to-run-with-writable-root-inside-chroot-solved/
+
+        Alternatively, you can bypass the writable check in the vsftpd config file by running the following command.
+        echo 'allow_writeable_chroot=YES' >> /etc/vsftpd/vsftpd.conf && systemctl restart vsftpd
+
+
+

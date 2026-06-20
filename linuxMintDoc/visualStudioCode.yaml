@@ -1,0 +1,58 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 17-11-2025 16.02.53
+#
+
+
+visualstudio:
+    ref:
+        https://flathub.org/en/apps/com.visualstudio.code ### non è ufficiale ed ha dei problemi nell'utilizzare comandi diretti al systema
+
+    install:
+        flatpak install flathub com.visualstudio.code
+
+    run:
+        flatpak run com.visualstudio.code
+
+
+
+visualstudio:
+    ref:
+        https://linuxcapable.com/how-to-install-vscode-on-linux-mint/
+    install:
+        sudo apt update && sudo apt upgrade
+        sudo apt install dirmngr ca-certificates software-properties-common apt-transport-https -y
+        echo deb [arch=amd64 signed-by=/usr/share/keyrings/vscode.gpg] https://packages.microsoft.com/repos/vscode stable main | sudo tee /etc/apt/sources.list.d/vscode.list
+        sudo apt update
+        sudo apt install code
+
+
+
+dentro vsCode:
+    shift-ctrl-p
+    Open keyboard shortcut JSON (NON Open Default keyboard shortcut JSON)
+
+    // Place your key bindings in this file to override the defaults
+    [
+        // move line up/down
+        { "key": "ctrl+shift+up",    "command": "editor.action.moveLinesUpAction", "when": "editorTextFocus" },
+        { "key": "ctrl+shift+down",  "command": "editor.action.moveLinesDownAction", "when": "editorTextFocus" },
+
+        // comment line
+        { "key": "ctrl+q",           "command": "editor.action.commentLine", "when": "editorTextFocus && !editorReadonly" },
+        { "key": "ctrl+shift+q",     "command": "editor.action.blockComment", "when": "editorTextFocus && !editorReadonly" },
+
+        // copy line down
+        { "key": "ctrl+d",           "command": "editor.action.copyLinesDownAction", "when": "editorTextFocus && !editorReadonly" },
+
+        // select all occurences of word
+        { "key": "alt+f3",           "command": "editor.action.changeAll", "when": "editorTextFocus && !editorReadonly" },
+
+        // change case
+        { "key": "ctrl+k ctrl+u",    "command": "editor.action.transformToUppercase", "when": "editorTextFocus && !editorReadonly" },
+        { "key": "ctrl+k ctrl+l",    "command": "editor.action.transformToLowercase", "when": "editorTextFocus && !editorReadonly" },
+        { "key": "ctrl+k ctrl+t",    "command": "editor.action.transformToTitlecase", "when": "editorTextFocus && !editorReadonly" },
+
+        // word wrap
+        { "key": "alt+w",            "command": "editor.action.toggleWordWrap" },
+    ]

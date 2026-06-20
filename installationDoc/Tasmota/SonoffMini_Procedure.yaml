@@ -1,0 +1,109 @@
+Ref:
+  https://tasmota.github.io/docs/Sonoff-DIY/
+  https://lamiacasaelettrica.com/sonoff-tasmota-firmware-italiano/
+
+Download firmware:
+    http://ota.tasmota.com/tasmota/release/
+    il size deve essere inferiore ai 500KB quindi va selezionato:
+        http://ota.tasmota.com/tasmota/release/tasmota-lite.bin.gz
+
+
+Flash procedure:
+    Pair the device with the eWeLink app and update firmware.
+    The wifi network you connect to during this step will need to be reachable in order to enter DIY mode.
+    Follow instructions how to enter DIY mode from Sonoff:
+        - Long press the button for 5 seconds to enter pairing mode,
+            then press another 5 seconds to ender Compatible Pairing Mode (AP).
+            The LED indicator should blink continuously.
+        - From mobile phone or PC WiFi setting, an Access Point of the device named ITEAD-XXXXXXXX
+            will be found, connect it with default password 12345678
+        - Open the browser and access http://10.10.7.1/
+        - Fill in WiFi SSID and password. Once successfully connected, the device is in DIY mode.
+
+    - Use Fing or any similar local network scanning app on your smartphone or PC
+        to find IP address of your Sonoff Mini device.
+        MAC Vendor most likely is Espressif and the device has 8081 port open.
+
+
+Flash procedure if firmware is 3.7.6: ### https://github.com/njh/sonoff-ota-flash-cli/issues/18
+    Thank you for this report, same issue.
+    Firmware version 3.7.0 :
+        impossible to flash, with or without deviceid. Very difficult to configure WiFi.
+
+    Finaly here was my way :
+        Connect with eWeLink APP
+        Upgrade to last firmware version (3.7.6 in my case)
+        Remove device from eWeLink APP (very important). Device config is then restored to default config.
+        Press button 5s+5s, connect to AP ITEAD-xxxx, setup WiFi config thru http://10.10.7.1
+        POST to /zeroconf/info without deviceid (reference : https://sonoff.tech/sonoff-diy-developer-documentation-basicr3-rfr3-mini-http-api/ ). Within response you get deviceid
+        Then follow normal procedure WITH deviceid
+
+
+
+
+Check that diy mode is working properly:
+  with CURL:
+    CURL_URL:
+        SONOFF_IP='192.168.1.27' && DEVICE_ID='1001529b2a'
+
+        curl -XPOST --header "Content-Type: application/json" --data-raw '{"deviceid": "${DEVICE_ID}", "data": {}}' http://${SONOFF_IP}:8081/zeroconf/info
+        curl -XPOST --header "Content-Type: application/json" --data-raw '{"data": {}}' http://${SONOFF_IP}:8081/zeroconf/info
+
+    with APIREST:
+      Install **Rester** extension in Chrome ... to perform REST API operations.
+      To test your device DIY mode create new request in **Rester**:
+        1. Method: **POST**
+        2. URL: http://<*IP of your device*>:8081/zeroconf/info
+        3. Body: `{"data": {}}`
+        4. You might need to add Header **Content-Type** with value **application/json**
+        5. Press **SEND**
+
+    If all is OK, status code 200 should be returned with bunch of data:
+    {
+        "seq": 1,
+        "error": 0,
+        "data": {
+            "switch": "off",
+            "startup": "off",
+            "pulse": "off",
+            "pulseWidth": 2000,
+            "ssid": "YourWiFi",
+            "otaUnlock": false,
+            "fwVersion": "3.6.0",
+            "deviceid": "YourDeviceId",
+            "bssid": "YourBSSId",
+            "signalStrength": -52
+        }
+    }
+    MAC 70:03:9F:9B:01:F5
+OTA_unlock:
+    curl -X POST --header "Content-Type: application/json" --data-raw '{"deviceid": "", "data": {}}' http://${SONOFF_IP}:8081/zeroconf/ota_unlock
+    curl -X POST --header "Content-Type: application/json" --data-raw '{"data": {}}' http://${SONOFF_IP}:8081/zeroconf/ota_unlock
+
+
+Flash_IT:
+    curl -X POST --data "{\"deviceid\":\"\",\"data\":{\"downloadUrl\": \"http://sonoff-ota.aelius.com/tasmota-latest-lite.bin\", \"sha256sum\": \"$HASH\"} }" http://${SONOFF_IP}:8081/zeroconf/ota_flash
+    curl -X POST --data "{\"data\":{\"downloadUrl\": \"http://sonoff-ota.aelius.com/tasmota-latest-lite.bin\", \"sha256sum\": \"$HASH\"} }" http://${SONOFF_IP}:8081/zeroconf/ota_flash
+
+mini_R3:
+    video: https://www.youtube.com/watch?v=M9pYMfeYGAY
+    anche; https://lamiacasaelettrica.com/sonoff-tasmota-firmware-italiano/
+
+    in configure Other->Template:
+        {"NAME":"Sonoff MINIR3","GPIO":[17,0,0,0,9,0,0,0,21,157,0,0,0],"FLAG":0,"BASE":1}
+
+    in configure_module:
+        "Sonoff MINIR3"
+
+    oppure:
+    configuration->configure_template:
+        name: sonoff minir3
+        based on: generic (18)
+        GPIO0: Button.1
+        GPIO4: switch.1
+        GPIO12: relay.1
+        GPIO13: ledlink
+
+    on console:
+    reh: https://tasmota.github.io/docs/Buttons-and-Switches/#switchmode
+    SwitchMode1 3 oppure 4

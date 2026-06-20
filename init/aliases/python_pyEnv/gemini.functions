@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 16-12-2025 11.43.32
+#
+
+
+
+# ---------------- GEMINI
+function @geminiExec() {
+    script_name=${1:-empty}
+    if [[ ${script_name} != "empty" ]]; then
+        shift 1
+        export GEMINI_API_KEY=$(< "${ln_SECRET_DIR}/keys/gemini.key")
+        # export NOME_MODELLO="gemini-2.0-flash"
+        export GEMINI_NOME_MODELLO="gemini-flash-latest"
+        cmd="${ln_PROGRAMMING_DIR}/gemini/.venv/bin/python ${ln_PROGRAMMING_DIR}/gemini/${script_name} $@"
+        echo -e "${yellow}executing: $cmd${colorReset}"
+        $cmd
+    fi
+}
+
+
+alias ${alias_prefix}gemini.setup='cd ${ln_PROGRAMMING_DIR}/gemini && source .lnactivate'
+# alias ${alias_prefix}gemini.ask='@geminiExec gemini_ask.py'
+# alias ${alias_prefix}gemini.project='@geminiExec gemini_project.py'
+# alias ${alias_prefix}gemini.submit='@geminiExec gemini_submit.py'
+alias ${alias_prefix}gemini.run='@geminiExec gemini_run.py'
+# alias ${alias_prefix}gemini.prepare='${ln_PROGRAMMING_DIR}/gemini/gemini_prepare_data.py'
+alias ${alias_prefix}gemini.models='@geminiExec list_models.py'

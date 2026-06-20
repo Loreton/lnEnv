@@ -1,0 +1,8 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 22-12-2024 14.37.40
+#
+
+Ubuntu:
+    ref:
+        https://github.com/rustdesk/rustdesk

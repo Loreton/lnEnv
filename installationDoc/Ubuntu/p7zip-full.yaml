@@ -1,0 +1,8 @@
+
+
+ref:
+    https://github.com/ike9000e/p7z-usr
+
+install:
+    sudo apt update
+    sudo apt install p7zip-full

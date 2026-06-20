@@ -1,0 +1,63 @@
+https://itsfoss.com/network-speed-monitor-linux/
+
+speedtest-cli:
+
+    sudo apt install speedtest-cli
+    sudo apt install nethogs
+
+
+iPerf:
+    descr:
+        is tool used for network performance measurement and tuning and can produce standardized
+        performance measurements for any network.
+        It has client and server functionality, and can create data streams to measure bandwidth,
+        loss and other parameters between the two ends in one or both directions.
+        There are two implementations the original iPerf (iPerf2) and a non-backwards compatible implementation iPerf3.
+    install:
+        sudo apt install iperf3
+    launch:
+        iperf -s
+        iperf -c server_address
+iftot:
+    descr:
+        iftop is a free open-source software command-line system monitor tool that produces a frequently
+        updated list of network connections between pairs of hosts.
+        The connections can be ordered by different parameters, but they ordered by default by bandwidth usage,
+        with only the “top” bandwidth consumers shown.
+    install:
+        sudo apt install iftop
+    launch:
+        sudo iftop
+
+
+vnstat:
+    descr:
+        s???
+    install:
+        sudo apt install vnstat
+    launch:
+        sudo vnstat  --create -i eth0
+        vnstat
+
+iptraf:
+    descr:
+        IPTraf is a console-based network statistics utility for Linux.
+        It gathers a variety of figures such as TCP connection packet and byte counts, interface statistics and activity indicators,
+        TCP/UDP traffic breakdowns, and LAN station packet and byte counts.
+    install:
+         sudo apt-get install iptraf
+    launch:
+        sudo iptraf-ng
+
+tcptrack:
+    A favorite. Tells how much bandwidth is being used and also what protocol (service/port) and destination
+    the transmission is taking place to. Very helpful when you want to know exactly what is using up your bandwidth
+    install:
+         sudo apt-get install tcptrack
+    launch:
+        sudo tcptrack -r 1 -i eth0
+
+bmon:
+    shows multiple interfaces at once
+slurm:
+    has nice colored graphs

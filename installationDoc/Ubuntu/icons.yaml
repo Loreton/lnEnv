@@ -1,0 +1,25 @@
+# updated by ...: Loreto Notarantonio
+# Date .........: 15-06-2025 11.18.15
+
+
+ref:
+    https://askubuntu.com/questions/1257317/ubuntu-18-04-set-custom-icon-for-executable-saved-in-desktop-using-command
+
+    The information is saved in a binary file:
+    ~/.local/share/gvfs-metadata/home
+    You can not simply edit it, but use some gio-tools:
+
+
+    Check the attributes of one file:
+    gio info file
+
+    Change attributes:
+    gio set file attribute value
+
+
+    So in your case to change the custom icon:
+        gio set ~/Desktop/MyApp metadata::custom-icon file:///path/to/icon.png
+        gio set /home/loreto/lnFreex/doublecmd_1.1.24/doublecmd metadata::custom-icon file:///home/loreto/lnprofile/icons/doubbleCommander.jpeg
+
+    To remove the attribute, use -t unset:
+        gio set -t unset ~/Desktop/MyApp metadata::custom-icon

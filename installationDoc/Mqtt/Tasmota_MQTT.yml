@@ -1,0 +1,25 @@
+Comandi per tasmota:
+    ci sono tre prefix:
+        tele/#
+        stat/#
+        cmnd/#
+
+    power status:
+        stat/tasmota_01/POWER
+        Es.:
+            mosquitto_sub -d -u Loreto -P LoretoMqtt -t stat/tasmota_01/POWER
+
+    power toggle:
+            mosquitto_pub -d -u Loreto -P LoretoMqtt -t cmnd/tasmota_01/POWER -m toggle
+
+    tele/tasmota_01:
+        LWT = Online
+        INFO1 = {"Module":"Sonoff Basic","Version":"9.1.0(tasmota)","FallbackTopic":"cmnd/DVES_92DFAF_fb/","GroupTopic":"cmnd/tasmotas/"}
+        INFO2 = {"WebServerMode":"Admin","Hostname":"tasmota_01-8111","IPAddress":"192.168.1.50"}
+        INFO3 = {"RestartReason":"Software/System restart"}
+        STATE = {"Time":"2020-11-12T14:18:50","Uptime":"0T01:30:15","UptimeSec":5415,"Heap":26,"SleepMode":"Dynamic","Sleep":50,"LoadAvg":19,"MqttCount":2,"POWER":"ON","Wifi":{"AP":1,"SSId":"TPL-Casetta","BSSId":"52:D4:F7:9C:21:25","Channel":13,"RSSI":50,"Signal":-75,"LinkCount":1,"Downtime":"0T00:00:08"}}
+
+
+N.B.
+Nelle dashboard di Android importante che ON e OFF siano in uppercase altrmenti non funziona
+Utile strumento: http://mqtt-explorer.com/

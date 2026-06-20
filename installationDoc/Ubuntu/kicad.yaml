@@ -1,0 +1,11 @@
+# updated by ...: Loreto Notarantonio
+# Date .........: 11-09-2024 18.10.38
+
+
+ref:
+    # https://www.kicad.org/download/details/ubuntu/
+    https://www.kicad.org/download/linux/
+
+install:
+    sudo add-apt-repository ppa:kicad/kicad-8.0-releases
+    sudo apt update && sudo apt install kicad

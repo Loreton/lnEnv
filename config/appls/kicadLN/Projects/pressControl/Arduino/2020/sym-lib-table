@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name "LnDevice")(type "KiCad")(uri "${KIPRJMOD}/lnLib/LnDevice.kicad_sym")(options "")(descr ""))
+  (lib (name "LnConnectors")(type "KiCad")(uri "${KIPRJMOD}/lnLib/LnConnectors.kicad_sym")(options "")(descr ""))
+  (lib (name "DiodiTransistor")(type "KiCad")(uri "${KIPRJMOD}/lnLib/LnDiodiTransistors.kicad_sym")(options "")(descr ""))
+)

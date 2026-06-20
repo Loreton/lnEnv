@@ -1,0 +1,59 @@
+
+# https://starship.rs/config/
+
+add_newline = true
+
+# format = """
+# $directory\
+# $python\
+# $git_branch\
+# $git_status\
+# $character
+# """
+
+#$hostname $directory$git_branch$git_status$character
+format = """
+$hostname $python$git_branch$git_status$directory$character
+"""
+
+[hostname]
+ssh_only = false
+format = "[$hostname]($style)"
+disabled = false
+style = "bold cyan"
+
+[directory]
+format = "[$path]($style)"
+truncation_length = 10
+truncate_to_repo = false
+truncation_symbol = '…/'
+style = "bold cyan"
+home_symbol	= '~'
+read_only = '🔒'
+read_only_style	= 'red'
+
+# [directory]
+# style = "bold cyan"
+
+[python]
+format = "[$symbol$version]($style) "
+style = "yellow bold"
+symbol = "🐍➜"
+
+[git_branch]
+format= '[$symbol$branch(:$remote_branch)]($style) '
+symbol = " "
+# style = "yellow"
+style = 'bold purple'
+
+[character]
+success_symbol = " [➜:](bold green)"
+error_symbol = " [✗:](bold red)"
+
+# [character]
+# success_symbol = " \\$: "
+# error_symbol = " !: "
+
+
+
+

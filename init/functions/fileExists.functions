@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+# # @_ln_echo_script_name $BASH_SOURCE
+
+
+
+################################################
+# call:
+#       @_fileExists "${image_file}"; fexists=$?
+#       echo -e "exists2: $fexists"
+# NON usare:
+#       local fexists=$(@_fileExists "${image_file}")
+#       perché echo all'inetrno della funzione compromette il funzionamentoi
+################################################
+function @_fileExists() {
+    # local filename="${1:-xxxx111222}" # default null
+    local filename="${1:-"null_file"}" # default null
+    local filename="${1}" # default null
+    [[ $filename == '' ]] && echo "missing filename" && return $ret_val
+
+    echo -n "filename: $filename "
+
+    local ret_val=0
+    if [[ -f "$filename" ]]; then
+        echo "FOUND"
+        ret_val=1
+    else
+        echo "NOT FOUND"
+    fi
+    return $ret_val
+}
+

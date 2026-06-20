@@ -1,0 +1,8 @@
+
+diff-merge
+ref:
+    https://manpages.ubuntu.com/manpages/jammy/en/man1/meld.1.html
+
+install:
+    sudo apt update
+    sudo apt install meld

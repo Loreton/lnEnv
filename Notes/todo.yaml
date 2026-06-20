@@ -1,0 +1,14 @@
+@todo:
+    idraulica:
+        - verificare riciclo cisterna A per mettere filtro per polvere osmotico
+
+    lavori:
+        - fissare rete cancello superiore
+        - Eliminare cavalle rimaste a sostegno degli alberi da frutta
+        - potare quercette
+        - mettere pietre sulla salita per evitare fango
+
+    programmazione:
+        - verificare lnSync non funziona dal bundle (non trova rclone.conf)
+
+

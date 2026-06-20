@@ -1,0 +1,48 @@
+Ref:
+    https://raspberrytips.com/install-mariadb-raspberry-pi/
+    https://lindevs.com/install-mariadb-on-raspberry-pi/
+
+
+    As always, start by updating your system:
+    sudo apt update
+    sudo apt upgrade
+    Then you can install MariaDB with this command:
+    sudo apt install mariadb-server
+    sudo mysql_secure_installation
+    chiede la password per root: <root_psw>
+
+
+
+    sudo mysql -u root -p
+    password: <root_psw>
+
+
+Configuration:
+    https://docs.rackspace.com/support/how-to/configure-mysql-server-on-the-ubuntu-operating-system/
+    vedi:
+    /usr/sbin/mysqld --help --verbose | less
+    e cerca per "are read"
+
+    cat /etc/mysql/my.cnf
+    ll /etc/mysql/mariadb.conf.d/
+    less /etc/mysql/mariadb.conf.d/50-server.cnf
+
+
+Create user:
+    https://mariadb.com/kb/en/create-user/
+    CREATE USER Loreto@'%' IDENTIFIED by  'Loreto.Maria.DB';
+    # CREATE USER LnBot@'%' IDENTIFIED by  'LnBot.DB';
+    # CREATE USER LnCasettaBot@'%' IDENTIFIED by  'LnCasettaBot.DB';
+
+Create DB:
+    CREATE DATABASE lntest
+        CHARACTER SET = 'keybcs2'
+        COLLATE = 'keybcs2_bin';
+
+SELECT User FROM mysql.user;
+GRANT ALL PRIVILEGES ON *.* TO Loreto; # diamo privilegio a tutto per l'utente loreto
+
+
+check:
+    ps aux | grep mysqld
+    sudo netstat -tupna| grep 3306

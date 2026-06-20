@@ -1,0 +1,295 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+# scriptFullPath="$(readlink -f ${BASH_SOURCE[0]})"       # OTTIMA
+# scriptDir="$(dirname $scriptFullPath)"
+# scriptName="$(basename $scriptFullPath)"
+# echo "----------- $scriptName"
+
+# set -u # MI CREA PROBLEMI....
+# @_ln_echo_script_name $BASH_SOURCE
+
+#!/bin/bash
+#
+alias chiamabar="bar_01"
+
+
+: ' spostate in Loretorc
+function caller() {
+    local funcname="$blueH${FUNCNAME[1]}"
+    rCode=1
+    bash_source_01=${BASH_SOURCE[1]}; lineno_01=${BASH_LINENO[1]}
+    bash_source_02=${BASH_SOURCE[2]}; lineno_02=${BASH_LINENO[2]}
+
+    echo -e "[${funcname}]: ${cyanH}---"
+    echo -e "[${funcname}]: ${cyanH}current..:  $(basename ${bash_source_01}):${lineno_01} -> ${FUNCNAME[1]}"
+
+    if [[ ! -z $bash_source_02 ]]; then
+        echo -e "[${funcname}]: ${cyanH}called by:  $(basename ${bash_source_02}):${lineno_01} -> ${FUNCNAME[2]}"
+        rCode=0
+    else
+        echo -e "[${funcname}]: ${cyanH}called by: unable to retrieve CALLER"
+        rCode=1
+    fi
+
+    echo -e "[${funcname}]: ${cyanH}---"
+    return $rCode
+}
+
+
+########################################################
+# lnLog:
+#    $1: se ÃÂ¨ un integer indica l offest della linea da sommare al lineno
+#    $*: stringa da scrivere
+# calcola automaticamente il caller e lo indica nella riga
+########################################################a
+function lnLog() {
+    local offset=0
+    # Controlla se il primo argomento ÃÂ¨ un intero (positivo o negativo)
+    if [[ "$1" =~ ^-?[0-9]+$ ]]; then
+        offset=$1
+        shift 1
+    fi
+
+    local stacklen=${#BASH_LINENO[@]}
+    local script="${BASH_SOURCE[1]}"
+    local func="${FUNCNAME[1]:-MAIN}"
+    local line=$(( ${BASH_LINENO[0]:-0} + offset ))
+    local caller="${func}:${line}"
+    echo -e "${blueH}[${caller}]: $@"
+}
+
+'
+
+
+
+# : '
+true  <<'__COMMENT_01'
+############################################################
+# Bash mantiene un array chiamato ${BASH_LINENO}:
+#   ${BASH_LINENO[0]} Ã¢ÂÂ riga da cui ÃÂ¨ stata chiamata la funzione corrente
+#   ${BASH_LINENO[1]} Ã¢ÂÂ riga da cui ÃÂ¨ stata chiamata la funzione chiamante, ecc.
+#   ${FUNCNAME[0]}: nome della funzione corrente
+#   ${FUNCNAME[1]}: nome della funzione chiamante
+############################################################
+function lnLog1() {
+    # local caller="${FUNCNAME[1]}:${BASH_LINENO[0]}"
+    local func="${FUNCNAME[1]:-MAIN}"
+    local line="${BASH_LINENO[0]}"  ## per le funzioni in memoria la linea ÃÂ¨ relativa a partife dall inizio della funzione e non dello script
+    local caller="${func}:${line}"
+    echo -e "${blueH}[${caller}]: $@"
+}
+
+function lnLoga() {
+    local stacklen=${#BASH_LINENO[@]}
+    local script="$(basename ${BASH_SOURCE[1]})"
+    local func="${FUNCNAME[1]:-MAIN}"
+    local line="${BASH_LINENO[0]}"
+    local caller="${func}:${line}"
+    echo -e "${blueH}[${caller}]: $@"
+}
+
+
+
+function lnLogb() {
+    local stacklen=${#BASH_LINENO[@]}
+    local script="$(basename ${BASH_SOURCE[$stacklen]})"
+    local func="${FUNCNAME[$stacklen]:-MAIN}"
+    local line="${BASH_LINENO[$stacklen-1]}"
+    # echo -e "[${script}/${func}:${line}]: $@"
+    echo -e "[${func}:${line}]: $@"
+}
+__COMMENT_01
+
+
+
+###############################
+# get Windows variable value
+###############################
+function _ln_getwinvar() {
+    local varname=$1
+    local win_var_value=$(cmd.exe /C echo "%${varname}%"|tr -d '\r')
+    # wslpath syntax
+    #   -a    force result to absolute path format
+    #   -u    translate from a Windows path to a WSL path (default)
+    #   -w    translate from a WSL path to a Windows path
+    #   -m    translate from a WSL path to a Windows path, with Ã¢ÂÂ/Ã¢ÂÂ instead of Ã¢ÂÂ\\Ã¢ÂÂ
+    lnx_var_value=$(wslpath -u -a "$win_var_value")
+    echo $lnx_var_value
+}
+
+
+function @_example_local_esegui() {
+    local stacklevel=$1
+    local CMD_DESCR=$2
+    local cmd=$3
+    local indent=$TAB
+    # set +x
+    caller="${FUNCNAME[stacklevel+1]}:${BASH_LINENO[stacklevel]}"
+    printf "\n${indent}[${caller}]"
+    printf "\n${indent}${cyanH} ${CMD_DESCR}${colorReset}\n"
+    if [[ "$g_fEXECUTE" -eq "1" || "$g_fEXECUTE" == "go" ]]; then
+        printf "${indent}${purpleH} [executing]$yellowH: ${cmd}${colorReset}\n"
+        eval '$cmd'
+        rCode=$?
+        [[ ! "$rCode" -eq 0 ]] && { printf "${indent}${redH} ${rCode}${colorReset}\n"; exit $rCode; }
+    else
+        printf "${indent}${purpleH} [dry-run]$yellowH: ${cmd}${colorReset}\n"
+    fi
+}
+
+
+
+
+#############################################
+#
+#############################################
+function @_ln_tail_epoch() { # epoch time to human format
+    local log_file=$1
+    sudo tail -f $log_file | awk '{$1=strftime("%d-%m-%Y %H:%M:%S", $1); print}'
+}
+
+# #############################################
+# #
+# #############################################
+function @_ln_zip_dir() {
+    local dir=$1
+    firstChar=${dir: 0:1}
+
+    if [[ "$firstChar" != '/' ]]; then
+        dir="${PWD}/${dir}"
+    fi
+    if [ -d "$dir" ]; then
+        saved_dir=$PWD
+        dir_name=$(basename $dir)
+        parent_dir=$(dirname $dir)
+        zipName="${parent_dir}/${dir_name}.zip"
+        cd "$parent_dir"
+        for name in *; do
+            zip -ur --latest-time $zipName $(basename $dir)
+        done
+        echo "${zipName} has been created."
+        cd "$saved_dir" # ritorna alla previos dir
+    else
+        echo "${dir} not found!"
+    fi
+}
+
+
+
+#------------------------
+#- SSHFS
+#------------------------
+function @_sshfs_aliases() {
+    # alias .mount.lnpi31="sshfs -o allow_other,default_permissions pi@192.168.1.31:~/ /mnt/lnpi31"
+    : '
+    dir="/mnt/steve107" && sudo mkdir $dir && sudo chown loreto:loreto $dir
+    fusermount3 -u /mnt/steve107/
+    '
+
+    alias .sshfs.22="sshfs -o default_permissions pi@192.168.1.22:/home/pi /mnt/lnpi22"
+    alias .sshfs.23="sshfs -o default_permissions pi@192.168.1.23:/home/pi /mnt/lnpi23"
+    alias .sshfs.31="sshfs -o default_permissions pi@192.168.1.31:/home/pi /mnt/lnpi31"
+    alias .sshfs.41="sshfs -o default_permissions pi@192.168.1.41:/home/pi /mnt/lnpi41"
+    alias .sshfs.41_root="sshfs -o default_permissions pi@192.168.1.41:/ /mnt/lnpi41_root"
+    alias .sshfs.22casetta="sshfs -o default_permissions -o port=22022 pi@lncasetta.duckdns.org:/home/pi /mnt/lnpi22"
+    alias .sshfs.23casetta="sshfs -o default_permissions -o port=23022 pi@lncasetta.duckdns.org:/home/pi /mnt/lnpi23"
+    alias .sshfs.31casetta="sshfs -o default_permissions -o port=31022 pi@lncasetta.duckdns.org:/home/pi /mnt/lnpi31"
+    alias .sshfs.41casetta="sshfs -o default_permissions -o port=41022 pi@lncasetta.duckdns.org:/home/pi /mnt/lnpi41"
+    alias .sshfs.steve107="sshfs -o default_permissions -o port=60028 pi@88.149.198.156:/home/pi /mnt/steve107"
+}
+
+
+
+
+# --------------------------------
+# DeviceDiscovery
+# --------------------------------
+function @_DeviceDiscovery_aliases() {
+    local APPL_NAME="DeviceDiscovery"
+    local appl_name=${APPL_NAME,,}
+    alias .deviceDiscovery.cd="cd ${ln_PYTHON_GIT_REPO_DIR}/${APPL_NAME}"
+    alias .deviceDiscovery.log="cd /tmp/${APPL_NAME}"
+    alias .deviceDiscovery.console="${ln_SYSTEMD_SCRIPT_DIR}/${APPL_NAME}-console.sh" #  --compiled --go"
+    alias .deviceDiscovery.zip=".${appl_name}.cd && ${ln_GIT_REPO_DIR}/gitUtils/ln_zip_project"
+}
+
+
+
+
+
+# --------------------------------
+# LnSync
+# --------------------------------
+function @_lnSync_aliases() {
+    local alias_name=$1
+    local APPL_NAME="lnSync"
+    alias ${alias_name}.cd="cd ${ln_PYTHON_GIT_REPO_DIR}/${APPL_NAME}"
+    alias ${alias_name}.log="cd /tmp/${APPL_NAME}"
+    alias ${alias_name}.console="${ln_SYSTEMD_SCRIPT_DIR}/${APPL_NAME}-console.sh --${alias_name: 1:20}" #  --compiled --go"
+    alias ${alias_name}.zip=".${appl_name}.cd && ${ln_GIT_REPO_DIR}/gitUtils/ln_zip_project"
+}
+
+
+function func_home_assistant_backup() {
+    saved_dir=$PWD
+    cd /home/homeassistant
+    mkdir  "$HOME/HomeAssistant-Backup"
+    local DATE=$(date +"%Y%m%d_%H%M%S")
+    local tar_file="$HOME/HomeAssistant-Backup/Hass_Backup_${DATE}.tar"
+    sudo tar --exclude="backups" -cvzf $tar_file .loreto .bashrc .homeassistant
+    ls -la $tar_file
+    cd $saved_dir
+}
+
+function @_homeAssistant_aliases() {
+    local alias_name="$1"
+    local service_name=$2
+    alias ${alias_name}.to_login="sudo -u homeassistant -H -s"
+    alias ${alias_name}.backup="func_home_assistant_backup"
+    @_systemctl_aliases $alias_name
+    # alias ${alias_name}.status="sudo systemctl status $service_name"
+    # alias ${alias_name}.start="sudo systemctl start $service_name"
+    # alias ${alias_name}.stop="sudo systemctl stop $service_name"
+    # alias ${alias_name}.restart="sudo systemctl restart $service_name"
+    # alias ${alias_name}.journal="sudo journalctl -f -u $service_name"
+}
+
+
+
+
+####################################################
+#
+####################################################
+function @_loretoRc_esegui() {
+    CMD_DESCR=$1
+    cmd=$2
+    exit_on_error=${3:-exit_on_error}
+
+    if [[ "$g_fEXECUTE" -eq "1" ]]; then
+        action="${purpleH} [executing]: "
+    else
+        action="${purpleH} [dry-run]: [${exit_on_error}] "
+    fi
+
+    echo -ne "${action}${cyanH} ${CMD_DESCR}${colorReset} "
+    if [[ "$g_fEXECUTE" -eq "1" ]]; then
+        echo -e "$yellowH $cmd ${colorReset}"
+        eval $cmd
+        rCode=$?
+        if [[ ! "$rCode" -eq 0 ]]; then
+            echo "rcode=$rCode"
+            [[ "$exit_on_error" == "exit" ]] && exit $rCode
+        fi
+    else
+        echo -e "$yellowH $cmd ${colorReset}"
+    fi
+    CMD_DESCR=
+
+}
+
+
+
+

@@ -1,0 +1,225 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 17-05-2026 15.12.00
+#
+
+
+export fLOG=${1:-0}
+myPWD=${PWD}
+
+terminal=${TERM_PROGRAM:-no_valid_terminal}
+[[ "${terminal,,}" == "vscode" ]] && return   # executed by VSCode
+
+OK=$'\u2705'
+ERR=$'\u274c'
+WARN=$'\u26a0\ufe0f'
+ROCKET=$'\U0001f680'
+
+# Stato / esito
+#   ✅ success
+#   ❌ error
+#   ⚠️ warning
+#   ℹ️ info
+#   🔥 hot
+#   🚀 start/deploy
+#   ⏳ waiting
+#   ⌛ timeout
+#   🔄 retry
+#   💥 crash
+#   🛑 stop
+
+
+# Sviluppo:
+#   🐍 python
+#   🐧 linux
+#   ⚙️ settings
+#   🔧 tools
+#   📦 package
+#   📁 folder
+#   📄 file
+#   🧪 test
+#   🛠️ build
+#   🔒 secure
+#   🔑 key
+#   🌐 network
+#   📡 signal
+
+#   ➡️
+#   ⬅️
+#   ⬆️
+#   ⬇️
+#   ↔️
+#   ↪️
+#   ➜
+#   ➤
+#   ▶️
+
+echo "$OK done"
+echo "$ERR failed"
+
+### ------------
+### funziona bene con il lancio di uno script, non funziona con "source script"
+# set -uE -o pipefail   # -u = nounset, -E = eredita ERR in funzioni/subshell, pipefail  utile
+# trap 'printf "ERRORE in %s:%s\n  comando: %s\n" "${BASH_SOURCE[1]}" "${BASH_LINENO[0]}" "${BASH_COMMAND}"' ERR
+set -u
+# set -o errtrace
+# set -o pipefail
+### ------------
+
+export alias_prefix='+'
+export alias_prefix='a.'
+export alias_prefix='.'
+export alias_py_prefix='.py.'
+export alias_py_project_prefix='.py.project.'
+export alias_venv_prefix='.venv.'
+export alias_pyenv_prefix='.pyenv.'
+export alias_platformio_venv_prefix='.pio.'
+export alias_shell_prefix='.sh.'
+
+
+alias ${alias_prefix}lnenv="source ${BASH_SOURCE}"
+alias ${alias_prefix}loretorc="source ${BASH_SOURCE}"
+
+
+export lapTopPC=" asusp2520l aspire5750g hp255g7 ezbook-elena ezbook-silvia IdeaPadSlim3 "  # importanti lo spazio inizio e fine
+# export lapTopPC_lowCase="${lapTopPC,,}"                                              # importanti lo spazio inizio e fine
+export lapTopPC_lc="${lapTopPC,,}"                                              # importanti lo spazio inizio e fine
+
+export raspberryPC=" lnpi22 lnpi23 lnpi31 lnpi41 lnpi51 "                       # importanti lo spazio inizio e fine
+
+export dq='"' # lo uso per facilitare la risoluzione delle variabili prima della creazione dell'alias
+export sq="'" # lo uso per facilitare la risoluzione delle variabili prima della creazione dell'alias
+
+
+
+# fLOG=0
+
+##########################################################
+# risoluzione delle variabili principali
+##########################################################
+loretoRcPath="$(readlink -fvs  $BASH_SOURCE)"
+_thisDir=$(dirname $loretoRcPath)
+source "${_thisDir}/setLoretoEnvironment" $fLOG ### fLOG=1
+
+
+
+
+set -u
+
+
+: '
+    --- da qui in poi posso usare lnLog()
+'
+@lnLog "running: ${yellowH}${BASH_SOURCE}${colorReset}"
+
+
+
+
+# ----------------------------------------------------------
+# resto delle functions presenti nella functions directory
+# ----------------------------------------------------------
+[[ "$fLOG" != "0" ]] && echo -e "\n${TABwhiteH}------------------ common functions -------------------"
+function_files=$(find "${ln_INIT_DIR}/commonFunctions"  -type f -name '*.functions' | sort) # *.function potrebbe essere sotto diverse directories
+for filename in ${function_files}; do
+    [ -f "$filename" ] || continue
+    @lnLog "running: ${yellowH}${filename}${colorReset}"
+    source "${filename}"
+done
+
+# ----------------------------------------------------------
+# resto delle functions presenti nella functions directory
+# ----------------------------------------------------------
+[[ "$fLOG" != "0" ]] && echo -e "\n${TABwhiteH}------------------ functions -------------------"
+function_files=$(find "${ln_INIT_DIR}/functions"  -type f -name '*.functions' | sort) # *.function potrebbe essere sotto diverse directories
+for filename in ${function_files}; do
+    [ -f "$filename" ] || continue
+    @lnLog "running: ${yellowH}${filename}${colorReset}"
+    source "${filename}"
+done
+
+# ----------------------------------------------------------
+# resto delle functions nella aliases directory -
+# ----------------------------------------------------------
+[[ "$fLOG" != "0" ]] && echo -e "\n${TABwhiteH}------------------ functions (aliases) -------------------"
+function_files=$(find "${ln_INIT_DIR}/aliases"  -type f -name '*.functions' | sort) # *.function potrebbe essere sotto diverse directories
+for filename in ${function_files}; do
+    [ -f "$filename" ] || continue
+    @lnLog "running: ${yellowH}${filename}${colorReset}"
+    source "${filename}"
+done
+
+
+# ----------------------------------------------------------
+# poi gli alias
+# ----------------------------------------------------------
+[[ "$fLOG" != "0" ]] && echo -e "\n${TABwhiteH}------------------ aliases -------------------"
+aliases=$(find ${ln_INIT_DIR}/aliases  -type f -name '*.alias' | sort) # *.alias potrebbe essere sotto diverse directories
+for filename in ${aliases}; do
+    [ -f "$filename" ] || continue
+    @lnLog "running: ${yellowH}${filename}${colorReset}"
+    source "${filename}"
+done
+
+
+
+
+#-----------------------
+#- terminal caption
+#- ref: https://unix.stackexchange.com/questions/177572/how-to-rename-terminal-tab-title-in-gnome-terminal
+#-----------------------
+PROMPT_COMMAND='echo -ne "\033]0;$(hostname -s)\007"'
+
+
+
+################################
+# - PS1
+################################
+if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+    export PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\h\[\033[00m\] \[\033[01;34m\]\w \$:\[\033[00m\] '
+    # per openwrt export PS1='\[\033[01;32m\\u@\033[01;32m\]\h\[\033[00m\] \[\033[01;34m\]\w \$:\[\033[00m\] '
+else
+    export PS1='${debian_chroot:+($debian_chroot)}\h\w\$:'
+fi
+
+
+
+# -------------------------------------
+# andrebbero nel .bashrc
+# ref.: https://www.digitalocean.com/community/tutorials/how-to-use-bash-history-commands-and-expansions-on-a-linux-vps#:~:text=Bash%20includes%20search%20functionality%20for,part%20of%20the%20previous%20command.
+# append to the history file, don't overwrite it
+    shopt -s histappend
+
+#... for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+    HISTSIZE=5000
+    HISTFILESIZE=10000
+    stty -ixon # enable ctrl-s to move backward in history (ctrl-r)
+# -------------------------------------
+
+    # @createLink ${ln_APPLICATIONS_DIR}/linuxPortable/pythonVENV/.pyENV ${PYENV_ROOT}
+    # @createLink ${ln_APPLICATIONS_DIR}/linuxPortable/pythonVENV/.lnVENV ${ln_VENV_ROOT}
+
+
+
+    export STARSHIP_CONFIG="${ln_APPLS_CONFIG_DIR}/starship/starship.toml"
+# ----------------------------------------------------------
+# poi le PATH
+# ----------------------------------------------------------
+    fLOG=0
+    @add_path "${ln_PY_SCRIPTS_DIR}/prod"
+    @add_path "${ln_ENV_DIR}/utils"
+    @add_path "${ln_START_PROC_DIR}"
+    @add_path "${ln_INIT_DIR}/commonFunctions"
+    @add_path "${ln_INIT_DIR}/script_utils"
+    @insert_path "${HOME}/.local/bin"
+    @insert_path "."
+    @insert_path "${HOME}"
+
+
+
+    unset fLOG
+
+    set +u #... Autocompletion fails on <TAB> with `bash: !ref: unbound variable` https://unix.stackexchange.com/questions/539375/autocompletion-fails-on-tab-with-bash-ref-unbound-variable
+    cd $myPWD
+
+

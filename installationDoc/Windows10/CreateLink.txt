@@ -1,0 +1,21 @@
+
+To create symbolic link in windows 7,then easiest way is to use command mklink.
+
+mklink
+Creates a symbolic link.
+
+MKLINK [[/D] | [/H] | [/J]] Link Target
+
+/D      Creates a directory symbolic link.  Default is a file
+symbolic link.
+/H      Creates a hard link instead of a symbolic link.
+/J      Creates a Directory Junction.
+Link    specifies the new symbolic link name.
+Target  specifies the path (relative or absolute) that the new link
+refers to.
+
+
+
+Esempio:
+mklink /D D:\LnDisk                         d:\Dati\Profili\f602250\Documents\Loreto\MyData\DiscoL
+mklink /D l:\LnFree\Editors\SublimeText     l:\LnFree\Editors\SublimeText_2

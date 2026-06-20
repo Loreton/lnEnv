@@ -1,0 +1,72 @@
+install:
+    sudo apt update && sudo apt upgrade
+    sudo apt install rclone -y
+
+paths:
+    /mnt/k/Filu/LnDisk/LnFree/SynchBackup/rClone_WSL
+    k:\Filu\LnDisk\LnFree\SynchBackup\rClone_WSL
+    k:\Filu\LnDisk\LnFree\SynchBackup\rClone_Win
+
+raspberry:
+    wget https://downloads.rclone.org/rclone-current-linux-arm.zip
+
+
+    # https://rclone.org/docs/
+    # https://rclone.org/drive/  for google driveww
+config:
+    rclone config  # to change
+    new
+
+
+
+    wsl_config: "/home/loreto/.config/rclone/rclone.conf"
+    list_dir: rclone lsd nloreto:_@NLORETO
+    options: --one-file-system
+    sync: rclone sync /mnt/k/Filu/LnDisk/Loreto nloreto:/_@NLORETO/Loreto  -P --ignore-case --dry-run
+    status: rclone about nloreto:
+
+
+    config drive:
+        No remotes found - make a new one
+        n) New remote
+        r) Rename remote
+        c) Copy remote
+        s) Set configuration password
+        q) Quit config
+        n/r/c/s/q> n
+        name> remote
+        Storage> drive
+        client_id>
+        client_secret>
+        scope> 1
+        root_folder_id>
+        service_account_file>
+        Edit advanced config? (y/n) n
+        Remote config
+        Use auto config?
+         * Say Y if not sure
+         * Say N if you are working on a remote or headless machine or Y didn't work
+        y) Yes
+        n) No
+        y/n> y
+        If your browser doesn't open automatically go to the following link: http://127.0.0.1:53682/auth
+        Log in and authorize rclone for access
+        Waiting for code...
+        Got code
+        Configure this as a team drive?
+        y) Yes
+        n) No
+        y/n> n
+        --------------------
+        [remote]
+        client_id =
+        client_secret =
+        scope = drive
+        root_folder_id =
+        service_account_file =
+        token = {"access_token":"XXX","token_type":"Bearer","refresh_token":"XXX","expiry":"2014-03-16T13:57:58.955387075Z"}
+        --------------------
+        y) Yes this is OK
+        e) Edit this remote
+        d) Delete this remote
+        y/e/d> y

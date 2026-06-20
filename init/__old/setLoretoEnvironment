@@ -1,0 +1,309 @@
+# va eseguita con il comando source
+# va eseguita con il comando source
+# va eseguita con il comando source
+# va eseguita con il comando source
+#
+#!/usr/bin/bash
+# updated by ...: Loreto Notarantonio
+# Date .........: 21-11-2025 17.12.36
+#
+
+
+set -u
+fDEBUG=${1:-0}
+TAB='    '
+
+
+###########################################################
+#
+###########################################################
+function set_vars() {
+    # qui mettiamo le principali in modo da poter poi risolvere le altre
+
+            export                         LANG="en_US.UTF-8"
+            export                       LC_ALL="en_US.UTF-8"
+            export                     LANGUAGE="en_US.UTF-8"
+
+
+        # devo mettere l'export perchÃÂÃÂ© sono all'interno di una funzione
+            _hostname=$(hostname -s);
+            export                  ln_hostname=${_hostname}
+            export               ln_hostname_LC=${_hostname,,}
+            export                     ln_STEVE="88.149.198.156"
+            export            ln_tunnel_ssh_key="${HOME}/.ssh/ln_tunnel_ed25519"
+            export               ln_RUNTIME_DIR="${HOME}/ln_runtime"
+            # export                   GIT_EDITOR="/usr/bin/vim"
+
+
+            #---------------------
+            #... lnEnv & subdirs
+            #---------------------
+            export                ln_CONFIG_DIR="${ln_ENV_DIR}/config"
+            export          ln_APPLS_CONFIG_DIR="${ln_ENV_DIR}/config/appls"
+            export            ln_APPL_SAVED_DIR="${ln_ENV_DIR}/config/applsSaved"
+            export                ln_SECRET_DIR="${ln_ENV_DIR}/config/envars"
+            export               ln_ALIASES_DIR="${ln_ENV_DIR}/init/aliases"
+            export            ln_SH_SCRIPTS_DIR="${ln_ENV_DIR}/shScripts"
+            export            ln_PY_SCRIPTS_DIR="${ln_ENV_DIR}/pyScripts"
+
+            #... systemd
+            export               ln_SYSTEMD_DIR="${ln_ENV_DIR}/config/systemd"
+
+            #... Start Proc
+            export            ln_START_PROC_DIR="${ln_ENV_DIR}/start_proc"
+            export        ln_SUBLIME_START_PROC="${ln_START_PROC_DIR}/sublimeStart.sh"
+            export      ln_DOUBLECMD_START_PROC="${ln_START_PROC_DIR}/doublecmdStart.sh"
+
+
+
+            #---------------------
+            #... filu & subdirs
+            #---------------------
+            export                 ln_DEVEL_DIR1="${ln_FILU_DIR}/Devel"
+            export              ln_GIT_REPO_DIR="${ln_FILU_DIR}/Devel/gitREPO"
+            export        ln_LINUX_PORTABLE_DIR="${ln_FILU_DIR}/Applications/linuxPortable"
+
+            #... sublime
+            export               ln_SUBLIME_DIR="${ln_LINUX_PORTABLE_DIR}/SublimeText4"
+            export               ln_SUBLIME_BIN="${ln_LINUX_PORTABLE_DIR}/SublimeText4/sublime_text"
+
+            #... doublecmd
+            export             ln_DOUBLECMD_DIR="${ln_LINUX_PORTABLE_DIR}/doublecmd_1.1.24"
+            export             ln_DOUBLECMD_BIN="${ln_LINUX_PORTABLE_DIR}/doublecmd_1.1.24/doublecmd"
+
+            #... python (posso decidere se avere quello di default oppure altro)
+            #... python il default lo uso per platformio
+            export         ln_PYENV_ROOT_DEFAULT="${HOME}/.pyenv"
+            export          ln_VENV_ROOT_DEFAULT="${HOME}/.lnVENV"
+
+            export          ln_PYENV_ROOT_LORETO="${ln_LINUX_PORTABLE_DIR}/pythonVENV/PYENV"
+            export           ln_VENV_ROOT_LORETO="${ln_LINUX_PORTABLE_DIR}/pythonVENV/VENV"
+
+
+            #... files
+            export           ln_BATCH_VARIABLES_FILE="${ln_SECRET_DIR}/loretoVariables.sh"
+            export            ln_YAML_VARIABLES_FILE="${ln_SECRET_DIR}/yaml/ln_system_variables.yaml"
+
+
+    echo
+    [[ $fDEBUG == "1" ]] && @lnLog "${yellow}Verifying variables starting with: ${startingVars}"
+    local result=$(env | grep "^${startingVars}")
+    for item in $result; do
+        var_name="${item%=*}"
+        var_value="${item##*=}"
+        [[ $fDEBUG == "1" ]] && @lnLog "verifying ${var_name}: ${green}${var_value}"
+        [[ ! $var_name == *_DIR && ! $var_name == *_ROOT  && ! $var_name == *_FILE ]] && continue
+        [[ ! -e "$var_value" ]] && @lnLog "${redH}${var_name}: ${var_value} path NOT exists"
+    done
+
+    unset -f ${FUNCNAME[0]}
+}
+
+
+
+
+
+
+###########################################################
+#
+###########################################################
+function createEnvarFile() {
+    local DATE=$(date +"%d-%m-%y %H:%M:%S")
+    local fileout=$1
+    local DATE=$(date +"%d-%m-%y %H:%M:%S")
+
+    echo "#!/usr/bin/bash"                                 1>$fileout
+    echo "#"                                               1>>$fileout
+    echo "# dynamically created on $DATE"                  1>>$fileout
+    echo "# do not edit because it will be overwritten!"   1>>$fileout
+    echo "#"                                               1>>$fileout
+    local result=$(env | grep "ln_")
+    for x in $result; do
+        echo $x  1>>$fileout
+    done
+    unset -f ${FUNCNAME[0]}
+
+}
+
+
+
+
+###########################################################
+# - Creazione file YAML allineato
+# - $yamlFile  contiene le variabili risolte
+###########################################################
+function createYamlEnvarFile() {
+    local yamlFile=$1
+    chmod +w $yamlFile
+
+    local DATE=$(date +"%d-%m-%y %H:%M:%S")
+    echo "---"                                             >$yamlFile
+    echo "#"                                               >>$yamlFile
+    echo "# dynamically created on $DATE"                  >>$yamlFile
+    echo "# do not edit because it will be overwritten!"   >>$yamlFile
+    echo "#"                                               >>"$yamlFile"
+    echo "system_envars:"                                  >>"$yamlFile"
+    PAD='                                                    '
+
+    local result=$(env | grep "ln_")
+    for item in $result; do
+        key="${item%=*}"
+        value="${item##*=}"
+
+        # facciamo il padding della key e tronchiamo a max_len
+        var_name="${key}:$PAD"
+        var_name="${var_name:0:max_len}"
+        echo "${TAB}${var_name} \"${value}\"" >> "$yamlFile"
+    done
+    unset -f ${FUNCNAME[0]}
+    chmod -w $yamlFile
+
+}
+
+
+
+###########################################################
+# - Export delle variabili
+# - Calcolo lunghezza massima dei nomi variabili
+##########################################################
+function calculateMaxLen() {
+    local startingString=${1:-XXXXXXXXXX}
+    # echo -e "${TAB}${yellow}Calculating variable max_len${colorReset}"
+    #... calculate variable max_len
+    max_len=0
+    local result=$(env | grep "^${startingString}")
+    for item in $result; do
+        key="${item%=*}"
+
+        #... Calcolo lunghezza massima delle chiavi
+        len=${#key}
+        (( len > max_len )) && max_len=$len
+    done
+
+
+    max_len=$(( $max_len + 5 ))
+    unset -f ${FUNCNAME[0]}
+    # echo -e "${TAB}${yellow}max_len = ${max_len}${colorReset}"
+}
+
+
+###########################################################
+#
+#   init
+#       |__ aliases
+#       |__ commonFunctions
+#       |__ functions
+#       |__ main
+#              |__ @bashrc_20251009
+#              |__ createDesktopLinks.sh
+#              |__ createExternalDiskLinks.sh
+#              |__ Loretorc
+#              |__ setLoretoEnvironment
+#       |__ shScripts
+
+###########################################################
+function setMainVars() {
+    local thisFullName="$(readlink -fvs  $BASH_SOURCE)"
+    export ln_SET_LORETO_ENVIRONMENT="${thisFullName}"
+
+    # export ln_INIT_MAIN_DIR=$(dirname $ln_SET_LORETO_ENVIRONMENT)
+    # echo $ln_INIT_MAIN_DIR
+    # export ln_INIT_DIR=$(dirname $ln_INIT_MAIN_DIR)
+    # echo $ln_INIT_DIR
+
+    #... queste due vanno qui perchÃÂÃÂ© sono la base di tutto
+    export ln_INIT_DIR=$(dirname $thisFullName)
+    export ln_ENV_DIR=$(dirname $ln_INIT_DIR)
+    export ln_FILU_DIR=$(dirname $ln_ENV_DIR)
+    export ln_COMMON_FUNCTIONS_DIR="${ln_INIT_DIR}/commonFunctions"
+
+    unset -f ${FUNCNAME[0]}
+}
+
+###########################################################
+#... load common functions
+#... inserisco la dir delle common function per renderle disponibili agli scripts
+#... importante l'ordine altrimenti non viene trovato lnLog
+###########################################################
+function loadCommonFunctions() {
+    source "${ln_COMMON_FUNCTIONS_DIR}/ln_log.functions"  ### per prima
+    source "${ln_COMMON_FUNCTIONS_DIR}/manage_paths.functions"
+    @add_path ${ln_COMMON_FUNCTIONS_DIR}
+    source "${ln_COMMON_FUNCTIONS_DIR}/colors.functions"
+    source "${ln_COMMON_FUNCTIONS_DIR}/esegui.functions"
+
+    if [[ $fDEBUG == "1" ]]; then
+        @lnLog "${cyan}ln_ENV_DIR                 = ${yellow}$ln_ENV_DIR"
+        @lnLog "${cyan}ln_INIT_DIR                = ${yellow}$ln_INIT_DIR"
+        #... definita manualmente in "${HOME}/filu/lnEnv/start_proc/.desktop" per gli shortcut di sistema
+        @lnLog "${cyan}ln_SET_LORETO_ENVIRONMENT  = ${yellow}$ln_SET_LORETO_ENVIRONMENT"
+    fi
+
+
+    unset -f ${FUNCNAME[0]}
+}
+
+
+###########################################################
+#      M A I N
+###########################################################
+    # --- caricamento funzioni esterne
+    _thisFullName="$(readlink -fvs  $BASH_SOURCE)"
+    fname=$(basename $_thisFullName)
+    thisPath=$(dirname $_thisFullName)
+
+    #... remove all current ln_ variables
+    startingVars='ln_'
+    unset $(compgen -v ${startingVars})
+
+    #... set Main Top variables
+    setMainVars
+
+    #... load common Functions
+    loadCommonFunctions
+
+    #... set all other variables
+    set_vars
+
+    #... just for display
+    calculateMaxLen "ln_"
+
+    # -----------------------------------------------
+    # - Creazione dei file di variabili e...
+    # - Display delle prime righe....
+    # -----------------------------------------------
+    if [[ $fDEBUG == "1" ]]; then
+        echo
+        @lnLog "${whiteH}-------- $ln_hostname - $fname -------------------\n"
+
+        @lnLog "${whiteH} ----------------- MAIN BASE variables --------------------------"
+        @lnLog "${cyan}ln_ENV_DIR                 = ${yellow}$ln_ENV_DIR"
+        @lnLog "${cyan}ln_INIT_DIR                = ${yellow}$ln_INIT_DIR"
+        @lnLog "${cyan}ln_SET_LORETO_ENVIRONMENT  = ${yellow}$ln_SET_LORETO_ENVIRONMENT"
+        @lnLog "${cyan}ln_GIT_REPO_DIR            = ${yellow}$ln_GIT_REPO_DIR"
+        @lnLog "${cyan}ln_SECRET_DIR              = ${yellow}$ln_SECRET_DIR"
+        @lnLog "${cyan}ln_START_PROC_DIR          = ${yellow}$ln_START_PROC_DIR"
+        @lnLog "${cyan}ln_SUBLIME_START_PROC      = ${yellow}$ln_SUBLIME_START_PROC"
+        @lnLog "${cyan}ln_DOUBLECMD_START_PROC    = ${yellow}$ln_DOUBLECMD_START_PROC"
+        @lnLog "${cyan}ln_DEVEL_DIR1               = ${yellow}$ln_DEVEL_DIR1"
+
+
+        createEnvarFile                 ${ln_BATCH_VARIABLES_FILE}
+        echo
+        @lnLog "${whiteH} ----------------- ${ln_BATCH_VARIABLES_FILE} --------------------------"
+
+        @lnLog "${blue}"
+        head -15 $ln_BATCH_VARIABLES_FILE
+        @lnLog "....."
+
+        createYamlEnvarFile             ${ln_YAML_VARIABLES_FILE}
+        echo
+        @lnLog "${whiteH} ----------------- ${ln_YAML_VARIABLES_FILE} --------------------------"
+        @lnLog "${blue}"
+        head -15 $ln_YAML_VARIABLES_FILE
+        @lnLog "....."
+
+    fi
+
+
+

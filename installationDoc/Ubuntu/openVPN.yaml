@@ -1,0 +1,13 @@
+# 111
+https://www.pcmag.com/how-to/how-to-create-a-vpn-server-with-raspberry-pi
+At command prompt type:
+sudo apt-get update
+sudo apt-get upgrade
+
+curl -L https://install.pivpn.io | bash
+
+
+
+# 222
+https://www.electromaker.io/tutorial/blog/raspberry-pi-vpn-server
+curl -L https://install.pivpn.dev | bash

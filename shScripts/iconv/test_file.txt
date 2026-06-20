@@ -1,0 +1,31 @@
+
+set -u
+# fDEBUG=${1:-0}
+fLOG=${1:-0}
+TAB='    '
+alias_prefix=${alias_prefix:-.} ### per evitare il set -u (unbound variable)
+
+alias ${alias_prefix}lnenv="source ${BASH_SOURCE}"
+
+###########################################################
+#
+###########################################################
+function set_vars() {
+    # qui mettiamo le principali in modo da poter poi risolvere le altreÃÂÃÂ¹
+
+            export          XCLIP_ROOT_DIR_FILE="/tmp/xclip_rootdir"
+            export                         LANG="en_US.UTF-8"
+            export                       LC_ALL="en_US.UTF-8"
+            export                     LANGUAGE="en_US.UTF-8"
+
+
+        # devo mettere l'export perchÃÂÃÂ© sono all'interno di una funzione
+            _hostname=$(hostname -s);
+            # export               ln_hostname_LC=${_hostname,,}
+            export                  ln_hostname=${_hostname}
+            export                  hostname_lc=${_hostname,,}
+            export                     ln_STEVE="88.149.198.156"
+            export            ln_tunnel_ssh_key="${HOME}/.ssh/ln_tunnel_ed25519"
+            export               ln_RUNTIME_DIR="${HOME}/ln_runtime"
+            # export                   GIT_EDITOR="/usr/bin/vim"
+

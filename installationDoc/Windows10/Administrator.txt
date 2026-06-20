@@ -1,0 +1,9 @@
+Per cambiare psw di Administrator
+Administrator prompt dos:
+net user Administrator 12345
+
+Per attivare il login di Administrator alla partenza :
+Administrator prompt dos
+net user administrator /active:yes
+
+https://www.top-password.com/knowledge/reset-windows-10-password.html

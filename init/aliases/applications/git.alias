@@ -1,0 +1,11 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 29-12-2020 12.33.50
+#
+
+
+# alias ${alias_shell_prefix}gitcommit="${ln_SH_SCRIPTS_DIR}/varie/gitcommit.sh"
+alias ${alias_prefix}gitcommit="${ln_PY_SCRIPTS_DIR}/git_commit/main.py"
+alias ${alias_prefix}git.newbranch='echo BR="devel" && git checkout -b ${BR} && git push -u gitHub ${BR}'
+alias ${alias_prefix}gitdiff="git difftool -y"

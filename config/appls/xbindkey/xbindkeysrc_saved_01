@@ -1,0 +1,70 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+#
+# Version: 1.8.7
+#
+# If you edit this file, do not forget to uncomment any lines
+# that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# To specify a key, you can use 'xbindkeys --key' or
+# 'xbindkeys --multikey' and put one of the two lines in this file.
+#
+# The format of a command line is:
+#    "command to start"
+#       associated key
+#
+#
+# A list of keys is in /usr/include/X11/keysym.h and in
+# /usr/include/X11/keysymdef.h
+# The XK_ is not needed.
+#
+# List of modifier:
+#   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
+#
+
+# The release modifier is not a standard X modifier, but you can
+# use it if you want to catch release events instead of press events
+
+# By defaults, xbindkeys does not pay attention with the modifiers
+# NumLock, CapsLock and ScrollLock.
+# Uncomment the lines above if you want to pay attention to them.
+
+#keystate_numlock = enable
+#keystate_capslock = enable
+#keystate_scrolllock= enable
+
+# Examples of commands:
+
+# control+shift + q
+"xbindkeys_show" 
+  Alt + s
+
+"/usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/prod/xClip.py /tmp/xclip_root_dir" 
+    m:0x8 + c:53
+    Alt + x
+
+"/home/loreto/filu/lnEnv/start_proc/.desktop/sublimeStart.desktop" 
+    m:0x5 + c:39
+    Control+Shift + s
+
+# "export ln_SET_LORETO_ENVIRONMENT1=/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment && /home/loreto/filu/lnEnv/start_proc/sublimeStart.sh" 
+"/home/loreto/filu/lnEnv/start_proc/.desktop/sublimeStart.desktop" 
+    m:0x5 + c:39
+    Control+Shift + s
+
+
+# "export ln_SET_LORETO_ENVIRONMENT3=/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment && /home/loreto/filu/lnEnv/start_proc/doublecmdStart.sh" 
+"/home/loreto/.local/share/applications/doubleCmdStart.desktop" 
+    m:0x5 + c:40
+    Control+Shift + d
+
+
+
+
+##################################
+# End of xbindkeys configuration #
+##################################

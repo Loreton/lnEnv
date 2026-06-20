@@ -1,0 +1,66 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 16-05-2026 14.41.53
+#
+
+
+
+
+
+function @setPlatformio() {
+    if ! declare -F @createLink > /dev/null; then
+        source create_links.functions
+    fi
+    export fEXECUTE="--go" ### fEXECUTE
+    @createLink ${HOME}/.platformio/penv  .venv
+    @createLink ${ln_UTILS_DIR}/py_env/ln_venv_activate_master .lnactivate
+    source .lnactivate
+
+    @createLink ${ln_START_PROC_DIR}/piorun.sh ./.piorun
+}
+
+
+:<<'COMMENT_PER_PLATFORMIO'
+creare un python generico:
+    mkdir $HOME/genericPython
+    cd $HOME/genericPython
+    .pyenv.setup_default
+    .venv.create.3.13.9 generic (viene creato un python nella dir \${VENV_ROOT}/generic_3.13.9)
+    . .lnactivate
+
+    a questo punto se si vuole si puÃ² installare platformio:
+    ...installare i moduli python se mancano....
+    wget -O get-platformio.py https://raw.githubusercontent.com/platformio/platformio-core-installer/master/get-platformio.py
+    python3 get-platformio.py
+    deactivate
+
+    andare sotto la directory del progetto che deve utilizzare platformio
+    ed eseguire il comando @setPlatformio (funzione definita sopra)
+COMMENT_PER_PLATFORMIO
+
+
+
+
+### ======================
+### # platformio projects
+### ======================
+# alias ${alias_prefix}pressControl='cd ${ln_GIT_REPO_DIR}/pressControl && source .lnactivate && echo "     --- git pull (to update project)"'
+alias ${alias_prefix}esp32.pressControl='cd ${ln_GIT_REPO_DIR}/esp32/pressControl && @setPlatformio && echo "     --- git pull (to update project)"'
+# alias ${alias_prefix}wifiManager='cd ${ln_GIT_REPO_DIR}/esp32/wifiManager && @setPlatformio && echo "     --- git pull (to update project)"'
+alias ${alias_prefix}esp32.orto='cd ${ln_GIT_REPO_DIR}/esp32/orto_esp32 && @setPlatformio && echo "     --- git pull (to update project)"'
+
+### # lnLibrary
+alias ${alias_prefix}esp32.edit=".subl ${BASH_SOURCE[0]}" ###- doppi apici
+alias ${alias_prefix}esp32.lnwifimanager='cd ${ln_GIT_REPO_DIR}/esp32/lnLibraries/lnWifiManager_esp32 && @setPlatformio'
+alias ${alias_prefix}esp32.lnlogger='cd ${ln_GIT_REPO_DIR}/esp32/lnLibraries/lnLogger_esp32 && @setPlatformio'
+alias ${alias_prefix}esp32.lntimeclock='cd ${ln_GIT_REPO_DIR}/esp32/lnLibraries/lnTimeClock_esp32 && @setPlatformio'
+alias ${alias_prefix}esp32.lntimesched='cd ${ln_GIT_REPO_DIR}/esp32/lnLibraries/lnTimeSched_esp32 && @setPlatformio'
+# alias ${alias_prefix}lntimer_esp32='cd ${ln_GIT_REPO_DIR}/esp32/lnLibraries/lnTimer_esp32 && @setPlatformio'
+alias ${alias_prefix}esp32.lntelegrambot='cd ${ln_GIT_REPO_DIR}/esp32/lnLibraries/lnTelegram_esp32  && @setPlatformio'
+alias ${alias_prefix}esp32.lntelegramhttp='cd ${ln_GIT_REPO_DIR}/esp32/lnLibraries/lnTelegramSendHttp_esp32  && @setPlatformio'
+alias ${alias_prefix}esp32.lnbuttonmanager='cd ${ln_GIT_REPO_DIR}/esp32/lnLibraries/lnButtonManager_esp32  && @setPlatformio'
+
+alias ${alias_prefix}esp32.stacktrace='echo ${ln_GIT_REPO_DIR}/esp32/xtensa-esp32-elf/bin/xtensa-esp32-elf-addr2line -pfiaC -e .pio/build/esp32/firmware.elf  0x4008b7e6:0x3ffb1a40 0x4016230d:0x3ffb1a50 0x40160015:0x3ffb1d60 0x400d3856:0x3ffb1e20 0x400d358f:0x3ffb1e80 0x400d3091:0x3ffb1fe0 0x400d3291:0x3ffb20c0 0x400d366b:0x3ffb2260 0x400e071d:0x3ffb2290 ...Backtrace'
+
+

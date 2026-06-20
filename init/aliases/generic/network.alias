@@ -1,0 +1,40 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 18-11-2025 14.01.31
+#
+
+
+
+
+###- network
+alias ${alias_prefix}net.ip='ip -br a && ip a s | grep "inet " && curl --connect-timeout 5 --interface eth0  --silent http://icanhazip.com/'
+
+alias ${alias_prefix}net.iftop="sudo iftop -b -n -N -P"
+alias ${alias_prefix}net.ns="sudo netstat -tupna | grep"
+alias ${alias_prefix}net.nsc="sudo netstat -tupna --continuous | grep"
+alias ${alias_prefix}net.ping_nc="nc -vz -w5"  # nc -vz 192.168.1.43 22
+alias ${alias_prefix}net.ping_nmap="nmap -p "  # nmap -p 80 192.168.1.1
+alias ${alias_prefix}net.ping_nping="sudo nping --tcp -c1 -p"  # sudo nping  --tcp -c1 -p 80 www.google.com
+alias ${alias_prefix}net.nslookup="echo -n 'myIP: ' && curl http://icanhazip.com/ && ssh loreton@ssh-loreton.alwaysdata.net host"
+
+# alias ${alias_prefix}net.wifiScan="sudo iwlist scan | grep -iE 'ssid|address|quality'"
+alias ${alias_prefix}net.wifiScan='sudo iwlist scan'
+alias ${alias_prefix}net.wifi_scan_grep="sudo iwlist scan | grep -i -E 'address|frequency|ssid|completed|signal level|quality'"
+### - edit files
+alias ${alias_prefix}hosts="sudo vi /etc/hosts"
+
+	# alias ${alias_prefix}routes='ip route && echo -e "\n\t${yellow}(to add route) sudo ip route add default via 192.168.1.1 dev wlp0s20f3${resetColor}"'
+if [[ ${hostname_lc} == "ideapadslim3" ]]; then
+	wifi_label='wlp0s20f3'
+	eth0_label='enx00e04c49063b'
+fi
+
+alias ${alias_prefix}net.routes='ip route && echo -e "\n\t${yellow}(to add route) sudo ip route add default via 192.168.1.1 dev ${wifi_label}${resetColor}"'
+alias ${alias_prefix}net.wifiShow='nmcli device show ${wifi_label}'
+alias ${alias_prefix}net.eth0Show='nmcli device show $eth0_label'
+# alias ${alias_prefix}interface_Show='nmcli device show'
+alias ${alias_prefix}net.interface_Show="${ln_INIT_DIR}/script_utils/networkInterfaces.sh"
+
+unset  wifi_label
+unset  eth0_label

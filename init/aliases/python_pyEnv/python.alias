@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 29-12-2020 12.33.50
+#
+# @_ln_echo_script_name $BASH_SOURCE
+
+#----- python
+alias ${alias_py_prefix}list="pip list"
+alias ${alias_py_prefix}outdate="pip list --outdated"
+alias ${alias_py_prefix}upgrade_pip="pip install upgrade setuptools && python3 -m pip install -U pip" ### nell'ordine
+
+
+alias ${alias_venv_prefix}list="pip list"
+alias ${alias_venv_prefix}outdate="pip list --outdated"
+alias ${alias_venv_prefix}upgrade_pip="pip install upgrade setuptools && python3 -m pip install -U pip" ### nell'ordine
+
+
+
+
+
+alias ${alias_py_prefix}alternatives.python='sudo update-alternatives --config python'
+
+
+
+
+
+alias ${alias_venv_prefix}save_to_loreto_packages.txt="pip freeze > loreto_packages.txt"
+alias ${alias_venv_prefix}upgrade_from_loreto_packages.txt="pip3 install -r loreto_packages.txt --upgrade "
+alias ${alias_prefix}zip_python_lnLib="/bin/bash /home/loreto/filu/lnEnv/shScripts/varie/zipLnLib.sh"
+
+
+
+
+
+
+#--- Python Scripts
+alias ${alias_py_prefix}renameTrees="${ln_PY_SCRIPTS_DIR}/varie/q-logger/q.py"
+alias ${alias_py_prefix}renameTrees="${ln_PY_SCRIPTS_DIR}/varie/renameTrees_Class.py"
+# alias ${alias_py_prefix}replaceTextInFiles="${ln_PY_SCRIPTS_DIR}/prod/replaceTextInFiles.py"
+alias ${alias_py_prefix}sendTelegramMsg="${ln_PY_SCRIPTS_DIR}/sendTelegramMsg.py"
+
+
+
+#--- Python Bundles
+# alias ${alias_py_prefix}buildProject="python3 ${ln_PY_SCRIPTS_DIR}/buildProject/python_build.py"
+alias ${alias_py_prefix}buildProject="python3 ${ln_LN_APPLS_DIR}/buildProject/python_build.py"
+# alias ${alias_py_prefix}gitcommit="python3 ${ln_BUNDLES_DIR}/gitCommit/gitCommit_lnk.pyz"
+alias ${alias_py_prefix}gitcommit="${ln_LN_APPLS_DIR}/gitCommit/gitCommit_bundle/run.sh"
+alias ${alias_py_prefix}lnsync="${ln_LN_APPLS_DIR}/lnSync/lnSync_bundle/run.sh"
+

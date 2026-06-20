@@ -1,0 +1,37 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Version ......: 31-08-2020 09.23.07
+#
+scriptFullPath="$(readlink -f ${BASH_SOURCE[0]})"       # OTTIMA
+scriptDir="$(dirname $scriptFullPath)"
+scriptName="$(basename $scriptFullPath)"
+
+echo "----------- $scriptName"
+
+#########################################
+# call:
+#  "__REMOTE_EXEC "192.168.1.23" "pi" "${ln_SH_SCRIPTS}/crontab/crontab_update_devel.sh" "=" "
+#########################################
+function __REMOTE_EXEC() {
+    local remote_host=$1 # 192.168.1.31 or lnpi31
+    local remote_port=$2 # 192.168.1.31 or lnpi31
+    local remote_user=$3 # pi
+    local src_file=$4
+    local dst_file=$5
+    [[ "$dst_file" == '=' ]] && dst_file=$src_file
+    shift 4
+
+    local hostname=$(hostname -s); hostname=${hostname,,}
+    local eth0_ip=$(ip addr show eth0 | grep "inet\b" | awk '{print $2}' | cut -d/ -f1)
+
+    if [[ "$remote_host" == "$hostname" || "$remote_host" == "$eth0_ip" ]]; then
+        ${src_file} "$@"
+    else
+        BASE_SSH="-o ConnectTimeout=10 -i $ln_tunnel_ssh_key"
+        SCP_CMD="/usr/bin/scp -P ${remote_port} -p ${BASE_SSH} ${src_file} ${remote_host}:${dst_file}" # scrive nella HOME
+        ${SCP_CMD}
+        SSH_CMD="/usr/bin/ssh -p ${remote_port} ${BASE_SSH} ${remote_user}@${remote_host}"
+        ${SSH_CMD} ${dst_file} "$@"
+    fi
+}

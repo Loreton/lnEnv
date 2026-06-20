@@ -1,0 +1,19 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 16-05-2026 15.14.51
+#
+
+
+ref:
+    https://chat.deepseek.com/a/chat/s/3803c161-674f-4c41-a9b9-4deb28d53256
+
+
+
+steps_LinuxMint:
+    sudo apt update
+    sudo apt install apache2 apache2-utils
+    sudo apt install libapache2-mod-wsgi-py3   # per Python 3
+    sudo a2enmod proxy
+    sudo a2enmod proxy_http
+    sudo a2enmod rewrite
+    sudo systemctl restart apache2

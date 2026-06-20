@@ -1,0 +1,107 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 30-11-2025 14.15.58
+#
+
+
+rustdesk - .deb:
+    ref:
+        https://flathub.org/en/apps/com.rustdesk.RustDesk
+
+    install:
+        Scarica il pacchetto .deb (sostituisci il numero di versione con l'ultima disponibile):
+        wget https://github.com/rustdesk/rustdesk/releases/download/1.4.4/rustdesk-1.4.4-aarch64.deb
+
+        nstalla il pacchetto e correggi le dipendenze:
+        sudo dpkg -i rustdesk-1.4.4-aarch64.deb
+        sudo apt --fix-broken install
+
+
+        sudo systemctl enable rustdesk.service
+        sudo systemctl start rustdesk.service
+        systemctl status rustdesk.service
+            # output
+            # ● rustdesk.service - RustDesk
+            #      Loaded: loaded (/usr/lib/systemd/system/rustdesk.service; enabled; preset: enabled)
+            #      Active: active (running) since Sun 2025-11-30 14:08:01 CET; 30s ago
+            #    Main PID: 48552 (rustdesk)
+            #       Tasks: 36 (limit: 13952)
+            #      Memory: 30.7M (peak: 46.7M)
+            #         CPU: 6.833s
+            #      CGroup: /system.slice/rustdesk.service
+            #              ├─48552 /usr/bin/rustdesk --service
+            #              ├─48710 sudo -E XDG_RUNTIME_DIR=/run/user/1000 -u loreto /usr/share/rustdesk/rustdesk --server
+            #              ├─48711 /usr/share/rustdesk/rustdesk --server
+            #              └─48718 /usr/share/rustdesk/rustdesk --tray
+            # 
+            # Nov 30 14:08:01 ezbook-silvia systemd[1]: Started rustdesk.service - RustDesk.
+            # Nov 30 14:08:02 ezbook-silvia sudo[48710]:     root : PWD=/ ; USER=loreto ; ENV=XDG_RUNTIME_DIR=/run/user/1000 ; COMMAND=/usr/share/rustdesk/rustdesk --server
+            # Nov 30 14:08:02 ezbook-silvia sudo[48710]: pam_unix(sudo:session): session opened for user loreto(uid=1000) by (uid=0)
+            # Nov 30 14:08:03 ezbook-silvia rustdesk[48729]: Cannot load libcuda.so.1
+            # Nov 30 14:08:03 ezbook-silvia rustdesk[48729]: Cannot load libcuda.so.1 (sembra non creare problemi)
+
+
+
+        Configurazione Aggiuntiva (Importante):
+            Per connetterti da remoto prima di aver effettuato il login, RustDesk necessita spesso di configurazioni aggiuntive
+
+            Abilita l'avvio Headless: 
+                All'interno dell'applicazione RustDesk, cerca un'opzione per "headless linux" o funzionalità simili 
+                (questo è spesso necessario per sistemi senza monitor o in cui si vuole accedere alla schermata di login).
+
+            Imposta una Password Permanente: 
+                Configura una password permanente (o fissa) nelle impostazioni di RustDesk. 
+                Questo ti permetterà di accedere al sistema quando si trova sulla schermata di login, 
+                dove la normale conferma non è possibile.
+
+
+Note: per ezbook-silvia ho adottato il metodo sopra perchè insieme all'impostazione RTC
+      nel bios mi permette di avere il pc sempre acceso con la partenza di rustDesk all'avvio anche senza login
+
+
+rustdesk - Flatpak:
+    ref:
+        https://flathub.org/en/apps/com.rustdesk.RustDesk
+
+    install:
+        flatpak install flathub com.rustdesk.RustDesk
+
+    run:
+        flatpak run com.rustdesk.RustDesk
+
+
+
+
+# ========================================================
+# 2. Avviare RustDesk automaticamente dopo il login
+# ========================================================
+
+Flatpak installa RustDesk come comando:
+    flatpak run com.rustdesk.RustDesk
+
+
+## Metodo 2: autostart manuale
+Crea il file:
+    mkdir -p ~/.config/autostart
+    vi ~/.config/autostart/rustdesk.desktop
+
+
+Inserisci:
+
+```
+[Desktop Entry]
+Type=Application
+Name=RustDesk
+Exec=flatpak run com.rustdesk.RustDesk
+X-GNOME-Autostart-enabled=true
+```
+Salva e chiudi.
+
+
+# ========================================================
+#  RISULTATO
+# ========================================================
+
+✔ Alla partenza il PC effettuerà **autologin**
+✔ Appena aperta la sessione utente, RustDesk Flatpak partirà automaticamente
+✔ Potrai collegarti al PC senza toccarlo

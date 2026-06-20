@@ -1,0 +1,125 @@
+Installazione:
+    - Installare tramite app-store (è il metodo più semplice e veloce. Supportate anche più versioni)
+    - Appena finita l'installazione viene richiesta:
+        creazione utente linux
+
+
+primo_login:
+    command:
+        wsl -d ubuntu-20.04 (se si hanno più installazioni si puo indicare la versione)
+
+    check ubuntu release:
+        lsb_release -a
+
+    - sudo update:
+        cmd:
+            sudo visudo ed inserire la riga
+                loreto     ALL=(ALL) NOPASSWD:ALL"
+    - sudo check:
+        sudo --list
+
+    distribution Update:
+        - sudo apt update -y
+        - sudo apt dist-upgrade -y
+        - sudo apt install python3-pip -y
+        - pip3 install pyaml
+        - pip3 install python-benedict
+        - pip3 install ssh2-python
+
+    ssh:
+        - sudo ssh-keygen -A
+            Atrimenti alla partenza di sshd potrebbe dare errori come segue:
+                * Starting OpenBSD Secure Shell server sshd sshd
+                Could not load host key: /etc/ssh/ssh_host_rsa_key
+                Could not load host key: /etc/ssh/ssh_host_ecdsa_key
+                Could not load host key: /etc/ssh/ssh_host_ed25519_key
+
+        - ssh-keygen -t ed25519 -f /home/loreto/.ssh/id_ed25519_LN
+
+        - ssh-keygen -t ed25519
+        - ssh-keygen -t rsa -b 2048
+        - sudo vi /etc/ssh/sshd_config
+            modificare la porta di ascolto da 22 a 2222
+        - sudo service ssh restart
+
+        see:
+        https://www.hanselman.com/blog/how-to-ssh-into-wsl2-on-windows-10-from-an-external-machine
+
+        netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=2222 connectaddress=127.0.0.1 connectport=2222
+
+        open fw:
+        netsh advfirewall firewall add rule name=”Open Port 2222 for WSL2” dir=in action=allow protocol=TCP localport=2222
+
+        show:
+        netsh interface portproxy show v4tov4
+
+        remove:
+        netsh int portproxy reset all
+
+
+    IPv6:
+        ref: https://linuxconfig.org/how-to-disable-ipv6-address-on-ubuntu-18-04-bionic-beaver-linux
+        check: ip a
+        temporary:
+            - sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+            - sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+
+        permanent:
+            sudo vi /etc/sysctl.conf
+            ... add the following lines
+                - net.ipv6.conf.all.disable_ipv6=1
+                - net.ipv6.conf.default.disable_ipv6=1
+            oppure forse il seguente comando lo scrive per me
+                sudo sysctl -p /etc/sysctl.conf
+
+set_default_distribution:
+    wsl --setdefault ubuntu-20.04
+
+set_distribution_version:
+    wsl --set-default-version <Version>
+    wsl --set-version <Distro> <Version> # --set-version ubuntu-20.04 2
+
+start_specific_distribution:
+    wsl --distribution ubuntu-20.04
+
+terminate_specific_distribution:
+    wsl --terminate, -t <Distro>
+
+unregister_specific_distribution:
+    wsl --unregister <Distro>
+
+export _specific_distribution:
+    wsl --export <Distro> <FileName>
+
+
+backup:
+    sudo tar -cvf /mnt/k/Filu/LnDisk/GIT-REPO/SilviaPC_ubuntu18.04.tar \
+        .credentials \
+        .ssh \
+        .vim \
+        .bashrc \
+        .gitconfig \
+        .Loreto \
+        .Loreto_Aliases \
+        .Loreto_Functions \
+        /etc/sudoers \
+        /etc/hosts \
+        /etc/mongodb.conf \
+        /etc/sysctl.conf \
+        /etc/ssh/sshd_config \
+        .kite
+
+
+
+
+
+
+
+
+guida con anche wsl2
+https://docs.microsoft.com/it-it/windows/wsl/install-win10
+
+https://devblogs.microsoft.com/commandline/wsl2-will-be-generally-available-in-windows-10-version-2004/
+
+
+.credentials .kite .ssh .vim .bashrc .gitconfig .Loreto .Loreto_Aliases .Loreto_Functions

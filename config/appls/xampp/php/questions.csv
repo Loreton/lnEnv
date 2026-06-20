@@ -1,0 +1,11 @@
+"In quale linguaggio di programmazione è scritto il sistema operativo Linux?"                      , "c"
+"Come si chiama il processo di identificare e correggere gli errori nel codice?"                   , "debugging"
+"Qual è il termine per una funzione che chiama se stessa?"                                         , "ricorsione"
+"Cos'è una variabile che non può essere modificata dopo la sua assegnazione?"                      , "costante"
+"Qual è il tipo di ciclo che si usa per ripetere un blocco di codice un numero definito di volte?" , "for"
+"Che tipo di dati rappresenta una sequenza di caratteri?"                                          , "stringa"
+"Qual è il termine che descrive una classe che eredita da un'altra classe?"                        , "sottoclasse"
+"Come si chiama il tipo di dato che rappresenta un numero senza decimali?"                         , "intero"
+# ciao loreto
+"Quale linguaggio è standardizzato per database basati sul modello relazionale?"                   , "sql"
+"Qual'è la funzione PHP per terminare uno script?"                                                 , "exit"

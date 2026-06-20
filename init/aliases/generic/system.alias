@@ -1,0 +1,130 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 15-06-2026 21.17.34
+#
+
+# function @_system_real_path() {
+#     echo $(readlink -fvs  "${1}");
+# }
+
+function @ln_grep() {
+    grep -ri $1 * .[^.]*
+    grep --include=\*.{sh,py} --exclude=\*.o -rnw '/path/to/somewhere/' -e 'pattern'
+}
+
+
+
+if [[ "XXX" == "NOT_USING" ]]; then
+    alias ${alias_prefix}commit="${ln_SH_SCRIPTS_DIR}/prod/gitcommit.sh"
+    alias ${alias_prefix}reset="tput reset"
+
+    ### - system
+    alias ${alias_prefix}update.sys='sudo apt update -y && sudo apt upgrade -y'
+    alias ${alias_prefix}upgrade.pkg='sudo dpkg -i' ### package like ipscan_3.6.2_amd64.deb
+
+    alias ${alias_prefix}pid="sudo ps -fp " # anche cat /proc/<pid>/cmdline
+
+    alias ps1="export PS1='\[\033[01;32m\][\u@\h] \[\033[01;34m\][\W]\$:\[\033[00m\] '"
+    alias ps2="export PS1='\[\033[01;32m\][\u@\h\[\033[00m\]] \[\033[01;34m\][\w] \$:\[\033[00m\] '"
+
+    alias ${alias_prefix}motd.update="sudo ln -sf ${ln_CONFIG_DIR}/pc/${hostname_lc}/etc_motd /etc/motd && ls -la /etc/motd"
+    alias ${alias_prefix}mqtt-retained_clear="mosquitto_pub -h lnmqtt.duckdns.org  -u Loreto -P LoretoMqtt -n -r -d -t " # passare topic: tele/VesoviNew/LWT
+
+    alias ${alias_prefix}readOnly="chmod -R a-w"
+    alias ${alias_prefix}writeUser="chmod -R u+w"
+fi
+
+
+alias ${alias_prefix}reset_screen="tput reset"
+
+
+alias ls='ls'
+alias ll='ls -al --color'
+alias lr='ls -latr --color'
+
+
+# --------------------------------
+# Crontab
+# --------------------------------
+
+
+
+
+
+# function buildPatttern() {
+#     local patterns="$@"
+#     local total_pattern=''
+#     for pattern in $patterns; do
+#         if [[ -z $total_pattern ]]; then
+#             total_pattern="-name '$pattern'"
+#         else
+#             total_pattern="$total_pattern -o -name '$pattern'"
+#         fi
+#     done
+
+#     if [[ -z $total_pattern ]]; then
+#         left_find_command="find . -type f"
+#     else
+#         left_find_command="find . -type f '(' ${total_pattern} ')'"
+#     fi
+#     export left_find_command
+# }
+
+# function toReadOnly() {
+#     buildPatttern "$@"
+#     cmd="${left_find_command} -print0 | xargs -0 chmod -w"
+#     echo "... ${cmd} ..."
+#     unset left_find_command
+#     # $cmd
+# }
+
+# function verifyAttributes() {
+#     buildPatttern "$@"
+#     cmd="${left_find_command} -ls"
+#     echo "... ${cmd} ..."
+#     # $cmd
+# }
+
+
+
+
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+
+
+    # alias ${alias_prefix}editor=$(which subl_byLoreto)
+    _TAB='    '
+    _dq='"'
+    alias ${alias_prefix}usbview-02="usb-devices && { echo;
+                                                      echo ${_dq}${_TAB}USB 1.1: Spd=12${_dq};
+                                                      echo ${_dq}${_TAB}USB 2.0: Spd=480${_dq};
+                                                      echo ${_dq}${_TAB}USB 3.0: Spd=5000${_dq};
+                                                      echo; }"
+    alias ${alias_prefix}usbview-01="lsusb -t && { echo;
+                                                   echo ${_dq}${_TAB}USB 1.1: 12M${_dq};
+                                                   echo ${_dq}${_TAB}USB 2.0: 480M${_dq};
+                                                   echo ${_dq}${_TAB}USB 3.0: 5000M${_dq};
+                                                   echo; }"
+    unset _TAB
+    unset _dq
+
+
+
+    alias ${alias_prefix}real_path='echo $(readlink -fvs  "${PWD}")';
+
+    alias ${alias_prefix}sysbench-cpu="sysbench cpu --cpu-max-prime=20000 run";
+    alias ${alias_prefix}sysbench-mem="sysbench memory --memory-block-size=1M --memory-total-size=5G run";
+    alias ${alias_prefix}sysbench-mysl="sysbench oltp_read_write --db-driver=mysql --mysql-user=loreto --mysql-password=Loreto --tables=10 --table-size=100000 run";
+    # alias ${alias_prefix}key_code="xmodmap -pke | grep -E 'keycode\s+(45|53|9)'"
+    alias ${alias_prefix}key_code="xmodmap -pke | grep -E 'keycode\s+()'"
+
+
+
+elif [[ " ${raspberryPC} " == *" ${hostname_lc} "* ]]; then
+    export editor=/usr/bin/vi
+    export EDITOR=/usr/bin/vi
+fi
+
+# unset -f @_system_real_path
