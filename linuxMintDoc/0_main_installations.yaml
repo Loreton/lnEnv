@@ -1,0 +1,22 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 24-06-2026 18.13.12
+#
+
+maint:
+    - sudoers.yaml
+    - ssh.yaml
+    - pdfarranger.yaml
+    - pdf_tools.yaml
+    - terminator.yaml
+    - vivaldi.yaml
+    - vim.yaml
+    - xnview.yaml
+    - telegramDesktop.yaml
+    - doubleCommander.yaml
+
+
+
+personali:
+    - lnEnv
+    - linuxPortable

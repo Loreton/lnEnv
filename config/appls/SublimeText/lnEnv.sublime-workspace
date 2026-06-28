@@ -537,7 +537,7 @@
 						"block": false
 					},
 					"AQAAAO8BAAAAAAAA7wEAAAAAAAADAAAALy8g",
-					"JAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAP8BAAAAAAAA/wEAAAAAAAAAAAAAAADwvw"
+					"KwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAA/wEAAAAAAAD/AQAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					3,
@@ -547,8 +547,21 @@
 						"block": false
 					},
 					"AQAAAO8BAAAAAAAA8gEAAAAAAAAAAAAA",
-					"GwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAABECAAAAAAAAEQIAAAAAAAAAAAAAAADwvw"
+					"IgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAEQIAAAAAAAARAgAAAAAAAAAAAAAAAPC/"
 				]
+			]
+		},
+		{
+			"contents": "Searching 702 files for \"XCLIP_ROOT_DIR_FILE\" (case sensitive)\n\n~/filu/lnEnv/init/aliases/generic/01-system.functions:\n   21      local dir=${1:-$HOME}\n   22      builtin cd $dir\n   23:     echo $PWD > \"${XCLIP_ROOT_DIR_FILE}\"\n   24  }\n   25  \n\n~/filu/lnEnv/init/aliases/generic/shell.alias:\n   26  \n   27  ### per xbindkeys + xclip\n   28: alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo \"$PWD\" >$file; cat $file; echo \"\twritten to file $file\"; }'  ### importante il singolo apice\n   29  \n   30  \n\n~/filu/lnEnv/init/main/setLoretoEnvironment:\n   77              export            ln_ZED_CONFIG_DIR=\"${ln_APPLS_CONFIG_DIR}/zed\"\n   78              export         ln_SXHKD_CONFIG_FILE=\"${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc\"\n   79:             export          XCLIP_ROOT_DIR_FILE=\"/tmp/xclip_rootdir\"\n   80  \n   81  \n\n~/filu/lnEnv/init/main/setLoretoEnvironment_new:\n  135          ln_ZED_CONFIG_DIR=\"${ln_APPLS_CONFIG_DIR}/zed\"\n  136          ln_SXHKD_CONFIG_FILE=\"${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc\"\n  137:         XCLIP_ROOT_DIR_FILE=/tmp/xclip_rootdir\n  138  \n  139  \n\n~/filu/lnEnv/lnUtilities/xClip/xClip.py:\n   20  \n   21  fDEBUG = False\n   22: XCLIP_ROOT_DIR_FILE = \"/tmp/xclip_rootdir\"  # ✅ Definita qui\n   23  \n   24  \n   ..\n  155          required=False,\n  156          metavar=\"\",\n  157:         default=XCLIP_ROOT_DIR_FILE,  # ✅ ora definita\n  158          type=str,\n  159          help=f\"file containing root dir {default_value}\",\n\n~/filu/lnEnv/lnUtilities/xClip/xClip_ok01.py:\n  179          required=False,\n  180          metavar=\"\",\n  181:         default=XCLIP_ROOT_DIR_FILE,\n  182          type=str,\n  183          help=f\"file containing root dir {default_value}\",\n  ...\n  195      global logger\n  196      xclip_logg_filename = \"/tmp/xClip.log\"\n  197:     XCLIP_ROOT_DIR_FILE = \"/tmp/xclip_rootdir\"\n  198      logger = setLogger(filename=xclip_logg_filename, level=logging.INFO)\n  199      DEFAULT_EDITOR1 = (\n\n~/filu/lnEnv/shScripts/iconv/test_file.txt:\n   14      # qui mettiamo le principali in modo da poter poi risolvere le altreÃÂÃÂ¹\n   15  \n   16:             export          XCLIP_ROOT_DIR_FILE=\"/tmp/xclip_rootdir\"\n   17              export                         LANG=\"en_US.UTF-8\"\n   18              export                       LC_ALL=\"en_US.UTF-8\"\n\n~/filu/lnEnv/utils_links/findReplaceTextInFiles.lnk.py:\n    ERROR: Unable to open file\n\n~/filu/lnEnv/utils_links/xClip.lnk.py:\n    ERROR: Unable to open file\n\n9 matches across 7 files\n",
+			"settings":
+			{
+				"buffer_size": 2482,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			},
+			"undo_stack":
+			[
 			]
 		}
 	],
@@ -564,6 +577,14 @@
 		"selected_items":
 		[
 			[
+				"ren",
+				"File: Rename File"
+			],
+			[
+				"mov",
+				"File: Move"
+			],
+			[
 				"dup",
 				"File: Duplicate"
 			],
@@ -574,14 +595,6 @@
 			[
 				"bash",
 				"Set Syntax: Bash"
-			],
-			[
-				"mov",
-				"File: Move"
-			],
-			[
-				"ren",
-				"File: Rename File"
 			],
 			[
 				"syn",
@@ -911,24 +924,65 @@
 	},
 	"expanded_folders":
 	[
+		"/home/loreto/filu/lnEnv",
+		"/home/loreto/filu/lnEnv/config",
+		"/home/loreto/filu/lnEnv/config/appls",
+		"/home/loreto/filu/lnEnv/init",
+		"/home/loreto/filu/lnEnv/init/main"
 	],
 	"file_history":
 	[
-		"/home/loreto/filu/lnEnv/init/aliases/applications/zed.alias",
+		"/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
+		"/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment",
+		"/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment_new",
+		"/home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py",
+		"/home/loreto/filu/lnEnv/init/main/loretorc",
+		"/home/loreto/filu/lnEnv/.config_secret/loretoVariables.sh",
+		"/home/loreto/filu/lnEnv/init/__old/setLoretoEnvironment",
+		"/home/loreto/filu/Applications/linuxPortable/doublecmd_1.1.32/settings/doublecmd.xml",
+		"/home/loreto/filu/minou/snEnv/linuxMintDoc/vivaldi.yaml",
+		"/home/loreto/filu/minou/snEnv/linuxMintDoc/0_main_installations.yaml",
+		"/home/loreto/filu/lnEnv/init/main/bashrc_addon.sh",
+		"/home/loreto/filu/minou/snEnv/linuxMintDoc/telegramDesktop.yaml",
+		"/home/loreto/filu/minou/snEnv/linuxMintDoc/vim.yaml",
+		"/home/loreto/filu/minou/snEnv/linuxMintDoc/rustdesk.yaml",
+		"/home/loreto/filu/minou/snEnv/linuxMintDoc/opera.yaml",
+		"/home/loreto/filu/minou/snEnv/linuxMintDoc/terminator.yaml",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/0_main_installations.yaml",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/terminator.yaml",
+		"/home/loreto/filu/minou/snEnv/start_proc/doublecmd_start.sh",
+		"/home/loreto/filu/minou/snEnv/start_proc/sublime_start.sh",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/sudoers.yaml",
+		"/home/loreto/filu/minou/snEnv/init/main/setLoretoEnvironment",
+		"/home/loreto/filu/minou/snEnv/init/main/bashrc_addon.sh",
+		"/home/loreto/filu/minou/snEnv/init/main/@bashrc_20251121",
+		"/home/loreto/filu/minou/snEnv/init/main/loretorc",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/ssh.yaml",
+		"/media/loreto/AppoSilvia/minou/snEnv/linuxMintDoc/pdf_tools.yaml",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/pdf_tools.yaml",
+		"/media/loreto/AppoSilvia/minou/snEnv/linuxMintDoc/pdfarranger.yaml",
+		"/media/loreto/AppoSilvia/snEnv/linuxMintDoc/doubleCommander.yaml",
+		"/media/loreto/AppoSilvia/snEnv/linuxMintDoc/sudoers.yaml",
+		"/media/loreto/AppoSilvia/snEnv/linuxMintDoc/ssh.yaml",
+		"/home/loreto/filu/lnEnv/init/__old/Loretorc",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/dual-boot.yaml",
+		"/home/loreto/filu/lnEnv/init/aliases/generic/disk.alias",
+		"/home/loreto/filu/lnEnv/start_proc/doublecmd_start.sh",
+		"/media/loreto/WD264F_500GB",
+		"/home/loreto/filu/lnEnv/linuxMintDoc/xnview.yaml",
+		"/home/loreto/filu/lnEnv/installationDoc/Ubuntu/boot-problems.yaml",
+		"/home/loreto/filu/lnEnv/start_proc/sxhkd_start.sh",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/files/file_utils.py",
 		"/home/loreto/filu/Programming/gitREPO/lnSync/src/lnsync/core/lnsync_class.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib_before_typeAnnot/files/file_utils.py",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/sxhkd.alias",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/zed.alias",
 		"/home/loreto/filu/lnEnv/config/appls/zed/.gitignore",
 		"/home/loreto/filu/Programming/gitREPO/lnSync/.git/config",
-		"/home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py",
 		"/home/loreto/filu/lnEnv/lnUtilities/py_env/init_uv_project.sh",
 		"/home/loreto/filu/Applications/lnAppls/buildProject/python_build.py",
 		"/home/loreto/.bashrc",
-		"/home/loreto/filu/lnEnv/init/main/bashrc_addon.sh",
 		"/home/loreto/filu/lnEnv/linuxMintDoc/diff.yaml",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/sxhkd.alias",
-		"/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
-		"/home/loreto/filu/lnEnv/start_proc/sxhkd_start.sh",
-		"/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment",
-		"/home/loreto/filu/lnEnv/.config_secret/loretoVariables.sh",
 		"/home/loreto/filu/lnEnv/.config_secret/pc/SSH/lnpi31/config",
 		"/tmp/xClip.log",
 		"/home/loreto/.pyenv/versions/3.14.5/lib/python3.14/test/typinganndata/partialexecution/a.py",
@@ -1005,47 +1059,11 @@
 		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/01-PYENV.functions_prev",
 		"/home/loreto/filu/lnEnv/pyScripts/py_env/create_pyproject.sh",
 		"/home/loreto/filu/lnEnv/config/appls/starship/starship.toml",
-		"/home/loreto/.config/starship_base.toml",
-		"/home/loreto/filu/lnEnv/config/appls/startship/starship.toml",
-		"/home/loreto/filu/lnEnv/init/main/\"${ln_APPLS_CONFIG_DIR}/starship/starship.toml\"",
-		"/home/loreto/filu/lnEnv/pyScripts/py_env/init_pyproject.sh",
-		"/home/loreto/filu/lnEnv/shScripts/z_templates_bash/@script_tips.sh",
-		"/home/loreto/filu/lnEnv/init/script_utils/zip_dir.sh",
-		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/platformio.functions",
-		"/home/loreto/filu/lnEnv/init/commonFunctions/create_links.functions",
-		"/home/loreto/filu/lnEnv/init/commonFunctions/@load_common_functions.sh",
-		"/home/loreto/filu/lnEnv/init/commonFunctions/colors.functions",
-		"/home/loreto/filu/lnEnv/init/commonFunctions/esegui.functions",
-		"/home/loreto/filu/lnEnv/init/commonFunctions/manage_paths.functions",
-		"/home/loreto/filu/lnEnv/shScripts/varie/apache_ln.sh",
-		"/home/loreto/filu/lnEnv/config/appls/xampp/conf/vhosts_05_80.conf",
-		"/home/loreto/filu/lnEnv/config/appls/xampp/conf/ln_httpd-vhosts.conf",
-		"/home/loreto/filu/lnEnv/installationDoc/Ubuntu/071-xampp.yaml",
-		"/home/loreto/filu/lnEnv/shScripts/varie/gitcommit.sh",
-		"/home/loreto/filu/lnEnv/shScripts/create_links/create_Utils_links.sh",
-		"/home/loreto/filu/lnEnv/installationDoc/Raspberry/Varie/LAMP.yaml",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/saved/xampp.alias_",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/.saved/terminator.alias_",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/saved/terminator.alias_",
-		"/home/loreto/filu/lnEnv/init/aliases/generic/shell.alias",
-		"/home/loreto/filu/lnEnv/pyScripts/varie/crontab_update_wip_DS.py",
-		"/home/loreto/.config/rclone/rclone.conf",
-		"/home/loreto/filu/lnEnv/pyScripts/varie/crontab_update_wip_gpt.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/rclone.sh",
-		"/home/loreto/.ssh/config",
-		"/home/loreto/filu/lnEnv/.config_secret/pc/ideapadslim3/crontab/crontab.conf",
-		"/home/loreto/filu/lnEnv/pyScripts/varie/crontab_update_wip_gemini.py",
-		"/home/loreto/filu/lnEnv/shScripts/mount/ln_mount.sh",
-		"/home/loreto/filu/lnEnv/pyScripts/telegram/sendTelegramMsg.py",
-		"/home/loreto/filu/lnEnv/shScripts/ddns/ddns_update_wLog.sh",
-		"/home/loreto/filu/lnEnv/shScripts/varie/myIP.sh",
-		"/home/loreto/filu/lnEnv/.config_secret/pc/aspire5750g/crontab/crontab.conf",
-		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/pyenv_installation.yaml",
-		"/home/loreto/filu/lnEnv/shScripts/py_env/venv_creation.sh"
+		"/home/loreto/.config/starship_base.toml"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 38.0
 	},
 	"find_in_files":
 	{
@@ -1060,6 +1078,26 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"XCLIP_ROOT_DIR_FILE",
+			"ln_ZED_CONFIG_DIR",
+			"XCLIP_ROOT_DIR_FILE",
+			"ln_ZED_CONFIG_DIR",
+			"hostnam",
+			"export",
+			"echo \"exporting",
+			"loreto",
+			"vivaldi",
+			"lnEnv",
+			"filu",
+			"lnEnv",
+			"filu",
+			"/home/loreto",
+			"filu",
+			"PS1",
+			"IdeaPadSlim3",
+			"boota",
+			"dual",
+			"ln_SXHKD_CONFIG_FILE",
 			"add_argument",
 			"toml",
 			"DEFAULT_EDITOR",
@@ -1167,27 +1205,7 @@
 			"BASE_DIR",
 			"build_lib_zip",
 			"zipapp",
-			"subprocess",
-			"tomllib",
-			"Path",
-			"pathlib",
-			"List",
-			"Dict",
-			"Optional",
-			"build_uv_project",
-			"pylnlib",
-			"scan_repos_recursively",
-			"pyLnLib_SRC",
-			"src",
-			"&& /bin/bash .runLnSync ",
-			"LNSYNC_DIR",
-			"INIT",
-			"loreto",
-			"g_userNAME",
-			"lore",
-			"/home/loreto",
-			"pi/",
-			"cd ${ln_GIT_REPO_DIR}/lnSync"
+			"subprocess"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1242,13 +1260,93 @@
 					"stack_index": 0,
 					"stack_multiselect": false,
 					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2482,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										205,
+										224
+									],
+									[
+										372,
+										391
+									],
+									[
+										771,
+										790
+									],
+									[
+										1030,
+										1049
+									],
+									[
+										1164,
+										1183
+									],
+									[
+										1328,
+										1347
+									],
+									[
+										1585,
+										1604
+									],
+									[
+										1788,
+										1807
+									],
+									[
+										2118,
+										2137
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								777,
+								777
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/home/loreto/filu/lnEnv/init/main",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
 				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 27.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -1330,7 +1428,7 @@
 	"project": "lnEnv.sublime-project",
 	"replace":
 	{
-		"height": 50.0
+		"height": 48.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1358,7 +1456,7 @@
 		[
 			[
 				"",
-				"~/filu/lnEnv/config/appls/SublimeText/lnSync.sublime-project"
+				"~/filu/lnEnv/config/appls/SublimeText/pyLnLib.sublime-project"
 			]
 		],
 		"width": 380.0

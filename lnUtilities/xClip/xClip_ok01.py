@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 20-06-2026 13.50.05
+# Date .........: 28-06-2026 16.14.24
 #
 # Funzione per eseguire editor (nano in questo esempio) sulla stringa selezionata
 # Assicurati che 'xclip' sia installato (sudo apt install xclip)

@@ -1,38 +1,41 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 08-05-2026 17.02.40
+# Date .........: 21-06-2026 15.11.30
 #
 
-myAppl="${HOME}/filu/Applications/linuxPortable/SublimeText4/sublime_text"
-myApplName='sublime'
-myApplicationLog="/tmp/${myApplName}_start.log"
-# LORETO_ENVIRONMENT="${HOME}/filu/lnEnv/init/main/setLoretoEnvironment"
-# LORETO_ENVIRONMENT="${ln_ENV_DIR}/init/main/setLoretoEnvironment"
+applLog="/tmp/sublime_start.log"; echo >$applLog
+
+#- caricamento variabili di ambiente personali
+source ${HOME}/filu/lnEnv/.config_secret/loretoVariables.sh   >>$applLog 2>&1
+
+
+
+
+myAppl="${ln_LINUX_PORTABLE_DIR}/SublimeText4/sublime_text"
+
+
 
 #- scrivi su log
 DATE=$(date +'%d-%m-%Y %H:%M:%S')
-echo -e "\n--- $DATE - start"                           >>$myApplicationLog 2>&1
+echo -e "\n--- $DATE - start"                           >>$applLog 2>&1
 
-#- mi serve per variabili che potrebbero essere all'interno di file e voglio che sublime le risolva...
-# source ${HOME}/filu/lnEnv/config_secret/loretoVariables.sh   >>$myApplicationLog 2>&1
-source ${HOME}/filu/lnEnv/.config_secret/loretoVariables.sh   >>$myApplicationLog 2>&1
 
 
 if [[ -f "${myAppl}" ]]; then
     # se c'è qualche parametro ...
     if [[ "$@" ]]; then
-        echo -e "editing file: $@"                     >>$myApplicationLog 2>&1
+        echo -e "editing file: $@"                     >>$applLog 2>&1
     else
-        echo -e "launching: [${myAppl}]"               >>$myApplicationLog 2>&1
+        echo -e "launching: [${myAppl}]"               >>$applLog 2>&1
     fi
 
-    "${myAppl}" $@ &                        #----     >>$myApplicationLog 2>&1 &
+    "${myAppl}" $@ &                        #----     >>$applLog 2>&1 &
     pid=$!
-    echo -e "Lanciato PID ${pid}\n"                    >>$myApplicationLog 2>&1
-    echo -e "\n\n--- program output --------\n"        >>$myApplicationLog 2>&1
+    echo -e "Lanciato PID ${pid}\n"                    >>$applLog 2>&1
+    echo -e "\n\n--- program output --------\n"        >>$applLog 2>&1
 else
-    echo -e "[${myAppl}] NOT FOUND"                >>$myApplicationLog
+    echo -e "[${myAppl}] NOT FOUND"                >>$applLog
 fi
 
 

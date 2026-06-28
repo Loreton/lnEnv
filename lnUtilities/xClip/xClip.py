@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 20-06-2026 14.59.31
+# Date .........: 28-06-2026 17.15.17
 #
 # Funzione per eseguire editor (nano in questo esempio) sulla stringa selezionata
 # Assicurati che 'xclip' sia installato (sudo apt install xclip)
@@ -19,27 +19,32 @@ from typing import cast
 sys.dont_write_bytecode = True
 
 fDEBUG = False
-XCLIP_ROOT_DIR_FILE = "/tmp/xclip_rootdir"  # ✅ Definita qui
+XCLIP_ROOT_DIR_FILE=os.environ.get("XCLIP_ROOT_DIR_FILE", "/tmp/xclip.rootdir")   # ✅ Definita qui
 
 
 # -------------------------
 # Logging setup
 # -------------------------
-def setLogger(filename: str, level: int = logging.INFO):
+def setLogger(filename: str, file_Log_level: int = logging.INFO, console_Log_level: int = logging.WARNING):
     logger = logging.getLogger("LnLogger")
     logger.setLevel(logging.DEBUG)
 
-    file_handler = logging.FileHandler(filename)
-    file_handler.setLevel(level)
-
     formatter = logging.Formatter(
-        fmt="%(asctime)s [%(module)s.:%(lineno)4s] [%(levelname)4s] : %(message)s",
+        fmt="%(asctime)s [%(module)-20s:%(lineno)4s] [%(levelname)4s] : %(message)s",
         datefmt="%H:%M:%S",
         style="%",
     )
 
+    file_handler = logging.FileHandler(filename)
+    file_handler.setLevel(file_Log_level)
     file_handler.setFormatter(formatter)
     logger.addHandler(file_handler)
+
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(console_Log_level)
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+
     return logger
 
 
@@ -64,14 +69,15 @@ def findFileInPath(root: str, filename: str):
         ".tpl",
         ".alias",
     ]
+    logger.info("findFileInPath: root=%s, filename=%s", root, filename)
     if not Path(filename).suffix:
-        filenames = [f"{filename}{ext}" for ext in DEFAULT_EXTENSIONS]
-        filenames.insert(0, filename)
+        filenames_to_be_searched = [f"{filename}{ext}" for ext in DEFAULT_EXTENSIONS]
+        filenames_to_be_searched.insert(0, filename)
     else:
-        filenames = [filename]
+        filenames_to_be_searched = [filename]
 
     for dirpath, _, files in os.walk(root):
-        for filename in filenames:
+        for filename in filenames_to_be_searched:
             full_path = os.path.join(dirpath, filename)
             logger.debug("checking for: %s", full_path)
             if filename in files:
@@ -102,19 +108,19 @@ def leggi_clipboard(tipo_appunti: str = "clipboard") -> str | None:
 #########################################################
 def analizza_riga(riga: str | None, rootDir: str | None) -> str | None:
     logger.info("processing riga: %s", riga)
+    ret_value = None
 
     # ✅ Controllo che riga non sia None
     if riga is None:
-        return None
+        return ret_value
 
     riga = os.path.expandvars(riga)
     riga = riga.replace(":", " ").replace(",", " ").replace("(", " ").replace(")", " ")
     token = riga.split()
-    ret_value = None
 
     logger.info("tokens: %s", token)
     if not token:
-        return None
+        return ret_value
 
     filepath = token.pop(0)
     line_no = 1
@@ -126,6 +132,7 @@ def analizza_riga(riga: str | None, rootDir: str | None) -> str | None:
         elif word.isdigit():  # ✅ Corretto
             line_no = int(word)
             break
+    logger.info("filepath: %s, line_no: %s", filepath, line_no)
 
     filepath = filepath.strip(""" "' """)
     if not os.path.isabs(filepath):
@@ -134,13 +141,14 @@ def analizza_riga(riga: str | None, rootDir: str | None) -> str | None:
             logger.error("rootDir is None")
             return None
         filepath = findFileInPath(root=rootDir, filename=Path(filepath).name)
-    # else: filepath = filepath (non serve)
 
+    logger.info("filepath: %s, line_no: %s", filepath, line_no)
     if filepath and os.path.exists(filepath):
         ret_value = f"{filepath}:{int(line_no)}"
-    else:
-        logger.error("filepath %s NOT FOUND", filepath)
+    # else:
+    #     logger.error("filepath %s NOT FOUND", filepath)
 
+    logger.info("ret_value: %s", ret_value)
     return ret_value
 
 
@@ -150,14 +158,10 @@ def analizza_riga(riga: str | None, rootDir: str | None) -> str | None:
 def parserInput() -> argparse.Namespace:
     default_value: str = "[%(default)s]\n\n"  # ✅ indentato correttamente
     parser = argparse.ArgumentParser(description="xClip")
-    _ = parser.add_argument(
-        "--file",
-        required=False,
-        metavar="",
-        default=XCLIP_ROOT_DIR_FILE,  # ✅ ora definita
-        type=str,
-        help=f"file containing root dir {default_value}",
-    )
+    _ = parser.add_argument("--file", required=False, metavar="", default=XCLIP_ROOT_DIR_FILE,  # ✅ ora definita type=str,
+        help=f"file containing root dir {default_value}", )
+    _ = parser.add_argument("--console",  action='store_true',  help=f"console log {default_value}", )
+
     args = parser.parse_args()
     return args
 
@@ -167,8 +171,12 @@ def parserInput() -> argparse.Namespace:
 #########################################################
 if __name__ == "__main__":
     global logger
-    xclip_logg_filename = "/tmp/xClip.log"
-    logger = setLogger(filename=xclip_logg_filename, level=logging.INFO)
+    args = parserInput()
+    LOG_CONSOLE=logging.INFO if args.console else logging.WARNING
+
+    xclip_logg_filename = "/tmp/xclip.log"
+    logger = setLogger(filename=xclip_logg_filename, file_Log_level=logging.INFO, console_Log_level=LOG_CONSOLE)
+    logger.info("starting....")
     sublime_editor = [
         "/home/loreto/filu/Applications/linuxPortable/SublimeText4/sublime_text"
     ]
@@ -177,22 +185,21 @@ if __name__ == "__main__":
         "run",
         "dev.zed.Zed",
         "--user-data-dir",
-        "/home/loreto/filu/lnEnv/config/appls/zed",
+        os.path.expandvars("${ln_ZED_CONFIG_DIR}"),
     ]
-    editor_command: list[str] = sublime_editor
-    args = parserInput()
+
+    # editor_command: list[str] = sublime_editor
+    editor_command: list[str] = zed_editor
     file_path: str = cast(str, args.file)  # ✅ Forza il tipo
     ffile = Path(file_path)
-    rootDir: str | None = None
+    rootDirs: list[str]|list[Path]  = [Path(os.path.curdir).resolve()]
+
+    ### --- read RootDirectory for searching files
     try:
         with ffile.open(mode="r") as f:
             content = f.read()
         if content:
-            rootDir = content.split()[0]
-            if not Path(rootDir).is_dir():
-                rootDir = os.curdir
-        else:
-            rootDir = None
+            rootDirs = content.split()
 
     except FileNotFoundError:
         logger.error(f"File {ffile} not found")
@@ -206,7 +213,7 @@ if __name__ == "__main__":
         logger.error(f"Unexpected error: {e}", exc_info=True)
         sys.exit(1)
 
-    if rootDir:
+    if rootDirs:
         testo_copiato: str | None = leggi_clipboard("clipboard")
         testo_selezionato: str | None = leggi_clipboard("primary")
         logger.info("-")
@@ -215,22 +222,26 @@ if __name__ == "__main__":
         logger.info("defaul editor:                           %s", editor_command)
         logger.info("Clipboard (Ctrl+C).....................: %s", testo_copiato)
         logger.info("Primary Selection (selezione col mouse): %s", testo_selezionato)
-        logger.info("rootDir:                                 %s", rootDir)
+        logger.info("rootDirs:                                 %s", rootDirs)
 
         # ✅ Chiamata corretta
-        file_to_be_edited = analizza_riga(riga=testo_selezionato, rootDir=rootDir)
+        for root_dir in rootDirs:
+            file_to_be_edited = analizza_riga(riga=testo_selezionato, rootDir=root_dir)
+            if file_to_be_edited:
+                logger.warning("text: [%s] found in %s", testo_selezionato, root_dir)
+                break
+            else:
+                logger.warning("text: [%s] NOT found in %s", testo_selezionato, root_dir)
+        else:
+            file_to_be_edited = xclip_logg_filename
+            file_to_be_edited = None
 
-        if not file_to_be_edited:
-            file_to_be_edited = analizza_riga(riga=testo_copiato, rootDir=rootDir)
-            if not file_to_be_edited:
-                file_to_be_edited = xclip_logg_filename
     else:
-        logger.info("may be you should run .cdd command to set current directory")
-        file_to_be_edited = xclip_logg_filename
+        logger.warning("may be you should run .cd command to set current directory")
+        sys.exit(1)
+        # file_to_be_edited = xclip_logg_filename
 
     if file_to_be_edited:
-        # editor_command: list[str] = [editor_command, file_to_be_edited]
-        # editor_command: list[str] = editor_command + list(file_to_be_edited)
         editor_command.append(file_to_be_edited)
         if fDEBUG:
             print(editor_command)

@@ -13,7 +13,7 @@ alt + x ; alt + m
     gnome-system-monitor
 
 alt + x; alt + x
-    /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip_rootdir
+    /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip.rootdir
 
 # Super_L + x
     # /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip_rootdir
@@ -36,10 +36,11 @@ alt + x ; alt + d
     ${ln_START_PROC_DIR}/doublecmd_start.sh
 
 alt + x ; alt + z
-    /usr/bin/flatpak run dev.zed.Zed --user-data-dir ${ln_ENV_DIR}/config/appls/zed
+    /usr/bin/flatpak run dev.zed.Zed --user-data-dir ${ln_ZED_CONFIG_DIR}
 
+### --- edit del file di configurazione di sxhkd
 alt + x ; alt + e
-    ${ln_START_PROC_DIR}/sublime_start.sh  ${ln_ENV_DIR}/config/appls/sxhkd/sxhkdrc
+    ${ln_START_PROC_DIR}/sublime_start.sh  ${ln_SXHKD_CONFIG_FILE}
 
 
 # alt + shift + Escape

@@ -1,14 +1,14 @@
-# va eseguita con il comando source
-# va eseguita con il comando source
-# va eseguita con il comando source
-# va eseguita con il comando source
-#
 #!/usr/bin/bash
 # updated by ...: Loreto Notarantonio
-# Date .........: 20-06-2026 12.36.13
+# Date .........: 28-06-2026 16.37.16
 #
 
 
+# va eseguita con il comando source
+# va eseguita con il comando source
+# va eseguita con il comando source
+# va eseguita con il comando source
+#
 set -u
 # fDEBUG=${1:-0}
 fLOG=${1:-0}
@@ -22,7 +22,6 @@ alias_prefix=${alias_prefix:-.} ### per evitare il set -u (unbound variable)
 function set_vars() {
     # qui mettiamo le principali in modo da poter poi risolvere le altre
 
-            export          XCLIP_ROOT_DIR_FILE="/tmp/xclip_rootdir"
             export                         LANG="en_US.UTF-8"
             export                       LC_ALL="en_US.UTF-8"
             export                     LANGUAGE="en_US.UTF-8"
@@ -71,6 +70,15 @@ function set_vars() {
             export              ln_GIT_REPO_DIR="${ln_PROGRAMMING_DIR}/gitREPO"
             export        ln_LINUX_PORTABLE_DIR="${ln_APPLICATIONS_DIR}/linuxPortable"
             export              ln_LN_APPLS_DIR="${ln_APPLICATIONS_DIR}/lnAppls"
+
+            #---------------------
+            #... application configuration directory and files
+            #---------------------
+            export            ln_ZED_CONFIG_DIR="${ln_APPLS_CONFIG_DIR}/zed"
+            export         ln_SXHKD_CONFIG_FILE="${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc"
+            export          XCLIP_ROOT_DIR_FILE="/tmp/xclip.rootdir"
+            export              ln_PY_LNLIB_DIR="${ln_GIT_REPO_DIR}/pyLnLib"
+
 
             #... python (posso decidere se avere quello di default oppure altro)
             #... python il default lo uso per platformio
@@ -290,5 +298,3 @@ function loadCommonFunctions() {
         @lnLog "....."
 
     fi
-
-

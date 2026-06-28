@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 20-06-2026 12.08.17
+# Date .........: 24-06-2026 20.37.29
 
 
 
@@ -61,8 +61,11 @@ function loretoPYENV() {
     else
         echo "Terminator-TERMINAL, starting loretorc setup.."
         setUpTerminal
-        loretoPYENV
-        #- uv python
-        eval "$(direnv hook bash)"
-        eval "$(starship init bash)"
+        myHOSTNAME=$(hostname)
+        if [[ "${myHOSTNAME}" == 'IdeaPadSlim3' ]]; then
+            loretoPYENV
+            #- uv python
+            eval "$(direnv hook bash)"
+            eval "$(starship init bash)"
+        fi
     fi

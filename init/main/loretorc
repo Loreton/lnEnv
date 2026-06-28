@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 17-05-2026 15.12.00
+# Date .........: 24-06-2026 17.07.57
 #
 
 
@@ -76,6 +76,7 @@ export alias_venv_prefix='.venv.'
 export alias_pyenv_prefix='.pyenv.'
 export alias_platformio_venv_prefix='.pio.'
 export alias_shell_prefix='.sh.'
+export alias_disk_prefix='.disk.'
 
 
 alias ${alias_prefix}lnenv="source ${BASH_SOURCE}"

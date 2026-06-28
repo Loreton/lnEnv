@@ -1,12 +1,22 @@
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 04-12-2025 13.16.33
+# Date .........: 24-06-2026 17.51.52
 #
 
 
 Con nessuno posso ritagliare un rettangolo e copuarlo come imagine
 Allora usare Flameshot per catturare l'immagine
 e Xournal++ per fare paste
+
+
+Xournal++:
+  install:
+    flatpak install flathub com.github.xournalpp.xournalpp
+  run:
+    flatpak run com.github.xournalpp.xournalpp
+
+
+
 
 flatpak install flathub org.flameshot.Flameshot
 

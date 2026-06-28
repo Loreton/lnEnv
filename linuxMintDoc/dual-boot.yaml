@@ -1,0 +1,23 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 24-06-2026 14.14.21
+#
+
+
+ref:
+    https://www.youtube.com/watch?v=bhO4b7ZNHAY
+
+
+create bootable usb:
+    Impression:
+        install:
+            flatpak install flathub io.gitlab.adhami3310.Impression
+        run:
+            flatpak run io.gitlab.adhami3310.Impression
+
+
+    Bootqt:
+        install:
+            flatpak install flathub io.github.giantpinkrobots.bootqt
+        run:
+            flatpak run io.github.giantpinkrobots.bootqt

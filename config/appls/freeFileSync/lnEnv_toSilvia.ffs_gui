@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FreeFileSync XmlType="GUI" XmlFormat="23">
+    <Notes/>
+    <Compare>
+        <Variant>TimeAndSize</Variant>
+        <Symlinks>Direct</Symlinks>
+        <IgnoreTimeShift/>
+    </Compare>
+    <Synchronize>
+        <Differences LeftOnly="right" LeftNewer="right" RightNewer="right" RightOnly="right"/>
+        <DeletionPolicy>RecycleBin</DeletionPolicy>
+        <VersioningFolder Style="Replace"/>
+    </Synchronize>
+    <Filter>
+        <Include>
+            <Item>*</Item>
+        </Include>
+        <Exclude>
+            <Item>*/.Trash-*/</Item>
+            <Item>*/.recycle/</Item>
+            <Item>*/utils_links/</Item>
+            <Item>*/.venv/</Item>
+            <Item>*/zed-stable.sock</Item>
+            <Item>*/0_SAVED/</Item>
+            <Item>/bin/</Item>
+            <Item>/CherryTree/</Item>
+            <Item>/dbeaver/</Item>
+            <Item>*/master-pdf-editor-4/</Item>
+            <Item>*/PDFXviewer/</Item>
+            <Item>*/pythonVENV/</Item>
+            <Item>/rclone/</Item>
+            <Item>/sublimeMerge_/</Item>
+            <Item>*/sublimeMerge_Build2112/</Item>
+            <Item>*/Sublime_UserLoreto/</Item>
+            <Item>*/wine/</Item>
+            <Item>*/yq/</Item>
+            <Item>*/zed_config/</Item>
+        </Exclude>
+        <SizeMin Unit="None">0</SizeMin>
+        <SizeMax Unit="None">0</SizeMax>
+        <TimeSpan Type="None">0</TimeSpan>
+    </Filter>
+    <FolderPairs>
+        <Pair>
+            <Left>/home/loreto/filu/Applications/linuxPortable</Left>
+            <Right Threads="5">sftp://silvy@192.168.1.226/home/silvy/filu/Applications/linuxPortable|chan=10|pass64=RW1tYTIwMjIu</Right>
+        </Pair>
+        <Pair>
+            <Left>/home/loreto/filu/lnEnv</Left>
+            <Right Threads="5">sftp://silvy@192.168.1.226/home/silvy/filu/lnEnv|chan=10|pass64=RW1tYTIwMjIu</Right>
+        </Pair>
+    </FolderPairs>
+    <Errors Ignore="false" Retry="0" Delay="5"/>
+    <PostSyncCommand Condition="Completion"/>
+    <LogFolder/>
+    <EmailNotification Condition="Always"/>
+    <GridViewType>Action</GridViewType>
+</FreeFileSync>

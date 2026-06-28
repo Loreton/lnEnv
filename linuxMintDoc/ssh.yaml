@@ -1,6 +1,6 @@
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 09-11-2025 11.21.51
+# Date .........: 24-06-2026 17.31.17
 #
 #
 
@@ -19,8 +19,6 @@ ssh:
 
         - install:
             - sudo apt-get install openssh-server
-
-
 
             - sudo vi /etc/ssh/sshd_config
                 modificare la porta di ascolto da 22 a 2222

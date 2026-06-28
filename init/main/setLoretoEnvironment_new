@@ -1,0 +1,151 @@
+#!/usr/bin/bash
+#
+# dynamically created on 28-06-26 09:25:39
+# do not edit because it will be overwritten!
+#
+
+
+
+function @setColors() {
+    export TAB='    '
+    export    red='\033[0;31m'; export    redH='\033[1;31m'
+    export  green='\033[0;32m'; export  greenH='\033[1;32m'
+    export yellow='\033[0;33m'; export yellowH='\033[1;33m'
+    export   blue='\033[0;34m'; export   blueH='\033[1;34m'
+    export purple='\033[0;35m'; export purpleH='\033[1;35m'
+    export   cyan='\033[0;36m'; export   cyanH='\033[1;36m'
+    export  white='\033[0;37m'; export  whiteH='\033[1;37m'
+    export   grey='\033[0;37m';
+    export   gray='\033[0;37m';
+
+    export colorReset='\033[0m' # No Color
+    export resetColor=$colorReset # No Color
+    unset -f ${FUNCNAME[0]}
+}
+@setColors
+
+
+function load_env() {
+    local data="$1"
+    local count=0
+    local errors=0
+
+    eval "data_expanded=\"$data\""
+
+    echo -e "${cyanH}=== Caricamento variabili d'ambiente ===${resetColor}"
+
+    while IFS= read -r line; do
+        [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+
+        line="$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+
+        if [[ "$line" =~ ^([^=]+)=(.*)$ ]]; then
+            local var_name="${BASH_REMATCH[1]}"
+            local var_value="${BASH_REMATCH[2]}"
+
+            # rimuove apici
+            var_value="${var_value#\"}"
+            var_value="${var_value%\"}"
+            var_value="${var_value#\'}"
+            var_value="${var_value%\'}"
+
+            ((count++))
+
+            if [[ "$var_value" == /* ]]; then
+                if [[ -e "$var_value" ]]; then
+                    echo -e "  ${green}✓${resetColor} $var_name='$var_value'"
+                else
+                    echo -e "  ${red}✗${resetColor} ${yellowH}WARNING:${resetColor} $var_name='$var_value' ${red}(path NON esiste)${resetColor}"
+                    ((errors++))
+                fi
+            else
+                echo -e "  ${green}→${resetColor} $var_name='$var_value'"
+            fi
+
+            export "$var_name=$var_value"
+        fi
+    done <<< "$data_expanded"
+
+    echo -e "${cyanH}=== Caricamento completato: ${green}$count variabili${resetColor}"
+    if [[ $errors -gt 0 ]]; then
+        echo -e "${yellowH}⚠ Attenzione: ${red}$errors path non trovati${resetColor}"
+    fi
+    echo
+}
+
+
+
+_hostname=$(hostname -s)
+ln_ENV_DIR="${HOME}/filu/lnEnv"
+
+# Uso con formato chiave=valore:
+load_env "
+    #---------------------
+    #... general
+    #---------------------
+        LANG=en_US.UTF-8
+        LC_ALL=en_US.UTF-8
+        LANGUAGE=en_US.UTF-8
+
+        ln_hostname=$_hostname
+        hostname_lc=${_hostname,,}
+        ln_tunnel_ssh_key="${HOME}/.ssh/ln_tunnel_ed25519"
+
+
+    #---------------------
+    #... lnEnv & subdirs
+    #---------------------
+        ln_CONFIG_DIR="${ln_ENV_DIR}/config"
+        ln_SECRET_DIR="${ln_ENV_DIR}/.config_secret"
+        ln_APPLS_CONFIG_DIR="${ln_ENV_DIR}/config/appls"
+        ln_APPL_SAVED_DIR="${ln_ENV_DIR}/config/applsSaved"
+        ln_ALIASES_DIR="${ln_ENV_DIR}/init/aliases"
+        ln_SH_SCRIPTS_DIR="${ln_ENV_DIR}/shScripts"
+        ln_PY_SCRIPTS_DIR="${ln_ENV_DIR}/pyScripts"
+        ln_UTILS_DIR="${ln_ENV_DIR}/lnUtilities"
+        ln_HOST_CONFIG_DIR="${ln_SECRET_DIR}/pc/${hostname_lc}"
+
+
+    #---------------------
+    #... systemd
+    #---------------------
+        ln_SYSTEMD_DIR="${ln_ENV_DIR}/systemd"
+
+    #---------------------
+    #... Start Proc
+    #---------------------
+        ln_START_PROC_DIR="${ln_ENV_DIR}/start_proc"
+        ln_SUBLIME_START_PROC="${ln_START_PROC_DIR}/sublime_start.sh"
+        ln_DOUBLECMD_START_PROC="${ln_START_PROC_DIR}/doublecmd_start.sh"
+
+
+
+    #---------------------
+    #... filu & subdirs
+    #---------------------
+        ln_PROGRAMMING_DIR="${ln_FILU_DIR}/Programming"
+        ln_APPLICATIONS_DIR="${ln_FILU_DIR}/Applications"
+        ln_GIT_REPO_DIR="${ln_PROGRAMMING_DIR}/gitREPO"
+        ln_LINUX_PORTABLE_DIR="${ln_APPLICATIONS_DIR}/linuxPortable"
+        ln_LN_APPLS_DIR="${ln_APPLICATIONS_DIR}/lnAppls"
+
+    #---------------------
+    #... application configuration directory and files
+    #---------------------
+        ln_ZED_CONFIG_DIR="${ln_APPLS_CONFIG_DIR}/zed"
+        ln_SXHKD_CONFIG_FILE="${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc"
+        # XCLIP_ROOT_DIR_FILE=/tmp/xclip_rootdir
+
+
+    #---------------------
+    #... python (posso decidere se avere quello di default oppure altro)
+    #... python il default lo uso per platformio
+    #---------------------
+        PYENV_ROOT="${HOME}/.pyenv"
+
+    #---------------------
+    #... files
+    #---------------------
+        ln_BATCH_VARIABLES_FILE="${ln_SECRET_DIR}/loretoVariables.sh"
+        ln_YAML_VARIABLES_FILE="${ln_SECRET_DIR}/yaml/ln_system_variables.yaml"
+"

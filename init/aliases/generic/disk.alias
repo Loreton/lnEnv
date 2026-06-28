@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 01-05-2026 17.54.05
+# Date .........: 24-06-2026 17.07.32
 #
 
 
@@ -56,23 +56,24 @@ function @_rw_speed() {
     [[ -f "${TEST_FILE}" ]] && rm -f ${TEST_FILE}
 }
 
-alias ${alias_prefix}rwSpeed=@_rw_speed
-#... oppure
-alias ${alias_prefix}disk_speed='/home/loreto/filu/lnEnv/shScripts/benchmark/disk_benchmark.sh'
+alias ${alias_prefix}iconv='@lnIconv'
 
 ###- diff
 alias ${alias_prefix}diff="/usr/bin/diffuse" # https://flathub.org/apps/io.github.mightycreak.Diffuse
 
 
 ### - disk
-alias ${alias_prefix}dd_clone='echo sudo dd if=/dev/sda of=/dev/sdb bs=64K conv=noerror,sync status=progress'
-alias ${alias_prefix}dd_to_img='echo sudo dd if=/dev/xxxxx of=~/sd-card-copy.img bs=1M status=progress'
-alias ${alias_prefix}dd_img_to_disk='echo sudo dd if=/media/loreto/lnpi31_2023-11-06_62521344.img    of=/dev/sdcxxx bs=512 count=62521344 status=progres'
-alias ${alias_prefix}dd_gUnzip_to_disk='echo "gzip -cd /media/loreto/LnDisk_SD_ext4/myData/Backups/lnpi31/lnpi31_2023-11-06_62521344.img.gz | sudo dd of=/dev/xxxxx bs=512 count=62521344 status=progress"'
+alias ${alias_disk_prefix}dd_clone='echo sudo dd if=/dev/sda of=/dev/sdb bs=64K conv=noerror,sync status=progress'
+alias ${alias_disk_prefix}dd_to_img='echo sudo dd if=/dev/xxxxx of=~/sd-card-copy.img bs=1M status=progress'
+alias ${alias_disk_prefix}dd_img_to_disk='echo sudo dd if=/media/loreto/lnpi31_2023-11-06_62521344.img    of=/dev/sdcxxx bs=512 count=62521344 status=progres'
+alias ${alias_disk_prefix}dd_gUnzip_to_disk='echo "gzip -cd /media/loreto/LnDisk_SD_ext4/myData/Backups/lnpi31/lnpi31_2023-11-06_62521344.img.gz | sudo dd of=/dev/xxxxx bs=512 count=62521344 status=progress"'
 
-alias ${alias_prefix}deviceList='${HOME}/filu/lnEnv/shScripts/device_list/deviceList.sh'
-alias ${alias_prefix}blkid='sudo blkid -o list'
+alias ${alias_disk_prefix}deviceList='${HOME}/filu/lnEnv/shScripts/device_list/deviceList.sh'
+alias ${alias_disk_prefix}blkid='sudo blkid -o list'
+alias ${alias_disk_prefix}format_fat32='lsblk && echo && echo -e "\tsudo mkfs.vfat -F 32 /dev/sdX1"'
 
 # alias ${alias_prefix}iconv='echo iconv -f utf-8 -t latin1 source_filename.txt | iconv -f utf-8 -t utf-8 > /tmp/repaired_filename.txt'
-alias ${alias_prefix}iconv='@lnIconv'
+alias ${alias_disk_prefix}rwSpeed=@_rw_speed
+#... oppure
+alias ${alias_disk_prefix}disk_speed='/home/loreto/filu/lnEnv/shScripts/benchmark/disk_benchmark.sh'
 
