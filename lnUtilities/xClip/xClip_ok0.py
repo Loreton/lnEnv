@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 28-07-2026 16.48.16
+# Date .........: 11-07-2026 18.07.32
 #
 # Funzione per eseguire editor (nano in questo esempio) sulla stringa selezionata
 # Assicurati che 'xclip' sia installato (sudo apt install xclip)
@@ -115,38 +115,24 @@ def analizza_riga(riga: str | None, rootDir: str | None) -> str | None:
     if riga is None:
         return ret_value
 
-    # magari un file  completo con spazi in clipboard/evidenziato
-    _filepath = riga.strip('"').strip("'")
-    if os.path.isfile(_filepath):
-        filepath  = _filepath
-        line_no=1
+    riga = os.path.expandvars(riga)
+    riga = riga.replace(":", " ").replace(",", " ").replace("(", " ").replace(")", " ")
+    token = riga.split()
 
-    elif riga[:1] == '[' and riga[-1] == ']':
-        # riga di un logger
-        riga, line_no=riga[1:-1].split(':')
-        filepath, funcname = riga.split('.', 1)
+    logger.info("tokens: %s", token)
+    if not token:
+        return ret_value
 
-    else:
-        riga = os.path.expandvars(riga)
-        riga = riga.replace(":", " ").replace(",", " ").replace("(", " ").replace(")", " ")
-        token = riga.split()
+    filepath = token.pop(0)
+    line_no = 1
 
-        logger.info("tokens: %s", token)
-        if not token:
-            return ret_value
-
-        filepath = token.pop(0) # .split('.') # potrebbe essere nel formato molule_name.func_name
-        line_no = 1
-
-        # cerca il numero linea
-        for inx, word in enumerate(token):
-            if word in ["line", "line:"]:
-                line_no = token[inx + 1]
-                break
-            elif word.isdigit():  # ✅ Corretto
-                line_no = int(word)
-                break
-
+    for inx, word in enumerate(token):
+        if word in ["line", "line:"]:
+            line_no = token[inx + 1]
+            break
+        elif word.isdigit():  # ✅ Corretto
+            line_no = int(word)
+            break
     logger.info("filepath: %s, line_no: %s", filepath, line_no)
 
     filepath = filepath.strip(""" "' """)
@@ -178,7 +164,6 @@ def parserInput() -> argparse.Namespace:
     _ = parser.add_argument("--zed",  action='store_true',  help=f"usa ZED editor {default_value}", )
 
     args = parser.parse_args()
-    # args.zed=True
     return args
 
 
@@ -257,8 +242,7 @@ if __name__ == "__main__":
         if args.zed:
             zed_config_dir=os.path.expandvars("${ln_ZED_CONFIG_DIR}")
             editor_command = [
-                # "/home/loreto/.local/bin/zed", ## già include --user-data-dir
-                "/home/loreto/filu/lnEnv/start_proc/zed_start.sh", ## già include --user-data-dir
+                "/home/loreto/.local/bin/zed", ## già include --user-data-dir
                 # f"--user-data-dir={zed_config_dir}",
                 file_to_be_edited,
             ]

@@ -523,7 +523,7 @@
 			"file": "eBooks.sublime-project",
 			"settings":
 			{
-				"buffer_size": 757,
+				"buffer_size": 768,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			},
@@ -535,7 +535,7 @@
 					"",
 					null,
 					"AgAAAM0CAAAAAAAA7gIAAAAAAAAAAAAA7gIAAAAAAADuAgAAAAAAABsAAAAvaG9tZS9sb3JldG8vZ2l0UkVQTy9lQm9va3M",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAM0CAAAAAAAA6AIAAAAAAAAAAAAAAADwvw"
+					"BQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADNAgAAAAAAAOgCAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					19,
@@ -543,7 +543,7 @@
 					"left_delete",
 					null,
 					"AQAAANwAAAAAAAAA3AAAAAAAAACaAQAAICAgICAgICB7IC8vIC5jb25maWcKICAgICAgICAgICAgLy8gInBhdGgiOiAiIiwKICAgICAgICAgICAgInBhdGgiOiAiL2hvbWUvbG9yZXRvL0Rvd25sb2Fkcy90ZXN0IiwKICAgICAgICB9LAogICAgICAgIHsKICAgICAgICAgICAgInBhdGgiOiAiL2hvbWUvbG9yZXRvL2xuRnJlZXgvU3VibGltZVRleHQ0L0RhdGEvUGFja2FnZXMvVXNlciIsCiAgICAgICAgICAgIC8qInBhdGgiOiAiL2hvbWUvbG9yZXRvL2xucHJvZmlsZS9wcm9qZWN0cy9TdWJsaW1lVGV4dCIsKi8gIm5hbWUiOiAiU3VibGltZSBVc2VyIiwKICAgICAgICAgICAgLyoicGF0aCI6ICIvaG9tZS9sb3JldG8vbG5GcmVleC9TdWJsaW1lVGV4dDQvRGF0YS9QYWNrYWdlcy9Vc2VyIiwqLyAvKiJuYW1lIjogIlN1YmxpbWUgVXNlciIsKi8KICAgICAgICB9LAo",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAANwAAAAAAAAAdgIAAAAAAAAAAAAAAADwvw"
+					"BQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADcAAAAAAAAAHYCAAAAAAAAAAAAAAAA8L8"
 				],
 				[
 					25,
@@ -553,7 +553,7 @@
 						"characters": "\n\n\n"
 					},
 					"BQAAANsAAAAAAAAA5AAAAAAAAAAAAAAA5AAAAAAAAADtAAAAAAAAAAAAAADcAAAAAAAAANwAAAAAAAAACAAAACAgICAgICAg5QAAAAAAAADuAAAAAAAAAAAAAADdAAAAAAAAAN0AAAAAAAAACAAAACAgICAgICAg",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAANsAAAAAAAAA2wAAAAAAAAAAAAAAAIBPQA"
+					"BQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADbAAAAAAAAANsAAAAAAAAAAAAAAACAT0A"
 				],
 				[
 					27,
@@ -561,7 +561,7 @@
 					"paste_and_indent",
 					null,
 					"AQAAAN0AAAAAAAAAZAIAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAN0AAAAAAAAA3QAAAAAAAAAAAAAAAABMQA"
+					"BQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADdAAAAAAAAAN0AAAAAAAAAAAAAAAAATEA"
 				],
 				[
 					28,
@@ -569,204 +569,53 @@
 					"trim_trailing_white_space",
 					null,
 					"AQAAAGUCAAAAAAAAZQIAAAAAAAAIAAAAICAgICAgICA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAGQCAAAAAAAAZAIAAAAAAAAAAAAAAADwvw"
-				]
-			]
-		},
-		{
-			"file": "/home/loreto/lnENV/gitREPO/eBooks/Source/__init__.py",
-			"settings":
-			{
-				"buffer_size": 5016,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			},
-			"undo_stack":
-			[
-				[
-					21,
-					1,
-					"toggle_comment",
-					{
-						"block": false
-					},
-					"AQAAAEgFAAAAAAAASAUAAAAAAAACAAAAIyA",
-					"AQAAAAAAAAABAAAAWgUAAAAAAABaBQAAAAAAAAAAAAAAAPC/"
+					"BQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABkAgAAAAAAAGQCAAAAAAAAAAAAAAAA8L8"
 				],
 				[
-					23,
-					1,
-					"ln_insert_author_version",
-					{
-						"addNew": false,
-						"replace": true
-					},
-					"AQAAAE0AAAAAAAAAmAAAAAAAAABLAAAAIyB1cGRhdGVkIGJ5IC4uLjogTG9yZXRvIE5vdGFyYW50b25pbwojIERhdGUgLi4uLi4uLi4uOiAwNi0xMC0yMDI1IDE0LjEzLjMx",
-					"AQAAAAAAAAABAAAAWAUAAAAAAABYBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					32,
+					5,
 					1,
 					"insert",
 					{
-						"characters": "\n"
+						"characters": "filu/Pr"
 					},
-					"AQAAAH4FAAAAAAAAhwUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAfgUAAAAAAAB+BQAAAAAAAAAAAAAAAPC/"
+					"BwAAAMoCAAAAAAAAywIAAAAAAAAAAAAAywIAAAAAAADMAgAAAAAAAAAAAADMAgAAAAAAAM0CAAAAAAAAAAAAAM0CAAAAAAAAzgIAAAAAAAAAAAAAzgIAAAAAAADPAgAAAAAAAAAAAADPAgAAAAAAANACAAAAAAAAAAAAANACAAAAAAAA0QIAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADKAgAAAAAAAMoCAAAAAAAAAAAAAAAA8L8"
 				],
 				[
-					33,
+					6,
 					1,
+					"insert",
+					{
+						"characters": "ogrammint"
+					},
+					"CQAAANECAAAAAAAA0gIAAAAAAAAAAAAA0gIAAAAAAADTAgAAAAAAAAAAAADTAgAAAAAAANQCAAAAAAAAAAAAANQCAAAAAAAA1QIAAAAAAAAAAAAA1QIAAAAAAADWAgAAAAAAAAAAAADWAgAAAAAAANcCAAAAAAAAAAAAANcCAAAAAAAA2AIAAAAAAAAAAAAA2AIAAAAAAADZAgAAAAAAAAAAAADZAgAAAAAAANoCAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADRAgAAAAAAANECAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					7,
+					5,
+					"right_delete",
+					null,
+					"BQAAANoCAAAAAAAA2gIAAAAAAAABAAAAbNoCAAAAAAAA2gIAAAAAAAABAAAAbtoCAAAAAAAA2gIAAAAAAAABAAAARdoCAAAAAAAA2gIAAAAAAAABAAAAbtoCAAAAAAAA2gIAAAAAAAABAAAAdg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADaAgAAAAAAANoCAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					15,
+					2,
 					"left_delete",
 					null,
-					"AQAAAIMFAAAAAAAAgwUAAAAAAAAEAAAAICAgIA",
-					"AQAAAAAAAAABAAAAhwUAAAAAAACHBQAAAAAAAAAAAAAAAPC/"
+					"AgAAANkCAAAAAAAA2QIAAAAAAAABAAAAdNgCAAAAAAAA2AIAAAAAAAABAAAAbg",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADaAgAAAAAAANoCAAAAAAAAAAAAAAAA8L8"
 				],
 				[
-					34,
+					5,
 					1,
 					"insert",
 					{
-						"characters": "import"
+						"characters": "ng"
 					},
-					"BgAAAIMFAAAAAAAAhAUAAAAAAAAAAAAAhAUAAAAAAACFBQAAAAAAAAAAAACFBQAAAAAAAIYFAAAAAAAAAAAAAIYFAAAAAAAAhwUAAAAAAAAAAAAAhwUAAAAAAACIBQAAAAAAAAAAAACIBQAAAAAAAIkFAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAgwUAAAAAAACDBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					35,
-					1,
-					"insert",
-					{
-						"characters": " eBook"
-					},
-					"BgAAAIkFAAAAAAAAigUAAAAAAAAAAAAAigUAAAAAAACLBQAAAAAAAAAAAACLBQAAAAAAAIwFAAAAAAAAAAAAAIwFAAAAAAAAjQUAAAAAAAAAAAAAjQUAAAAAAACOBQAAAAAAAAAAAACOBQAAAAAAAI8FAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAiQUAAAAAAACJBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					36,
-					1,
-					"insert",
-					{
-						"characters": "s"
-					},
-					"AQAAAI8FAAAAAAAAkAUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAjwUAAAAAAACPBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					38,
-					1,
-					"ln_insert_author_version",
-					{
-						"addNew": false,
-						"replace": true
-					},
-					"AQAAAE0AAAAAAAAAmAAAAAAAAABLAAAAIyB1cGRhdGVkIGJ5IC4uLjogTG9yZXRvIE5vdGFyYW50b25pbwojIERhdGUgLi4uLi4uLi4uOiAyNy0xMC0yMDI1IDE2LjAyLjQx",
-					"AQAAAAAAAAABAAAAkAUAAAAAAACQBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					46,
-					1,
-					"left_delete",
-					null,
-					"AQAAAH8FAAAAAAAAfwUAAAAAAAASAAAAICAgIGltcG9ydCBlQm9va3MK",
-					"AQAAAAAAAAABAAAAfwUAAAAAAACRBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					55,
-					1,
-					"ln_insert_author_version",
-					{
-						"addNew": false,
-						"replace": true
-					},
-					"AQAAAE0AAAAAAAAAmAAAAAAAAABLAAAAIyB1cGRhdGVkIGJ5IC4uLjogTG9yZXRvIE5vdGFyYW50b25pbwojIERhdGUgLi4uLi4uLi4uOiAyNy0xMC0yMDI1IDE2LjAzLjA4",
-					"AQAAAAAAAAABAAAAkQUAAAAAAACZBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					71,
-					1,
-					"reindent",
-					null,
-					"AQAAAH8FAAAAAAAAhwUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAfwUAAAAAAAB/BQAAAAAAAAAAAAAAgFlA"
-				],
-				[
-					78,
-					1,
-					"insert",
-					{
-						"characters": "import"
-					},
-					"BwAAAKUFAAAAAAAApgUAAAAAAAAAAAAAfwUAAAAAAAB/BQAAAAAAAAgAAAAgICAgICAgIJ4FAAAAAAAAnwUAAAAAAAAAAAAAnwUAAAAAAACgBQAAAAAAAAAAAACgBQAAAAAAAKEFAAAAAAAAAAAAAKEFAAAAAAAAogUAAAAAAAAAAAAAogUAAAAAAACjBQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAApQUAAAAAAAClBQAAAAAAAAAAAAAAAEhA"
-				],
-				[
-					79,
-					1,
-					"insert",
-					{
-						"characters": " eBoo"
-					},
-					"BQAAAKMFAAAAAAAApAUAAAAAAAAAAAAApAUAAAAAAAClBQAAAAAAAAAAAAClBQAAAAAAAKYFAAAAAAAAAAAAAKYFAAAAAAAApwUAAAAAAAAAAAAApwUAAAAAAACoBQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAowUAAAAAAACjBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					80,
-					1,
-					"insert",
-					{
-						"characters": "k"
-					},
-					"AQAAAKgFAAAAAAAAqQUAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAqAUAAAAAAACoBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					81,
-					1,
-					"left_delete",
-					null,
-					"AQAAAKgFAAAAAAAAqAUAAAAAAAABAAAAaw",
-					"AQAAAAAAAAABAAAAqQUAAAAAAACpBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					82,
-					1,
-					"insert",
-					{
-						"characters": "ks"
-					},
-					"AgAAAKgFAAAAAAAAqQUAAAAAAAAAAAAAqQUAAAAAAACqBQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAqAUAAAAAAACoBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					84,
-					1,
-					"ln_insert_author_version",
-					{
-						"addNew": false,
-						"replace": true
-					},
-					"AQAAAE0AAAAAAAAAmAAAAAAAAABLAAAAIyB1cGRhdGVkIGJ5IC4uLjogTG9yZXRvIE5vdGFyYW50b25pbwojIERhdGUgLi4uLi4uLi4uOiAyNy0xMC0yMDI1IDE2LjAzLjU1",
-					"AQAAAAAAAAABAAAAqgUAAAAAAACqBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					93,
-					1,
-					"left_delete",
-					null,
-					"AQAAAJ0FAAAAAAAAnQUAAAAAAAANAAAAaW1wb3J0IGVCb29rcw",
-					"AQAAAAAAAAABAAAAqgUAAAAAAACdBQAAAAAAAAAAAAAAAPC/"
-				],
-				[
-					97,
-					1,
-					"ln_insert_author_version",
-					{
-						"addNew": false,
-						"replace": true
-					},
-					"AQAAAE0AAAAAAAAAmAAAAAAAAABLAAAAIyB1cGRhdGVkIGJ5IC4uLjogTG9yZXRvIE5vdGFyYW50b25pbwojIERhdGUgLi4uLi4uLi4uOiAyNy0xMC0yMDI1IDE2LjA0LjMz",
-					"AQAAAAAAAAABAAAAngUAAAAAAACeBQAAAAAAAAAAAAAAAPC/"
+					"AgAAANgCAAAAAAAA2QIAAAAAAAAAAAAA2QIAAAAAAADaAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAA2AIAAAAAAADYAgAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		}
@@ -1102,11 +951,11 @@
 	},
 	"expanded_folders":
 	[
-		"/home/loreto/lnENV/gitREPO/eBooks",
-		"/home/loreto/lnENV/gitREPO/eBooks/Source"
+		"/home/loreto/filu/Programming/gitREPO/eBooks"
 	],
 	"file_history":
 	[
+		"/home/loreto/lnENV/gitREPO/eBooks/Source/__init__.py",
 		"/home/loreto/lnENV/Devel/lnDevices/deviceManager/__main__.py",
 		"/home/loreto/lnENV/config/appls/SublimeText/openwrt.sublime-project",
 		"/home/loreto/lnENV/Devel/lnDevices/deviceManager/@project_links.lst",
@@ -1233,8 +1082,7 @@
 		"/home/loreto/GIT-REPO/Python/lnSync/conf/rclone.lnk.conf",
 		"/home/loreto/GIT-REPO/Python/lnSync/conf/directories.yaml",
 		"/home/loreto/GIT-REPO/Python/lnSync/conf/destination_profiles.yaml",
-		"/home/loreto/GIT-REPO/Python/lnSync/Source/Modules/lnSync_Class.py",
-		"/tmp/lnSync/lnSync_resolved_global_config.yaml"
+		"/home/loreto/GIT-REPO/Python/lnSync/Source/Modules/lnSync_Class.py"
 	],
 	"find":
 	{
@@ -1277,18 +1125,19 @@
 				{
 					"buffer": 0,
 					"file": "eBooks.sublime-project",
+					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 757,
+						"buffer_size": 768,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								612,
-								612
+								768,
+								768
 							]
 						],
 						"settings":
@@ -1383,6 +1232,8 @@
 								"bh_unmatched_content"
 							],
 							"incomplete_sync": null,
+							"ln_author_version.updated": false,
+							"ln_program_version.updated": false,
 							"lsp_uri": "file:///home/loreto/lnENV/config/appls/SublimeText/eBooks.sublime-project",
 							"remote_loading": false,
 							"synced": false,
@@ -1394,116 +1245,6 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
-					"stack_multiselect": false,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/loreto/lnENV/gitREPO/eBooks/Source/__init__.py",
-					"selected": true,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5016,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1438,
-								1438
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content"
-							],
-							"incomplete_sync": null,
-							"lsp_uri": "file:///home/loreto/lnENV/gitREPO/eBooks/Source/__init__.py",
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/Python/Python.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 270.0,
-						"zoom_level": 1.0
-					},
 					"stack_index": 0,
 					"stack_multiselect": false,
 					"type": "text"
@@ -1513,7 +1254,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 24.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -1581,7 +1322,7 @@
 	"project": "eBooks.sublime-project",
 	"replace":
 	{
-		"height": 44.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1609,7 +1350,7 @@
 		[
 			[
 				"",
-				"~/lnENV/config/appls/SublimeText/deviceManager.sublime-project"
+				"~/filu/lnEnv/config/appls/SublimeText/pyLnLib.sublime-project"
 			]
 		],
 		"width": 380.0

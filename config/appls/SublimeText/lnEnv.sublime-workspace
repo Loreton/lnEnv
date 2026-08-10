@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"bun",
+				"bundle_name"
+			],
+			[
+				"ze",
+				"zed_cmd"
+			],
+			[
+				"zed",
+				"zed_config_dir"
+			],
+			[
+				"roo",
+				"rootDir"
+			],
+			[
 				"app",
 				"applArgs"
 			],
@@ -498,71 +514,114 @@
 			[
 				"pl",
 				"platformio_dir"
-			],
-			[
-				"read",
-				"readPin"
-			],
-			[
-				"O",
-				"OUTPUT"
-			],
-			[
-				"press",
-				"pressControlState"
-			],
-			[
-				"pin",
-				"pin_struct"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "lnEnv.sublime-project",
+			"file": "/home/loreto/filu/Applications/lnAppls/buildPythonProject/buildPythonProject_bundle/run.sh",
 			"settings":
 			{
-				"buffer_size": 867,
+				"buffer_size": 258,
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
+				[
+					2,
+					1,
+					"revert",
+					null,
+					"AwAAAAAAAAAAAAAAAAAAAAAAAAACAQAAIyEvYmluL2Jhc2gKIyBidWlsZFB5dGhvblByb2plY3QgdjAuMS42IC0gUG9ydGFibGUgQnVuZGxlCgpzY3JpcHRGdWxsUGF0aD0iJChyZWFkbGluayAtZiAke0JBU0hfU09VUkNFWzBdfSkiICAgICAgICMgT1RUSU1BClNDUklQVF9ESVI9IiQoZGlybmFtZSAkc2NyaXB0RnVsbFBhdGgpIgpzb3VyY2UgIiRTQ1JJUFRfRElSLy52ZW52L2Jpbi9hY3RpdmF0ZSIKcHl0aG9uICIkU0NSSVBUX0RJUi9idWlsZFB5dGhvblByb2plY3RfMC4xLjYucHl6IiAiJEAiAAAAAAAAAAACAQAAAAAAAAAAAAAAAAAAAAAAAAIBAAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8"
+				]
+			]
+		},
+		{
+			"file": "/home/loreto/.config/terminator/plugins/LnOpenAnyFile.py",
+			"settings":
+			{
+				"buffer_size": 7850,
 				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			},
 			"undo_stack":
 			[
 				[
-					3,
+					5,
 					1,
-					"toggle_comment",
-					{
-						"block": false
-					},
-					"AQAAAO8BAAAAAAAA7wEAAAAAAAADAAAALy8g",
-					"KwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAA/wEAAAAAAAD/AQAAAAAAAAAAAAAAAPC/"
+					"duplicate_line",
+					null,
+					"AQAAAJUCAAAAAAAA7wIAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACUAgAAAAAAAJQCAAAAAAAAAAAAAAAA8L8"
 				],
 				[
-					3,
+					10,
 					1,
-					"toggle_comment",
+					"paste",
+					null,
+					"AQAAAKcCAAAAAAAA9AIAAAAAAABGAAAAL2hvbWUvbG9yZXRvL2ZpbHUvQXBwbGljYXRpb25zL2xpbnV4UG9ydGFibGUvU3VibGltZVRleHQ0L3N1YmxpbWVfdGV4dA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAACnAgAAAAAAAO0CAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					13,
+					1,
+					"paste",
+					null,
+					"AQAAAKcCAAAAAAAA1gIAAAAAAABNAAAAc291cmNlICR7SE9NRX0vZmlsdS9sbkVudi8uY29uZmlnX3NlY3JldC9sb3JldG9WYXJpYWJsZXMuc2ggICA+PiRhcHBsTG9nIDI+JjE",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAD0AgAAAAAAAKcCAAAAAAAAAAAAAAAA8L8"
+				],
+				[
+					15,
+					1,
+					"ln_author_version",
 					{
-						"block": false
+						"update": true
 					},
-					"AQAAAO8BAAAAAAAA8gEAAAAAAAAAAAAA",
-					"IgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAEQIAAAAAAAARAgAAAAAAAAAAAAAAAPC/"
+					"AQAAABkAAAAAAAAAZAAAAAAAAABLAAAAIyB1cGRhdGVkIGJ5IC4uLjogTG9yZXRvIE5vdGFyYW50b25pbwojIERhdGUgLi4uLi4uLi4uOiAwMy0xMi0yMDI1IDE0LjQwLjIw",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAADWAgAAAAAAANYCAAAAAAAAAAAAAAAA8L8"
 				]
 			]
 		},
 		{
-			"contents": "Searching 702 files for \"XCLIP_ROOT_DIR_FILE\" (case sensitive)\n\n~/filu/lnEnv/init/aliases/generic/01-system.functions:\n   21      local dir=${1:-$HOME}\n   22      builtin cd $dir\n   23:     echo $PWD > \"${XCLIP_ROOT_DIR_FILE}\"\n   24  }\n   25  \n\n~/filu/lnEnv/init/aliases/generic/shell.alias:\n   26  \n   27  ### per xbindkeys + xclip\n   28: alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo \"$PWD\" >$file; cat $file; echo \"\twritten to file $file\"; }'  ### importante il singolo apice\n   29  \n   30  \n\n~/filu/lnEnv/init/main/setLoretoEnvironment:\n   77              export            ln_ZED_CONFIG_DIR=\"${ln_APPLS_CONFIG_DIR}/zed\"\n   78              export         ln_SXHKD_CONFIG_FILE=\"${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc\"\n   79:             export          XCLIP_ROOT_DIR_FILE=\"/tmp/xclip_rootdir\"\n   80  \n   81  \n\n~/filu/lnEnv/init/main/setLoretoEnvironment_new:\n  135          ln_ZED_CONFIG_DIR=\"${ln_APPLS_CONFIG_DIR}/zed\"\n  136          ln_SXHKD_CONFIG_FILE=\"${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc\"\n  137:         XCLIP_ROOT_DIR_FILE=/tmp/xclip_rootdir\n  138  \n  139  \n\n~/filu/lnEnv/lnUtilities/xClip/xClip.py:\n   20  \n   21  fDEBUG = False\n   22: XCLIP_ROOT_DIR_FILE = \"/tmp/xclip_rootdir\"  # ✅ Definita qui\n   23  \n   24  \n   ..\n  155          required=False,\n  156          metavar=\"\",\n  157:         default=XCLIP_ROOT_DIR_FILE,  # ✅ ora definita\n  158          type=str,\n  159          help=f\"file containing root dir {default_value}\",\n\n~/filu/lnEnv/lnUtilities/xClip/xClip_ok01.py:\n  179          required=False,\n  180          metavar=\"\",\n  181:         default=XCLIP_ROOT_DIR_FILE,\n  182          type=str,\n  183          help=f\"file containing root dir {default_value}\",\n  ...\n  195      global logger\n  196      xclip_logg_filename = \"/tmp/xClip.log\"\n  197:     XCLIP_ROOT_DIR_FILE = \"/tmp/xclip_rootdir\"\n  198      logger = setLogger(filename=xclip_logg_filename, level=logging.INFO)\n  199      DEFAULT_EDITOR1 = (\n\n~/filu/lnEnv/shScripts/iconv/test_file.txt:\n   14      # qui mettiamo le principali in modo da poter poi risolvere le altreÃÂÃÂ¹\n   15  \n   16:             export          XCLIP_ROOT_DIR_FILE=\"/tmp/xclip_rootdir\"\n   17              export                         LANG=\"en_US.UTF-8\"\n   18              export                       LC_ALL=\"en_US.UTF-8\"\n\n~/filu/lnEnv/utils_links/findReplaceTextInFiles.lnk.py:\n    ERROR: Unable to open file\n\n~/filu/lnEnv/utils_links/xClip.lnk.py:\n    ERROR: Unable to open file\n\n9 matches across 7 files\n",
+			"contents": "#!/bin/bash\n#\n# updated by ...: Loreto Notarantonio\n# Date .........: 03-07-2026 13.47.01\n#\n\n\nexport fLOG=${1:-0}\nmyPWD=${PWD}\n\nterminal=${TERM_PROGRAM:-no_valid_terminal}\n[[ \"${terminal,,}\" == \"vscode\" ]] && return   # executed by VSCode\n\nOK=$'\\u2705'\nERR=$'\\u274c'\nWARN=$'\\u26a0\\ufe0f'\nROCKET=$'\\U0001f680'\n❌\n# Stato / esito\n#   ✅ success\n#   ❌ error\n#   ⚠️ warning\n#   ℹ️ info\n#   🔥 hot\n#   🚀 start/deploy\n#   ⏳ waiting\n#   ⌛ timeout\n#   🔄 retry\n#   💥 crash\n#   🛑 stop\n\n\n# Sviluppo:\n#   🐍 python\n#   🐧 linux\n#   ⚙️ settings\n#   🔧 tools\n#   📦 package\n#   📁 folder\n#   📄 file\n#   🧪 test\n#   🛠️ build\n#   🔒 secure\n#   🔑 key\n#   🌐 network\n#   📡 signal\n\n#   ➡️\n#   ⬅️\n#   ⬆️\n#   ⬇️\n#   ↔️\n#   ↪️\n#   ➜\n#   ➤\n#   ▶️\n\n# echo \"$OK done\"\n# echo \"$ERR failed\"\n\n### ------------\n### funziona bene con il lancio di uno script, non funziona con \"source script\"\n# set -uE -o pipefail   # -u = nounset, -E = eredita ERR in funzioni/subshell, pipefail  utile\n# trap 'printf \"ERRORE in %s:%s\\n  comando: %s\\n\" \"${BASH_SOURCE[1]}\" \"${BASH_LINENO[0]}\" \"${BASH_COMMAND}\"' ERR\nset -u\n# set -o errtrace\n# set -o pipefail\n### ------------\n\nexport alias_prefix='+'\nexport alias_prefix='a.'\nexport alias_prefix='.'\nexport alias_py_prefix='.py.'\nexport alias_py_project_prefix='.py.project.'\nexport alias_venv_prefix='.venv.'\nexport alias_pyenv_prefix='.pyenv.'\nexport alias_platformio_venv_prefix='.pio.'\nexport alias_shell_prefix='.sh.'\nexport alias_disk_prefix='.disk.'\n\n\nalias ${alias_prefix}lnenv=\"source ${BASH_SOURCE}\"\nalias ${alias_prefix}loretorc=\"source ${BASH_SOURCE}\"\n\n\nexport lapTopPC=\" asusp2520l aspire5750g hp255g7 ezbook-elena ezbook-silvia IdeaPadSlim3 \"  # importanti lo spazio inizio e fine\n# export lapTopPC_lowCase=\"${lapTopPC,,}\"                                              # importanti lo spazio inizio e fine\nexport lapTopPC_lc=\"${lapTopPC,,}\"                                              # importanti lo spazio inizio e fine\n\nexport raspberryPC=\" lnpi22 lnpi23 lnpi31 lnpi41 lnpi51 \"                       # importanti lo spazio inizio e fine\n\nexport dq='\"' # lo uso per facilitare la risoluzione delle variabili prima della creazione dell'alias\nexport sq=\"'\" # lo uso per facilitare la risoluzione delle variabili prima della creazione dell'alias\n\n\n\n# fLOG=0\n\n##########################################################\n# risoluzione delle variabili principali\n##########################################################\nloretoRcPath=\"$(readlink -fvs  $BASH_SOURCE)\"\n_thisDir=$(dirname $loretoRcPath)\nsource \"${_thisDir}/setLoretoEnvironment\" $fLOG ### fLOG=1\n\n\n\n\nset -u\n\n\n: '\n    --- da qui in poi posso usare lnLog()\n'\n@lnLog \"running: ${yellowH}${BASH_SOURCE}${colorReset}\"\n\n\n\n\n# ----------------------------------------------------------\n# resto delle functions presenti nella functions directory\n# ----------------------------------------------------------\n[[ \"$fLOG\" != \"0\" ]] && echo -e \"\\n${TABwhiteH}------------------ common functions -------------------\"\nfunction_files=$(find \"${ln_INIT_DIR}/commonFunctions\"  -type f -name '*.functions' | sort) # *.function potrebbe essere sotto diverse directories\nfor filename in ${function_files}; do\n    [ -f \"$filename\" ] || continue\n    @lnLog \"running: ${yellowH}${filename}${colorReset}\"\n    source \"${filename}\"\ndone\n\n# ----------------------------------------------------------\n# resto delle functions presenti nella functions directory\n# ----------------------------------------------------------\n[[ \"$fLOG\" != \"0\" ]] && echo -e \"\\n${TABwhiteH}------------------ functions -------------------\"\nfunction_files=$(find \"${ln_INIT_DIR}/functions\"  -type f -name '*.functions' | sort) # *.function potrebbe essere sotto diverse directories\nfor filename in ${function_files}; do\n    [ -f \"$filename\" ] || continue\n    @lnLog \"running: ${yellowH}${filename}${colorReset}\"\n    source \"${filename}\"\ndone\n\n# ----------------------------------------------------------\n# resto delle functions nella aliases directory -\n# ----------------------------------------------------------\n[[ \"$fLOG\" != \"0\" ]] && echo -e \"\\n${TABwhiteH}------------------ functions (aliases) -------------------\"\nfunction_files=$(find \"${ln_INIT_DIR}/aliases\"  -type f -name '*.functions' | sort) # *.function potrebbe essere sotto diverse directories\nfor filename in ${function_files}; do\n    [ -f \"$filename\" ] || continue\n    @lnLog \"running: ${yellowH}${filename}${colorReset}\"\n    source \"${filename}\"\ndone\n\n\n# ----------------------------------------------------------\n# poi gli alias\n# ----------------------------------------------------------\n[[ \"$fLOG\" != \"0\" ]] && echo -e \"\\n${TABwhiteH}------------------ aliases -------------------\"\naliases=$(find ${ln_INIT_DIR}/aliases  -type f -name '*.alias' | sort) # *.alias potrebbe essere sotto diverse directories\nfor filename in ${aliases}; do\n    [ -f \"$filename\" ] || continue\n    @lnLog \"running: ${yellowH}${filename}${colorReset}\"\n    source \"${filename}\"\ndone\n\n\n\n\n#-----------------------\n#- terminal caption\n#- ref: https://unix.stackexchange.com/questions/177572/how-to-rename-terminal-tab-title-in-gnome-terminal\n#-----------------------\nPROMPT_COMMAND='echo -ne \"\\033]0;$(hostname -s)\\007\"'\n\n\n\n################################\n# - PS1\n################################\nif [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then\n    export PS1='${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\h\\[\\033[00m\\] \\[\\033[01;34m\\]\\w \\$:\\[\\033[00m\\] '\n    # per openwrt export PS1='\\[\\033[01;32m\\\\u@\\033[01;32m\\]\\h\\[\\033[00m\\] \\[\\033[01;34m\\]\\w \\$:\\[\\033[00m\\] '\nelse\n    export PS1='${debian_chroot:+($debian_chroot)}\\h\\w\\$:'\nfi\n\n\n\n# -------------------------------------\n# andrebbero nel .bashrc\n# ref.: https://www.digitalocean.com/community/tutorials/how-to-use-bash-history-commands-and-expansions-on-a-linux-vps#:~:text=Bash%20includes%20search%20functionality%20for,part%20of%20the%20previous%20command.\n# append to the history file, don't overwrite it\n    shopt -s histappend\n\n#... for setting history length see HISTSIZE and HISTFILESIZE in bash(1)\n    HISTSIZE=5000\n    HISTFILESIZE=10000\n    stty -ixon # enable ctrl-s to move backward in history (ctrl-r)\n# -------------------------------------\n\n    # @createLink ${ln_APPLICATIONS_DIR}/linuxPortable/pythonVENV/.pyENV ${PYENV_ROOT}\n    # @createLink ${ln_APPLICATIONS_DIR}/linuxPortable/pythonVENV/.lnVENV ${ln_VENV_ROOT}\n\n\n\n    export STARSHIP_CONFIG=\"${ln_APPLS_CONFIG_DIR}/starship/starship.toml\"\n# ----------------------------------------------------------\n# poi le PATH\n# ----------------------------------------------------------\n    fLOG=0\n    @add_path \"${ln_PY_SCRIPTS_DIR}/prod\"\n    @add_path \"${ln_ENV_DIR}/utils\"\n    @add_path \"${ln_START_PROC_DIR}\"\n    @add_path \"${ln_INIT_DIR}/commonFunctions\"\n    @add_path \"${ln_INIT_DIR}/script_utils\"\n    @insert_path \"${HOME}/.local/bin\"\n    @insert_path \".\"\n    @insert_path \"${HOME}\"\n\n\n\n    unset fLOG\n\n    set +u #... Autocompletion fails on <TAB> with `bash: !ref: unbound variable` https://unix.stackexchange.com/questions/539375/autocompletion-fails-on-tab-with-bash-ref-unbound-variable\n    cd $myPWD\n\n\n",
+			"file": "/home/loreto/filu/lnEnv/init/main/loretorc",
+			"file_size": 7210,
+			"file_write_time": 134275528214887884,
 			"settings":
 			{
-				"buffer_size": 2482,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
+				"buffer_size": 7106,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
 			},
 			"undo_stack":
 			[
+				[
+					23,
+					1,
+					"paste",
+					null,
+					"AQAAADUBAAAAAAAANgEAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAANQEAAAAAAAA1AQAAAAAAAAAAAAAAAEJA"
+				]
 			]
+		},
+		{
+			"file": "/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
+			"settings":
+			{
+				"buffer_size": 2278,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/loreto/filu/lnEnv/start_proc/zed_start.sh",
+			"settings":
+			{
+				"buffer_size": 524,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -581,12 +640,12 @@
 				"File: Rename File"
 			],
 			[
-				"mov",
-				"File: Move"
-			],
-			[
 				"dup",
 				"File: Duplicate"
+			],
+			[
+				"mov",
+				"File: Move"
 			],
 			[
 				"del",
@@ -926,17 +985,69 @@
 	[
 		"/home/loreto/filu/lnEnv",
 		"/home/loreto/filu/lnEnv/config",
-		"/home/loreto/filu/lnEnv/config/appls",
 		"/home/loreto/filu/lnEnv/init",
-		"/home/loreto/filu/lnEnv/init/main"
+		"/home/loreto/filu/lnEnv/init/aliases",
+		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv",
+		"/home/loreto/filu/lnEnv/init/main",
+		"/home/loreto/filu/lnEnv/lnUtilities",
+		"/home/loreto/filu/lnEnv/lnUtilities/py_env",
+		"/home/loreto/filu/lnEnv/pyScripts",
+		"/home/loreto/filu/lnEnv/start_proc"
 	],
 	"file_history":
 	[
-		"/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
-		"/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment",
-		"/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment_new",
+		"/tmp/ebooks-0.1.14/logs/project_vars.yaml",
+		"/home/loreto/filu/lnEnv/installationDoc/Ubuntu/pkg-flatpack.yaml",
+		"/tmp/ebooks-0.1.1/logs/ebooks_config.yaml",
+		"/home/loreto/filu/Programming/gitREPO/eBooks/conf/authors.yaml",
+		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/python.alias",
+		"/home/loreto/filu/Programming/gitREPO/eBooks/.git/config",
 		"/home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py",
+		"/home/loreto/filu/lnEnv/init/aliases/generic/cd_dirs.alias",
+		"/home/loreto/filu/ln-eBooks/new_books/single_test_book/export/Raine Miller - Nudo D'autore (2014).txt",
+		"/home/loreto/filu/ln-eBooks/new_books/single_test_book/output/_AUTHORS_REPORT.txt",
+		"/home/loreto/filu/ln-eBooks/new_books/single_test_book/output/Miller_Raine/Cherry_Girl.txt",
+		"/home/loreto/filu/lnEnv/shScripts/create_links/create_Utils_links.sh",
+		"/home/loreto/filu/lnEnv/init/aliases/generic/files.alias",
+		"/tmp/lnsync/config_after_resolve.yaml",
+		"/tmp/eBooks-0.1.1/logs/project_vars.yaml",
+		"/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
+		"/home/loreto/filu/Programming/gitREPO/gitCommit/pyproject.toml",
+		"/home/loreto/filu/Programming/gitREPO/eBooks/.gitignore",
+		"/home/loreto/filu/Programming/gitREPO/eBooks/pyproject.toml",
+		"/home/loreto/filu/Programming/gitREPO/eBooks/src/ebooks/main.py",
+		"/home/loreto/filu/Programming/gitREPO/eBooks/src/ebooks/__main__.py",
+		"/home/loreto/filu/Programming/gitREPO/eBooks/__main__.py",
+		"/home/loreto/filu/Programming/gitREPO/buildPythonProject/src/buildpythonproject/main.py",
+		"/home/loreto/filu/Applications/lnAppls/buildPythonProject/buildPythonProject_bundle/run.sh",
+		"/home/loreto/filu/lnEnv/config/appls/SublimeText/lnEnv.sublime-project",
 		"/home/loreto/filu/lnEnv/init/main/loretorc",
+		"/home/loreto/filu/lnEnv/lnUtilities/py_env/init_uv_project.sh",
+		"/home/loreto/filu/Programming/gitREPO/buildPythonProject/python_build.py",
+		"/home/loreto/filu/Programming/gitREPO/buildPythonProject/src/buildpythonproject/python_build.py",
+		"/home/loreto/filu/Programming/gitREPO/buildPythonProject/pyproject.toml",
+		"/home/loreto/filu/Programming/gitREPO/buildPythonProject/.git/config",
+		"/home/loreto/filu/Applications/lnAppls/python_build.py",
+		"/home/loreto/filu/Applications/lnAppls/gitCommit/gitCommit_lnk.tgz",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/xClip.alias",
+		"/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/xbindkeys.alias",
+		"/home/loreto/filu/lnEnv/init/aliases/applications/zed.alias",
+		"/home/loreto/filu/lnEnv/init/commonFunctions/@load_common_functions.sh",
+		"/home/loreto/filu/lnEnv/shScripts/varie/project_links.sh",
+		"/home/loreto/filu/lnEnv/init/commonFunctions/create_links.functions",
+		"/home/loreto/filu/lnEnv/init/__old/createExternalDiskLinks.sh",
+		"/home/loreto/filu/lnEnv/start_proc/zed_start.sh",
+		"/home/loreto/filu/lnEnv/start_proc/sxhkd_start.sh",
+		"/home/loreto/filu/Programming/gitREPO/lnSync/src/lnsync/core/parse_input.py",
+		"/home/loreto/filu/lnEnv/init/main/setLoretoEnvironment_new",
+		"/home/loreto/filu/lnEnv/config/appls/freeFileSync/lnEnv_toSilvia.ffs_gui",
+		"/tmp/lnsync/config_before_resolve.yaml",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/files/yaml_loader_class.py",
+		"/home/loreto/filu/lnEnv/lnUtilities/xClip/xClip_ok01.py",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/tests/beep_test.py",
+		"/home/loreto/filu/lnEnv/init/aliases/generic/shell.alias",
+		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/beep.py",
 		"/home/loreto/filu/lnEnv/.config_secret/loretoVariables.sh",
 		"/home/loreto/filu/lnEnv/init/__old/setLoretoEnvironment",
 		"/home/loreto/filu/Applications/linuxPortable/doublecmd_1.1.32/settings/doublecmd.xml",
@@ -971,15 +1082,12 @@
 		"/media/loreto/WD264F_500GB",
 		"/home/loreto/filu/lnEnv/linuxMintDoc/xnview.yaml",
 		"/home/loreto/filu/lnEnv/installationDoc/Ubuntu/boot-problems.yaml",
-		"/home/loreto/filu/lnEnv/start_proc/sxhkd_start.sh",
 		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/files/file_utils.py",
 		"/home/loreto/filu/Programming/gitREPO/lnSync/src/lnsync/core/lnsync_class.py",
 		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib_before_typeAnnot/files/file_utils.py",
 		"/home/loreto/filu/lnEnv/init/aliases/applications/sxhkd.alias",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/zed.alias",
 		"/home/loreto/filu/lnEnv/config/appls/zed/.gitignore",
 		"/home/loreto/filu/Programming/gitREPO/lnSync/.git/config",
-		"/home/loreto/filu/lnEnv/lnUtilities/py_env/init_uv_project.sh",
 		"/home/loreto/filu/Applications/lnAppls/buildProject/python_build.py",
 		"/home/loreto/.bashrc",
 		"/home/loreto/filu/lnEnv/linuxMintDoc/diff.yaml",
@@ -987,7 +1095,6 @@
 		"/tmp/xClip.log",
 		"/home/loreto/.pyenv/versions/3.14.5/lib/python3.14/test/typinganndata/partialexecution/a.py",
 		"/home/loreto/.config/sxhkd/sxhkdrc",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/xbindkeys.alias",
 		"/home/loreto/filu/lnEnv/linuxMintDoc/sxhdk_shortcuts.yaml",
 		"/home/loreto/.config/sxhkd/sxhkdrc_orig",
 		"/home/loreto/filu/lnEnv/init/aliases/generic/system.alias",
@@ -1001,9 +1108,7 @@
 		"/home/loreto/filu/lnEnv/linuxMintDoc/zed-editor.yaml",
 		"/home/loreto/filu/lnEnv/Notes/todo.yaml",
 		"/home/loreto/filu/lnEnv/pyScripts/py_env/init_uv_project.sh",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/xClip.alias",
 		"/home/loreto/filu/lnEnv/pyScripts/py_env/.saved/create_pyproject.sh",
-		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/python.alias",
 		"/home/loreto/filu/lnEnv/config/todo_generic_notes.yaml",
 		"/home/loreto/filu/lnEnv/todo_notes.yaml",
 		"/home/loreto/filu/Applications/lnAppls/gitCommit/bundle/run.sh",
@@ -1018,52 +1123,11 @@
 		"/home/loreto/filu/lnEnv/pyScripts/buildProject/build_deepseek_v04.py",
 		"/home/loreto/filu/lnEnv/pyScripts/buildProject/build_deepseek.py",
 		"/home/loreto/filu/lnEnv/.config_secret/rclone/rclone.conf",
-		"/tmp/lnsync/config_before_resolve.yaml",
-		"/tmp/lnsync/config_after_resolve.yaml",
-		"/home/loreto/filu/lnEnv/pyScripts/buildProject/build_deepseek_v05.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/python_build_uv_project.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/build_legacy_project.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/build_lib_zip.py",
-		"/home/loreto/filu/Programming/gitREPO/lnSync/pyproject.toml",
-		"/tmp/appo/__main__.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/build_uv_project.py",
-		"/home/loreto/filu/lnEnv/pyScripts/buildProject/build_deepseek_v02.py",
-		"/tmp/appo/core/lnsync_class.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/python_build_project_onefile.py",
-		"/tmp/_dc~~~/2098606330/__main__.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/create_entry_point.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/context.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/run_command.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/bundle.py",
-		"/home/loreto/filu/lnEnv/init/script_utils/build_project.py",
-		"/home/loreto/filu/lnEnv/pyScripts/git_commit/__main__.py",
-		"/home/loreto/filu/lnEnv/init/aliases/generic/cd_dirs.alias",
-		"/home/loreto/filu/lnEnv/pyScripts/py_env/init_uv_project_ok1.sh",
-		"/home/loreto/filu/lnEnv/.config_secret/pc/ezbook-silvia/crontab/crontab.conf",
-		"/home/loreto/filu/lnEnv/.config_secret/pc/lnpi23/crontab/crontab.conf",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/lnsync.alias",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/ssh.alias",
-		"/home/loreto/filu/lnEnv/config/appls/SublimeText/lnEnv.sublime-project",
-		"/home/loreto/filu/lnEnv/config/appls/SublimeText/lnprofile.sublime-project",
-		"/home/loreto/filu/Programming/gitREPO/lnSync/src/source/__init__.py",
-		"/home/loreto/filu/Programming/gitREPO/lnSync/src/__main__.py",
-		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/01-PYENV.functions",
-		"/home/loreto/filu/lnEnv/.config_secret/pc/SSH/copy_common_keys.sh",
-		"/home/loreto/filu/lnEnv/linuxMintDoc/lnpi51.yaml",
-		"/home/loreto/filu/lnEnv/linuxMintDoc/apache.yaml",
-		"/home/loreto/filu/lnEnv/shScripts/varie/crontab_update.sh",
-		"/home/loreto/filu/lnEnv/pyScripts/py_env/pyenv_activate.sh",
-		"/home/loreto/filu/lnEnv/shScripts/z_templates_bash/@script_template.sh",
-		"/home/loreto/filu/lnEnv/pyScripts/py_env/init_uv_project_orig.sh",
-		"/home/loreto/filu/lnEnv/start_proc/piorun_saved01.sh",
-		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/01-PYENV.functions_prev",
-		"/home/loreto/filu/lnEnv/pyScripts/py_env/create_pyproject.sh",
-		"/home/loreto/filu/lnEnv/config/appls/starship/starship.toml",
-		"/home/loreto/.config/starship_base.toml"
+		"/home/loreto/filu/lnEnv/pyScripts/buildProject/build_deepseek_v05.py"
 	],
 	"find":
 	{
-		"height": 38.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -1075,9 +1139,72 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"sqlite",
+			"}cd.lns",
+			"lnU",
+			"findReplaceTextInFiles",
+			"searchstr",
+			"searchfil",
+			"SimpleNamespace",
+			"py_env",
+			"lnUti",
+			"init_uv_project",
+			"replaceTextInFiles",
+			"edit",
+			"get_version",
+			"self.version",
+			"get_version",
+			"git@github.com:Loreton/buildPythonProject.git",
+			"init_uv_project",
+			"self.install_dir",
+			"lnk",
+			"--inst",
+			"install_test_dir",
+			"_bundle",
+			"self.install_dir",
+			"test",
+			"--inst",
+			"install_test_dir",
+			"install_dir",
+			"self.install_dir",
+			"install",
+			"}buildProject",
+			"}.buildProject",
+			"}py.buildProject",
+			"failed",
+			"has been disabled",
+			"ln_START_PROC_DIR",
+			"createLink",
+			"}zed",
+			"ln_APPLS_CONFIG_DIR",
+			"sxhkdrc",
+			"zed_config",
+			"}zed",
+			"}.zed",
+			"ln_ZED_CONFIG_DIR",
+			"zed ",
+			"zed",
+			"required stacklevel",
+			"argpa",
+			"XCLIP_ROOT_DIR_FILE",
+			"analizza_riga",
+			"findFileInPath",
+			"py",
+			"LNLIB",
+			"fix}cd",
+			"XCLIP_ROOT_DIR_FILE",
+			"setLogger",
+			"pdb",
+			"edit",
+			"NOT",
+			"setLogger",
+			"XCLIP_ROOT_DIR_FILE",
+			"fix}cd",
+			"XCLIP_ROOT_DIR_FILE",
+			"}cd",
 			"XCLIP_ROOT_DIR_FILE",
 			"ln_ZED_CONFIG_DIR",
 			"XCLIP_ROOT_DIR_FILE",
@@ -1142,70 +1269,7 @@
 			"pdb",
 			"shutil",
 			"rotate_previous_build",
-			"production",
-			"shutil",
-			"self.producti",
-			"mkd",
-			"build_dir",
-			"temp",
-			"lf.dist_di",
-			"self.root_dir",
-			"self.max_history",
-			"-h",
-			"gz",
-			"pdb",
-			"create_bundle(",
-			" Copiando PYZ",
-			"        •",
-			"rotate_previous_build",
-			"create_pyz",
-			"create_install_script",
-			"create_source_distribution",
-			"elf.history_dir",
-			"rotate_previous_build",
-			"lf.history_di",
-			"rotate_previous_build",
-			"max_history",
-			"rotate_previous_build",
-			"max",
-			"ver",
-			"reate_pyz(",
-			"create_bundle",
-			"notice",
-			"create_pyz",
-			"Creazione PYZ",
-			"Creazione PYZ eseguibile",
-			"Test superato",
-			"Collecting",
-			"Collecting pyyaml",
-			"ProjectBuilder",
-			"'''",
-			"conf_path",
-			"pyLnLib_path",
-			"pyLnLib",
-			" ",
-			"create_source_distribution",
-			"lnSync",
-			"pyproject.toml",
-			"lnSync",
-			"pdb",
-			"create_entry_point_main",
-			"PYZ_TO_UTIL",
-			"DIST_DIR",
-			"pyLnLib_name",
-			"pyLnLib_SRC",
-			"STAGE_DIR",
-			"BASE_DIR",
-			"STAGE_DIR",
-			"BUNDLE_DIR",
-			"PYZ_FILE",
-			"pyLnLib_name",
-			"LIB_SRC",
-			"MAIN_FILE",
-			"BASE_DIR",
-			"build_lib_zip",
-			"zipapp",
-			"subprocess"
+			"production"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1213,6 +1277,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			""
 		],
 		"reverse": false,
 		"scrollbar_highlights": true,
@@ -1229,32 +1294,92 @@
 			[
 				{
 					"buffer": 0,
-					"file": "lnEnv.sublime-project",
-					"selected": true,
+					"file": "/home/loreto/filu/Applications/lnAppls/buildPythonProject/buildPythonProject_bundle/run.sh",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 867,
+						"buffer_size": 258,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								867,
-								867
+								258,
+								258
 							]
 						],
 						"settings":
 						{
-							"ln_author_version.updated": false,
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/loreto/.config/terminator/plugins/LnOpenAnyFile.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7850,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								726,
+								726
+							]
+						],
+						"settings":
+						{
+							"ln_author_version.updated": true,
 							"ln_program_version.updated": false,
-							"syntax": "Packages/JSON/JSON.sublime-syntax",
+							"syntax": "Packages/Python/Python.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 108.0,
+						"translation.y": 54.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/loreto/filu/lnEnv/init/main/loretorc",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7106,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								552,
+								552
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1262,82 +1387,64 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
+					"buffer": 3,
+					"file": "/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2482,
+						"buffer_size": 2278,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										205,
-										224
-									],
-									[
-										372,
-										391
-									],
-									[
-										771,
-										790
-									],
-									[
-										1030,
-										1049
-									],
-									[
-										1164,
-										1183
-									],
-									[
-										1328,
-										1347
-									],
-									[
-										1585,
-										1604
-									],
-									[
-										1788,
-										1807
-									],
-									[
-										2118,
-										2137
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								777,
-								777
+								1926,
+								1973
 							]
 						],
 						"settings":
 						{
-							"default_dir": "/home/loreto/filu/lnEnv/init/main",
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/loreto/filu/lnEnv/start_proc/zed_start.sh",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 524,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								242,
+								319
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 3,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 3,
 					"stack_multiselect": false,
 					"type": "text"
 				}
@@ -1346,7 +1453,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 27.0
 	},
 	"input":
 	{
@@ -1428,7 +1535,7 @@
 	"project": "lnEnv.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 50.0
 	},
 	"save_all_on_build": true,
 	"select_file":

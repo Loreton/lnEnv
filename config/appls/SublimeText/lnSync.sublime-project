@@ -22,7 +22,7 @@
         // --- lnDevices with excel + openWRT
         // { "path": "/home/loreto/filu/Programming/gitREPO/lnDevices", "name": "", },
 
-        {"path": "/home/loreto/filu/Programming/gitREPO/pyLnLib" },
+        // {"path": "/home/loreto/filu/Programming/gitREPO/pyLnLib" },
 
         {
             "binary_file_patterns": ["*.bin", "*.zip"],

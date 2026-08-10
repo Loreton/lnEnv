@@ -1,23 +1,23 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 21-06-2026 15.12.59
+# Date .........: 05-07-2026 12.14.24
 #
 
-applLog="/tmp/sublime_start.log"; echo >$applLog
+
+applname='sxhkd'
+applLog="/tmp/${applname}_start.log"
+# applLog="/tmp/${applname}_start.log"; echo >>$applLog
 #- mi serve per variabili che potrebbero essere all'interno di file e voglio che sublime le risolva...
 source ${HOME}/filu/lnEnv/.config_secret/loretoVariables.sh   >>$applLog 2>&1
 
 
 
 
-myAppl="/usr/bin/sxhkd"
-applLog="/tmp/sxhkd_start.log"
+myAppl="/usr/bin/${applname}"
 
-applArgs="-c ${ln_SXHKD_CONFIG_FILE} -r /tmp/sxhkd.log -s /tmp/sxhkd_status.fifo"
+applArgs="-c ${ln_SXHKD_CONFIG_FILE} -r /tmp/${applname}.log -s /tmp/${applname}_status.fifo"
 
-# LORETO_ENVIRONMENT="${HOME}/filu/lnEnv/init/main/setLoretoEnvironment"
-# LORETO_ENVIRONMENT="${ln_ENV_DIR}/init/main/setLoretoEnvironment"
 
 #- scrivi su log
 DATE=$(date +'%d-%m-%Y %H:%M:%S')
@@ -30,6 +30,8 @@ if [[ -f "${myAppl}" ]]; then
     if [[ "$@" ]]; then
         echo -e "editing file: $@"                     >>$applLog 2>&1
     else
+        echo "ln_ZED_CONFIG_DIR:    ${ln_ZED_CONFIG_DIR}"       >>$applLog 2>&1
+        echo "ln_SXHKD_CONFIG_FILE: ${ln_SXHKD_CONFIG_FILE}"   >>$applLog 2>&1
         echo -e "launching: [${myAppl} ${applArgs} $@]"               >>$applLog 2>&1
     fi
 

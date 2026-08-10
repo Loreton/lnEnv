@@ -132,7 +132,7 @@ load_env "
     #---------------------
     #... application configuration directory and files
     #---------------------
-        ln_ZED_CONFIG_DIR="${ln_APPLS_CONFIG_DIR}/zed"
+        ln_ZED_CONFIG_DIR="${ln_CONFIG_DIR}/zed"
         ln_SXHKD_CONFIG_FILE="${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc"
         # XCLIP_ROOT_DIR_FILE=/tmp/xclip_rootdir
 

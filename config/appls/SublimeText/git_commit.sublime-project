@@ -1,6 +1,5 @@
 {
-	"folders":
-	[
+	"folders": [
 		// ---- lnEnv
 		// {"path": "/home/loreto/filu/lnEnv", "name": "", "folder_exclude_patterns": [], },
 
@@ -8,5 +7,10 @@
 		// {"path": "/home/loreto/filu/lnEnv/pyScripts/git_commit" },
 		// {"path": "/home/loreto/filu/Programming/gitREPO/pyLnLib" },
 		{"path": "/home/loreto/filu/Programming/gitREPO/gitCommit" },
-	]
+    ],
+	// Jedi autocomplet package https://github.com/srusskih/SublimeJEDI
+    "settings": {
+        "python_virtualenv": "/home/loreto/filu/Programming/gitREPO/gitCommit/.venv",
+        "python_package_paths": ["/home/loreto/filu/Programming/gitREPO/pyLnLib", "${ln_PY_LNLIB_DIR}"]
+    }
 }

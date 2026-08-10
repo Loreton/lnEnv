@@ -125,6 +125,7 @@ EOF
 
 ############################################################
 # pyproject.toml
+# uv add --editable /home/loreto/filu/Programming/gitREPO/pyLnLib
 ############################################################
 
 cat > pyproject.toml <<EOF

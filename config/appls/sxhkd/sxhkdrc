@@ -9,11 +9,16 @@ alt + x ; alt + c
     /usr/bin/flatpak run com.calibre_ebook.calibre
 
 # Open the System Monitor (Ctrl + K then Ctrl + M)
-alt + x ; alt + m
-    gnome-system-monitor
+# alt + x ; alt + m
+#     gnome-system-monitor
+
+# alt + z; alt + z
+#     /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip.rootdir --zed
+# alt + s; alt + s
+#     /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip.rootdir
 
 alt + x; alt + x
-    /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip.rootdir
+    /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip.rootdir --zed
 
 # Super_L + x
     # /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip_rootdir
@@ -36,7 +41,10 @@ alt + x ; alt + d
     ${ln_START_PROC_DIR}/doublecmd_start.sh
 
 alt + x ; alt + z
-    /usr/bin/flatpak run dev.zed.Zed --user-data-dir ${ln_ZED_CONFIG_DIR}
+    # /usr/bin/flatpak run dev.zed.Zed --user-data-dir ${ln_ZED_CONFIG_DIR}
+    # /home/loreto/.local/bin/zed_orig --user-data-dir ${ln_ZED_CONFIG_DIR}
+    # /home/loreto/.local/zed.app/bin/zed --user-data-dir ${ln_ZED_CONFIG_DIR}
+    /home/loreto/filu/lnEnv/start_proc/zed_start.sh
 
 ### --- edit del file di configurazione di sxhkd
 alt + x ; alt + e

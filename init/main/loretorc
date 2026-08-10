@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 24-06-2026 17.07.57
+# Date .........: 03-07-2026 13.47.01
 #
 
 
@@ -55,8 +55,8 @@ ROCKET=$'\U0001f680'
 #   ➤
 #   ▶️
 
-echo "$OK done"
-echo "$ERR failed"
+# echo "$OK done"
+# echo "$ERR failed"
 
 ### ------------
 ### funziona bene con il lancio di uno script, non funziona con "source script"

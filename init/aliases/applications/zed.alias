@@ -1,9 +1,8 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 21-06-2026 14.52.53
+# Date .........: 03-07-2026 12.14.19
 #
-
 
 
 
@@ -11,11 +10,12 @@
 
 if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
 
-    # alias ${alias_prefix}edit="${ln_SUBLIME_BIN}"
-    # alias ${alias_prefix}zed="/usr/bin/flatpak run dev.zed.Zed --user-data-dir /home/loreto/filu/lnEnv/config/appls/zed"
-    alias ${alias_prefix}zed="/usr/bin/flatpak run dev.zed.Zed --user-data-dir /home/loreto/filu/Applications/linuxPortable/zed_config"
-    # alias subl="${ln_SUBLIME_BIN}"
-    # alias subl="${ln_SUBLIME_BIN}"
+    zed_dir='/home/loreto/.local/bin'
+    @createLink "/home/loreto/.local/zed.app/bin/zed"    "${zed_dir}/zed_orig" ### - link originale
+    @createLink "${ln_START_PROC_DIR}/zed_start.sh"      "${zed_dir}/zed"
+
+
+    alias ${alias_prefix}zed="${zed_dir}/zed --user-data-dir ${ln_ZED_CONFIG_DIR}"
 
 
 fi

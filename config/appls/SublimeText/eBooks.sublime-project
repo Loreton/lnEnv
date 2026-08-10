@@ -19,7 +19,7 @@
 
         {
             "binary_file_patterns": ["*.bin", "*.zip"],
-            "path": "/home/loreto/lnEnv/gitREPO/eBooks",
+            "path": "/home/loreto/filu/Programming/gitREPO/eBooks",
         },
     ],
 }

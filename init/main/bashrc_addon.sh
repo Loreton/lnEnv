@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 24-06-2026 20.37.29
+# Date .........: 05-07-2026 14.37.46
 
 
 
@@ -20,6 +20,8 @@ function setUpTerminal() {
     HISTSIZE=5000
     HISTFILESIZE=10000
     stty -ixon # enable ctrl-s to move backward in history (ctrl-r)
+
+
 
     loretorc_link="$HOME/.loreto_setup"
     loretorc_file="/home/loreto/filu/lnEnv/init/main/loretorc"
@@ -44,7 +46,10 @@ function loretoPYENV() {
     export PYENV_ROOT="$HOME/.pyenv"
     [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init - bash)"
-   #  eval "$(pyenv virtualenv-init -)"
+
+    ### Terminator per far comparire il path nel terminale
+    export PROMPT_COMMAND='echo -ne "\033]2;${PWD/#$HOME/~}\007"' # intero path
+    export PROMPT_COMMAND='echo -ne "\033]2;${PWD##*/}\007"' # solo nome directory
 }
 
 
@@ -52,13 +57,10 @@ function loretoPYENV() {
 # MAIN
 ########################################################
 
-    if [[ $GNOME_TERMINAL_SCREEN ]]; then
-    	echo "LinuxMint default TERMINAL progam. skipping loretorc setup.."
+    if [[ $SKIP_LORETORC ]]; then
+        echo "SKIP_LORETORC set, skipping loretorc setup.."
 
-    elif [[ $TERM_PROGRAM == 'zed' ]]; then
-        echo "ZED-TERMINAL, skipping loretorc setup.."
-
-    else
+    elif [[ $TERMINATOR_UUID ]]; then
         echo "Terminator-TERMINAL, starting loretorc setup.."
         setUpTerminal
         myHOSTNAME=$(hostname)
@@ -68,4 +70,13 @@ function loretoPYENV() {
             eval "$(direnv hook bash)"
             eval "$(starship init bash)"
         fi
+
+    elif [[ $GNOME_TERMINAL_SCREEN ]]; then
+    	echo "LinuxMint default TERMINAL progam. skipping loretorc setup.."
+
+    elif [[ $TERM_PROGRAM == 'zed' ]]; then
+        echo "ZED-TERMINAL, skipping loretorc setup.."
+
+    else
+        echo "TERMINAL not identified, skipping loretorc setup.."
     fi

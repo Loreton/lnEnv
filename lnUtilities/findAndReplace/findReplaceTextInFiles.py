@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: iso-8859-1 -*-
+# ruff: noqa: I001 - Import block is un-sorted or un-formatted help: Organize imports (Ruff I001)
 #
 # updated by ...: Loreto Notarantonio
 # Date .........: 25-11-2025 16.51.27
@@ -8,7 +8,7 @@
 import sys; sys.dont_write_bytecode = True
 from types import SimpleNamespace
 from pathlib import Path
-import fnmatch
+# import fnmatch
 import os
 
 class color:
@@ -314,5 +314,3 @@ if __name__ == '__main__':
     print (C.yellowH, "involved files............:", gv.changed_files, C.reset)
     print (C.yellowH, "total lines occurrencies..:", gv.occurrencies, C.reset)
     sys.exit()
-
-

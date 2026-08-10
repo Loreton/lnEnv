@@ -1,10 +1,10 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 15-06-2026 19.11.35
+# Date .........: 03-07-2026 13.46.24
 #
 
-echo "xbindkeys has been disabled."
+# echo "xbindkeys has been disabled."
 return
 
 function @start_xbindkeys() {

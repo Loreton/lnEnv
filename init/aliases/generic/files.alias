@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 15-12-2025 09.30.46
+# Date .........: 26-07-2026 07.13.29
 #
 
 # function @_system_real_path() {
@@ -12,7 +12,7 @@
 if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
     # _TAB='    '
     # _dq='''
-    alias ${alias_prefix}filesAttributes='${ln_SH_SCRIPTS_DIR}/setFiles/setFilesReadOnly.sh'
+    alias ${alias_prefix}filesAttributes='${ln_UTILS_DIR}/setFiles/setFilesReadOnly.sh'
     # alias ${alias_prefix}filesVerify='verifyAttributes'
     # alias ${alias_prefix}filesReadOnly1='echo find . -type f -exec chmod 444 {} +'
     # alias ${alias_prefix}filesReadOnly2='echo find . -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.h' \) -exec chmod -w {} \;'
@@ -24,9 +24,10 @@ if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
     alias ${alias_prefix}serietv='.subl /home/loreto/filu/lnEnv/Notes/SerieTV.yaml'
     alias ${alias_prefix}film='.subl /home/loreto/filu/lnEnv/Notes/film.yaml'
 
+
     #----- find text in files
-    alias ${alias_prefix}fr.lnEnv='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${ln_ENV_DIR}'
-    alias ${alias_prefix}fr.pwd='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${PWD} $@'
-    alias ${alias_prefix}fr.ask='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py $@'
+    alias ${alias_prefix}fr.lnEnv='${ln_UTILS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${ln_ENV_DIR}'
+    alias ${alias_prefix}fr.pwd='${ln_UTILS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${PWD} $@'
+    alias ${alias_prefix}fr.ask='${ln_UTILS_DIR}/findAndReplace/findReplaceTextInFiles.py $@'
 fi
 
