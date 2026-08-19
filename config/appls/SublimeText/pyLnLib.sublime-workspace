@@ -537,7 +537,7 @@
 						"characters": "pyLnL"
 					},
 					"BQAAAIYCAAAAAAAAhwIAAAAAAAAGAAAAZUJvb2tzhwIAAAAAAACIAgAAAAAAAAAAAACIAgAAAAAAAIkCAAAAAAAAAAAAAIkCAAAAAAAAigIAAAAAAAAAAAAAigIAAAAAAACLAgAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAIYCAAAAAAAAjAIAAAAAAAAAAAAAAADwvw"
+					"BwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAhgIAAAAAAACMAgAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					6,
@@ -547,7 +547,7 @@
 						"characters": "ib"
 					},
 					"AgAAAIsCAAAAAAAAjAIAAAAAAAAAAAAAjAIAAAAAAACNAgAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAIsCAAAAAAAAiwIAAAAAAAAAAAAAAADwvw"
+					"BwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAiwIAAAAAAACLAgAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		},
@@ -559,9 +559,25 @@
 				"line_ending": "Unix",
 				"name": "Find Results",
 				"scratch": true
+			}
+		},
+		{
+			"file": "/home/loreto/filu/Programming/gitREPO/eBooks/src/eBooks/main.py",
+			"settings":
+			{
+				"buffer_size": 1887,
+				"line_ending": "Unix"
 			},
 			"undo_stack":
 			[
+				[
+					1,
+					1,
+					"revert",
+					null,
+					"AwAAAAAAAAAAAAAAAAAAAAAAAACNBwAAIyEvdXNyL2Jpbi9lbnYgcHl0aG9uMwojIGVib29rX3Byb2Nlc3Nvci9tYWluLnB5CiIiIgpFeGFtcGxlIHVzYWdlIG9mIHRoZSBFYm9va1Byb2Nlc3NvcgoiIiIKIyBydWZmOiBub3FhOiBTSU0xMTQgQ29tYmluZSBgaWZgIGJyYW5jaGVzIHVzaW5nIGxvZ2ljYWwgYG9yYCBvcGVyYXRvciBoZWxwOiBDb21iaW5lIGBpZmAgYnJhbmNoZXMgKFJ1ZmYgU0lNMTE0KQoKCiMgLS0tIHB5TG5MaWIgbW9kdWxlcwpmcm9tIHB5TG5MaWIubG9nZ2VyICAgIGltcG9ydCBnZXRfbG9nZ2VyCmZyb20gcHlMbkxpYi5maWxlcyAgICAgIGltcG9ydCBzY2FuX2RpcmVjdG9yeQpmcm9tIHB5TG5MaWIudmFyaWUgICAgICBpbXBvcnQgbWVudV9zZWxlY3RfZnJvbV9saXN0CgoKIyAtLS0gcHJvamVjdCBtb2R1bGVzCmZyb20gLmluaXQuaW5pdGlhbGl6ZV9wcm9ncmFtIGltcG9ydCBpbml0aWFsaXplX3Byb2dyYW0KZnJvbSAuZXB1YnMuY2FsaWJyZSBpbXBvcnQgaW5pdGlhbGl6ZV9jYWxpYnJlCmZyb20gLmVwdWJzLmVwdWJzIGltcG9ydCBwcm9jZXNzX2VwdWIKCmxvZ2dlciA9IGdldF9sb2dnZXIoKQoKCgoKZGVmIG1haW4oKToKICAgIGN0eCA9IGluaXRpYWxpemVfcHJvZ3JhbSgpCiAgICBhcmdzPWN0eC5hcmdzCgogICAgaWYgYXJncy5jaG9pY2UgPT0gJ2R1cGxpY2F0ZWQnOgogICAgICAgIGxvZ2dlci5pbmZvKGN0eC5jYWxpYnJlLmdldF9kdXBsaWNhdGVfcmVwb3J0KCkpCgogICAgZWxpZiBhcmdzLmNob2ljZSA9PSAnc2VhcmNoJzoKICAgICAgICAuLi4KCiAgICBlbGlmIGFyZ3MuY2hvaWNlID09ICdleHRyYWN0JzoKICAgICAgICBpZiBhcmdzLmNhbGlicmU6CiAgICAgICAgICAgIF9jaG9pY2UsIGxpYnJhcnkgPSBtZW51X3NlbGVjdF9mcm9tX2xpc3QoY3R4LmNvbmZpZy5jYWxpYnJlX2NvbmZpZy5mb2xkZXJzKQogICAgICAgICAgICBjdHguY2FsaWJyZSA9IGluaXRpYWxpemVfY2FsaWJyZShsaWJyYXJ5KQogICAgICAgIGVsc2U6CiAgICAgICAgIyBpZiBhcmdzLmVwdWJzOgogICAgICAgICAgICBfY2hvaWNlLCBsaWJyYXJ5ID0gbWVudV9zZWxlY3RfZnJvbV9saXN0KGN0eC5jb25maWcuZXB1YnNfY29uZmlnLmZvbGRlcnMpCiAgICAgICAgICAgICMgY3R4LmVwdWIgPSBFcHViUHJvY2Vzc29yCgogICAgICAgIGlmIGlzaW5zdGFuY2UobGlicmFyeSwgc3RyKToKICAgICAgICAgICAgbGlicmFyeT1bbGlicmFyeV0KICAgICAgICBmb3Igc291cmNlX2RpciBpbiBsaWJyYXJ5OgogICAgICAgICAgICBmaWxlX2xpc3QgPSBzY2FuX2RpcmVjdG9yeShyb290X2Rpcj1zb3VyY2VfZGlyLCBwYXR0ZXJuPScqLmVwdWInKQogICAgICAgICAgICBuZmlsZXM9bGVuKGZpbGVfbGlzdCkKICAgICAgICAgICAgbG9nZ2VyLmluZm8oZmlsZV9saXN0KQoKICAgICAgICAgICAgZm9yIGluZGV4LCBmaWxlIGluIGVudW1lcmF0ZShmaWxlX2xpc3QpOgogICAgICAgICAgICAgICAgaWYgZmlsZS5zdGVtIGluIGN0eC5jb25maWcuZmlsZXNfdG9fc2tpcDoKICAgICAgICAgICAgICAgICAgICBsb2dnZXIud2FybmluZyhmIlNraXBwaW5nIHtmaWxlLnN0ZW19IikKICAgICAgICAgICAgICAgICAgICBjb250aW51ZQogICAgICAgICAgICAgICAgcHJvY2Vzc19lcHViKGVwdWJfcGF0aD1maWxlLCBleHBvcnRfZGlyPWN0eC5jb25maWcuZXh0cmFjdGlvbl90b3BfZGlyLCBpbmRleD1mIntpbmRleDowNH0ve25maWxlczowNH0iKQoKICAgIGVsaWYgY3R4LmFyZ3MuY2hvaWNlID09ICdleHRyYWN0X2Zyb21fY2FsaWJyZSc6CiAgICAgICAgY2FsaWJyZV9mb2xkZXJzID0gY3R4LmNvbmZpZy5jYWxpYnJlCiAgICAgICAgcHJpbnQoY2FsaWJyZV9mb2xkZXJzLnRvX2RpY3QoKSkKICAgICAgICBicmVha3BvaW50KCkKCiAgICAjIHN5cy5leGl0KCJ0ZW1wb3JhcnkgZXhpdCIpCgppZiBfX25hbWVfXyA9PSAiX19tYWluX18iOgogICAgbWFpbigpCgAAAAAAAAAAXwcAAAAAAAAAAAAAAAAAAAAAAABfBwAAAAAAAAAAAAA",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABABQAAAAAAAEAFAAAAAAAAAAAAAAAA8L8"
+				]
 			]
 		},
 		{
@@ -939,6 +955,8 @@
 	],
 	"file_history":
 	[
+		"/home/loreto/filu/ln-eBooks/lnLibraries/allInOne",
+		"/home/loreto/filu/ln-eBooks/lnLibraries/Ale",
 		"/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/context.py",
 		"/home/loreto/filu/Programming/gitREPO/buildPythonProject/src/buildpythonproject/main.py",
 		"/home/loreto/filu/Programming/gitREPO/gitCommit/pyproject.toml",
@@ -1064,9 +1082,7 @@
 		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/ln_run_stream_class.py",
 		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/keyboard_prompt.py",
 		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/git_status.py",
-		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/parse_input.py",
-		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/process_args.py",
-		"/home/loreto/filu/Programming/gitREPO/pyLnLib/pyLnLib/ln_run.py"
+		"/home/loreto/filu/lnEnv/pyScripts/git_commit/modules/parse_input.py"
 	],
 	"find":
 	{
@@ -1265,13 +1281,12 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"stack_multiselect": false,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1326,12 +1341,44 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 1,
 					"stack_multiselect": false,
 					"type": "text"
 				},
 				{
 					"buffer": 2,
+					"file": "/home/loreto/filu/Programming/gitREPO/eBooks/src/eBooks/main.py",
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1887,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1344,
+								1344
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 424.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "/home/loreto/filu/Programming/gitREPO/pyLnLib/src/pyLnLib/tests/beep_test.py",
 					"semi_transient": false,
 					"settings":
@@ -1357,7 +1404,7 @@
 						"translation.y": 352.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"stack_multiselect": false,
 					"type": "text"
 				}
@@ -1476,7 +1523,7 @@
 		[
 			[
 				"",
-				"~/filu/lnEnv/config/appls/SublimeText/git_commit.sublime-project"
+				"~/filu/lnEnv/config/appls/SublimeText/lnEnv.sublime-project"
 			]
 		],
 		"width": 380.0

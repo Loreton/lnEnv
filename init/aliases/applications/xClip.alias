@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 03-07-2026 18.10.55
+# Date .........: 14-08-2026 13.36.29
 #
 
 
@@ -17,7 +17,13 @@ if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
     # alias ${alias_prefix}xcl*ip="${ln_PY_SCRIPTS_DIR}/xClip/xClip.py"
     alias ${alias_prefix}xclip="${ln_UTILS_DIR}/xClip/xClip.py"
     ### per xbindkeys + xclip
-    alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >$file; echo "${ln_PY_LNLIB_DIR}" >>$file; cat $file; echo "  written to file $file"; }'  ### importante il singolo apice
+    # alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >>$file; echo "${ln_PY_LNLIB_DIR}" >>$file; cat $file; echo "  written to file $file"; }'  ### importante il singolo apice
+    # alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >>$file; echo "${ln_GIT_REPO_DIR}" >>$file; cat $file; echo "  written to file $file"; }'  ### importante il singolo apice
+
+    # save current dir in file
+    alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >$file; echo "file $file"; cat $file;  }'  ### importante il singolo apice
+    # add current dir in file
+    alias ${alias_prefix}cdd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >>$file; echo "file $file"; cat $file; }'  ### importante il singolo apice
 
 
 fi

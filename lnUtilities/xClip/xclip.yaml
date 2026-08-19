@@ -1,0 +1,144 @@
+# ============================================================
+# xClip configuration
+# ============================================================
+
+
+# top directory dove cercareventuali files oltre a:
+primary_root_dirs_file: "/tmp/xclip.rootdir"  # viene riempito dal comando alias .cd con i path navigati recentemente
+secondary_root_dirs:
+    # - /home/loreto/filu/Programming/gitREPO/eBooks
+    # - /home/loreto/filu/Programming/gitREPO/pyLnLib
+    - /home/loreto/filu/Programming/gitREPO
+    - /home/loreto/filu/lnEnv
+
+exclude_dirnames:
+    - .build
+    - .build_stage
+    - .desktop
+    - .git
+    - .old
+    - .saved
+    - .venv
+    - .vscode
+    - .wip
+    - __pycache__
+    - dist
+    - logs
+
+
+handlers:
+
+  # ----------------------------------------------------------
+  # Python
+  #
+  # Se viene trovato:
+  #
+  #   pyproject_class:134
+  #
+  # oppure:
+  #
+  #   File ".../pyproject_class.py", line 134
+  #
+  # viene aperto nell'editor con il numero di linea.
+  # ----------------------------------------------------------
+
+  python:
+    extensions:
+      - .py
+      - .pyw
+      - .yaml
+      - .sh
+      - .config
+      - .txt
+      - .json
+      - .c
+      - .cpp
+      - .c++
+      - .h
+      - .hpp
+      - .tab
+      - .md
+      - .toml
+      - .functions
+      - .alias
+
+    command:
+      - /home/loreto/filu/lnEnv/start_proc/zed_start.sh
+
+    line_number: true
+
+
+  # ----------------------------------------------------------
+  # EPUB
+  # ----------------------------------------------------------
+  epub:
+    extensions:
+      - .epub
+
+    command:  # se più parti dividere la stringa in più righe
+      # - "/usr/bin/flatpak run --command=ebook-viewer com.calibre_ebook.calibre"
+      - /usr/bin/flatpak
+      - run
+      - --command=ebook-viewer
+      - com.calibre_ebook.calibre
+
+    line_number: false
+
+
+  # ----------------------------------------------------------
+  # PDF
+  # ----------------------------------------------------------
+
+  pdf:
+    extensions:
+      - .pdf
+
+    command:
+      - okular
+
+    line_number: false
+
+
+  # ----------------------------------------------------------
+  # LibreOffice
+  # ----------------------------------------------------------
+
+  spreadsheet:
+    extensions:
+      - .xlsx
+      - .xls
+      - .ods
+
+    command:
+      - libreoffice
+
+    line_number: false
+
+
+  # ----------------------------------------------------------
+  # Testi / Markdown
+  # ----------------------------------------------------------
+
+  text:
+    extensions:
+      - .txt
+      - .md
+
+    command:
+      - xdg-open
+
+    line_number: false
+
+
+  # ----------------------------------------------------------
+  # Default
+  #
+  # Qualunque estensione non riconosciuta viene affidata
+  # al desktop.
+  # ----------------------------------------------------------
+
+  default:
+    command:
+      - xdg-open
+
+    line_number: false

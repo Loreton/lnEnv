@@ -1,0 +1,142 @@
+ref: https://ollama.com/download/linux
+
+installazione:
+    curl -fsSL https://ollama.com/install.sh | sh
+
+Nel terminale:
+    curl -fsSL https://ollama.com/install.sh | sh
+
+Poi verifica:
+    ollama --version
+e:
+    systemctl status ollama
+
+Se il servizio non è attivo:
+    sudo systemctl enable --now ollama
+
+Controlliamo anche che veda la tua RTX 3060:
+    ollama ps
+
+e, mentre un modello è in esecuzione:
+    nvidia-smi
+
+conviene seguire l'AI. questè stato fatto con chat-gpt
+
+#------------------------
+#2. Quale modello scegliere?
+#------------------------
+Qui la tua RTX 3060 12 GB è il parametro più importante.
+Non sceglierei un 13B/14B come prima prova. Per le Edit Predictions conta moltissimo la latenza:
+    vogliamo che il suggerimento arrivi mentre stai digitando, non dopo 10 secondi.
+
+Io partirei da un modello 7B/8B quantizzato.
+
+Zed cita esplicitamente Qwen, CodeLlama e DeepSeek come esempi di modelli utilizzabili tramite Ollama per Edit Prediction.
+Per il tuo utilizzo Python, la mia prima scelta sarebbe:
+
+Qwen Coder 7B/8B
+
+piuttosto che un modello generalista.
+
+La ragione è semplice: tu non stai cercando principalmente un chatbot che spieghi il codice; vuoi:
+
+scrivo...
+     ↓
+predizione
+     ↓
+Tab
+     ↓
+continuo a scrivere
+
+che è esattamente il caso d'uso delle Edit Predictions.
+
+3. Facciamo prima una prova con Ollama
+
+Una volta installato Ollama, possiamo scaricare il modello.
+
+Prima però voglio evitare di farti scaricare inutilmente parecchi GB: fammi vedere cosa propone oggi la tua installazione di Ollama.
+
+Esegui:
+
+ollama list
+
+e:
+
+ollama show qwen2.5-coder:7b
+
+Se il secondo comando dice che il modello non esiste, va bene: significa semplicemente che dobbiamo fare il pull.
+
+Possiamo anche verificare direttamente cosa vede Ollama:
+
+ollama list
+4. Una cosa importante: non tocchiamo ancora settings.json
+
+Nel tuo settings.json attuale hai già:
+
+"show_completions_on_input": true,
+"show_signature_help_after_edits": true,
+
+e non voglio mischiare queste impostazioni con Ollama.
+
+Zed distingue infatti chiaramente:
+
+Language Server completions
+
+basedpyright
+    ↓
+Ctrl+Space
+
+da:
+
+Edit Predictions
+
+Ollama / Zeta / Copilot / ...
+    ↓
+predizione mentre scrivi
+    ↓
+Tab
+
+Quindi il nostro obiettivo sarà sostituire solamente:
+
+Zeta
+  ↓
+Ollama
+
+lasciando completamente intatto:
+
+Python
+  ↓
+basedpyright
+5. La configurazione finale che vogliamo ottenere
+
+Indicativamente:
+
+                         ZED
+                          │
+             ┌────────────┴────────────┐
+             │                         │
+       Code Completions          Edit Predictions
+             │                         │
+       basedpyright                  Ollama
+             │                         │
+        .venv Python             RTX 3060 12 GB
+             │                         │
+             └────────────┬────────────┘
+                          │
+                       Python
+
+Questa secondo me è una configurazione molto più interessante per il tuo ambiente rispetto a disabilitare semplicemente Predict fino al reset della quota.
+
+E soprattutto è completamente locale: Zed documenta che con Ollama il modello può essere eseguito sulla propria macchina, senza mandare il codice a un provider esterno.
+
+Facciamo adesso il primo passo
+
+Non installare ancora il modello a caso.
+
+Mandami l'output di:
+
+ollama --version
+ollama list
+nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv
+
+Con quei tre output ti dico esattamente quale variante/quantizzazione scaricare e poi configuriamo Zed passo-passo, compreso il tuo --user-data-dir Flatpak.
