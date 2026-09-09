@@ -1,0 +1,195 @@
+#!/usr/bin/env python3
+# mp3_copy_selected_list by gemini  support
+# by Loreto Notarantonio
+
+import shutil
+import argparse
+from pathlib import Path
+import yaml
+
+FILENAME_YAML = "Loreto_selection_list.yaml"
+INCLUDE_AUTHORS: ["Francesco_Guccini", "Amedeo_Minghi", "Francesco_de_Gregori"]
+
+
+def scan_and_generate_yaml(author_dir: Path):
+    """
+    Scansiona le sottodirectory dell'autore per cercare file MP3
+    e genera il file YAML mettendo tutte le tracce sotto la voce 'no'.
+    """
+    author_name = author_dir.name
+    albums_data = {}
+
+    # Scansione album
+    for album_dir in sorted(author_dir.iterdir()):
+        if album_dir.is_dir():
+            album_name = album_dir.name
+            mp3_files = sorted( [
+                                    f"{author_name}/{album_name}/{f.name}"
+                                    for f in album_dir.rglob("*.mp3")
+                                ]
+                            )
+
+            if mp3_files:
+                # default: tutte le tracce sono 'exclude'
+                albums_data[album_name] = {
+                                                "include": [],
+                                                "exclude": mp3_files
+                                            }
+
+    if not albums_data:
+        return
+
+    yaml_structure = {"Albums": albums_data}
+    yaml_path = author_dir / FILENAME_YAML
+
+    with open(yaml_path, "w", encoding="utf-8") as f:
+        yaml.dump(yaml_structure, f, default_flow_style=False, indent=4, sort_keys=False)
+
+    print(f"[+ CREATO] {yaml_path}")
+
+
+def XXXprocess_author_directory(author_dir: Path, target_dir: Path, replace: bool, include_path: bool=False, create_yaml: bool=False):
+    """
+    Legge il file YAML dell'autore e copia le tracce specificate in 'yes'.
+    """
+    yaml_path = author_dir / FILENAME_YAML
+    author_name = author_dir.name
+
+    print(f"\nProcessing author: {author_name}")
+    # Se non esiste, crea il file template e salta la copia per questo giro
+    if not yaml_path.exists():
+        print(f"[!] Manca YAML per '{author_dir.name}'.")
+        if create_yaml:
+            print("\tGenerazione in corso...")
+            scan_and_generate_yaml(author_dir)
+        return
+
+    try:
+        with open(yaml_path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+    except Exception as e:
+        print(f"[ERR] Errore durante la lettura di {yaml_path}: {e}")
+        return
+
+    albums = data.get("Albums", {})
+    for album_name, content in albums.items():
+        if not content:
+            continue
+
+        yes_list = content.get("include") or []
+        for rel_path_str in yes_list:
+            # Il path nel file YAML è relativo alla top-dir (author_name/album_name/song.mp3)
+            source_file = author_dir.parent / rel_path_str
+
+            if not source_file.exists():
+                print(f"[MISSING] File non trovato: {source_file}")
+                continue
+
+
+            # Il file di destinazione sarà nella struttura: target_dir/author_name/album_name/song.mp3
+            # Manteniamo la struttura ma senza il top_dir
+            if include_path:
+                dest_file = target_dir / rel_path_str
+            else:
+                dest_file = target_dir / f"{author_name}_{source_file.name}"  # include il suffix .mp3
+
+
+            if dest_file.exists() and not replace:
+                print(f"[SKIP] Esiste già: {dest_file}")
+                continue
+
+            shutil.copy2(source_file, dest_file)
+            print(f"[COPIATO] {source_file.name} -> {target_dir}")
+
+def process_author_directory(args, author_dir: Path, target_dir: Path):
+    """
+    Legge il file YAML dell'autore e copia le tracce specificate in 'yes'.
+    """
+    yaml_path = author_dir / FILENAME_YAML
+    author_name = author_dir.name
+
+    print(f"\nProcessing author: {author_name}")
+    # Se non esiste, crea il file template e salta la copia per questo giro
+    if not yaml_path.exists():
+        print(f"[!] Manca YAML per '{author_dir.name}'.")
+        if args.create_yaml:
+            print("\tGenerazione in corso...")
+            scan_and_generate_yaml(author_dir)
+        return
+
+    try:
+        with open(yaml_path, "r", encoding="utf-8") as f:
+            data = yaml.safe_load(f) or {}
+    except Exception as e:
+        print(f"[ERR] Errore durante la lettura di {yaml_path}: {e}")
+        return
+
+    albums = data.get("Albums", {})
+    for album_name, content in albums.items():
+        if not content:
+            continue
+
+        yes_list = content.get("include") or []
+        for rel_path_str in yes_list:
+            if not rel_path_str: # potrebbesserci qualche '-' refuco
+                continue
+
+            # Il path nel file YAML è relativo alla top-dir (author_name/album_name/song.mp3)
+            source_file = author_dir.parent / rel_path_str
+
+            if not source_file.exists():
+                print(f"[MISSING] File non trovato: {source_file}")
+                continue
+
+
+            # Il file di destinazione sarà nella struttura: target_dir/author_name/album_name/song.mp3
+            # Manteniamo la struttura ma senza il top_dir
+            if args.include_path:
+                dest_file = target_dir / rel_path_str
+            else:
+                dest_file = target_dir / f"{author_name}_{source_file.name}"  # include il suffix .mp3
+
+
+            if dest_file.exists() and not args.replace:
+                print(f"[SKIP] Esiste già: {dest_file}")
+                continue
+
+            if args.go:
+                shutil.copy2(source_file, dest_file)
+                print(f"[COPIATO] {source_file.name} -> {target_dir}")
+            else:
+                print(f"[DRY RUN] {source_file.name} -> {dest_file}")
+
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Gestore e copiatore di selezioni musicali YAML.")
+    parser.add_argument("--top-dir", required=True, type=Path, help="Directory radice delle canzoni")
+    parser.add_argument("--target-dir", required=True, type=Path, help="Directory di destinazione per i file copiati")
+    parser.add_argument("--replace", action="store_true", help="Sovrascrive i file se già presenti nella destinazione")
+    parser.add_argument("--include-path", action="store_true", help="Includi il percorso relatico originale nella struttura di destinazione")
+
+    # exclusive_group=parser.add_mutually_exclusive_group(required=True)
+    parser.add_argument("--create-yaml", action="store_true", help="Crea un file YAML con la lista delle tracce")
+    parser.add_argument("--go", action="store_true", help="Esegue la copia dei file")
+
+    args = parser.parse_args()
+
+    top_dir: Path = args.top_dir.resolve()
+    target_dir: Path = args.target_dir.resolve()
+
+    if not top_dir.exists():
+        print(f"[ERR] La directory --top-dir specificata non esiste: {top_dir}")
+        return
+
+    target_dir.mkdir(parents=True, exist_ok=True)
+
+    # Scansione cartelle degli autori
+    for author_dir in sorted(top_dir.iterdir()):
+        if author_dir.is_dir():
+            process_author_directory(args=args, author_dir=author_dir, target_dir=target_dir)
+            # process_author_directory(author_dir, target_dir, args.replace, args.include_path, args.create_yaml)
+
+
+if __name__ == "__main__":
+    main()

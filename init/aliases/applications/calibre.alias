@@ -1,14 +1,13 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 25-11-2025 18.54.05
+# Date .........: 08-09-2026 12.24.14
 #
 
 
 
 
 if [[ "${lapTopPC_lc}" == *" ${hostname_lc} "* ]]; then
-    alias ${alias_prefix}calc="${ln_LINUX_PORTABLE_DIR}/qalculate/qalc"
-    alias ${alias_prefix}calculator="${ln_LINUX_PORTABLE_DIR}/qalculate/qalculate"
+    alias ${alias_prefix}ebook-viewer='flatpak run --command=ebook-viewer com.calibre_ebook.calibre'
 fi
 

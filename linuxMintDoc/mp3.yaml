@@ -1,0 +1,44 @@
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 05-09-2026 18.55.42
+#
+
+
+kid3: # anche tag editor
+    tip:
+        se installato con flatpack non vede le directory.
+        per farle vedere usare il comando:
+            flatpak override --user org.kde.kid3 --filesystem=/home/loreto/filu/myData/Songs
+            dove come filesystem mettere il path che si desidera
+
+    ref:
+        https://flathub.org/en/apps/org.kde.kid3
+
+    install:
+        flatpak install flathub org.kde.kid3
+
+    run:
+        flatpak run org.kde.kid3
+
+
+Rhythmbox3:
+    ref:
+        https://flathub.org/en/apps/org.gnome.Rhythmbox3
+
+    install:
+        flatpak install flathub org.gnome.Rhythmbox3
+
+    run:
+        flatpak run org.gnome.Rhythmbox3
+
+
+
+musicbrainz.Picard:
+    ref:
+        https://flathub.org/en/apps/org.musicbrainz.Picard
+
+    install:
+        flatpak install flathub org.musicbrainz.Picard
+
+    run:
+        flatpak run org.musicbrainz.Picard

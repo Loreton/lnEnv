@@ -86,6 +86,22 @@ handlers:
 
 
   # ----------------------------------------------------------
+  # MP3
+  # ----------------------------------------------------------
+  mp3:
+    extensions:
+      - .mp3
+
+    command:  # se più parti dividere la stringa in più righe
+      # - "/usr/bin/flatpak run --command=ebook-viewer com.calibre_ebook.calibre"
+      - /usr/bin/flatpak
+      - run
+      - org.kde.kid3
+
+    line_number: false
+
+
+  # ----------------------------------------------------------
   # PDF
   # ----------------------------------------------------------
 
