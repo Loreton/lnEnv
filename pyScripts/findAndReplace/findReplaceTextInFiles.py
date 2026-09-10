@@ -188,8 +188,12 @@ def findText(filepath: str, cur_str: str, new_str: str = None):
     # Read in the file
     # print(filepath)
     filedata = None
-    with open(filepath, 'r', encoding=my_encoding) as hFile:
-        filedata = hFile.read()
+    try:
+        with open(filepath, 'r', encoding=my_encoding) as hFile:
+            filedata = hFile.read()
+    except Exception as e:
+        print(f"Error reading file {filepath}: {e}")
+        return
 
     if cur_str in filedata:
         print(C.green + f'.... {filepath.__str__():{topDirLen:}}', C.reset)
@@ -198,9 +202,11 @@ def findText(filepath: str, cur_str: str, new_str: str = None):
         for index, line in enumerate(filedata.split('\n')):
             if cur_str in line:
                 gv.occurrencies+=1
+
                 ### display current line
                 cur_line = line.replace(cur_str, C.yellowH + cur_str + C.reset) # inseriamo il colore
-                print ("    ", f"[{index+1:3}]: {cur_line.strip()}")
+                print ("    ", f"[line# {index+1:3}]: {cur_line.strip()}")
+
                 if new_str:
                     ### display new target line
                     new_line = line.replace(cur_str, C.cyanH + new_str + C.reset) # inseriamo il colore

@@ -22,8 +22,8 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>/home/loreto/filu/myData/Songs/FrancescoGuccini_selection</Left>
-            <Right>sftp://loreto@192.168.1.234:2223/Filu/myData/FrancescoGuccini_selection|keyfile=/home/loreto/.ssh/id_rsa|pass64=TG9yZXRvMQ==</Right>
+            <Left>/home/loreto/Download/Italiani_selection</Left>
+            <Right>sftp://loreto@192.168.1.214:2223/Filu/myData/Italiani_selection|keyfile=/home/loreto/.ssh/id_rsa|pass64=TG9yZXRvMQ==</Right>
         </Pair>
     </FolderPairs>
     <Errors Ignore="false" Retry="0" Delay="5"/>

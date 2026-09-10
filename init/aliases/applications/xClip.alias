@@ -12,10 +12,10 @@
 if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
 
     ###... per aprire un file selezionato nella shell (vedi anche $HOME/.xbindkeysrc)
-    alias ${alias_prefix}x="${ln_UTILS_DIR}/xClip/xClip.py"
-    alias ${alias_prefix}xz="${ln_UTILS_DIR}/xClip/xClip.py --zed"
+    alias ${alias_prefix}x="${ln_PY_SCRIPTS_DIR}/xClip/xClip.py"
+    alias ${alias_prefix}xz="${ln_PY_SCRIPTS_DIR}/xClip/xClip.py --zed"
     # alias ${alias_prefix}xcl*ip="${ln_PY_SCRIPTS_DIR}/xClip/xClip.py"
-    alias ${alias_prefix}xclip="${ln_UTILS_DIR}/xClip/xClip.py"
+    alias ${alias_prefix}xclip="${ln_PY_SCRIPTS_DIR}/xClip/xClip.py"
     ### per xbindkeys + xclip
     # alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >>$file; echo "${ln_PY_LNLIB_DIR}" >>$file; cat $file; echo "  written to file $file"; }'  ### importante il singolo apice
     # alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >>$file; echo "${ln_GIT_REPO_DIR}" >>$file; cat $file; echo "  written to file $file"; }'  ### importante il singolo apice
@@ -27,5 +27,3 @@ if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
 
 
 fi
-
-

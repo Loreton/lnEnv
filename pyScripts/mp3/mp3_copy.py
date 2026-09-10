@@ -13,14 +13,15 @@ import yaml
 
 
 
-pyutils_path = Path(__file__).parent / ".." / "pyutils"
+pyutils_path = Path(__file__).parent.parent / "py_common_utils"
 sys.path.insert(0,str(pyutils_path))
-from print_logger import PrintLogger
-from colors import get_colors
+from print_logger import PrintLogger  # type: ignore[import-not-found]
+from colors import get_colors         # type: ignore[import-not-found]
 
 C = get_colors()
 
-
+TAB2='  '
+TAB4='    '
 
 
 # =============================================================================
@@ -67,36 +68,37 @@ def scan_and_generate_yaml(author_dir: Path):
 
 
 # =============================================================================
-def process_author_directory(args, author_dir: Path, target_dir: Path):
+def process_author_directory(args, author_dir: Path, target_dir: Path) -> int:
     """
     Legge il file YAML dell'autore e copia le tracce specificate in 'yes'.
     """
     yaml_path = author_dir / FILENAME_YAML
     author_name = author_dir.name
     if author_name not in INCLUDE_AUTHORS:
-        log.debug(f"skipping author: {author_name}")
-        return
+        logger.debug(f"skipping author: {author_name}")
+        return 0
     print()
-    log.notify(f"Processing author: {author_name}")
+    logger.notify(f"Processing author: {author_name}")
 
     # Se non esiste, crea il file template e salta la copia per questo giro
     if not yaml_path.exists():
-        log.warning(f"Manca YAML per '{author_dir.name}'.")
+        logger.warning(f"Manca YAML per '{author_dir.name}'.")
         if args.create_yaml:
-            log.info("Generazione in corso...")
+            logger.info("Generazione in corso...")
             scan_and_generate_yaml(author_dir)
-        return
+        return 0
 
     try:
         with open(yaml_path, "r", encoding="utf-8") as f:
             data = yaml.safe_load(f) or {}
     except Exception as e:
-        log.error(f"Errore durante la lettura di {yaml_path}: {e}")
-        return
+        logger.error(f"Errore durante la lettura di {yaml_path}: {e}")
+        return 0
 
+    author_songs: int = 0
     albums = data.get("Albums", {})
     for _album_name, content in albums.items():
-        log.notify(f"\tAlbum: {_album_name}")
+        logger.notify(f"{TAB2}Album: {_album_name}")
         if not content:
             continue
 
@@ -105,11 +107,12 @@ def process_author_directory(args, author_dir: Path, target_dir: Path):
             if not rel_path_str: # potrebbe esserci qualche '-' come refuso
                 continue
 
+            author_songs += 1
             # Il path nel file YAML è relativo alla top-dir (author_name/album_name/song.mp3)
             source_file = author_dir.parent / rel_path_str
 
             if not source_file.exists():
-                log.warning(f"File non trovato: {source_file}")
+                logger.warning(f"{TAB4}File not found: {source_file}")
                 continue
 
 
@@ -127,21 +130,18 @@ def process_author_directory(args, author_dir: Path, target_dir: Path):
                 dest_file = target_dir / f"{author}_{source_file.name}"  # include il suffix .mp3
 
             if dest_file.exists() and not args.replace:
-                log.warning(f"skipping...: {dest_file} - already exists")
+                logger.warning(f"{TAB4}already exists...: {dest_file}")
                 continue
 
             if args.go:
                 shutil.copy2(source_file, dest_file)
-                log.notify(f"{C.blue}[COPIED] {C.cyan}{source_file.name}{C.reset} -> {target_dir}")
+                logger.notify(f"{TAB4}{C.blue}[copied] {C.cyan}{source_file.name}{C.reset} -> {dest_file}")
             else:
-                log.info(f"{C.blue}[DRY RUN] {C.cyan}{source_file.name}{C.reset} -> {dest_file}")
+                logger.info(f"{TAB4}{C.blue}[dry-run] {C.cyan}{source_file.name}{C.reset} -> {dest_file}")
 
 
-    log.notify(f"total songs: {len(songs)}")
-
-
-
-
+    # logger.notify(f"author songs: {author_songs}")
+    return author_songs
 
 
 
@@ -173,22 +173,42 @@ def main():
     target_dir.mkdir(parents=True, exist_ok=True)
 
     # Scansione cartelle degli autori
+    total_songs: int = 0
     for author_dir in sorted(top_dir.iterdir()):
         if author_dir.is_dir():
-            process_author_directory(args=args, author_dir=author_dir, target_dir=target_dir)
-            # process_author_directory(author_dir, target_dir, args.replace, args.include_path, args.create_yaml)
+            songs = process_author_directory(args=args, author_dir=author_dir, target_dir=target_dir)
+            if songs:
+                total_songs += songs
+                logger.notify(f"author songs: {songs}")
 
+    logger.notify(f"total songs: {total_songs}")
 
 if __name__ == "__main__":
     FILENAME_YAML = "Loreto_selection_list.yaml"
     INCLUDE_AUTHORS =[  "Francesco_Guccini",
                         "Arisa",
+                        "Alice",
                         "Amedeo_Minghi",
                         "Francesco_de_Gregori",
+                        "Delirium",
+                        "Banco_del_Mutuo_Soccorso",
+                        "Dik_Dik",
+                        "Fabrizio_Moro",
+                        "Franco_Battiato",
+                        "Gianfranco_Manfredi",
+                        "Giorgio_Gaber",
+                        "Goran_Kuzminac",
+                        "Le_Orme",
+                        "Luca_Barbarossa",
+                        "Luciano_Rossi",
+                        "Lucio_Dalla",
+                        "Marco_Ferradini",
+                        "Pierangelo_Bertoli",
+                        "",
                     ]
 
     # C = PrintLogger.Color
-    log = PrintLogger(name="prova", console_logger_level="info", time_caller_prefix=True)
-    log.info("Starting...")
+    logger = PrintLogger(name="prova", console_logger_level="info", time_caller_prefix=True)
+    logger.info("Starting...")
     main()
-    log.info("Completed...")
+    logger.info("Completed...")

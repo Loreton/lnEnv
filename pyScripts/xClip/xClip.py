@@ -21,6 +21,7 @@
 #
 
 from dataclasses import dataclass
+from gettext import install
 from pathlib import Path
 import argparse
 import logging
@@ -697,11 +698,34 @@ def parserInput() -> argparse.Namespace:
     return parser.parse_args()
 
 
+#============================================================
+def install_system_vars(yaml_file: str) -> None:
+    """
+        Install system environment variables from a YAML file.
+        Utile per risolvere variabili d'ambiente che potrebbero
+        essere presenti nel path che andiamo a processare
+
+    Args:
+        yaml_file (str): Path to the YAML file containing system environment variables.
+
+    Returns:
+        None
+    """
+    import yaml
+    yaml_file=os.path.expandvars(yaml_file)
+    with open(yaml_file, 'r') as f:
+        content=f.read() # single string
+    dvars=yaml.load(content, Loader=yaml.FullLoader)
+    for key, value in dvars["system_envars"].items():
+        os.environ[key] = value
+
+
 # ============================================================
 # Main
 # ============================================================
 
 if __name__ == "__main__":
+    install_system_vars(yaml_file="$HOME/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml")
 
     args = parserInput()
 
@@ -753,16 +777,6 @@ if __name__ == "__main__":
         logger.error( "File %s not found", ffile, )
         # show_error( "File delle root directory non trovato:\n\n" f"{ffile}" )
         # sys.exit(1)
-
-    # except PermissionError:
-    #     logger.error( "Permission denied reading %s", ffile, )
-    #     show_error( "Permesso negato:\n\n" f"{ffile}" )
-    #     sys.exit(1)
-
-    # except Exception as exc:
-    #     logger.error( "Unexpected error: %s", exc, exc_info=True, )
-    #     show_error( f"Errore durante la lettura:\n\n{exc}" )
-    #     sys.exit(1)
 
 
     # aggiungiamo quelle configurate nel file di configurazione

@@ -102,7 +102,6 @@ load_env "
         ln_ALIASES_DIR="${ln_ENV_DIR}/init/aliases"
         ln_SH_SCRIPTS_DIR="${ln_ENV_DIR}/shScripts"
         ln_PY_SCRIPTS_DIR="${ln_ENV_DIR}/pyScripts"
-        ln_UTILS_DIR="${ln_ENV_DIR}/lnUtilities"
         ln_HOST_CONFIG_DIR="${ln_SECRET_DIR}/pc/${hostname_lc}"
 
 

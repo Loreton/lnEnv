@@ -899,6 +899,7 @@
 	],
 	"file_history":
 	[
+		"/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
 		"/home/loreto/filu/Applications/lnAppls/buildPythonProject/buildPythonProject_bundle/run.sh",
 		"/home/loreto/.config/terminator/plugins/LnOpenAnyFile.py",
 		"/home/loreto/filu/lnEnv/init/main/loretorc",
@@ -908,7 +909,6 @@
 		"/home/loreto/filu/lnEnv/init/aliases/generic/files.alias",
 		"/home/loreto/filu/lnEnv/init/aliases/generic/system.alias",
 		"/home/loreto/filu/lnEnv/shScripts/varie/mp3_create_links_new.sh",
-		"/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
 		"/home/loreto/filu/lnEnv/init/aliases/python_pyEnv/python.alias",
 		"/home/loreto/filu/lnEnv/linuxMintDoc/mp3.yaml",
 		"/tmp/ebooks-0.1.14/logs/project_vars.yaml",
@@ -1209,8 +1209,8 @@
 						"selection":
 						[
 							[
-								859,
-								931
+								802,
+								802
 							]
 						],
 						"settings":

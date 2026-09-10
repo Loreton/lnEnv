@@ -31,9 +31,19 @@ Rhythmbox3:
     run:
         flatpak run org.gnome.Rhythmbox3
 
+juk:
+    ref:
+        https://flathub.org/en/apps/org.kde.juk
+
+    install:
+        flatpak install flathub org.kde.juk
+
+    run:
+        flatpak run org.kde.juk
 
 
-musicbrainz.Picard:
+
+musicbrainz.Picard: # no player
     ref:
         https://flathub.org/en/apps/org.musicbrainz.Picard
 

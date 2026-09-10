@@ -29,14 +29,23 @@ class PrintLogger:
 
     def __init__(self, name: str="PrintLogger", console_logger_level: str="info", time_caller_prefix: bool=False):
         self.C = get_colors()
+        # self.LEVELS = {
+        #     "trace":     (5,  "TRACE", self.C.white),
+        #     "debug":     (10, "DEBUG", self.C.cyan),
+        #     "info":      (20, "INFO ", self.C.green),
+        #     "notify":    (25, "NOTFY", self.C.greenH),
+        #     "warning":   (30, "WARN ", self.C.yellow),
+        #     "error":     (40, "ERROR", self.C.red),
+        #     "critical":  (50, "CRIT ", self.C.magenta),
+        # }
         self.LEVELS = {
-            "trace":     (5,  "TRACE", self.C.white),
-            "debug":     (10, "DEBUG", self.C.cyan),
-            "info":      (20, "INFO ", self.C.green),
-            "notify":    (25, "NOTFY", self.C.greenH),
-            "warning":   (30, "WARN ", self.C.yellow),
-            "error":     (40, "ERROR", self.C.red),
-            "critical":  (50, "CRIT ", self.C.magenta),
+            "trace":     (5,  "TRACE", self.C.trace),
+            "debug":     (10, "DEBUG", self.C.debug),
+            "info":      (20, "INFO ", self.C.info),
+            "notify":    (25, "NOTFY", self.C.notify),
+            "warning":   (30, "WARN ", self.C.warning),
+            "error":     (40, "ERROR", self.C.error),
+            "critical":  (50, "CRIT ", self.C.critical),
         }
 
         self.level = self.LEVELS[console_logger_level.lower()][0]
@@ -96,7 +105,7 @@ class PrintLogger:
         if time_caller_prefix:
             now = datetime.now().strftime("%H:%M:%S")
             caller = f"{self._caller()}" if self.show_caller else ""
-            prefix = f"{color}{now} [{caller}] [{tag}]: "
+            prefix = f"{C.blue}{now} [{caller}] [{tag}]: {color}"
         else:
             prefix = f"{color}"
 

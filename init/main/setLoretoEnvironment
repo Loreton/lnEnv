@@ -47,7 +47,6 @@ function set_vars() {
             export               ln_ALIASES_DIR="${ln_ENV_DIR}/init/aliases"
             export            ln_SH_SCRIPTS_DIR="${ln_ENV_DIR}/shScripts"
             export            ln_PY_SCRIPTS_DIR="${ln_ENV_DIR}/pyScripts"
-            export                 ln_UTILS_DIR="${ln_ENV_DIR}/lnUtilities"
 
             export            ln_HOST_CONFIG_DIR="${ln_SECRET_DIR}/pc/${hostname_lc}"
 

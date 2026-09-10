@@ -27,7 +27,7 @@ alias ${alias_py_prefix}alternatives.python='sudo update-alternatives --config p
 
 alias ${alias_venv_prefix}save_to_loreto_packages.txt="pip freeze > loreto_packages.txt"
 alias ${alias_venv_prefix}upgrade_from_loreto_packages.txt="pip3 install -r loreto_packages.txt --upgrade "
-alias ${alias_venv_prefix}uv_init="/usr/bin/bash ${ln_UTILS_DIR}/py_env/init_uv_project.sh"
+alias ${alias_venv_prefix}uv_init="/usr/bin/bash ${ln_PY_SCRIPTS_DIR}/py_env/init_uv_project.sh"
 
 alias ${alias_prefix}zip_python_lnLib="/bin/bash /home/loreto/filu/lnEnv/shScripts/varie/zipLnLib.sh"
 
@@ -47,4 +47,3 @@ alias ${alias_py_prefix}sendTelegramMsg="${ln_PY_SCRIPTS_DIR}/sendTelegramMsg.py
 alias ${alias_prefix}buildPythonProject="${ln_LN_APPLS_DIR}/buildPythonProject/buildPythonProject_bundle/run.sh"
 alias ${alias_prefix}commit="${ln_LN_APPLS_DIR}/gitCommit/gitCommit_bundle/run.sh"
 alias ${alias_prefix}lnsync="${ln_LN_APPLS_DIR}/lnSync/lnSync_bundle/run.sh"
-

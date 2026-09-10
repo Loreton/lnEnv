@@ -52,7 +52,8 @@ class Colors:
     error: str = red
     critical: str = magenta
     exception: str = magenta
-    notify: str = blueH
+    notify: str = greenH
+    trace: str = magenta
 
     # logger in caso di multiline
     # logger_first_line: str = whiteH

@@ -14,7 +14,7 @@ function @setPlatformio() {
     fi
     export fEXECUTE="--go" ### fEXECUTE
     @createLink ${HOME}/.platformio/penv  .venv
-    @createLink ${ln_UTILS_DIR}/py_env/ln_venv_activate_master .lnactivate
+    # @createLink ${ln_PY_SCRIPTS_DIR}/py_env/ln_venv_activate_master .lnactivate
     source .lnactivate
 
     @createLink ${ln_START_PROC_DIR}/piorun.sh ./.piorun
@@ -62,5 +62,3 @@ alias ${alias_prefix}esp32.lntelegramhttp='cd ${ln_GIT_REPO_DIR}/esp32/lnLibrari
 alias ${alias_prefix}esp32.lnbuttonmanager='cd ${ln_GIT_REPO_DIR}/esp32/lnLibraries/lnButtonManager_esp32  && @setPlatformio'
 
 alias ${alias_prefix}esp32.stacktrace='echo ${ln_GIT_REPO_DIR}/esp32/xtensa-esp32-elf/bin/xtensa-esp32-elf-addr2line -pfiaC -e .pio/build/esp32/firmware.elf  0x4008b7e6:0x3ffb1a40 0x4016230d:0x3ffb1a50 0x40160015:0x3ffb1d60 0x400d3856:0x3ffb1e20 0x400d358f:0x3ffb1e80 0x400d3091:0x3ffb1fe0 0x400d3291:0x3ffb20c0 0x400d366b:0x3ffb2260 0x400e071d:0x3ffb2290 ...Backtrace'
-
-

@@ -4,22 +4,21 @@
 # Date .........: 06-09-2026 14.23.12
 #
 
-# function @_system_real_path() {
-#     echo $(readlink -fvs  '${1}');
-# }
 
 
 if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
-    # _TAB='    '
-    # _dq='''
-    alias ${alias_prefix}filesAttributes='${ln_UTILS_DIR}/setFiles/setFilesReadOnly.sh'
-    # alias ${alias_prefix}filesVerify='verifyAttributes'
-    alias ${alias_prefix}fileAllReadOnly1='echo find . -type f -exec chmod 444 {} +' # Raccoglie più file e li passa come argomenti in UNA SOLA esecuzione (simile a xargs).
-    alias ${alias_prefix}filePatternROnly='echo find . -type f -name "*.mp3" -exec chmod 444 {} \;' # Esegue il comando UNA VOLTA per ogni file trovato.
-    # alias ${alias_prefix}filesReadOnly2='echo find . -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.h' \) -exec chmod -w {} \;'
-    # alias ${alias_prefix}filesReadOnly3='echo find . -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.h' \) -print0 \| xargs -0 chmod -w'
-    # alias ${alias_prefix}filesReadOnly_verify='echo find /path/to/dir -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.h' \) -ls'
-    # alias ${alias_prefix}filesAnDirReadOnly='echo find . -type f -exec chmod 555 {} +'
+    function @file-read-only() {
+        echo
+        echo "# ---- con il ; finale esegue il comando UNA VOLTA per ogni file trovato"
+        echo -e "\tfind . -type f -name '*.mp3' -exec chmod -w {} \;"
+        echo -e "\tfind . -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.h' \) -exec chmod -w {} \;"
+        echo
+        echo "# ---- Con il + finale raccoglie più file e li passa come argomenti in UNA SOLA esecuzione (simile a xargs)."
+        echo "# ---- ovviamente molto più veloce"
+        echo -e "\tfind . -type f -name '*.mp3' -exec chmod -w {} +"
+        echo -e "\tfind . -type f \( -name '*.py' -o -name '*.cpp' -o -name '*.h' \) -print0 \| xargs -0 chmod -w"
+    }
+
 
     alias ${alias_prefix}todo='.subl /home/loreto/filu/lnEnv/Notes/todo.yaml'
     alias ${alias_prefix}serietv='.subl /home/loreto/filu/lnEnv/Notes/SerieTV.yaml'
@@ -27,8 +26,7 @@ if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
 
 
     #----- find text in files
-    alias ${alias_prefix}fr.lnEnv='${ln_UTILS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${ln_ENV_DIR}'
-    alias ${alias_prefix}fr.pwd='${ln_UTILS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${PWD} $@'
-    alias ${alias_prefix}fr.ask='${ln_UTILS_DIR}/findAndReplace/findReplaceTextInFiles.py $@'
+    alias ${alias_prefix}fr.lnEnv='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${ln_ENV_DIR}'
+    alias ${alias_prefix}fr.pwd='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${PWD} $@'
+    alias ${alias_prefix}fr.ask='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py $@'
 fi
-

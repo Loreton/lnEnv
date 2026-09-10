@@ -18,7 +18,7 @@ alt + x ; alt + c
 #     /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip.rootdir
 
 alt + x; alt + x
-    /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip.rootdir --zed
+    /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --file /tmp/xclip.rootdir --zed
 
 # Super_L + x
     # /usr/bin/python3 /home/loreto/filu/lnEnv/lnUtilities/xClip/xClip.py --file /tmp/xclip_rootdir
