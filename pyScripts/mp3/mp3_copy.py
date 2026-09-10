@@ -1,22 +1,31 @@
 #!/usr/bin/env python3
 # mp3_copy_selected_list by gemini  support
 # by Loreto Notarantonio
+# ruff: noqa: E402 - Module level import not at top of file (Ruff E402)
+# ruff: noqa: E702 - Multiple statements on one line (semicolon) (Ruff E702)
 
+
+import sys; sys.dont_write_bytecode = True
 import shutil
 import argparse
 from pathlib import Path
 import yaml
 
-from print_logger import DummyPrintLogger
 
 
+pyutils_path = Path(__file__).parent / ".." / "pyutils"
+sys.path.insert(0,str(pyutils_path))
+from print_logger import PrintLogger
+from colors import get_colors
+
+C = get_colors()
 
 FILENAME_YAML = "Loreto_selection_list.yaml"
 INCLUDE_AUTHORS =["Francesco_Guccini", "Amedeo_Minghi", "Francesco_de_Gregori"]
 
 
 
-
+# =============================================================================
 def scan_and_generate_yaml(author_dir: Path):
     """
     Scansiona le sottodirectory dell'autore per cercare file MP3
@@ -56,6 +65,10 @@ def scan_and_generate_yaml(author_dir: Path):
     print(f"[+ CREATO] {yaml_path}")
 
 
+
+
+
+# =============================================================================
 def process_author_directory(args, author_dir: Path, target_dir: Path):
     """
     Legge il file YAML dell'autore e copia le tracce specificate in 'yes'.
@@ -63,13 +76,16 @@ def process_author_directory(args, author_dir: Path, target_dir: Path):
     yaml_path = author_dir / FILENAME_YAML
     author_name = author_dir.name
     if author_name not in INCLUDE_AUTHORS:
+        log.debug(f"skipping author: {author_name}")
         return
-    print(f"\nProcessing author: {author_name}")
+    print()
+    log.notify(f"Processing author: {author_name}")
+
     # Se non esiste, crea il file template e salta la copia per questo giro
     if not yaml_path.exists():
-        print(f"[!] Manca YAML per '{author_dir.name}'.")
+        log.warning(f"Manca YAML per '{author_dir.name}'.")
         if args.create_yaml:
-            print("\tGenerazione in corso...")
+            log.info("Generazione in corso...")
             scan_and_generate_yaml(author_dir)
         return
 
@@ -77,11 +93,11 @@ def process_author_directory(args, author_dir: Path, target_dir: Path):
         with open(yaml_path, "r", encoding="utf-8") as f:
             data = yaml.safe_load(f) or {}
     except Exception as e:
-        print(f"[ERR] Errore durante la lettura di {yaml_path}: {e}")
+        log.error(f"Errore durante la lettura di {yaml_path}: {e}")
         return
 
     albums = data.get("Albums", {})
-    for album_name, content in albums.items():
+    for _album_name, content in albums.items():
         if not content:
             continue
 
@@ -94,7 +110,7 @@ def process_author_directory(args, author_dir: Path, target_dir: Path):
             source_file = author_dir.parent / rel_path_str
 
             if not source_file.exists():
-                print(f"[MISSING] File non trovato: {source_file}")
+                log.warning(f"File non trovato: {source_file}")
                 continue
 
 
@@ -103,21 +119,26 @@ def process_author_directory(args, author_dir: Path, target_dir: Path):
             if args.include_path:
                 dest_file = target_dir / rel_path_str
             else:
-                dest_file = target_dir / f"{author_name}_{source_file.name}"  # include il suffix .mp3
-
+                # prendiamo le iniziali dell'authore e il nome del file
+                name, *rest = author_name.split("_")
+                author=name[:1] + ''.join(rest)
+                dest_file = target_dir / f"{author}_{source_file.name}"  # include il suffix .mp3
 
             if dest_file.exists() and not args.replace:
-                print(f"[SKIP] Esiste già: {dest_file}")
+                log.warning(f"skipping...: {dest_file} - already exists")
                 continue
 
             if args.go:
                 shutil.copy2(source_file, dest_file)
-                print(f"[COPIATO] {source_file.name} -> {target_dir}")
+                log.notify(f"[COPIATO] {C.cyan}{source_file.name}{C.reset} -> {target_dir}")
             else:
-                print(f"[DRY RUN] {source_file.name} -> {dest_file}")
+                log.info(f"[DRY RUN] {C.cyan}{source_file.name}{C.reset} -> {dest_file}")
 
 
 
+# #####################################################################
+# #
+# #####################################################################
 def main():
     parser = argparse.ArgumentParser(description="Gestore e copiatore di selezioni musicali YAML.")
     parser.add_argument("--top-dir", required=True, type=Path, help="Directory radice delle canzoni")
@@ -128,6 +149,7 @@ def main():
     # exclusive_group=parser.add_mutually_exclusive_group(required=True)
     parser.add_argument("--create-yaml", action="store_true", help="Crea un file YAML con la lista delle tracce")
     parser.add_argument("--go", action="store_true", help="Esegue la copia dei file")
+    # parser.add_argument("--quiet", action="store_true", help="Disabilita i log verbosi")
 
     args = parser.parse_args()
 
@@ -148,8 +170,8 @@ def main():
 
 
 if __name__ == "__main__":
-    C = DummyPrintLogger.Color
-    # logger=DummyPrintLogger()
-    log = DummyPrintLogger(name="prova", console_logger_level="trace", logger_time=True)
+    # C = PrintLogger.Color
+    log = PrintLogger(name="prova", console_logger_level="info", time_caller_prefix=True)
     log.info("Starting...")
     main()
+    log.info("Completed...")
