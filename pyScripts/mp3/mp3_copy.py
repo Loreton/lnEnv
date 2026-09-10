@@ -20,8 +20,6 @@ from colors import get_colors
 
 C = get_colors()
 
-FILENAME_YAML = "Loreto_selection_list.yaml"
-INCLUDE_AUTHORS =["Francesco_Guccini", "Amedeo_Minghi", "Francesco_de_Gregori"]
 
 
 
@@ -98,12 +96,13 @@ def process_author_directory(args, author_dir: Path, target_dir: Path):
 
     albums = data.get("Albums", {})
     for _album_name, content in albums.items():
+        log.notify(f"\tAlbum: {_album_name}")
         if not content:
             continue
 
         yes_list = content.get("include") or []
         for rel_path_str in yes_list:
-            if not rel_path_str: # potrebbesserci qualche '-' refuco
+            if not rel_path_str: # potrebbe esserci qualche '-' come refuso
                 continue
 
             # Il path nel file YAML è relativo alla top-dir (author_name/album_name/song.mp3)
@@ -119,9 +118,12 @@ def process_author_directory(args, author_dir: Path, target_dir: Path):
             if args.include_path:
                 dest_file = target_dir / rel_path_str
             else:
-                # prendiamo le iniziali dell'authore e il nome del file
+                # prendiamo le iniziali dell'author e il nome del file
                 name, *rest = author_name.split("_")
-                author=name[:1] + ''.join(rest)
+                if not rest:
+                    author = name
+                else:
+                    author = name[:1] + ''.join(rest)
                 dest_file = target_dir / f"{author}_{source_file.name}"  # include il suffix .mp3
 
             if dest_file.exists() and not args.replace:
@@ -130,9 +132,17 @@ def process_author_directory(args, author_dir: Path, target_dir: Path):
 
             if args.go:
                 shutil.copy2(source_file, dest_file)
-                log.notify(f"[COPIATO] {C.cyan}{source_file.name}{C.reset} -> {target_dir}")
+                log.notify(f"{C.blue}[COPIED] {C.cyan}{source_file.name}{C.reset} -> {target_dir}")
             else:
-                log.info(f"[DRY RUN] {C.cyan}{source_file.name}{C.reset} -> {dest_file}")
+                log.info(f"{C.blue}[DRY RUN] {C.cyan}{source_file.name}{C.reset} -> {dest_file}")
+
+
+    log.notify(f"total songs: {len(songs)}")
+
+
+
+
+
 
 
 
@@ -170,6 +180,13 @@ def main():
 
 
 if __name__ == "__main__":
+    FILENAME_YAML = "Loreto_selection_list.yaml"
+    INCLUDE_AUTHORS =[  "Francesco_Guccini",
+                        "Arisa",
+                        "Amedeo_Minghi",
+                        "Francesco_de_Gregori",
+                    ]
+
     # C = PrintLogger.Color
     log = PrintLogger(name="prova", console_logger_level="info", time_caller_prefix=True)
     log.info("Starting...")
