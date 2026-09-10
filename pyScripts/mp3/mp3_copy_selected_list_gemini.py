@@ -7,8 +7,14 @@ import argparse
 from pathlib import Path
 import yaml
 
+from print_logger import DummyPrintLogger
+
+
+
 FILENAME_YAML = "Loreto_selection_list.yaml"
-INCLUDE_AUTHORS: ["Francesco_Guccini", "Amedeo_Minghi", "Francesco_de_Gregori"]
+INCLUDE_AUTHORS =["Francesco_Guccini", "Amedeo_Minghi", "Francesco_de_Gregori"]
+
+
 
 
 def scan_and_generate_yaml(author_dir: Path):
@@ -17,6 +23,8 @@ def scan_and_generate_yaml(author_dir: Path):
     e genera il file YAML mettendo tutte le tracce sotto la voce 'no'.
     """
     author_name = author_dir.name
+
+
     albums_data = {}
 
     # Scansione album
@@ -48,66 +56,14 @@ def scan_and_generate_yaml(author_dir: Path):
     print(f"[+ CREATO] {yaml_path}")
 
 
-def XXXprocess_author_directory(author_dir: Path, target_dir: Path, replace: bool, include_path: bool=False, create_yaml: bool=False):
-    """
-    Legge il file YAML dell'autore e copia le tracce specificate in 'yes'.
-    """
-    yaml_path = author_dir / FILENAME_YAML
-    author_name = author_dir.name
-
-    print(f"\nProcessing author: {author_name}")
-    # Se non esiste, crea il file template e salta la copia per questo giro
-    if not yaml_path.exists():
-        print(f"[!] Manca YAML per '{author_dir.name}'.")
-        if create_yaml:
-            print("\tGenerazione in corso...")
-            scan_and_generate_yaml(author_dir)
-        return
-
-    try:
-        with open(yaml_path, "r", encoding="utf-8") as f:
-            data = yaml.safe_load(f) or {}
-    except Exception as e:
-        print(f"[ERR] Errore durante la lettura di {yaml_path}: {e}")
-        return
-
-    albums = data.get("Albums", {})
-    for album_name, content in albums.items():
-        if not content:
-            continue
-
-        yes_list = content.get("include") or []
-        for rel_path_str in yes_list:
-            # Il path nel file YAML è relativo alla top-dir (author_name/album_name/song.mp3)
-            source_file = author_dir.parent / rel_path_str
-
-            if not source_file.exists():
-                print(f"[MISSING] File non trovato: {source_file}")
-                continue
-
-
-            # Il file di destinazione sarà nella struttura: target_dir/author_name/album_name/song.mp3
-            # Manteniamo la struttura ma senza il top_dir
-            if include_path:
-                dest_file = target_dir / rel_path_str
-            else:
-                dest_file = target_dir / f"{author_name}_{source_file.name}"  # include il suffix .mp3
-
-
-            if dest_file.exists() and not replace:
-                print(f"[SKIP] Esiste già: {dest_file}")
-                continue
-
-            shutil.copy2(source_file, dest_file)
-            print(f"[COPIATO] {source_file.name} -> {target_dir}")
-
 def process_author_directory(args, author_dir: Path, target_dir: Path):
     """
     Legge il file YAML dell'autore e copia le tracce specificate in 'yes'.
     """
     yaml_path = author_dir / FILENAME_YAML
     author_name = author_dir.name
-
+    if author_name not in INCLUDE_AUTHORS:
+        return
     print(f"\nProcessing author: {author_name}")
     # Se non esiste, crea il file template e salta la copia per questo giro
     if not yaml_path.exists():
@@ -192,4 +148,8 @@ def main():
 
 
 if __name__ == "__main__":
+    C = DummyPrintLogger.Color
+    # logger=DummyPrintLogger()
+    log = DummyPrintLogger(name="prova", console_logger_level="trace", logger_time=True)
+    log.info("Starting...")
     main()
