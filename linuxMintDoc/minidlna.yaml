@@ -1,0 +1,74 @@
+install:
+    sudo apt update && sudo apt upgrade
+    sudo apt install minidlna
+
+
+config:
+    file:  sudo vi /etc/minidlna.conf
+        # Nome visualizzato sulla TV
+        friendly_name=Linux Mint - MiniDLNA
+
+        # Cartelle multimediali
+        media_dir=A,/home/loreto/Music
+        media_dir=V,/home/loreto/Video
+        media_dir=P,/home/loreto/Pictures
+
+        media_dir=P,/home/loreto/filu/myData/Photos/Photos
+        media_dir=V,/home/loreto/filu/myData/Photos/Videos
+        media_dir=V,/home/loreto/.appo/.vid
+
+        # Aggiornamento automatico dei contenuti
+        inotify=yes
+
+
+percorsi:
+    A  /home/loreto/Music
+    V  /home/loreto/Video
+    P  /home/loreto/filu/myData/Photos/Photos
+    V  /home/loreto/filu/myData/Photos/Videos
+    P  /home/loreto/Pictures
+
+
+
+acl:
+    sudo setfacl -m u:minidlna:--x /home/loreto
+    sudo setfacl -R -m u:minidlna:rX /home/loreto/Music
+    sudo setfacl -R -m u:minidlna:rX /home/loreto/Video
+    sudo setfacl -R -m u:minidlna:rX /home/loreto/Pictures
+    sudo setfacl -R -m u:minidlna:rX /home/loreto/Downloads
+
+
+    sudo setfacl -m u:minidlna:--x /home/loreto/filu
+    sudo setfacl -m u:minidlna:--x /home/loreto/filu/myData
+    sudo setfacl -m u:minidlna:--x /home/loreto/filu/myData/Photos
+    sudo setfacl -m u:minidlna:--x /home/loreto/.appo/.vid
+
+commands:
+    sudo systemctl status minidlna
+    sudo systemctl force-reload minidlna
+    sudo systemctl restart minidlna
+    sudo systemctl start minidlna
+
+    sudo journalctl -u minidlna -n 30 --no-pager
+
+
+
+
+test:
+    namei -l /home/loreto/Music
+    namei -l /home/loreto/Video
+    namei -l /home/loreto/Pictures
+    namei -l /home/loreto/Downloads
+    namei -l /home/loreto/filu/myData/Photos/Photos
+    namei -l /home/loreto/filu/myData/Photos/Videos
+
+Poi controlliamo direttamente se l'utente minidlna riesce a leggere le directory:
+    sudo -u minidlna ls -la /home/loreto/Music >/dev/null && echo "Music       OK"
+    sudo -u minidlna ls -la /home/loreto/Video >/dev/null && echo "Video       OK"
+    sudo -u minidlna ls -la /home/loreto/Pictures >/dev/null && echo "Pictures    OK"
+    sudo -u minidlna ls -la /home/loreto/Downloads >/dev/null && echo "Downloads   OK"
+    sudo -u minidlna ls -la /home/loreto/filu/myData/Photos/Photos >/dev/null && echo "Photos      OK"
+    sudo -u minidlna ls -la /home/loreto/filu/myData/Photos/Videos >/dev/null && echo "PhotoVideos OK"
+
+
+http://127.0.0.1:8200

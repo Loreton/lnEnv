@@ -520,16 +520,35 @@
 	"buffers":
 	[
 		{
-			"file": "/home/loreto/filu/lnEnv/.config_secret/pc/SSH/ssh_setup.sh",
+			"file": "/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
+			"redo_stack":
+			[
+				[
+					3,
+					1,
+					"insert",
+					{
+						"characters": "epub"
+					},
+					"BAAAAEYDAAAAAAAARgMAAAAAAAABAAAAYkUDAAAAAAAARQMAAAAAAAABAAAAdUQDAAAAAAAARAMAAAAAAAABAAAAcEMDAAAAAAAAsgMAAAAAAAABAAAAZQ",
+					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABHAwAAAAAAAEcDAAAAAAAAAAAAAAAA8L8"
+				]
+			],
 			"settings":
 			{
-				"buffer_size": 1555,
-				"encoding": "UTF-8",
+				"buffer_size": 1082,
 				"line_ending": "Unix"
-			},
-			"undo_stack":
-			[
-			]
+			}
+		},
+		{
+			"contents": "Searching 694 files for \"p2p\"\n\n~/filu/lnEnv/linuxMintDoc/printer brother mfc l2270DW drivers per linux mint.odt:\n    <binary>\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 145,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
 		}
 	],
 	"build_system": "",
@@ -544,12 +563,12 @@
 		"selected_items":
 		[
 			[
-				"dup",
-				"File: Duplicate"
-			],
-			[
 				"ren",
 				"File: Rename File"
+			],
+			[
+				"dup",
+				"File: Duplicate"
 			],
 			[
 				"mov",
@@ -894,11 +913,11 @@
 		"/home/loreto/filu/lnEnv",
 		"/home/loreto/filu/lnEnv/.config_secret",
 		"/home/loreto/filu/lnEnv/.config_secret/pc",
-		"/home/loreto/filu/lnEnv/.config_secret/pc/SSH",
 		"/home/loreto/filu/lnEnv/config"
 	],
 	"file_history":
 	[
+		"/home/loreto/filu/lnEnv/.config_secret/pc/_crontab_template.conf",
 		"/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
 		"/home/loreto/filu/Applications/lnAppls/buildPythonProject/buildPythonProject_bundle/run.sh",
 		"/home/loreto/.config/terminator/plugins/LnOpenAnyFile.py",
@@ -1025,8 +1044,7 @@
 		"/home/loreto/filu/lnEnv/init/aliases/generic/01-system.functions",
 		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/python_build_project.py",
 		"/home/loreto/filu/lnEnv/pyScripts/buildProject/python_build_v01.py",
-		"/home/loreto/filu/lnEnv/Notes/bioTrituratore.yaml",
-		"/home/loreto/filu/lnEnv/pyScripts/buildProject/build_deepseek_v03.py"
+		"/home/loreto/filu/lnEnv/Notes/bioTrituratore.yaml"
 	],
 	"find":
 	{
@@ -1045,6 +1063,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"p2p",
+			"epub",
 			"chmod 444",
 			"chmod",
 			"egrep",
@@ -1170,9 +1190,7 @@
 			"BASH_SOURCE[0]",
 			"sys.executable",
 			"• Testing..",
-			"argparse.ArgumentParser(",
-			"relateto",
-			"relatedto"
+			"argparse.ArgumentParser("
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -1197,20 +1215,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "/home/loreto/filu/lnEnv/.config_secret/pc/SSH/ssh_setup.sh",
-					"selected": true,
-					"semi_transient": true,
+					"file": "/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1555,
+						"buffer_size": 1082,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								802,
-								802
+								835,
+								946
 							]
 						],
 						"settings":
@@ -1218,6 +1235,43 @@
 							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"selected": true,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 145,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"default_dir": "/home/loreto/filu/lnEnv/config/appls/sxhkd",
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([^ \t].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

@@ -12,13 +12,15 @@ config_yaml_file="${ln_SECRET_DIR}/yaml/ddns_domains.yaml"
 function _set_yq() {
     arch=$(uname -m)
     if [[ "$arch" == *"x86_64"* ]]; then
-        yq_bin="${ln_LINUX_PORTABLE_DIR}/bin/yq_linux_amd64"
+        # yq_bin="${ln_LINUX_PORTABLE_DIR}/bin/yq_linux_amd64"
+        yq_bin="${ln_ENV_DIR}/binUtils/yq/yq_linux_amd64"
     else
-        yq_bin="${ln_LINUX_PORTABLE_DIR}/bin/yq_linux_arm"
+        # yq_bin="${ln_LINUX_PORTABLE_DIR}/bin/yq_linux_arm"
+        yq_bin="${ln_ENV_DIR}/binUtils/yq/yq_linux_arm"
     fi
     alias ".yq=${yq_bin}"
     sudo ln -sf "${yq_bin}" "/usr/bin/lnYQ"
-    ln -sf "${yq_bin}" "${ln_LINUX_PORTABLE_DIR}/bin/lnYQ"
+    ln -sf "${yq_bin}" "${ln_ENV_DIR}/binUtils/yq/lnYQ"
 }
 _set_yq
 
@@ -249,4 +251,3 @@ function parseInput() {
 
     done
     echo -e "\ncompleted!"
-

@@ -1,0 +1,20 @@
+# file: /etc/modprobe.d/wd-passport-quirks.conf
+# chat deepSeek --> https://chat.deepseek.com/a/chat/s/09366769-cfa8-4b4b-9d8c-b30630181646
+# - Loreto 11.09.2026
+# Questo perché il disco a volte si blocca durante l'accesso.
+# Qual è allora la vera causa del blocco?
+# Il blocco intermittente che hai riscontrato nella maggior parte dei casi,
+#   è dovuto al fatto che il driver UAS presenta problemi di compatibilità
+#   con determinati bridge USB-SATA dei dischi Western Digital.
+#   UAS (USB Attached SCSI) è un protocollo di trasferimento ad alte prestazioni,
+#   ma su alcuni hardware ha problemi di stabilità.
+# Il metodo più efficace: forzare il passaggio del disco al driver più stabile usb-storage (ovvero disabilitare UAS).
+#
+# catturato da sudo dmesg -T oppure sudo dmesg -wH
+#   Manufacturer: Western Digital
+#   SerialNumber: 323133344B58343030343635
+
+# Force WD My Passport 264F to use usb-storage instead of uas
+options usb-storage quirks=1058:264f:u
+# ----  per ricaricare poi fare reboot
+# sudo update-initramfs -u

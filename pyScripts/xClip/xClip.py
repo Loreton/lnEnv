@@ -21,7 +21,7 @@
 #
 
 from dataclasses import dataclass
-from gettext import install
+# from gettext import install
 from pathlib import Path
 import argparse
 import logging
@@ -301,36 +301,61 @@ def load_default_handler( config: dict, ) -> FileHandler | None:
 # ============================================================
 # get_file_handler
 # ============================================================
+def get_file_handler( filepath: str,
+                    handlers: list[FileHandler],
+                    default_handler: FileHandler | None,
+                    is_url: bool = False,
+                ) -> FileHandler | None:
+    """Determina quale handler utilizzare per filepath o URL."""
 
-def get_file_handler( filepath: str, handlers: list[FileHandler], default_handler: FileHandler | None, ) -> FileHandler | None:
-    """
-    Determina quale handler utilizzare per filepath.
-    """
+    if is_url:
+        for handler in handlers:
+            if handler.name == "browser":
+                return handler
+        # Se non è presente un handler 'browser' specifico nello yaml, usa il default
+        return default_handler
 
     suffix = Path(filepath).suffix.lower()
-
-    logger.info( "Looking for handler for extension: %s", suffix, )
-
+    logger.info("Looking for handler for extension: %s", suffix)
 
     for handler in handlers:
         if handler.handles(filepath):
-            logger.info( "Handler selected: %s", handler.name, )
+            logger.info("Handler selected: %s", handler.name)
             return handler
 
-    logger.info( "No specific handler found for: %s", suffix, )
-
+    logger.info("No specific handler found for: %s", suffix)
     return default_handler
+
+
+
+# def get_file_handler_prev( filepath: str, handlers: list[FileHandler], default_handler: FileHandler | None, ) -> FileHandler | None:
+#     """
+#     Determina quale handler utilizzare per filepath.
+#     """
+#
+#     suffix = Path(filepath).suffix.lower()
+#
+#     logger.info( "Looking for handler for extension: %s", suffix, )
+#
+#
+#     for handler in handlers:
+#         if handler.handles(filepath):
+#             logger.info( "Handler selected: %s", handler.name, )
+#             return handler
+#
+#     logger.info( "No specific handler found for: %s", suffix, )
+#
+#     return default_handler
 
 
 # ============================================================
 # Command builder
 # ============================================================
 
-def build_editor_command(
-    filepath: str,
-    line_no: int,
-    handler: FileHandler,
-) -> list[str]:
+def build_editor_command( filepath: str,
+                          line_no: int,
+                          handler: FileHandler,
+                        ) -> list[str]:
     """
     Costruisce il comando da passare a subprocess.
 
@@ -344,8 +369,6 @@ def build_editor_command(
     """
 
     command = list(handler.command)
-    # command = shlex.split( " ".join(command) )
-    # breakpoint()
 
     if handler.line_number:
         command.append( f"{filepath}:{line_no}" )
@@ -393,9 +416,6 @@ def findFileInPath( root: str, filename: str, ) -> str | None:
 
     logger.debug( "filenames_to_be_searched: %s", filenames_to_be_searched, )
 
-    # exclude_paths = [".build_stage", ".build", "__pycache__", "logs"]
-    # exclude_paths = ["__pycache__", "logs", "dist", ".git", ".vscode", ".venv", ".saved", ".desktop"]
-    # exclude_paths = exclude_dirnames
 
     for dirpath, dirnames, files in os.walk(root):
         # Non scendere nei .build_stage.
@@ -404,8 +424,6 @@ def findFileInPath( root: str, filename: str, ) -> str | None:
             for dirname in dirnames
             if dirname not in exclude_dirnames
         ]
-        # if dirname not in exclude_paths and not dirname.startswith(".")
-
 
 
         for candidate_name in filenames_to_be_searched:
@@ -424,9 +442,7 @@ def findFileInPath( root: str, filename: str, ) -> str | None:
 # Clipboard
 # ============================================================
 
-def leggi_clipboard(
-    tipo_appunti: str = "clipboard",
-) -> str | None:
+def leggi_clipboard(tipo_appunti: str = "clipboard", ) -> str | None:
     """
     Legge il contenuto del clipboard o della Primary Selection.
     """
@@ -528,6 +544,35 @@ def parse_source_location( riga: str, ) -> SourceLocation | None:
     return None
 
 
+
+################################################################################
+# Web / Browser
+# Se selezioni http://localhost:8000/api
+#     oppure 192.168.1.50:3000/dashboard,
+#     lo script riconosce immediatamente il pattern senza interrogare il filesystem.
+################################################################################
+def is_url_or_ip(text: str) -> str | None:
+    """Verifica se il testo è un URL o un IP (con eventuale porta/path)
+
+    e restituisce un URL valido pronto per il browser.
+    """
+    # Regex per URL (http://, https://, ftp://) e IP/Hostname con porta opzionale
+    URL_PATTERN = re.compile(
+        r"^(https?://[^\s]+)"  # URL completi con schema http/https
+        r"|^((?:[0-9]{1,3}\.){3}[0-9]{1,3}(?::\d+)?(?:/[^\s]*)?)$"  # IP tipo 192.168.1.1 o 192.168.1.1:8080
+    )
+    text = text.strip().strip('"').strip("'")
+    match = URL_PATTERN.match(text)
+    if not match:
+        return None
+
+    # Se non specifica lo schema (es: 192.168.1.1:8080), prefissiamo con http://
+    if not text.startswith(("http://", "https://", "ftp://")):
+        return f"http://{text}"
+
+    return text
+
+
 # ============================================================
 # Generic parser
 # ============================================================
@@ -603,6 +648,19 @@ def analizza_riga( riga: str | None, rootDir: str | None, ) -> tuple[SourceLocat
 
     if not riga:
         return None
+
+
+    # --------------------------------------------------------
+    # 0. La selezione è un URL o un Indirizzo IP?
+    # --------------------------------------------------------
+    url_found = is_url_or_ip(riga)
+    if url_found:
+        location = SourceLocation(
+            filename=url_found, line_no=1, format="url"
+        )
+        logger.info("URL/IP detected: %s", location)
+        return location, url_found
+
 
     # --------------------------------------------------------
     # 1. La selezione è direttamente un file?
@@ -723,20 +781,20 @@ def install_system_vars(yaml_file: str) -> None:
 # ============================================================
 # Main
 # ============================================================
-
-if __name__ == "__main__":
-    install_system_vars(yaml_file="$HOME/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml")
-
-    args = parserInput()
-
-    LOG_CONSOLE = ( logging.INFO if args.console else logging.WARNING )
-
-    # --------------------------------------------------------
-    # Logger
-    # --------------------------------------------------------
-    logger = setLogger( filename=XCLIP_LOG_FILENAME, file_Log_level=logging.INFO, console_Log_level=LOG_CONSOLE, )
-    logger.info("starting....")
-
+def main():
+    # raise NotImplementedError("sono di riferimento")
+#     install_system_vars(yaml_file="$HOME/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml")
+#
+#     args = parserInput()
+#
+#     LOG_CONSOLE = ( logging.INFO if args.console else logging.WARNING )
+#
+#     # --------------------------------------------------------
+#     # Logger
+#     # --------------------------------------------------------
+#     logger = setLogger( filename=XCLIP_LOG_FILENAME, file_Log_level=logging.INFO, console_Log_level=LOG_CONSOLE, )
+#     logger.info("starting....")
+#
 
 
     # --------------------------------------------------------
@@ -814,30 +872,48 @@ if __name__ == "__main__":
     # Cerca il file in tutti i rootDirs
     # --------------------------------------------------------
 
+    # location: SourceLocation | None = None
+    # filepath: str | None = None
+
+    # --------------------------------------------------------
+    # Controllo preliminare: è un URL / IP?
+    # --------------------------------------------------------
     location: SourceLocation | None = None
     filepath: str | None = None
 
-    for root_dir in rootDirs:
+    url_check = is_url_or_ip(testo_selezionato)
+    if url_check:
+        location = SourceLocation(filename=url_check, line_no=1, format="url")
+        filepath = url_check
+        logger.info("URL/IP target identified directly: %s", filepath)
 
-        logger.info( "Trying rootDir: %s", root_dir, )
+    # --------------------------------------------------------
+    # Se non è un URL, cerca il file in tutti i rootDirs
+    # --------------------------------------------------------
 
-        result = analizza_riga( riga=testo_selezionato, rootDir=root_dir, )
 
-        if result:
+    else:
+        for root_dir in rootDirs:
 
-            location, filepath = result
+            logger.info( "Trying rootDir: %s", root_dir, )
+
+            result = analizza_riga( riga=testo_selezionato, rootDir=root_dir, )
+
+            if result:
+
+                location, filepath = result
+
+                logger.info(
+                    "Found file in: %s",
+                    root_dir,
+                )
+
+                break
 
             logger.info(
-                "Found file in: %s",
+                "NOT found in: %s",
                 root_dir,
             )
-
-            break
-
-        logger.info(
-            "NOT found in: %s",
-            root_dir,
-        )
 
     # --------------------------------------------------------
     # File non trovato
@@ -870,11 +946,11 @@ if __name__ == "__main__":
     # --------------------------------------------------------
     # Determina handler
     # --------------------------------------------------------
-
     handler = get_file_handler(
         filepath=filepath,
         handlers=handlers,
         default_handler=default_handler,
+        is_url=(location.format == "url"),  # Passiamo il flag URL
     )
 
     if handler is None:
@@ -937,3 +1013,25 @@ if __name__ == "__main__":
         )
 
         sys.exit(1)
+
+
+
+
+##########################################################################
+#               M A I N
+##########################################################################
+if __name__ == "__main__":
+    install_system_vars(yaml_file="$HOME/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml")
+
+    args = parserInput()
+
+    LOG_CONSOLE = ( logging.INFO if args.console else logging.WARNING )
+
+    # --------------------------------------------------------
+    # Logger
+    # --------------------------------------------------------
+    logger = setLogger( filename=XCLIP_LOG_FILENAME, file_Log_level=logging.INFO, console_Log_level=LOG_CONSOLE, )
+    logger.info("starting....")
+
+
+    main()

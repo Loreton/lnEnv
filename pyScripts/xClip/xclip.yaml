@@ -158,3 +158,17 @@ handlers:
       - xdg-open
 
     line_number: false
+
+
+
+  # ----------------------------------------------------------
+  # Web / Browser
+  # Se selezioni http://localhost:8000/api
+  #     oppure 192.168.1.50:3000/dashboard,
+  #     lo script riconosce immediatamente il pattern senza interrogare il filesystem.
+  # ----------------------------------------------------------
+  browser:
+    extensions: []
+    command:
+      - xdg-open # Oppure: - google-chrome , - firefox
+    line_number: false

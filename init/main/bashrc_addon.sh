@@ -60,7 +60,7 @@ function loretoPYENV() {
     if [[ $SKIP_LORETORC ]]; then
         echo "SKIP_LORETORC set, skipping loretorc setup.."
 
-    elif [[ $TERMINATOR_UUID ]]; then
+    elif [[ $TERMINATOR_UUID ]] || [[ $TERM == 'xterm-256color' ]]; then  # TERM=xterm-256color  dovrebbessere il Raspberry, se non trovo altro
         echo "Terminator-TERMINAL, starting loretorc setup.."
         setUpTerminal
         myHOSTNAME=$(hostname)

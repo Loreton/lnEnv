@@ -4,9 +4,10 @@
 # Date .........: 12-02-2026 17.06.35
 #
 
-
-myApplicationLog='/tmp/doublecmd_start.log'
-myAppl="${HOME}/filu/Applications/linuxPortable/doublecmd_1.1.32/doublecmd"
+doublecmdVersion='doublecmd_1.2.8'
+doublecmdVersion='doublecmd_1.1.32'
+myApplicationLog="/tmp/${doublecmdVersion}.log"
+myAppl="${HOME}/filu/Applications/linuxPortable/${doublecmdVersion}/doublecmd"
 # source ${HOME}/filu/lnEnv/config_secret/loretoVariables.sh
 
 DATE=$(date +'%d-%m-%Y %H:%M:%S')
@@ -18,5 +19,3 @@ set -u
 pid=$!
 echo -e "Lanciato PID ${pid}\n"                        	>>$myApplicationLog
 echo -e "\n\n--- program output --------\n"           	>>$myApplicationLog
-
-

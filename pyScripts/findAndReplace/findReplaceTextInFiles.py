@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 # ruff: noqa: I001 - Import block is un-sorted or un-formatted help: Organize imports (Ruff I001)
+# ruff: noqa: E402 - Module level import not at top of file (Ruff E402)
+# ruff: noqa: E702 - Multiple statements on one line (semicolon) (Ruff E702)
+# ruff: noqa: E701 - Multiple statements on one line (colon) (Ruff E701)
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 25-11-2025 16.51.27
 #
 # ######################################################################################
 import sys; sys.dont_write_bytecode = True
 from types import SimpleNamespace
 from pathlib import Path
-# import fnmatch
 import os
 
 class color:
@@ -139,6 +140,7 @@ def getFileList_glob(topdir, file_pattern):
         if filepath.is_file():
             if args.verbose: print(filepath, C.blue, end="")
 
+            excl_msg=""
             if filepath.is_symlink():
                 fExclude=True
                 excl_msg=" excluded due to: it's a symlink"
@@ -177,10 +179,11 @@ import stat
 # ######################################################
 # # se newSTR == '' andiamo in FIND only
 # ######################################################
-def findText(filepath: str, cur_str: str, new_str: str = None):
+def findText(filepath: str|Path, cur_str: str, new_str: str = ""):
     my_encoding="iso-8859-1"
     my_encoding="utf-8"
     TAB12=' '*12
+    filepath = Path(filepath)
     if is_binary(str(filepath), my_encoding):
         if args.verbose: print(f"{C.redH}BINARY: {filepath}")
         return

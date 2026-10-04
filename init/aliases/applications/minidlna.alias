@@ -1,0 +1,51 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+#
+
+minidlna_pahts="
+    ${HOME}
+    ${HOME}/Music
+    ${HOME}/Videos
+    ${HOME}/Pictures
+    ${HOME}/.appo/.vid
+    ${HOME}/filu
+    ${HOME}/filu/myData
+    ${HOME}/filu/myData/Photos
+"
+
+function @set_minidlna_acl() {
+    sudo setfacl    -m u:minidlna:--x ${HOME}
+    sudo setfacl -R -m u:minidlna:rX  ${HOME}/Music
+    sudo setfacl -R -m u:minidlna:rX  ${HOME}/Videos
+    sudo setfacl -R -m u:minidlna:rX  ${HOME}/Pictures
+    sudo setfacl -R -m u:minidlna:rX  ${HOME}/.appo/.vid
+
+    sudo setfacl -m u:minidlna:--x ${HOME}/filu
+    sudo setfacl -m u:minidlna:--x ${HOME}/filu/myData
+    sudo setfacl -m u:minidlna:--x ${HOME}/filu/myData/Photos
+}
+
+function @test_minidlna_acl() {
+    sudo -u minidlna ls -la ${HOME}/Music >/dev/null && echo "Music       OK"
+    sudo -u minidlna ls -la ${HOME}/Videos >/dev/null && echo "Video       OK"
+    sudo -u minidlna ls -la ${HOME}/Pictures >/dev/null && echo "Pictures    OK"
+    sudo -u minidlna ls -la ${HOME}/filu/myData/Photos/Photos >/dev/null && echo "Photos      OK"
+    sudo -u minidlna ls -la ${HOME}/filu/myData/Photos/Videos >/dev/null && echo "PhotoVideos OK"
+    sudo -u minidlna ls -la ${HOME}/.appo/.vid >/dev/null && echo ".appo OK"
+}
+
+
+if [[ "${lapTopPC_lc}" == *" ${hostname_lc} "* ]]; then
+    alias ${alias_prefix}minidlna.stop="sudo systemctl stop minidlna"
+    alias ${alias_prefix}minidlna.restart="sudo systemctl restart minidlna"
+    alias ${alias_prefix}minidlna.force_reload="sudo systemctl force_reload minidlna"
+    alias ${alias_prefix}minidlna.start="sudo systemctl start minidlna"
+    alias ${alias_prefix}minidlna.show="sudo systemctl show minidlna"
+    alias ${alias_prefix}minidlna.journal="sudo journalctl -u minidlna -n 50 --no-pager"
+
+    alias ${alias_prefix}minidlna.set_acl="@set_minidlna_acl"
+    alias ${alias_prefix}minidlna.test_acl="@test_minidlna_acl"
+    alias ${alias_prefix}minidlna.hide="mv ${HOME}/.appo/.vid ${HOME}/.appo/.vid1"
+    alias ${alias_prefix}minidlna.unhide="mv ${HOME}/.appo/.vid1 ${HOME}/.appo/.vid"
+fi

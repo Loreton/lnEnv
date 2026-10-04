@@ -8,7 +8,7 @@
     </Compare>
     <Synchronize>
         <Differences LeftOnly="right" LeftNewer="right" RightNewer="right" RightOnly="right"/>
-        <DeletionPolicy>RecycleBin</DeletionPolicy>
+        <DeletionPolicy>Permanent</DeletionPolicy>
         <VersioningFolder Style="Replace"/>
     </Synchronize>
     <Filter>
@@ -18,7 +18,6 @@
         <Exclude>
             <Item>*/.Trash-*/</Item>
             <Item>*/.recycle/</Item>
-            <Item>*/lnFree/</Item>
         </Exclude>
         <SizeMin Unit="None">0</SizeMin>
         <SizeMax Unit="None">0</SizeMax>
@@ -26,8 +25,8 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left Threads="10">/home/loreto/filu</Left>
-            <Right>/media/loreto/WD264F_500GB/filu</Right>
+            <Left>/home/loreto/filu/myData/Filu_local_cellulare</Left>
+            <Right>sftp://loreto@loreto_cellulare:2223/Filu_local|agent</Right>
         </Pair>
     </FolderPairs>
     <Errors Ignore="false" Retry="0" Delay="5"/>
