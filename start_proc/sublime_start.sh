@@ -12,7 +12,8 @@ source ${HOME}/filu/lnEnv/.config_secret/loretoVariables.sh   >>$applLog 2>&1
 
 
 
-myAppl="${ln_LINUX_PORTABLE_DIR}/SublimeText4/sublime_text"
+myAppl="${ln_LINUX_PORTABLE_DIR}/SublimeText4_b4200/sublime_text" # python 3.8
+myAppl="${ln_LINUX_PORTABLE_DIR}/SublimeText4_b4215/sublime_text" # python da 3.8 a 3.14
 
 
 
@@ -37,5 +38,3 @@ if [[ -f "${myAppl}" ]]; then
 else
     echo -e "[${myAppl}] NOT FOUND"                >>$applLog
 fi
-
-

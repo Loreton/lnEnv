@@ -39,7 +39,7 @@ function @test_minidlna_acl() {
 if [[ "${lapTopPC_lc}" == *" ${hostname_lc} "* ]]; then
     alias ${alias_prefix}minidlna.stop="sudo systemctl stop minidlna"
     alias ${alias_prefix}minidlna.restart="sudo systemctl restart minidlna"
-    alias ${alias_prefix}minidlna.force_reload="sudo systemctl force_reload minidlna"
+    alias ${alias_prefix}minidlna.reload="sudo systemctl force-reload minidlna"
     alias ${alias_prefix}minidlna.start="sudo systemctl start minidlna"
     alias ${alias_prefix}minidlna.show="sudo systemctl show minidlna"
     alias ${alias_prefix}minidlna.journal="sudo journalctl -u minidlna -n 50 --no-pager"

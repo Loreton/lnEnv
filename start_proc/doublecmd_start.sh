@@ -4,8 +4,8 @@
 # Date .........: 12-02-2026 17.06.35
 #
 
-doublecmdVersion='doublecmd_1.2.8'
 doublecmdVersion='doublecmd_1.1.32'
+doublecmdVersion='doublecmd_1.2.8'
 myApplicationLog="/tmp/${doublecmdVersion}.log"
 myAppl="${HOME}/filu/Applications/linuxPortable/${doublecmdVersion}/doublecmd"
 # source ${HOME}/filu/lnEnv/config_secret/loretoVariables.sh

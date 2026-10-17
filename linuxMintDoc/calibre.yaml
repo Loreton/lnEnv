@@ -13,3 +13,21 @@ calibre_ebook:
 
     run:
         flatpak run com.calibre_ebook.calibre
+
+
+come cancellare search history:
+    file: /home/loreto/.var/app/com.calibre_ebook.calibre/config/calibre/history.plist
+        sotto:
+            <key>lineedit_history_viewer-search-panel-expression</key>
+           	<array>
+                <string>omicidio</string>
+            </array>
+
+
+    file: /home/loreto/.var/app/com.calibre_ebook.calibre/config/calibre/viewer-webengine.json
+    "saved-search-settings": {
+      "omicidio": {
+        "case_sensitive": false,
+        "mode": "normal"
+        }
+    },

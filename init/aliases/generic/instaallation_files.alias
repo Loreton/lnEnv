@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+# Date .........: 06-09-2026 14.23.12
+#
+
+
+
+if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+
+    alias ${alias_prefix}yaml.calibre='zed /home/loreto/filu/lnEnv/linuxMintDoc/calibre.yaml'
+fi

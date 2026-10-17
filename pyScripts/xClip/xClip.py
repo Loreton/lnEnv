@@ -1021,6 +1021,8 @@ def main():
 #               M A I N
 ##########################################################################
 if __name__ == "__main__":
+    def if_main(): # solo per averlo nella lista delle funcioni
+        ...
     install_system_vars(yaml_file="$HOME/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml")
 
     args = parserInput()
@@ -1034,4 +1036,208 @@ if __name__ == "__main__":
     logger.info("starting....")
 
 
+    # --------------------------------------------------------
+    # Load YAML configuration file
+    # --------------------------------------------------------
+    try:
+        config = load_config( args.config, )
+        handlers = load_handlers( config, )
+        default_handler = load_default_handler( config, )
+        primary_root_dir_file = config["primary_root_dirs_file"] # get filename
+        secondary_root_dirs = config["secondary_root_dirs"] # get list of root_top_dirs
+        exclude_dirnames = config.get("exclude_dirnames", [])
+
+    except Exception as exc:
+        logger.error( "Unable to load configuration: %s", exc, exc_info=True, )
+        show_error( "Errore caricando la configurazione " f"di xClip:\n\n{exc}\n\n" f"{args.config}" )
+        sys.exit(1)
+
     main()
+    sys.exit()
+
+
+    # --------------------------------------------------------
+    # Root directories
+    # --------------------------------------------------------
+
+    # ffile = Path(args.file)
+    ffile = Path(primary_root_dir_file)
+
+    rootDirs: list[str] = []
+
+    # read root directories from file createde by .cd alias command
+    try:
+        with ffile.open( mode="r", encoding="utf-8", ) as f:
+            content = f.read()
+        if content:
+            rootDirs = content.split()
+
+    except FileNotFoundError:
+        logger.error( "File %s not found", ffile, )
+        # show_error( "File delle root directory non trovato:\n\n" f"{ffile}" )
+        # sys.exit(1)
+
+
+    # aggiungiamo quelle configurate nel file di configurazione
+    rootDirs.extend(secondary_root_dirs)
+
+    if not rootDirs:
+        logger.warning( "No root directories configured.", )
+        show_error( "Nessuna root directory configurata." )
+        sys.exit(1)
+
+
+    # --------------------------------------------------------
+    # Clipboard
+    # --------------------------------------------------------
+
+    testo_copiato = leggi_clipboard( "clipboard", )
+    testo_selezionato = leggi_clipboard( "primary", )
+
+    logger.info("-")
+    logger.info("-")
+    logger.info("-")
+
+    logger.info( "Clipboard (Ctrl+C).....................: %s", testo_copiato, )
+    logger.info( "Primary Selection......................: %s", testo_selezionato, )
+    logger.info( "rootDirs: %s", rootDirs, )
+
+    if not testo_selezionato:
+        logger.error( "testo non selezionato", )
+        show_error( "Nessun testo selezionato." )
+        sys.exit(1)
+
+
+
+    # --------------------------------------------------------
+    # Cerca il file in tutti i rootDirs
+    # --------------------------------------------------------
+
+    # location: SourceLocation | None = None
+    # filepath: str | None = None
+
+    # --------------------------------------------------------
+    # Controllo preliminare: è un URL / IP?
+    # --------------------------------------------------------
+    location: SourceLocation | None = None
+    filepath: str | None = None
+
+    url_check = is_url_or_ip(testo_selezionato)
+    if url_check:
+        location = SourceLocation(filename=url_check, line_no=1, format="url")
+        filepath = url_check
+        logger.info("URL/IP target identified directly: %s", filepath)
+
+    # --------------------------------------------------------
+    # Se non è un URL, cerca il file in tutti i rootDirs
+    # --------------------------------------------------------
+
+
+    else:
+        for root_dir in rootDirs:
+
+            logger.info( "Trying rootDir: %s", root_dir, )
+
+            result = analizza_riga( riga=testo_selezionato, rootDir=root_dir, )
+
+            if result:
+                location, filepath = result
+                logger.info( "Found file in: %s", root_dir, )
+                break
+
+            logger.info( "NOT found in: %s", root_dir, )
+
+    # --------------------------------------------------------
+    # File non trovato
+    # --------------------------------------------------------
+
+    if location is None or filepath is None:
+        roots = "\n".join(
+            f"  {root}"
+            for root in rootDirs
+        )
+
+        logger.warning( "Nessun file trovato per:\n%s", testo_selezionato, )
+
+        show_error(
+            "File non trovato.\n\n"
+            f"Selezione:\n"
+            f"{testo_selezionato}\n\n"
+            f"Root directories cercate:\n"
+            f"{roots}\n\n"
+            f"Log:\n"
+            f"{XCLIP_LOG_FILENAME}"
+        )
+
+        sys.exit(1)
+
+    # --------------------------------------------------------
+    # Determina handler
+    # --------------------------------------------------------
+    handler = get_file_handler(
+        filepath=filepath,
+        handlers=handlers,
+        default_handler=default_handler,
+        is_url=(location.format == "url"),  # Passiamo il flag URL
+    )
+
+    if handler is None:
+
+        logger.error(
+            "No handler available for: %s",
+            filepath,
+        )
+
+        show_error(
+            "Nessun programma configurato per:\n\n"
+            f"{filepath}"
+        )
+
+        sys.exit(1)
+
+    # --------------------------------------------------------
+    # Costruisce comando
+    # --------------------------------------------------------
+
+    editor_command = build_editor_command(
+        filepath=filepath,
+        line_no=location.line_no,
+        handler=handler,
+    )
+    logger.info( "Source location : %s", location, )
+    logger.info( "Resolved file   : %s", filepath, )
+    logger.info( "Handler         : %s", handler.name, )
+    logger.info( "Command          : %s", editor_command, )
+
+
+    # --------------------------------------------------------
+    # Avvio programma
+    # --------------------------------------------------------
+
+    try:
+        subprocess.Popen( editor_command, )
+
+    except FileNotFoundError as exc:
+        logger.error( "Program not found: %s", exc, )
+        show_error(
+            "Programma non trovato:\n\n"
+            f"{editor_command[0]}\n\n"
+            f"File:\n{filepath}"
+        )
+
+        sys.exit(1)
+
+    except Exception as exc:
+
+        logger.error(
+            "Error starting program: %s",
+            exc,
+            exc_info=True,
+        )
+
+        show_error(
+            "Errore avviando il programma:\n\n"
+            f"{exc}"
+        )
+
+        sys.exit(1)

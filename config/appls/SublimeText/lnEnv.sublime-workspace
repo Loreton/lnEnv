@@ -520,7 +520,33 @@
 	"buffers":
 	[
 		{
+			"contents": "Package Control Messages\n========================\n\n\nHexViewer\n---------\n\n  # HexViewer\n  \n  New release!\n  \n  Please see `Preferences->Package Settings->HexViewer->Changelog`  \n  for more info about the release.\n  \n  ## 2.8.0\n  \n  -   **NEW**: Support for Python 3.13 in ST 4201+.\n",
+			"settings":
+			{
+				"buffer_size": 281,
+				"line_ending": "Unix",
+				"name": "Package Control Messages",
+				"read_only": true,
+				"scratch": true
+			},
+			"undo_stack":
+			[
+				[
+					1,
+					1,
+					"package_control_message",
+					{
+						"message": "\n\nHexViewer\n---------\n\n  # HexViewer\n  \n  New release!\n  \n  Please see `Preferences->Package Settings->HexViewer->Changelog`  \n  for more info about the release.\n  \n  ## 2.8.0\n  \n  -   **NEW**: Support for Python 3.13 in ST 4201+.\n"
+					},
+					"AQAAAAAAAAAAAAAAGQEAAAAAAAAAAAAA",
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvw"
+				]
+			]
+		},
+		{
 			"file": "/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
+			"file_size": 1082,
+			"file_write_time": 134336973918015899,
 			"redo_stack":
 			[
 				[
@@ -531,7 +557,7 @@
 						"characters": "epub"
 					},
 					"BAAAAEYDAAAAAAAARgMAAAAAAAABAAAAYkUDAAAAAAAARQMAAAAAAAABAAAAdUQDAAAAAAAARAMAAAAAAAABAAAAcEMDAAAAAAAAsgMAAAAAAAABAAAAZQ",
-					"AgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAABHAwAAAAAAAEcDAAAAAAAAAAAAAAAA8L8"
+					"BgAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAEcDAAAAAAAARwMAAAAAAAAAAAAAAADwvw"
 				]
 			],
 			"settings":
@@ -912,11 +938,12 @@
 	[
 		"/home/loreto/filu/lnEnv",
 		"/home/loreto/filu/lnEnv/.config_secret",
-		"/home/loreto/filu/lnEnv/.config_secret/pc",
+		"/home/loreto/filu/lnEnv/.config_secret/yaml",
 		"/home/loreto/filu/lnEnv/config"
 	],
 	"file_history":
 	[
+		"/home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py",
 		"/home/loreto/filu/lnEnv/.config_secret/pc/_crontab_template.conf",
 		"/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
 		"/home/loreto/filu/Applications/lnAppls/buildPythonProject/buildPythonProject_bundle/run.sh",
@@ -1043,8 +1070,7 @@
 		"/home/loreto/filu/lnEnv/pyScripts/buildProject/python_build_v02.py",
 		"/home/loreto/filu/lnEnv/init/aliases/generic/01-system.functions",
 		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/python_build_project.py",
-		"/home/loreto/filu/lnEnv/pyScripts/buildProject/python_build_v01.py",
-		"/home/loreto/filu/lnEnv/Notes/bioTrituratore.yaml"
+		"/home/loreto/filu/lnEnv/pyScripts/buildProject/python_build_v01.py"
 	],
 	"find":
 	{
@@ -1215,7 +1241,44 @@
 			[
 				{
 					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 281,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								281,
+								281
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"auto_indent": false,
+							"default_dir": "/home/loreto/filu/lnEnv/config/appls/sxhkd",
+							"gutter": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"tab_width": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
 					"file": "/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
+					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1226,8 +1289,8 @@
 						"selection":
 						[
 							[
-								835,
-								946
+								611,
+								659
 							]
 						],
 						"settings":
@@ -1240,13 +1303,12 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"stack_multiselect": false,
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"selected": true,
+					"buffer": 2,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1277,7 +1339,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"stack_multiselect": false,
 					"type": "text"
 				}
