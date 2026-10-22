@@ -521,14 +521,13 @@
 	[
 		{
 			"file": "/home/loreto/filu/Programming/gitREPO/eBooks/src/eBooks/main.py",
+			"file_size": 3694,
+			"file_write_time": 134361218340178285,
 			"settings":
 			{
-				"buffer_size": 2494,
+				"buffer_size": 3694,
 				"line_ending": "Unix"
-			},
-			"undo_stack":
-			[
-			]
+			}
 		}
 	],
 	"build_system": "",
@@ -866,7 +865,6 @@
 		"/home/loreto/filu/Programming/gitREPO/eBooks/conf",
 		"/home/loreto/filu/Programming/gitREPO/eBooks/src",
 		"/home/loreto/filu/Programming/gitREPO/eBooks/src/eBooks",
-		"/home/loreto/filu/Programming/gitREPO/eBooks/src/eBooks/input_init",
 		"/home/loreto/filu/Programming/gitREPO/eBooks/src/eBooks/process"
 	],
 	"file_history":
@@ -1002,7 +1000,7 @@
 	],
 	"find":
 	{
-		"height": 27.0
+		"height": 39.0
 	},
 	"find_in_files":
 	{
@@ -1046,15 +1044,15 @@
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 2494,
+						"buffer_size": 3694,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								855,
-								855
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1172,7 +1170,7 @@
 		[
 			[
 				"",
-				"~/filu/lnEnv/config/appls/SublimeText/lnEnv.sublime-project"
+				"~/filu/lnEnv/config/appls/SublimeText/git_commit.sublime-project"
 			]
 		],
 		"width": 380.0
