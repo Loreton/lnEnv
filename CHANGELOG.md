@@ -1,3 +1,18 @@
+## [0.0.3] - 2026-10-25
+
+## Other
+
+- update on 2026.10.22 08:48:29 - (Release 0.0.2)
+- update
+- update
+- Update lnenv config
+- Update lnenv config
+- Update lnenv config
+- Update lnenv config
+- update
+- affinamenti
+- update
+
 ## v0.0.2 - 2026-06-28
 
 ### Fixes

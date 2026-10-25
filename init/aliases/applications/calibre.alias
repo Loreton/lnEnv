@@ -1,13 +1,25 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 08-09-2026 12.24.14
+# Date .........: 24-10-2026 16.06.51
 #
 
 
 
 
 if [[ "${lapTopPC_lc}" == *" ${hostname_lc} "* ]]; then
-    alias ${alias_prefix}ebook-viewer='flatpak run --command=ebook-viewer com.calibre_ebook.calibre'
+    alias ${alias_prefix}calibre.ebook-viewer='flatpak run --command=ebook-viewer com.calibre_ebook.calibre'
+    alias ${alias_prefix}calibre.search_history='.zed /home/loreto/.var/app/com.calibre_ebook.calibre/config/calibre/viewer-webengine.json:109'
+    alias ${alias_prefix}calibre.dir_to_txt='/home/loreto/filu/lnEnv/shScripts/calibre/calibre_dir_to_txt.sh'
+    alias ${alias_prefix}calibre.file_to_txt='flatpak run --command=ebook-convert com.calibre_ebook.calibre "file.epub" "file.txt"'
 fi
 
+: <<'__COMMENT__' ## importante gli apici pervitare conflitti
+    file: /home/loreto/.var/app/com.calibre_ebook.calibre/config/calibre/viewer-webengine.json
+    "saved-search-settings": {
+      "omicidio": {
+        "case_sensitive": false,
+        "mode": "normal"
+        }
+    },
+__COMMENT__

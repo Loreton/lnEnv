@@ -537,7 +537,7 @@
 					"duplicate_line",
 					null,
 					"AQAAAJABAAAAAAAAvwEAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAkAEAAAAAAACQAQAAAAAAAAAAAAAAAPC/"
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAJABAAAAAAAAkAEAAAAAAAAAAAAAAADwvw"
 				],
 				[
 					7,
@@ -547,7 +547,7 @@
 						"characters": "tag"
 					},
 					"AwAAAKkBAAAAAAAAqgEAAAAAAAAEAAAAZGlmZqoBAAAAAAAAqwEAAAAAAAAAAAAAqwEAAAAAAACsAQAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAqQEAAAAAAACtAQAAAAAAAAAAAAAAAPC/"
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAKkBAAAAAAAArQEAAAAAAAAAAAAAAADwvw"
 				],
 				[
 					13,
@@ -555,7 +555,7 @@
 					"",
 					null,
 					"AQAAAK4BAAAAAAAAyQEAAAAAAAAPAAAAZ2l0IGRpZmZ0b29sIC15",
-					"AQAAAAAAAAABAAAAvQEAAAAAAACuAQAAAAAAAAAAAAAAAPC/"
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAL0BAAAAAAAArgEAAAAAAAAAAAAAAADwvw"
 				],
 				[
 					19,
@@ -565,8 +565,21 @@
 						"characters": " -n"
 					},
 					"AwAAAMkBAAAAAAAAygEAAAAAAAAAAAAAygEAAAAAAADLAQAAAAAAAAAAAADLAQAAAAAAAMwBAAAAAAAAAAAAAA",
-					"AQAAAAAAAAABAAAAyQEAAAAAAADJAQAAAAAAAAAAAAAAAPC/"
+					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAMkBAAAAAAAAyQEAAAAAAAAAAAAAAADwvw"
 				]
+			]
+		},
+		{
+			"file": "/home/loreto/filu/lnEnv/linuxMintDoc/calibre.yaml",
+			"file_size": 809,
+			"file_write_time": 134358477829555918,
+			"settings":
+			{
+				"buffer_size": 809,
+				"line_ending": "Unix"
+			},
+			"undo_stack":
+			[
 			]
 		}
 	],
@@ -581,6 +594,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"dupl",
+				"File: Duplicate"
+			],
 			[
 				"ren",
 				"File: Rename File"
@@ -608,10 +625,6 @@
 			[
 				"mv",
 				"File: Move"
-			],
-			[
-				"dupl",
-				"File: Duplicate"
 			],
 			[
 				"inst",
@@ -930,20 +943,23 @@
 	"expanded_folders":
 	[
 		"/home/loreto/filu/lnEnv",
-		"/home/loreto/filu/lnEnv/config",
 		"/home/loreto/filu/lnEnv/init",
 		"/home/loreto/filu/lnEnv/init/aliases",
-		"/home/loreto/filu/lnEnv/init/aliases/applications"
+		"/home/loreto/filu/lnEnv/init/aliases/applications",
+		"/home/loreto/filu/lnEnv/linuxMintDoc",
+		"/home/loreto/filu/lnEnv/shScripts",
+		"/home/loreto/filu/lnEnv/shScripts/varie"
 	],
 	"file_history":
 	[
+		"/home/loreto/filu/lnEnv/init/aliases/applications/calibre.alias",
+		"/home/loreto/filu/lnEnv/shScripts/varie/calibre_conert_to_txt.sh",
 		"/home/loreto/filu/lnEnv/config/appls/sxhkd/sxhkdrc",
 		"/home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py",
 		"/home/loreto/filu/lnEnv/.config_secret/pc/_crontab_template.conf",
 		"/home/loreto/filu/Applications/lnAppls/buildPythonProject/buildPythonProject_bundle/run.sh",
 		"/home/loreto/.config/terminator/plugins/LnOpenAnyFile.py",
 		"/home/loreto/filu/lnEnv/init/main/loretorc",
-		"/home/loreto/filu/lnEnv/init/aliases/applications/calibre.alias",
 		"/home/loreto/filu/lnEnv/init/aliases/applications/xClip.alias",
 		"/home/loreto/filu/lnEnv/start_proc/zed_start.sh",
 		"/home/loreto/filu/lnEnv/init/aliases/generic/files.alias",
@@ -1063,12 +1079,11 @@
 		"/home/loreto/filu/lnEnv/pyScripts/buildProject/python_build.py",
 		"/home/loreto/filu/lnEnv/pyScripts/buildProject/python_build_v02.py",
 		"/home/loreto/filu/lnEnv/init/aliases/generic/01-system.functions",
-		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/python_build_project.py",
-		"/home/loreto/filu/lnEnv/pyScripts/buildProject/python_build_v01.py"
+		"/home/loreto/filu/lnEnv/init/script_utils/python_build_project/python_build_project.py"
 	],
 	"find":
 	{
-		"height": 39.0
+		"height": 27.0
 	},
 	"find_in_files":
 	{
@@ -1236,7 +1251,6 @@
 				{
 					"buffer": 0,
 					"file": "/home/loreto/filu/lnEnv/init/aliases/applications/git.alias",
-					"selected": true,
 					"semi_transient": false,
 					"settings":
 					{
@@ -1256,6 +1270,38 @@
 							"ln_author_version.updated": false,
 							"ln_program_version.updated": false,
 							"syntax": "Packages/ShellScript/Bash.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"stack_multiselect": false,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/loreto/filu/lnEnv/linuxMintDoc/calibre.yaml",
+					"selected": true,
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 809,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								808,
+								588
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/YAML/YAML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

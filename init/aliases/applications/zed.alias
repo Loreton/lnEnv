@@ -9,15 +9,9 @@
 
 
 if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
-
     zed_dir='/home/loreto/.local/bin'
     @createLink "/home/loreto/.local/zed.app/bin/zed"    "${zed_dir}/zed_orig" ### - link originale
     @createLink "${ln_START_PROC_DIR}/zed_start.sh"      "${zed_dir}/zed"
 
-
-    alias ${alias_prefix}zed="${zed_dir}/zed --user-data-dir ${ln_ZED_CONFIG_DIR}"
-
-
+    alias ${alias_prefix}zed="${zed_dir}/zed_orig --user-data-dir ${ln_ZED_CONFIG_DIR}"
 fi
-
-
