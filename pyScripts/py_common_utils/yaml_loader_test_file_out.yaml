@@ -1,0 +1,218 @@
+#--------------------
+#- 02-11-2026_16:30
+#--------------------
+yaml_loader_test_file:
+    filename: Francesco_Guccini.yaml
+    lista:
+        Britti:
+            La_Vasca:
+                exclude:
+                - Alex_Britti/La_Vasca/Una_donna_come_tante.mp3
+                - Alex_Britti/La_Vasca/Il_Quadro.mp3
+                - Alex_Britti/La_Vasca/Mi_Piaci+bonus_track.mp3
+                - Alex_Britti/La_Vasca/Fortuna_che_non_era_niente.mp3
+                - Alex_Britti/La_Vasca/Dandedendendend.mp3
+                - "Alex_Britti/La_Vasca/Mamma_e_Pap\xE0.mp3"
+                - Alex_Britti/La_Vasca/Lucciola.mp3
+                - Alex_Britti/La_Vasca/Milano.mp3
+                - Alex_Britti/La_Vasca/Come_funziona_il_mondo.mp3
+                - Alex_Britti/La_Vasca/Fuori.mp3
+                - Alex_Britti/La_Vasca/La_vasca.mp3
+                - Alex_Britti/La_Vasca/Una_su_un_milione.mp3
+                include: []
+        Guccini:
+            Amerigo:
+                exclude: []
+                include:
+                - Francesco_Guccini/Amerigo/100_Pennsylvania_avenue.mp3
+                - Francesco_Guccini/Amerigo/Amerigo.mp3
+                - Francesco_Guccini/Amerigo/Eskimo.mp3
+                - Francesco_Guccini/Amerigo/Le_cinque_anatre.mp3
+                - Francesco_Guccini/Amerigo/Libera_Nos_Domine.mp3
+                - Francesco_Guccini/Amerigo/Mondo_nuovo.mp3
+            D'Amore di Morte e di Altre Sciocchezze:
+                exclude: []
+                include:
+                - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Canzone_delle_colombe_e_del_fiore.mp3
+                - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Cirano.mp3
+                - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/I_fichi.mp3
+                - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Il_caduto.mp3
+                - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Il_matto.mp3
+                - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Lettera.mp3
+                - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Quattro_stracci_.mp3
+                - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Stelle.mp3
+                - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Vorrei.mp3
+            Due anni dopo:
+                exclude:
+                - Francesco_Guccini/Due_anni_dopo/Al_trist.mp3
+                include:
+                - Francesco_Guccini/Due_anni_dopo/Due_anni_dopo.mp3
+                - Francesco_Guccini/Due_anni_dopo/Giorno_d_estate.mp3
+                - Francesco_Guccini/Due_anni_dopo/Il_compleanno.mp3
+                - Francesco_Guccini/Due_anni_dopo/L_albero_ed_io.mp3
+                - "Francesco_Guccini/Due_anni_dopo/La_verit\xE0.mp3"
+                - Francesco_Guccini/Due_anni_dopo/L_ubriaco.mp3
+                - Francesco_Guccini/Due_anni_dopo/Lui_e_lei.mp3
+                - Francesco_Guccini/Due_anni_dopo/Ophelia.mp3
+                - "Francesco_Guccini/Due_anni_dopo/Per_quando_\xE8_tardi.mp3"
+                - Francesco_Guccini/Due_anni_dopo/Primavera_di_Praga.mp3
+                - Francesco_Guccini/Due_anni_dopo/Vedi_cara.mp3
+            Folk Beat N 1:
+                exclude:
+                - Francesco_Guccini/Folk_Beat_N._1/Talkin_Milano.mp3
+                include:
+                - Francesco_Guccini/Folk_Beat_N._1/Auschwitz.mp3
+                - Francesco_Guccini/Folk_Beat_N._1/Il_3_dicembre.mp3
+                - Francesco_Guccini/Folk_Beat_N._1/Il_sociale_e_l_antisociale.mp3
+                - Francesco_Guccini/Folk_Beat_N._1/In_morte_di_SF.mp3
+                - Francesco_Guccini/Folk_Beat_N._1/La_ballata_degli_annegati.mp3
+                - Francesco_Guccini/Folk_Beat_N._1/L_atomica_cinese.mp3
+                - Francesco_Guccini/Folk_Beat_N._1/Noi_non_ci_saremo.mp3
+                - Francesco_Guccini/Folk_Beat_N._1/Statale_17.mp3
+                - "Francesco_Guccini/Folk_Beat_N._1/Venerd\xEC_Santo.mp3"
+            Guccini:
+                exclude: []
+                include:
+                - Francesco_Guccini/Guccini/Argentina.mp3
+                - Francesco_Guccini/Guccini/Autogrill.mp3
+                - Francesco_Guccini/Guccini/Gli_amici.mp3
+                - Francesco_Guccini/Guccini/Gulliver.mp3
+                - Francesco_Guccini/Guccini/Inutile.mp3
+                - Francesco_Guccini/Guccini/Shomer_ma_mi-llailah.mp3
+            L_Ultima_Thule:
+                exclude:
+                - Francesco_Guccini/L_Ultima_Thule/Il_testamento_di_un_pagliaccio.mp3
+                - Francesco_Guccini/L_Ultima_Thule/Notti.mp3
+                include:
+                - Francesco_Guccini/L_Ultima_Thule/Canzone_di_notte_n_4.mp3
+                - Francesco_Guccini/L_Ultima_Thule/Gli_artisti.mp3
+                - Francesco_Guccini/L_Ultima_Thule/L_Ultima_Thule.mp3
+                - Francesco_Guccini/L_Ultima_Thule/L_ultima_volta.mp3
+                - Francesco_Guccini/L_Ultima_Thule/Quel_giorno_d_Aprile.mp3
+                - Francesco_Guccini/L_Ultima_Thule/Su_in_collina.mp3
+            L_isola_non_trovata:
+                exclude: []
+                include:
+                - Francesco_Guccini/L_isola_non_trovata/Asia.mp3
+                - Francesco_Guccini/L_isola_non_trovata/Canzone_di_notte.mp3
+                - Francesco_Guccini/L_isola_non_trovata/Il_frate.mp3
+                - Francesco_Guccini/L_isola_non_trovata/Il_tema.mp3
+                - Francesco_Guccini/L_isola_non_trovata/La_collina.mp3
+                - Francesco_Guccini/L_isola_non_trovata/L_isola_non_trovata.mp3
+                - Francesco_Guccini/L_isola_non_trovata/L_isola_non_trovata_intro.mp3
+                - Francesco_Guccini/L_isola_non_trovata/L_orizzonte_di_KD.mp3
+                - Francesco_Guccini/L_isola_non_trovata/L_uomo.mp3
+                - "Francesco_Guccini/L_isola_non_trovata/Un_altro_giorno_\xE8_andato.mp3"
+            Metropolis:
+                exclude:
+                - Francesco_Guccini/Metropolis/Milano_poveri_bimbi_di.mp3
+                include:
+                - "Francesco_Guccini/Metropolis/Anten\xF2r.mp3"
+                - Francesco_Guccini/Metropolis/Bisanzio.mp3
+                - Francesco_Guccini/Metropolis/Black_out.mp3
+                - Francesco_Guccini/Metropolis/Bologna.mp3
+                - Francesco_Guccini/Metropolis/Lager.mp3
+                - Francesco_Guccini/Metropolis/Venezia.mp3
+            Opera_buffa:
+                exclude:
+                - "Francesco_Guccini/Opera_buffa/Di_mamme_ce_n_\xE8_una_sola.mp3"
+                - Francesco_Guccini/Opera_buffa/Talkin_sul_sesso.mp3
+                - Francesco_Guccini/Opera_buffa/Il_bello.mp3
+                include:
+                - Francesco_Guccini/Opera_buffa/Fantoni_Cesira.mp3
+                - Francesco_Guccini/Opera_buffa/La_fiera_di_san_Lazzaro.mp3
+                - Francesco_Guccini/Opera_buffa/La_genesi.mp3
+            Parnassius_Guccinii:
+                exclude:
+                - Francesco_Guccini/Parnassius_Guccinii/Dovevo_fare_del_cinema.mp3
+                - Francesco_Guccini/Parnassius_Guccinii/Nostra_signora_dell_ipocrisia.mp3
+                - Francesco_Guccini/Parnassius_Guccinii/Parole.mp3
+                - Francesco_Guccini/Parnassius_Guccinii/Luna_fortuna.mp3
+                - Francesco_Guccini/Parnassius_Guccinii/Samantha.mp3
+                include:
+                - Francesco_Guccini/Parnassius_Guccinii/Acque.mp3
+                - Francesco_Guccini/Parnassius_Guccinii/Canzone_per_Silvia.mp3
+                - Francesco_Guccini/Parnassius_Guccinii/Farewell.mp3
+                - Francesco_Guccini/Parnassius_Guccinii/Non_bisognerebbe.mp3
+            Quello_che_non:
+                exclude:
+                - Francesco_Guccini/Quello_che_non/Tango_per_due.mp3
+                include:
+                - Francesco_Guccini/Quello_che_non/Aemilia.mp3
+                - Francesco_Guccini/Quello_che_non/Ballando_con_una_sconosciuta.mp3
+                - Francesco_Guccini/Quello_che_non/Canzone_delle_domande_consuete.mp3
+                - Francesco_Guccini/Quello_che_non/Canzone_per_Anna.mp3
+                - Francesco_Guccini/Quello_che_non/Cencio.mp3
+                - Francesco_Guccini/Quello_che_non/Le_ragazze_della_notte.mp3
+                - Francesco_Guccini/Quello_che_non/Quello_che_non.mp3
+            Radici:
+                exclude: []
+                include:
+                - Francesco_Guccini/Radici/Canzone_dei_dodici_mesi.mp3
+                - Francesco_Guccini/Radici/Canzone_della_bambina_portoghese.mp3
+                - Francesco_Guccini/Radici/Il_vecchio_e_il_bambino.mp3
+                - Francesco_Guccini/Radici/Incontro.mp3
+                - Francesco_Guccini/Radici/La_locomotiva.mp3
+                - "Francesco_Guccini/Radici/Piccola_citt\xE0.mp3"
+                - Francesco_Guccini/Radici/Radici.mp3
+            Ritratti:
+                exclude:
+                - Francesco_Guccini/Ritratti/La_ziatta_la_tieta.mp3
+                - Francesco_Guccini/Ritratti/Vite.mp3
+                include:
+                - "Francesco_Guccini/Ritratti/Canzone_per_il_Ch\xE9.mp3"
+                - Francesco_Guccini/Ritratti/Certo_non_sai.mp3
+                - Francesco_Guccini/Ritratti/Cristoforo_colombo.mp3
+                - "Francesco_Guccini/Ritratti/La_tua_libert\xE0.mp3"
+                - Francesco_Guccini/Ritratti/Odysseus.mp3
+                - Francesco_Guccini/Ritratti/Piazza_Alimonda.mp3
+                - Francesco_Guccini/Ritratti/Una_canzone.mp3
+            Signora_Bovary:
+                exclude: []
+                include:
+                - Francesco_Guccini/Signora_Bovary/Canzone_di_notte_n_3.mp3
+                - Francesco_Guccini/Signora_Bovary/Culodritto.mp3
+                - Francesco_Guccini/Signora_Bovary/Keaton.mp3
+                - Francesco_Guccini/Signora_Bovary/Le_piogge_d_aprile.mp3
+                - Francesco_Guccini/Signora_Bovary/Scirocco.mp3
+                - Francesco_Guccini/Signora_Bovary/Signora_bovary.mp3
+                - Francesco_Guccini/Signora_Bovary/Van_loon.mp3
+            Stagioni:
+                exclude:
+                - Francesco_Guccini/Stagioni/Addio_intro.mp3
+                - Francesco_Guccini/Stagioni/Primavera_59.mp3
+                - Francesco_Guccini/Stagioni/Inverno_60.mp3
+                include:
+                - Francesco_Guccini/Stagioni/Addio.mp3
+                - Francesco_Guccini/Stagioni/Autunno.mp3
+                - Francesco_Guccini/Stagioni/Don_Chisciotte.mp3
+                - Francesco_Guccini/Stagioni/E_un_giorno.mp3
+                - Francesco_Guccini/Stagioni/Ho_ancora_la_forza.mp3
+                - Francesco_Guccini/Stagioni/Stagioni.mp3
+            Stanze_di_vita_quotidiana:
+                exclude: []
+                include:
+                - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_della_triste_rinuncia.mp3
+                - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_della_vita_quotidiana.mp3
+                - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_delle_osterie_di_fuori_porta.mp3
+                - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_delle_ragazze_che_se_ne_vanno.mp3
+                - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_per_Piero.mp3
+                - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_situazioni_differenti.mp3
+            Via_Paolo_Fabbri_43:
+                exclude: []
+                include:
+                - Francesco_Guccini/Via_Paolo_Fabbri_43/Canzone_di_notte_n_2.mp3
+                - Francesco_Guccini/Via_Paolo_Fabbri_43/Canzone_quasi_d_amore.mp3
+                - Francesco_Guccini/Via_Paolo_Fabbri_43/Il_pensionato.mp3
+                - Francesco_Guccini/Via_Paolo_Fabbri_43/L_avvelenata.mp3
+                - Francesco_Guccini/Via_Paolo_Fabbri_43/Piccola_storia_ignobile.mp3
+                - Francesco_Guccini/Via_Paolo_Fabbri_43/Via_Paolo_Fabbri_43.mp3
+    main:
+        field: uno
+    merge:
+        Albums:
+            bestOf:
+                exclude:
+                - Domenico_Modugno/bestOf/Nel_blu_dipinto_di_blu.mp3
+                include: []
+    path: /home/loreto/Music/Guccini/Rimmel.mp3

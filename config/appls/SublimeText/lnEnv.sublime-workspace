@@ -537,7 +537,7 @@
 					"duplicate_line",
 					null,
 					"AQAAAJABAAAAAAAAvwEAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAJABAAAAAAAAkAEAAAAAAAAAAAAAAADwvw"
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAkAEAAAAAAACQAQAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					7,
@@ -547,7 +547,7 @@
 						"characters": "tag"
 					},
 					"AwAAAKkBAAAAAAAAqgEAAAAAAAAEAAAAZGlmZqoBAAAAAAAAqwEAAAAAAAAAAAAAqwEAAAAAAACsAQAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAKkBAAAAAAAArQEAAAAAAAAAAAAAAADwvw"
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAqQEAAAAAAACtAQAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					13,
@@ -555,7 +555,7 @@
 					"",
 					null,
 					"AQAAAK4BAAAAAAAAyQEAAAAAAAAPAAAAZ2l0IGRpZmZ0b29sIC15",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAL0BAAAAAAAArgEAAAAAAAAAAAAAAADwvw"
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAvQEAAAAAAACuAQAAAAAAAAAAAAAAAPC/"
 				],
 				[
 					19,
@@ -565,21 +565,135 @@
 						"characters": " -n"
 					},
 					"AwAAAMkBAAAAAAAAygEAAAAAAAAAAAAAygEAAAAAAADLAQAAAAAAAAAAAADLAQAAAAAAAMwBAAAAAAAAAAAAAA",
-					"AwAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAMkBAAAAAAAAyQEAAAAAAAAAAAAAAADwvw"
+					"BAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPC/AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA8L8AAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADwvwAAAAABAAAAyQEAAAAAAADJAQAAAAAAAAAAAAAAAPC/"
 				]
 			]
 		},
 		{
-			"file": "/home/loreto/filu/lnEnv/linuxMintDoc/calibre.yaml",
-			"file_size": 809,
-			"file_write_time": 134358477829555918,
+			"contents": "#!/bin/bash\n#\n# updated by ...: Loreto Notarantonio\n# Date .........: 27-10-2026 13.17.02\n#\n\n\n\n\nif [[ \"${lapTopPC_lc}\" == *\" ${hostname_lc} \"* ]]; then\n    alias ${alias_prefix}calibre.ebook-viewer='flatpak run --command=ebook-viewer com.calibre_ebook.calibre'\n    alias ${alias_prefix}calibre.search_history='.zed /home/loreto/.var/app/com.calibre_ebook.calibre/config/calibre/viewer-webengine.json:109'\n    alias ${alias_prefix}calibre.dir_to_txt='/home/loreto/filu/lnEnv/shScripts/calibre/calibre_dir_to_txt.sh'\n    alias ${alias_prefix}calibre.file_to_txt='flatpak run --command=ebook-convert com.calibre_ebook.calibre \"file.epub\" \"file.txt\"'\n    alias ${alias_prefix}calibre.reindex='echo flatpak run --command=calibredb com.calibre_ebook.calibre --with-library \"LIBRARY_PATH\" fts_index reindex --wait-for-completion'\nfi\n\n: <<'__COMMENT__' ## importante gli apici pervitare conflitti\n    file: /home/loreto/.var/app/com.calibre_ebook.calibre/config/calibre/viewer-webengine.json\n    \"saved-search-settings\": {\n      \"omicidio\": {\n        \"case_sensitive\": false,\n        \"mode\": \"normal\"\n        }\n    },\n__COMMENT__\n",
+			"file": "/home/loreto/filu/lnEnv/init/aliases/applications/calibre.alias",
+			"file_size": 1156,
+			"file_write_time": 134375770225286815,
 			"settings":
 			{
-				"buffer_size": 809,
+				"buffer_size": 1122,
+				"encoding": "UTF-8",
 				"line_ending": "Unix"
 			},
 			"undo_stack":
 			[
+				[
+					5,
+					1,
+					"duplicate_line",
+					null,
+					"AQAAAIcCAAAAAAAACwMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAJQIAAAAAAAAlAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					11,
+					1,
+					"insert",
+					{
+						"characters": "reindex"
+					},
+					"BwAAAKgCAAAAAAAAqQIAAAAAAAALAAAAZmlsZV90b190eHSpAgAAAAAAAKoCAAAAAAAAAAAAAKoCAAAAAAAAqwIAAAAAAAAAAAAAqwIAAAAAAACsAgAAAAAAAAAAAACsAgAAAAAAAK0CAAAAAAAAAAAAAK0CAAAAAAAArgIAAAAAAAAAAAAArgIAAAAAAACvAgAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAswIAAAAAAACoAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					16,
+					1,
+					"",
+					null,
+					"AQAAALECAAAAAAAAVwMAAAAAAABUAAAAZmxhdHBhayBydW4gLS1jb21tYW5kPWVib29rLWNvbnZlcnQgY29tLmNhbGlicmVfZWJvb2suY2FsaWJyZSAiZmlsZS5lcHViIiAiZmlsZS50eHQi",
+					"AQAAAAAAAAABAAAAsQIAAAAAAAAFAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					21,
+					1,
+					"ln_author_version",
+					{
+						"update": true
+					},
+					"AQAAAA4AAAAAAAAAWQAAAAAAAABLAAAAIyB1cGRhdGVkIGJ5IC4uLjogTG9yZXRvIE5vdGFyYW50b25pbwojIERhdGUgLi4uLi4uLi4uOiAyNC0xMC0yMDI2IDE2LjA2LjUx",
+					"AQAAAAAAAAABAAAAiwIAAAAAAACLAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					29,
+					1,
+					"insert",
+					{
+						"characters": "echo"
+					},
+					"BAAAALECAAAAAAAAsgIAAAAAAAAAAAAAsgIAAAAAAACzAgAAAAAAAAAAAACzAgAAAAAAALQCAAAAAAAAAAAAALQCAAAAAAAAtQIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAsQIAAAAAAACxAgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					30,
+					1,
+					"insert",
+					{
+						"characters": " "
+					},
+					"AQAAALUCAAAAAAAAtgIAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAtQIAAAAAAAC1AgAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					34,
+					1,
+					"insert",
+					{
+						"characters": "LIBRAR"
+					},
+					"BgAAAAADAAAAAAAAAQMAAAAAAAAzAAAAL2hvbWUvbG9yZXRvL2ZpbHUvbG4tZUJvb2tzL2xuTGlicmFyaWVzL01haW5MaWJyYXJ5AQMAAAAAAAACAwAAAAAAAAAAAAACAwAAAAAAAAMDAAAAAAAAAAAAAAMDAAAAAAAABAMAAAAAAAAAAAAABAMAAAAAAAAFAwAAAAAAAAAAAAAFAwAAAAAAAAYDAAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAAAAMAAAAAAAAzAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					35,
+					1,
+					"insert",
+					{
+						"characters": "Y_DU"
+					},
+					"BAAAAAYDAAAAAAAABwMAAAAAAAAAAAAABwMAAAAAAAAIAwAAAAAAAAAAAAAIAwAAAAAAAAkDAAAAAAAAAAAAAAkDAAAAAAAACgMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAABgMAAAAAAAAGAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					36,
+					1,
+					"left_delete",
+					null,
+					"AQAAAAkDAAAAAAAACQMAAAAAAAABAAAAVQ",
+					"AQAAAAAAAAABAAAACgMAAAAAAAAKAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					37,
+					1,
+					"insert",
+					{
+						"characters": "IR"
+					},
+					"AgAAAAkDAAAAAAAACgMAAAAAAAAAAAAACgMAAAAAAAALAwAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACQMAAAAAAAAJAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					42,
+					3,
+					"left_delete",
+					null,
+					"AwAAAAoDAAAAAAAACgMAAAAAAAABAAAAUgkDAAAAAAAACQMAAAAAAAABAAAASQgDAAAAAAAACAMAAAAAAAABAAAARA",
+					"AQAAAAAAAAABAAAACwMAAAAAAAALAwAAAAAAAAAAAAAAAPC/"
+				],
+				[
+					43,
+					1,
+					"insert",
+					{
+						"characters": "PATH"
+					},
+					"BAAAAAgDAAAAAAAACQMAAAAAAAAAAAAACQMAAAAAAAAKAwAAAAAAAAAAAAAKAwAAAAAAAAsDAAAAAAAAAAAAAAsDAAAAAAAADAMAAAAAAAAAAAAA",
+					"AQAAAAAAAAABAAAACAMAAAAAAAAIAwAAAAAAAAAAAAAAAPC/"
+				]
 			]
 		}
 	],
@@ -1281,27 +1395,30 @@
 				},
 				{
 					"buffer": 1,
-					"file": "/home/loreto/filu/lnEnv/linuxMintDoc/calibre.yaml",
+					"file": "/home/loreto/filu/lnEnv/init/aliases/applications/calibre.alias",
 					"selected": true,
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 809,
+						"buffer_size": 1122,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								808,
-								588
+								822,
+								647
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"ln_author_version.updated": true,
+							"ln_program_version.updated": false,
+							"syntax": "Packages/ShellScript/Bash.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true,
+							"word_wrap": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

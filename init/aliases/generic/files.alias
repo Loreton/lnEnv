@@ -29,4 +29,8 @@ if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
     alias ${alias_prefix}fr.lnEnv='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${ln_ENV_DIR}'
     alias ${alias_prefix}fr.pwd='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py --top-dir=${PWD} $@'
     alias ${alias_prefix}fr.ask='${ln_PY_SCRIPTS_DIR}/findAndReplace/findReplaceTextInFiles.py $@'
+
+    #----- mp3 copy files using loreto_selection_list.yaml file inside each author directory
+    #
+    alias ${alias_prefix}mp3.copy_selection_list='${ln_PY_SCRIPTS_DIR}/mp3/mp3_selection_list.py $@'
 fi

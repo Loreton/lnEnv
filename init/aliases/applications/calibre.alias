@@ -1,7 +1,7 @@
 #!/bin/bash
 #
 # updated by ...: Loreto Notarantonio
-# Date .........: 24-10-2026 16.06.51
+# Date .........: 27-10-2026 13.17.02
 #
 
 
@@ -12,6 +12,7 @@ if [[ "${lapTopPC_lc}" == *" ${hostname_lc} "* ]]; then
     alias ${alias_prefix}calibre.search_history='.zed /home/loreto/.var/app/com.calibre_ebook.calibre/config/calibre/viewer-webengine.json:109'
     alias ${alias_prefix}calibre.dir_to_txt='/home/loreto/filu/lnEnv/shScripts/calibre/calibre_dir_to_txt.sh'
     alias ${alias_prefix}calibre.file_to_txt='flatpak run --command=ebook-convert com.calibre_ebook.calibre "file.epub" "file.txt"'
+    alias ${alias_prefix}calibre.reindex='flatpak run --command=calibredb com.calibre_ebook.calibre --with-library "/home/loreto/filu/ln-eBooks/lnLibraries/MainLibrary" fts_index reindex --wait-for-completion'
 fi
 
 : <<'__COMMENT__' ## importante gli apici pervitare conflitti

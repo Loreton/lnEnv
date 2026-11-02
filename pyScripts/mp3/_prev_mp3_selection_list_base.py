@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # mp3_copy_selected_list by deepseek support
 # by Loreto Notarantonio
 
@@ -17,7 +18,6 @@
 """
 
 
-#!/usr/bin/env python3
 """
 Script per gestire la selezione di canzoni tramite file Loreto_selection_list.yaml
 """
@@ -29,30 +29,25 @@ import shutil
 import yaml
 from pathlib import Path
 
+# from pyScripts.py_common_utils.print_logger import PrintLogger
+from ..py_common_utils.print_logger import PrintLogger
+
 
 def parse_arguments():
+    if len(sys.argv) == 1:
+        sys.argv.append('-h')
     """Parsa gli argomenti della linea di comando."""
-    parser = argparse.ArgumentParser(
-        description="Scansiona directory di canzoni e gestisce la selezione tramite file YAML"
-    )
-    parser.add_argument(
-        "--top-dir",
-        required=True,
-        help="Directory principale contenente le directory degli autori"
-    )
-    parser.add_argument(
-        "--target-dir",
-        required=True,
-        help="Directory di destinazione per copiare i file selezionati"
-    )
-    parser.add_argument(
-        "--replace",
-        action="store_true",
-        help="Sostituisci i file esistenti nella directory di destinazione"
-    )
-    parser.add_argument("--include-path", action="store_true", help="Includi il percorso relatico originale nella struttura di destinazione")
+    parser = argparse.ArgumentParser( description="Scansiona directory di canzoni e gestisce la selezione tramite file YAML" )
+    parser.add_argument("--top-dir", required=True, help="Directory principale contenente le directory degli autori" )
+    parser.add_argument("--target-dir", required=True, help="Directory di destinazione per copiare i file selezionati" )
+    parser.add_argument("--replace", action="store_true", help="Sostituisci i file esistenti nella directory di destinazione" )
+    parser.add_argument("--include-path", action="store_true", help="Includi il percorso relativo originale nella struttura di destinazione")
+    parser.add_argument("--create", action="store_true", help="crea il file loreto_selection_list se nonsiste...")
 
     return parser.parse_args()
+
+
+
 
 
 def find_mp3_files(directory: Path) -> list[Path]:
@@ -131,8 +126,10 @@ def load_or_create_selection_list(author_dir: Path, author_name: str) -> dict:
             print("Creazione di un nuovo file...")
             return create_selection_list(author_dir, author_name)
     else:
-        print(f"File {yaml_file} non trovato. Creazione automatica...")
-        return create_selection_list(author_dir, author_name)
+        print(f"File {yaml_file} non trovato.")
+        if args.create:
+            print("...creazione automatica!")
+            return create_selection_list(author_dir, author_name)
 
 
 def save_selection_list(author_dir: Path, data: dict):
@@ -154,7 +151,6 @@ def copy_selected_files(top_dir: Path, target_dir: Path, replace: bool, include_
     # Scansiona tutte le directory degli autori
     for author_dir in top_dir.iterdir():
         author_name = author_dir.name
-        # print(f"Processing author: {author_name}")
         if not author_dir.is_dir():
             continue
 
@@ -202,11 +198,12 @@ def copy_selected_files(top_dir: Path, target_dir: Path, replace: bool, include_
 
 
 def main():
+    global args
     """Funzione principale."""
     args = parse_arguments()
 
-    top_dir = Path(args.top_dir)
-    target_dir = Path(args.target_dir)
+    top_dir = Path(args.top_dir).resolve()
+    target_dir = Path(args.target_dir).resolve()
 
     if not top_dir.exists() or not top_dir.is_dir():
         print(f"Errore: {top_dir} non è una directory valida")
@@ -224,4 +221,7 @@ def main():
 
 
 if __name__ == "__main__":
+    # C = PrintLogger.Color
+    logger = PrintLogger(name="MP3", console_logger_level="warning", logger_time=True)
+    sys.exit()
     main()

@@ -8,7 +8,7 @@
     </Compare>
     <Synchronize>
         <Differences LeftOnly="right" LeftNewer="right" RightNewer="right" RightOnly="right"/>
-        <DeletionPolicy>Permanent</DeletionPolicy>
+        <DeletionPolicy>RecycleBin</DeletionPolicy>
         <VersioningFolder Style="Replace"/>
     </Synchronize>
     <Filter>
@@ -25,12 +25,8 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>/home/loreto/filu/Technical-DOC</Left>
-            <Right>sftp://loreto@loreto_cellulare:2223/Filu/Technical-DOC|pass64=TG9yZXRv</Right>
-        </Pair>
-        <Pair>
             <Left>/home/loreto/filu/Lesla</Left>
-            <Right>sftp://loreto@loreto_cellulare:2223/Filu/Lesla|pass64=TG9yZXRv</Right>
+            <Right>gdrive:/nloreto@gmail.com/@NLORETO/Lesla</Right>
         </Pair>
     </FolderPairs>
     <Errors Ignore="false" Retry="0" Delay="5"/>

@@ -1,0 +1,44 @@
+bootstrap_main_vars:
+  keypath_separator: &KEYPATH_SEPARATOR "__##__"
+
+  search_path:
+    - ${HOME}/filu/myData/Songs/mp3_songs/Italiani
+    - ${HOME}/filu/Programming/config
+
+  project_env_vars:
+    # Il valore delle variabili verranno lette da os.environ["MUSIC_ROOT"]
+    # e potrannossere utilizzate nello YAML come ${MUSIC_ROOT}.
+    __KEYP_SEP__: *KEYPATH_SEPARATOR # lo uso anche come variabile
+    ITALIAN_ROOT: ${HOME}/filu/myData/Songs/mp3_songs/Italiani
+    # MUSIC_ROOT: MUSIC_ROOT
+    # DATA_ROOT: MY_DATA_DIRECTORY
+
+
+main:
+    field: uno
+
+lista:
+    Guccini:
+        !include "${ITALIAN_ROOT}/Francesco_Guccini/OK_Loreto_selection_list_Gucc.yaml${__KEYP_SEP__}Albums"
+    Britti:
+        !include "${ITALIAN_ROOT}/Alex_Britti/Loreto_selection_list.yaml${__KEYP_SEP__}Albums"
+
+
+
+path: !join_path
+    - /home/loreto
+    - Music
+    - Guccini
+    - Rimmel.mp3
+
+
+filename: !join_str
+    - Francesco_
+    - Guccini
+    - .yaml
+
+
+merge:
+    !include_merge
+        - "${ITALIAN_ROOT}/DJ_Francesco/Loreto_selection_list.yaml"
+        - "${ITALIAN_ROOT}/Domenico_Modugno/Loreto_selection_list.yaml"
