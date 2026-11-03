@@ -16,9 +16,8 @@ import yaml
 pyutils_path = Path(__file__).parent.parent / "py_common_utils"
 sys.path.insert(0,str(pyutils_path))
 from print_logger import PrintLogger  # type: ignore[import-not-found]
-from colors import get_colors         # type: ignore[import-not-found]
-
-C = get_colors()
+# from colors import get_colors         # type: ignore[import-not-found]
+# C = get_colors()
 
 TAB2='  '
 TAB4='    '
@@ -145,11 +144,7 @@ def process_author_directory(args, author_dir: Path, target_dir: Path) -> int:
 
 
 
-
-# #####################################################################
-# #
-# #####################################################################
-def main():
+def parseInput():
     parser = argparse.ArgumentParser(description="Gestore e copiatore di selezioni musicali YAML.")
     parser.add_argument("--top-dir", required=True, type=Path, help="Directory radice delle canzoni")
     parser.add_argument("--target-dir", required=True, type=Path, help="Directory di destinazione per i file copiati")
@@ -162,7 +157,12 @@ def main():
     # parser.add_argument("--quiet", action="store_true", help="Disabilita i log verbosi")
 
     args = parser.parse_args()
+    return args
 
+# #####################################################################
+# #
+# #####################################################################
+def main():
     top_dir: Path = args.top_dir.resolve()
     target_dir: Path = args.target_dir.resolve()
 
@@ -209,6 +209,8 @@ if __name__ == "__main__":
 
     # C = PrintLogger.Color
     logger = PrintLogger(name="prova", console_logger_level="info", time_caller_prefix=True)
+    C = logger.Colors
+    args = parseInput()
     logger.info("Starting...")
     main()
     logger.info("Completed...")

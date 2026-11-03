@@ -28,7 +28,8 @@ class PrintLogger:
 
 
     def __init__(self, name: str="PrintLogger", console_logger_level: str="info", time_caller_prefix: bool=False):
-        self.C = get_colors()
+        self.Colors = get_colors() # per chi volesse prelevare i Colori (per dargli un nome parlante))
+        self.C = self.Colors # per questa classe
         # self.LEVELS = {
         #     "trace":     (5,  "TRACE", self.C.white),
         #     "debug":     (10, "DEBUG", self.C.cyan),
