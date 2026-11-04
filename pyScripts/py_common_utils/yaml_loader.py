@@ -6,7 +6,8 @@
 #
 from __future__ import annotations
 
-import sys; sys.dont_write_bytecode = True  # type: ignore[assignment]
+import sys
+from timeit import timeit; sys.dont_write_bytecode = True  # type: ignore[assignment]
 
 import os
 import re
@@ -14,12 +15,6 @@ import yaml
 from pathlib import Path
 from datetime import datetime
 from string import Template
-# import re
-
-
-
-      # type: ignore[import-not-found]
-
 
 
 
@@ -129,8 +124,14 @@ class YamlEngine:
         return result
 
 
-
+    # =================================================
     def _find_variables(self, value: str):
+        """ Usa regex per cercare una variabile ${varname} in una stringa
+        return: [
+                    (start, stop, var_name),
+                    (start, stop, var_name),
+                ]
+        """
         pattern = r"\$\{([A-Za-z_][A-Za-z0-9_]*)\}"
 
         return [
@@ -147,8 +148,9 @@ class YamlEngine:
 
 
 
+
     # ====================================================
-    def _expand_vars(self, value: str) -> str:
+    def _expand_vars_00(self, value: str) -> str:
         """Espande le variabili di sistema e quelle del progetto.
             1. os.path.expandvars() risolve le variabili d'ambiente del sistema operativo, come ${HOME}.
             2. Template().safe_substitute() risolve le variabili definite nel nostro project_env_vars.
@@ -156,6 +158,46 @@ class YamlEngine:
         value = os.path.expanduser(value)
         value = os.path.expandvars(value)
         return Template(value).safe_substitute( self.project_env_vars )
+
+
+    # ====================================================
+    def _expand_vars(self, value: str, from_last: bool = True, step_by_step: bool=False) -> str:
+        """
+        Espande le variabili definite in project_vars.
+            1. os.path.expandvars() risolve le variabili d'ambiente del sistema operativo, come ${HOME}.
+            2. Template().safe_substitute() risolve le variabili definite nel nostro project_env_vars.
+            2a. oppure utilizza l'output del regex e sostituisce manualmente le variabili
+
+        from_last=True: sostituisce da destra verso sinistra.
+        from_last=False: sostituisce da sinistra verso destra.
+        """
+        value = os.path.expanduser(value)
+        value = os.path.expandvars(value)
+        variables = self._find_variables(value)
+
+        if variables:
+            if not step_by_step:
+                value = Template(value).safe_substitute( self.project_env_vars )
+
+            else:
+                """ utilizza l'output del regex e sostituisce manualmente le variabili"""
+                if from_last:
+                    variables.reverse()
+
+                for start, end, var_name in variables:
+                    self.logger.info( f"Resolving variable: {var_name}" )
+
+                    if var_name not in self.project_env_vars:
+                        self.logger.debug(f"Variable not yet available: {var_name}" )
+                        continue
+
+                    replacement = self.project_env_vars[var_name]
+
+                    value = value[:start] + replacement + value[end:]
+
+                    self.logger.notify( f"Variable resolved: {var_name} -> {replacement}" )
+
+        return value
 
 
     # ====================================================
@@ -169,7 +211,7 @@ class YamlEngine:
     # Risoluzione file
     # --------------------------------------------------
     def _resolve_file( self, filename: str, parent: Path | None = None, ) -> Path:
-        path = self._expand_vars(filename)
+        path = Path(self._expand_vars(filename))
         # path = Path(filename).expanduser()
 
         candidates = []
@@ -191,131 +233,82 @@ class YamlEngine:
 
 
 
-    # --------------------------------------------------
-    # lettura file
-    # --------------------------------------------------
-    # def get_file_content(self, file: str) -> str:
-    #     """Legge un file YAML usando i percorsi configurati."""
-
-    #     filename = self._resolve_file(file)
-
-    #     self.logger.debug("Reading YAML file: %s", filename)
-
-    #     return filename.read_text(encoding="utf-8")
 
 
 
-    # def _load_project_vars(self, main_vars: dict) -> None:
-    #     """
-    #     Carica e risolve le variabili del progetto.
 
-    #     - Espande le variabili di sistema.
-    #     - Risolve le dipendenze tra project_vars, senza vincoli di ordine.
-    #     - Segnala variabili mancanti.
-    #     - Rileva dipendenze circolari.
-    #     - Aggiorna self.project_vars solo se tutte le variabili sono valide.
-    #     """
-    #     import re
-    #     project_env_vars = main_vars.get("project_env_vars", {})
-    #     if not isinstance(project_env_vars, dict):
-    #         raise TypeError("project_env_vars must be a mapping" )
-
-    #     pending = {}
-
-    #     # Carica le variabili ed espande quelle di sistema.
-    #     for name, value in project_env_vars.items():
-    #         if not isinstance(name, str):
-    #             raise TypeError("Project variable names must be strings")
-
-    #         if not isinstance(value, str):
-    #             raise TypeError( f"project_env_vars[{name!r}] must be a string" )
-
-    #         pending[name] = os.path.expandvars(value)
-
-    #     resolved = {}
-
-    #     # Numero massimo di tentativi.
-    #     max_attempts = len(pending) + 1
-    #     for attempt in range(max_attempts):
-    #         progress = False
-    #         for name, value in list(pending.items()):
-    #             expanded = Template(value).safe_substitute(resolved)
-
-    #             if expanded != value:
-    #                 pending[name] = expanded
-    #                 progress = True
-
-    #             # La variabile è completamente risolta.
-    #             if "${" not in expanded:
-    #                 resolved[name] = expanded
-    #                 del pending[name]
-    #                 progress = True
-
-    #         # Tutte le variabili sono state risolte.
-    #         if not pending:
-    #             break
-
-    #         # Nessun progresso: non possiamo proseguire.
-    #         if not progress:
-    #             break
-
-    #     # Controlla eventuali variabili non definite.
-    #     if pending:
-    #         pattern = re.compile(r"\$\{([A-Za-z_][A-Za-z0-9_]*)\}")
-    #         missing = set()
-    #         for value in pending.values():
-    #             for name in pattern.findall(value):
-    #                 if name not in project_env_vars:
-    #                     missing.add(name)
-
-    #         if missing:
-    #             raise ValueError( "Undefined project variables: " + ", ".join(sorted(missing)) )
-
-    #         # Le variabili rimaste hanno dipendenze circolari.
-    #         raise ValueError( "Circular or unresolved project variables: " + ", ".join(pending.keys()) )
-
-    #     # Aggiornamento solo se tutto è andato bene.
-    #     return resolved
-
-
-
-    # ====================================================
-    def _expand_vars__(self, value: str) -> str:
-        """Espande le variabili di sistema e quelle del progetto.
-            1. os.path.expandvars() risolve le variabili d'ambiente del sistema operativo, come ${HOME}.
-            2. Template().safe_substitute() risolve le variabili definite nel nostro project_env_vars.
+    def _load_project_vars(self, main_vars: dict) -> None:
         """
-        value = os.path.expandvars(value)
-        return Template(value).safe_substitute( self.project_env_vars )
+        Carica e risolve le variabili del progetto.
 
-    # ====================================================
-    def _expand_vars2(self, value: str, from_last: bool = True) -> str:
+        - Espande le variabili di sistema.
+        - Risolve le dipendenze tra project_vars, senza vincoli di ordine.
+        - Segnala variabili mancanti.
+        - Rileva dipendenze circolari.
+        - Aggiorna self.project_vars solo se tutte le variabili sono valide.
         """
-        Espande le variabili definite in project_vars.
+        # ------------------------------------------
+        # - lettura del nodo project_env_vars
+        # - nel file di configurazione
+        # ------------------------------------------
+        project_env_vars = main_vars.get("project_env_vars", {})
+        if not isinstance(project_env_vars, dict):
+            raise TypeError(f"project_env_vars must be a mapping" )
 
-        from_last=True: sostituisce da destra verso sinistra.
-        from_last=False: sostituisce da sinistra verso destra.
-        """
-        value = os.path.expandvars(value)
-        variables = self._find_variables(value)
-        if from_last:
-            variables.reverse()
+        self.project_env_vars = {}
+        pending_vars = {} # conterrà tutte le variabili non risolte al primo passaggio, da risolvere in un secondo passaggio
 
-        for start, end, var_name in variables:
-            self.logger.info( f"Resolving variable: {var_name}" )
+        # ----------------------------------------------------------
+        # - inserimento delle variabili in self.project_env_vars
+        # - quelle non risolte vanno in pending_vars
+        # ----------------------------------------------------------
+        for name, value in project_env_vars.items():
+            if not isinstance(name, str) or not isinstance(value, str):
+                raise TypeError("project_env_vars keys and values must be strings" )
 
-            if var_name not in self.project_env_vars:
-                self.logger.warning(f"Variable not yet available: {var_name}" )
-                continue
+            expanded_value = os.path.expandvars(value)
+            self.project_env_vars[name] = expanded_value
+            if self._find_variables(expanded_value):
+                """ se esistono ulteriori variabili nella stringa
+                    mettiamole tra le pending """
+                pending_vars[name] = expanded_value
 
-            replacement = self.project_env_vars[var_name]
 
-            value = value[:start] + replacement + value[end:]
+        # ------------------------------------------
+        # - risoluzione delle pending_vars
+        # ------------------------------------------
+        resolved: list[str] = []
+        n_pending: int = len(pending_vars)
+        iterations = 0
 
-            # _xx = Template(replacement).safe_substitute(self.project_env_vars)
-            self.logger.info( f"Variable resolved: {var_name} -> {replacement}" )
 
-        return value
+        while len(pending_vars) > 0 and iterations < 10:
+            iterations += 1
+            self.logger.notify(f"iteration number: {iterations}")
+            for key, val in pending_vars.items():
+                value = self._expand_vars(val, from_last=True)
+                if self._find_variables(value):
+                    pending_vars[key] = value # replace the value in pending_vars even if it still has unresolved references
+                    self.logger.debug(f"Variable {key} still has unresolved references: {value}")
+                else:
+                    resolved.append(key) # chiave completamente risolta
+                    self.logger.info(f"Variable {key} fully resolved: {value}")
+
+                self.project_env_vars[key] = value # replace the value in project_env_vars even if it still has unresolved references
+
+            for key in list(resolved):
+                if key in pending_vars:
+                    pending_vars.pop(key)
+
+        if len(resolved) != n_pending:
+            unresolved_keys = set(pending_vars.keys())
+            self.logger.error(f"Circular or unresolved project variables: {', '.join(unresolved_keys)}")
+            sys.exit(1)
+
+
+
+
+
 
 
 
@@ -328,7 +321,7 @@ class YamlEngine:
         while len(pending_vars) > 0 and cycles < 10:
             cycles += 1
             for key, val in pending_vars.items():
-                value = self._expand_vars2(val, from_last=True)
+                value = self._expand_vars(val, from_last=True)
                 if self._find_variables(value):
                     pending_vars[key] = value # replace the value in pending_vars even if it still has unresolved references
                     self.logger.debug(f"Variable {key} still has unresolved references: {value}")
@@ -355,6 +348,7 @@ class YamlEngine:
     # --------------------------------------------------
     # Bootstrap
     # --------------------------------------------------
+    # @timing_logger
     def bootstrap(self, filename: str, main_key: str) -> None:
         """
         Legge main_key dal file principale e configura l'engine.
@@ -365,8 +359,6 @@ class YamlEngine:
         """
 
         config_file = self._resolve_file(filename)
-        # config_file = os.path.expanduser(filename)
-        # config_file = Path(os.path.expandvars(filename))
         self.logger.info("Bootstrapping YAML engine: %s - main_key: %s", config_file, main_key)
         content = config_file.read_text(encoding="utf-8")
         loader = yaml.SafeLoader(content)
@@ -386,28 +378,27 @@ class YamlEngine:
                     break
 
             if main_vars_node is None:
-                main_vars = {}
+                project_main_vars = {}
             else:
                 # Costruisce soltanto il nodo main_vars come dict
-                main_vars = loader.construct_object( main_vars_node, deep=True, )
+                project_main_vars = loader.construct_object( main_vars_node, deep=True, )
 
         finally:
             loader.dispose()
 
-        if not isinstance(main_vars, dict):
+        if not isinstance(project_main_vars, dict):
             raise TypeError("main_vars must be a YAML mapping")
 
 
         # ----------------------------------------------
         # project_env_vars
         # ----------------------------------------------
-        # self.project_env_vars = {}
+        pending_vars = self._load_project_vars(main_vars=project_main_vars)
+        # self._refine_project_vars(pending_vars=pending_vars)
+
         '''
-        self.project_vars = self._load_project_vars(main_vars=main_vars)
-        breakpoint()
         questo sotto funziona....
-        '''
-        project_env_vars = main_vars.get("project_env_vars", {})
+        project_env_vars = project_main_vars.get("project_env_vars", {})
         if not isinstance(project_env_vars, dict):
             raise TypeError(f"{main_key}.project_env_vars must be a mapping" )
 
@@ -425,12 +416,13 @@ class YamlEngine:
                 pending_vars[name] = expanded_value
 
         self._refine_project_vars(pending_vars=pending_vars)
+        '''
 
 
         # ----------------------------------------------
         # keypath_separator
         # ----------------------------------------------
-        separator = main_vars.get("keypath_separator", "#")
+        separator = project_main_vars.get("keypath_separator", "#")
         if not isinstance(separator, str) or not separator:
             raise ValueError(f"{main_key}.keypath_separator must be a non-empty string" )
 
@@ -440,7 +432,7 @@ class YamlEngine:
         # ----------------------------------------------
         # search_path
         # ----------------------------------------------
-        config_paths = main_vars.get("search_path", [])
+        config_paths = project_main_vars.get("search_path", [])
         if not isinstance(config_paths, list):
             raise TypeError(f"{main_key}.search_path must be a list")
 

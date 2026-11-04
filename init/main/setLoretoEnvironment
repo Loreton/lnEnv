@@ -89,6 +89,13 @@ function set_vars() {
             export           ln_BATCH_VARIABLES_FILE="${ln_SECRET_DIR}/loretoVariables.sh"
             export            ln_YAML_VARIABLES_FILE="${ln_SECRET_DIR}/yaml/ln_system_variables.yaml"
 
+            #... MP3
+            export            ln_ITALIAN_SONGS="${HOME}/filu/myData/Songs/mp3_songs/Italiani"
+            export            ln_STRANIERI_SONGS="${HOME}/filu/myData/Songs/mp3_songs/Stranieri"
+
+
+
+
 
     [[ $fLOG == "1" ]] && echo
     [[ $fLOG == "1" ]] && @lnLog "${yellow}Verifying variables starting with: ${startingVars}"
