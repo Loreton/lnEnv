@@ -5,6 +5,20 @@
 #
 # @_ln_echo_script_name $BASH_SOURCE
 
+
+function @_createPyLnLib_zip() {
+    cd ${HOME}/filu/Programming/gitREPO/pyLnLib/src
+    [[ $? != 0 ]] && return
+    ver=$(git describe --tags --abbrev=0 | tr '.' '_')
+    [[ $? != 0 ]] && return
+    echo $ver >pyLnLib/version_$ver
+    [[ $? != 0 ]] && return
+    zip -ur --latest-time "${HOME}/filu/lnEnv/pyScripts/pyLnLib_${ver}.zip" "pyLnLib"
+    [[ $? != 0 ]] && return
+    rm -f pyLnLib/version_$ver
+}
+
+
 #----- python
 alias ${alias_py_prefix}list="pip list"
 alias ${alias_py_prefix}outdate="pip list --outdated"
@@ -29,7 +43,16 @@ alias ${alias_venv_prefix}save_to_loreto_packages.txt="pip freeze > loreto_packa
 alias ${alias_venv_prefix}upgrade_from_loreto_packages.txt="pip3 install -r loreto_packages.txt --upgrade "
 alias ${alias_venv_prefix}uv_init="/usr/bin/bash ${ln_PY_SCRIPTS_DIR}/py_env/init_uv_project.sh"
 
-alias ${alias_prefix}zip_python_lnLib="/bin/bash /home/loreto/filu/lnEnv/shScripts/varie/zipLnLib.sh"
+# alias ${alias_prefix}zip_python_lnLib="/bin/bash /home/loreto/filu/lnEnv/shScripts/varie/zipLnLib.sh"
+# alias ${alias_prefix}zip_python_lnLib="cd ${HOME}/filu/Programming/gitREPO/pyLnLib/src && zip -ur --latest-time ${HOME}/filu/lnEnv/pyScripts/pyLnLib.zip pyLnLib"
+# alias ${alias_prefix}zip_python_lnLib="\
+#                         cd ${HOME}/filu/Programming/gitREPO/pyLnLib/src \
+#                         && ver=$(git describe --tags --abbrev=0 | tr '.' '_') \
+#                         && echo $ver >pyLnLib/version_$ver \
+#                         && zip -ur --latest-time ${HOME}/filu/lnEnv/pyScripts/pyLnLib_${ver}.zip pyLnLib" \
+#                         && rm -f pyLnLib/version_$ver
+alias ${alias_prefix}zip_python_lnLib="@_createPyLnLib_zip"
+
 
 
 
