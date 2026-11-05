@@ -11,17 +11,17 @@ import argparse
 from pathlib import Path
 import yaml
 
+pylnlib_path = Path(__file__).parent.parent / "pyLnLib_v0_1_53.zip"
+sys.path.insert(0,str(pylnlib_path))
+# import pyLnLib
 
-
-pyutils_path = Path(__file__).parent.parent / "py_common_utils"
-sys.path.insert(0,str(pyutils_path))
-from print_logger import PrintLogger  # type: ignore[import-not-found]
+# from pyLnLib import get_logger, get_colors
+from pyLnLib import PrintLogger
+# pyutils_path = Path(__file__).parent.parent / "py_common_utils"
+# from print_logger import PrintLogger  # type: ignore[import-not-found]
 # from colors import get_colors         # type: ignore[import-not-found]
 # C = get_colors()
-
-TAB2='  '
-TAB4='    '
-
+#
 
 # =============================================================================
 def scan_and_generate_yaml(author_dir: Path):
@@ -184,6 +184,15 @@ def main():
     logger.notify(f"total songs: {total_songs}")
 
 if __name__ == "__main__":
+    logger = PrintLogger(name="prova", console_logger_level="info", time_caller_prefix=True)
+    C = logger.Colors
+    # logger = get_logger()
+    # C = get_colors()
+
+    TAB2='  '
+    TAB4='    '
+
+
     FILENAME_YAML = "Loreto_selection_list.yaml"
     INCLUDE_AUTHORS =[  "Francesco_Guccini",
                         "Arisa",
@@ -207,9 +216,9 @@ if __name__ == "__main__":
                         "",
                     ]
 
-    # C = PrintLogger.Color
-    logger = PrintLogger(name="prova", console_logger_level="info", time_caller_prefix=True)
-    C = logger.Colors
+    # logger=init_logger(logger_name="mp3_selection_list", test=False)
+    # logger.initialize(name="mp3_selection_list", console_logger_level='info')
+    # C = logger.Colors
     args = parseInput()
     logger.info("Starting...")
     main()
