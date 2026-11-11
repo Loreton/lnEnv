@@ -11,17 +11,11 @@ import argparse
 from pathlib import Path
 import yaml
 
-pylnlib_path = Path(__file__).parent.parent / "pyLnLib_v0_1_53.zip"
-sys.path.insert(0,str(pylnlib_path))
 # import pyLnLib
+pylnlib_path = Path(__file__).parent.parent / "pyLnLib_last.zip"
+sys.path.insert(0,str(pylnlib_path))
+from pyLnLib import get_logger, lnDict, get_yamlEngine
 
-# from pyLnLib import get_logger, get_colors
-from pyLnLib import PrintLogger
-# pyutils_path = Path(__file__).parent.parent / "py_common_utils"
-# from print_logger import PrintLogger  # type: ignore[import-not-found]
-# from colors import get_colors         # type: ignore[import-not-found]
-# C = get_colors()
-#
 
 # =============================================================================
 def scan_and_generate_yaml(author_dir: Path):
@@ -144,9 +138,42 @@ def process_author_directory(args, author_dir: Path, target_dir: Path) -> int:
 
 
 
+###################################################################
+# Read Configuration
+###################################################################
+def read_configuration(config_file_name) -> lnDict:
+    """
+         read application configuration file
+
+         Args:
+             None
+
+         return:
+             configuration (lnDict)
+    """
+
+    myYaml=get_yamlEngine(logger=logger)
+    myYaml.bootstrap(config_file_name, main_key='mp3_main_vars')
+    config_data=myYaml.load(config_file_name)
+    _bootstrat=config_data.pop("mp3_main_vars")
+    myYaml.save_yaml(filepath="yaml_loader_test_file_out.yaml", title="yaml_loader_test_file", indent=4)
+
+    # yaml_engine=get_yamlEngine(logger=logger, search_path=["."])
+    # config_data: lnDict = lnDict(yaml_engine.load(str(config_file)))
+    # config_data.save_yaml(title="processed_config", filepath=pv.log_dir / "mp3_selection_config.yaml")
+
+    # pv.author_registry=AuthorRegistry(pv.config_dir / "authors.yaml")
+
+    return config_data
+
+
+
+###################################################################
+# parse Input
+###################################################################
 def parseInput():
     parser = argparse.ArgumentParser(description="Gestore e copiatore di selezioni musicali YAML.")
-    parser.add_argument("--top-dir", required=True, type=Path, help="Directory radice delle canzoni")
+    # parser.add_argument("--top-dir", required=True, type=Path, help="Directory radice delle canzoni")
     parser.add_argument("--target-dir", required=True, type=Path, help="Directory di destinazione per i file copiati")
     parser.add_argument("--replace", action="store_true", help="Sovrascrive i file se già presenti nella destinazione")
     parser.add_argument("--include-path", action="store_true", help="Includi il percorso relatico originale nella struttura di destinazione")
@@ -163,6 +190,8 @@ def parseInput():
 # #
 # #####################################################################
 def main():
+    pv.config_data = read_configuration(config_file_name="mp3_selection_config.yaml")
+    breakpoint()
     top_dir: Path = args.top_dir.resolve()
     target_dir: Path = args.target_dir.resolve()
 
@@ -184,8 +213,12 @@ def main():
     logger.notify(f"total songs: {total_songs}")
 
 if __name__ == "__main__":
-    logger = PrintLogger(name="prova", console_logger_level="info", time_caller_prefix=True)
-    C = logger.Colors
+    pv = lnDict()
+    pv.log_dir=Path('/tmp/mp3_selection')
+    pv.log_dir.mkdir(parents=True,exist_ok=True)
+    logger = get_logger()
+    logger.initialize("logger_TEST", console_logger_level="info")
+    C = logger.COLORS
     # logger = get_logger()
     # C = get_colors()
 

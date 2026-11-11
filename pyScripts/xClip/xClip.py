@@ -39,10 +39,6 @@ sys.dont_write_bytecode = True
 # Configuration
 # ============================================================
 
-XCLIP_ROOT_DIR_FILE = os.environ.get( "XCLIP_ROOT_DIR_FILE", "/tmp/xclip.rootdir" )
-XCLIP_CONFIG_FILE = os.environ.get( "XCLIP_CONFIG_FILE", str(Path(__file__).with_name("xclip.yaml")) )
-XCLIP_LOG_FILENAME = "/tmp/xclip.log"
-
 
 
 
@@ -166,10 +162,7 @@ def show_error(message: str) -> None:
     """
 
     try:
-        subprocess.run(
-            [ "zenity", "--error", "--title=xClip", f"--text={message}" ],
-            check=False,
-        )
+        subprocess.run( [ "zenity", "--error", "--title=xClip", f"--text={message}" ], check=False, )
 
     except FileNotFoundError:
         logger.error( "zenity non installato: %s", message, )
@@ -180,13 +173,8 @@ def show_info(message: str) -> None:
     """
     Mostra un messaggio informativo tramite zenity.
     """
-
     try:
-
-        subprocess.run(
-            [ "zenity", "--info", "--title=xClip", f"--text={message}", ],
-            check=False,
-        )
+        subprocess.run( [ "zenity", "--info", "--title=xClip", f"--text={message}", ], check=False, )
 
     except FileNotFoundError:
         logger.info( "zenity non installato: %s", message, )
@@ -201,12 +189,7 @@ def load_config(filename: str) -> dict:
     """
     Carica la configurazione YAML.
     """
-
-    logger.info(
-        "Loading configuration: %s",
-        filename,
-    )
-
+    logger.info( "Loading configuration: %s", filename, )
     try:
         with open( filename, "r", encoding="utf-8", ) as f:
             config = yaml.safe_load(f)
@@ -447,41 +430,22 @@ def leggi_clipboard(tipo_appunti: str = "clipboard", ) -> str | None:
     Legge il contenuto del clipboard o della Primary Selection.
     """
 
+
     try:
-
-        comando = [
-            "xclip",
-            "-o",
-            "-selection",
-            tipo_appunti,
-        ]
-
-        risultato = subprocess.run(
-            comando,
-            capture_output=True,
-            text=True,
-            check=True,
-        )
-
+        comando = [ "xclip", "-o", "-selection", tipo_appunti, ]
+        risultato = subprocess.run( comando, capture_output=True, text=True, check=True, )
         return risultato.stdout.strip()
 
     except subprocess.CalledProcessError as exc:
-
-        logger.error(
-            "Errore durante la lettura degli appunti: %s",
-            exc,
-        )
-
+        logger.error( "Errore durante la lettura degli appunti: %s", exc, )
         return None
+
 
     except FileNotFoundError:
-
-        logger.error(
-            "Il comando 'xclip' non è installato "
-            "o non è nel PATH.",
-        )
-
+        logger.error( "Il comando 'xclip' non è installato " "o non è nel PATH.", )
         return None
+
+
 
 
 # ============================================================
@@ -748,8 +712,7 @@ def parserInput() -> argparse.Namespace:
 
     parser = argparse.ArgumentParser( description="xClip", )
 
-    parser.add_argument( "--file", required=False, metavar="", default=XCLIP_ROOT_DIR_FILE, help=( "file containing root directories " "[%(default)s]" ) )
-    parser.add_argument( "--config", required=False, metavar="", default=XCLIP_CONFIG_FILE, help=( "xClip YAML configuration " "[%(default)s]" ) )
+    parser.add_argument( "--root-dir-file", required=True, metavar="", default=None, help=( "file containing root directories " "[%(default)s]" ) )
     parser.add_argument( "--console", action="store_true", help="console log", )
     parser.add_argument( "--zed", action="store_true", help="compatibility option: usa ZED", )
 
@@ -757,72 +720,77 @@ def parserInput() -> argparse.Namespace:
 
 
 #============================================================
-def install_system_vars(yaml_file: str) -> None:
+def install_envars_vars(system_yaml_vars: str, extra_vars_file: str = None) -> None:
     """
         Install system environment variables from a YAML file.
         Utile per risolvere variabili d'ambiente che potrebbero
         essere presenti nel path che andiamo a processare
 
     Args:
-        yaml_file (str): Path to the YAML file containing system environment variables.
+        system_yaml_vars (str): Path to the YAML file containing system environment variables.
+        extra_vars_file (str): Path to the file containing extra environment variables.
 
     Returns:
         None
     """
     import yaml
-    yaml_file=os.path.expandvars(yaml_file)
+    yaml_file=os.path.expandvars(system_yaml_vars)
     with open(yaml_file, 'r') as f:
         content=f.read() # single string
     dvars=yaml.load(content, Loader=yaml.FullLoader)
     for key, value in dvars["system_envars"].items():
         os.environ[key] = value
 
+    if extra_vars_file:
+        extra_vars = Path(extra_vars_file)
+        if extra_vars.exists() and extra_vars.is_file():
+            with open(extra_vars_file, 'r') as f:
+                env_vars=f.read() # single string
+
+            for line in env_vars.split('\n'):
+                items = line.split('=', 1)
+                if len(items) == 2:
+                    var_name, value = items
+                    os.environ[var_name] = value
+
+
 
 # ============================================================
 # Main
 # ============================================================
 def main():
-    # raise NotImplementedError("sono di riferimento")
-#     install_system_vars(yaml_file="$HOME/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml")
-#
-#     args = parserInput()
-#
-#     LOG_CONSOLE = ( logging.INFO if args.console else logging.WARNING )
-#
-#     # --------------------------------------------------------
-#     # Logger
-#     # --------------------------------------------------------
-#     logger = setLogger( filename=XCLIP_LOG_FILENAME, file_Log_level=logging.INFO, console_Log_level=LOG_CONSOLE, )
-#     logger.info("starting....")
-#
-
-
     # --------------------------------------------------------
     # Load YAML configuration file
     # --------------------------------------------------------
+    config_filename  = os.environ.get( "ln_XCLIP_CONFIG_FILE", str(Path(__file__).with_name("xclip_config.yaml")) )
     try:
-        config = load_config( args.config, )
+        config = load_config( config_filename)
         handlers = load_handlers( config, )
         default_handler = load_default_handler( config, )
-        primary_root_dir_file = config["primary_root_dirs_file"] # get filename
-        secondary_root_dirs = config["secondary_root_dirs"] # get list of root_top_dirs
-        exclude_dirnames = config.get("exclude_dirnames", [])
+        top_dirs: list[str] = config["main"]["top_dirs"] # get list of top directories
+        extra_vars_file: str = config["main"]["extra_vars_file"] # get filename for extra vars
+        system_yaml_vars: str = config["main"]["system_vars"] # get filename for system vars
+        exclude_dirnames: list[str] = config["main"].get("exclude_dirnames", [])
 
     except Exception as exc:
-        logger.error( "Unable to load configuration: %s", exc, exc_info=True, )
-        show_error( "Errore caricando la configurazione " f"di xClip:\n\n{exc}\n\n" f"{args.config}" )
+        # logger.error( "Unable to load configuration: %s", exc, exc_info=True, )
+        show_error( "Errore caricando la configurazione " f"di xClip:\n\n{exc}\n\n" f"{config_filename}" )
         sys.exit(1)
-
+    
+    
+    
+    args = parserInput()
+    install_envars_vars(system_yaml_vars=system_yaml_vars, extra_vars_file=extra_vars_file)  # Install system environment variables from the YAML file
 
 
     # --------------------------------------------------------
     # Root directories
     # --------------------------------------------------------
-
-    # ffile = Path(args.file)
-    ffile = Path(primary_root_dir_file)
-
+    ffile = Path(args.root_dir_file)
     rootDirs: list[str] = []
+    if not ffile.exists():
+        with ffile.open(mode="w", encoding="utf-8") as f:
+            f.write("\n".join(top_dirs))
 
     # read root directories from file createde by .cd alias command
     try:
@@ -838,7 +806,11 @@ def main():
 
 
     # aggiungiamo quelle configurate nel file di configurazione
-    rootDirs.extend(secondary_root_dirs)
+    # rootDirs.extend(top_dirs)
+    rootDirs = list(dict.fromkeys(rootDirs))
+    for top_dir in top_dirs:
+        if top_dir not in rootDirs:
+            rootDirs.append(top_dir)
 
     if not rootDirs:
         logger.warning( "No root directories configured.", )
@@ -857,23 +829,15 @@ def main():
     logger.info("-")
     logger.info("-")
 
-    logger.info( "Clipboard (Ctrl+C).....................: %s", testo_copiato, )
-    logger.info( "Primary Selection......................: %s", testo_selezionato, )
+    logger.info( "Primary Selection..: %s", testo_selezionato, )
+    logger.info( "Clipboard (Ctrl+C).: %s", testo_copiato, )
     logger.info( "rootDirs: %s", rootDirs, )
 
-    if not testo_selezionato:
-        logger.error( "testo non selezionato", )
-        show_error( "Nessun testo selezionato." )
+    if not testo_selezionato and not testo_copiato:
+        logger.error( "testo non selezionato e clipboard vuota", )
+        show_error( "testo non selezionato e clipboard vuota" )
         sys.exit(1)
 
-
-
-    # --------------------------------------------------------
-    # Cerca il file in tutti i rootDirs
-    # --------------------------------------------------------
-
-    # location: SourceLocation | None = None
-    # filepath: str | None = None
 
     # --------------------------------------------------------
     # Controllo preliminare: è un URL / IP?
@@ -894,43 +858,22 @@ def main():
 
     else:
         for root_dir in rootDirs:
-
             logger.info( "Trying rootDir: %s", root_dir, )
-
             result = analizza_riga( riga=testo_selezionato, rootDir=root_dir, )
-
             if result:
-
                 location, filepath = result
-
-                logger.info(
-                    "Found file in: %s",
-                    root_dir,
-                )
-
+                logger.info( "Found file in: %s", root_dir, )
                 break
 
-            logger.info(
-                "NOT found in: %s",
-                root_dir,
-            )
+            logger.info( "NOT found in: %s", root_dir, )
 
     # --------------------------------------------------------
     # File non trovato
     # --------------------------------------------------------
 
     if location is None or filepath is None:
-
-        roots = "\n".join(
-            f"  {root}"
-            for root in rootDirs
-        )
-
-        logger.warning(
-            "Nessun file trovato per:\n%s",
-            testo_selezionato,
-        )
-
+        roots = "\n".join( f"  {root}" for root in rootDirs )
+        logger.warning( "Nessun file trovato per:\n%s", testo_selezionato, )
         show_error(
             "File non trovato.\n\n"
             f"Selezione:\n"
@@ -938,7 +881,7 @@ def main():
             f"Root directories cercate:\n"
             f"{roots}\n\n"
             f"Log:\n"
-            f"{XCLIP_LOG_FILENAME}"
+            f"{pv.log_filename}"
         )
 
         sys.exit(1)
@@ -946,36 +889,25 @@ def main():
     # --------------------------------------------------------
     # Determina handler
     # --------------------------------------------------------
-    handler = get_file_handler(
-        filepath=filepath,
-        handlers=handlers,
-        default_handler=default_handler,
-        is_url=(location.format == "url"),  # Passiamo il flag URL
-    )
+    handler = get_file_handler(filepath=filepath,
+                            handlers=handlers,
+                            default_handler=default_handler,
+                            is_url=(location.format == "url"),  # Passiamo il flag URL
+                        )
 
     if handler is None:
-
-        logger.error(
-            "No handler available for: %s",
-            filepath,
-        )
-
-        show_error(
-            "Nessun programma configurato per:\n\n"
-            f"{filepath}"
-        )
-
+        logger.error( "No handler available for: %s", filepath, )
+        show_error( "Nessun programma configurato per:\n\n" f"{filepath}" )
         sys.exit(1)
 
     # --------------------------------------------------------
     # Costruisce comando
     # --------------------------------------------------------
 
-    editor_command = build_editor_command(
-        filepath=filepath,
-        line_no=location.line_no,
-        handler=handler,
-    )
+    editor_command = build_editor_command(filepath=filepath,
+                                        line_no=location.line_no,
+                                        handler=handler,
+                                    )
     logger.info( "Source location : %s", location, )
     logger.info( "Resolved file   : %s", filepath, )
     logger.info( "Handler         : %s", handler.name, )
@@ -1021,223 +953,13 @@ def main():
 #               M A I N
 ##########################################################################
 if __name__ == "__main__":
-    def if_main(): # solo per averlo nella lista delle funcioni
-        ...
-    install_system_vars(yaml_file="$HOME/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml")
+    pv = dataclass(frozen=True)
 
-    args = parserInput()
+    """ logger è reso globale per essere utilizzato in tutte le funzioni """
+    LOG_CONSOLE = (logging.INFO if '--console' in sys.argv else logging.WARNING)
 
-    LOG_CONSOLE = ( logging.INFO if args.console else logging.WARNING )
-
-    # --------------------------------------------------------
-    # Logger
-    # --------------------------------------------------------
-    logger = setLogger( filename=XCLIP_LOG_FILENAME, file_Log_level=logging.INFO, console_Log_level=LOG_CONSOLE, )
-    logger.info("starting....")
-
-
-    # --------------------------------------------------------
-    # Load YAML configuration file
-    # --------------------------------------------------------
-    try:
-        config = load_config( args.config, )
-        handlers = load_handlers( config, )
-        default_handler = load_default_handler( config, )
-        primary_root_dir_file = config["primary_root_dirs_file"] # get filename
-        secondary_root_dirs = config["secondary_root_dirs"] # get list of root_top_dirs
-        exclude_dirnames = config.get("exclude_dirnames", [])
-
-    except Exception as exc:
-        logger.error( "Unable to load configuration: %s", exc, exc_info=True, )
-        show_error( "Errore caricando la configurazione " f"di xClip:\n\n{exc}\n\n" f"{args.config}" )
-        sys.exit(1)
-
+    log_filename = os.environ.get( "ln_XCLIP_LOG_FILENAME", '/tmp/xclip.log' )
+    logger = setLogger(filename=log_filename, file_Log_level=logging.INFO, console_Log_level=LOG_CONSOLE, )
+    logger.info("starting.... %s", log_filename)
     main()
-    sys.exit()
 
-
-    # --------------------------------------------------------
-    # Root directories
-    # --------------------------------------------------------
-
-    # ffile = Path(args.file)
-    ffile = Path(primary_root_dir_file)
-
-    rootDirs: list[str] = []
-
-    # read root directories from file createde by .cd alias command
-    try:
-        with ffile.open( mode="r", encoding="utf-8", ) as f:
-            content = f.read()
-        if content:
-            rootDirs = content.split()
-
-    except FileNotFoundError:
-        logger.error( "File %s not found", ffile, )
-        # show_error( "File delle root directory non trovato:\n\n" f"{ffile}" )
-        # sys.exit(1)
-
-
-    # aggiungiamo quelle configurate nel file di configurazione
-    rootDirs.extend(secondary_root_dirs)
-
-    if not rootDirs:
-        logger.warning( "No root directories configured.", )
-        show_error( "Nessuna root directory configurata." )
-        sys.exit(1)
-
-
-    # --------------------------------------------------------
-    # Clipboard
-    # --------------------------------------------------------
-
-    testo_copiato = leggi_clipboard( "clipboard", )
-    testo_selezionato = leggi_clipboard( "primary", )
-
-    logger.info("-")
-    logger.info("-")
-    logger.info("-")
-
-    logger.info( "Clipboard (Ctrl+C).....................: %s", testo_copiato, )
-    logger.info( "Primary Selection......................: %s", testo_selezionato, )
-    logger.info( "rootDirs: %s", rootDirs, )
-
-    if not testo_selezionato:
-        logger.error( "testo non selezionato", )
-        show_error( "Nessun testo selezionato." )
-        sys.exit(1)
-
-
-
-    # --------------------------------------------------------
-    # Cerca il file in tutti i rootDirs
-    # --------------------------------------------------------
-
-    # location: SourceLocation | None = None
-    # filepath: str | None = None
-
-    # --------------------------------------------------------
-    # Controllo preliminare: è un URL / IP?
-    # --------------------------------------------------------
-    location: SourceLocation | None = None
-    filepath: str | None = None
-
-    url_check = is_url_or_ip(testo_selezionato)
-    if url_check:
-        location = SourceLocation(filename=url_check, line_no=1, format="url")
-        filepath = url_check
-        logger.info("URL/IP target identified directly: %s", filepath)
-
-    # --------------------------------------------------------
-    # Se non è un URL, cerca il file in tutti i rootDirs
-    # --------------------------------------------------------
-
-
-    else:
-        for root_dir in rootDirs:
-
-            logger.info( "Trying rootDir: %s", root_dir, )
-
-            result = analizza_riga( riga=testo_selezionato, rootDir=root_dir, )
-
-            if result:
-                location, filepath = result
-                logger.info( "Found file in: %s", root_dir, )
-                break
-
-            logger.info( "NOT found in: %s", root_dir, )
-
-    # --------------------------------------------------------
-    # File non trovato
-    # --------------------------------------------------------
-
-    if location is None or filepath is None:
-        roots = "\n".join(
-            f"  {root}"
-            for root in rootDirs
-        )
-
-        logger.warning( "Nessun file trovato per:\n%s", testo_selezionato, )
-
-        show_error(
-            "File non trovato.\n\n"
-            f"Selezione:\n"
-            f"{testo_selezionato}\n\n"
-            f"Root directories cercate:\n"
-            f"{roots}\n\n"
-            f"Log:\n"
-            f"{XCLIP_LOG_FILENAME}"
-        )
-
-        sys.exit(1)
-
-    # --------------------------------------------------------
-    # Determina handler
-    # --------------------------------------------------------
-    handler = get_file_handler(
-        filepath=filepath,
-        handlers=handlers,
-        default_handler=default_handler,
-        is_url=(location.format == "url"),  # Passiamo il flag URL
-    )
-
-    if handler is None:
-
-        logger.error(
-            "No handler available for: %s",
-            filepath,
-        )
-
-        show_error(
-            "Nessun programma configurato per:\n\n"
-            f"{filepath}"
-        )
-
-        sys.exit(1)
-
-    # --------------------------------------------------------
-    # Costruisce comando
-    # --------------------------------------------------------
-
-    editor_command = build_editor_command(
-        filepath=filepath,
-        line_no=location.line_no,
-        handler=handler,
-    )
-    logger.info( "Source location : %s", location, )
-    logger.info( "Resolved file   : %s", filepath, )
-    logger.info( "Handler         : %s", handler.name, )
-    logger.info( "Command          : %s", editor_command, )
-
-
-    # --------------------------------------------------------
-    # Avvio programma
-    # --------------------------------------------------------
-
-    try:
-        subprocess.Popen( editor_command, )
-
-    except FileNotFoundError as exc:
-        logger.error( "Program not found: %s", exc, )
-        show_error(
-            "Programma non trovato:\n\n"
-            f"{editor_command[0]}\n\n"
-            f"File:\n{filepath}"
-        )
-
-        sys.exit(1)
-
-    except Exception as exc:
-
-        logger.error(
-            "Error starting program: %s",
-            exc,
-            exc_info=True,
-        )
-
-        show_error(
-            "Errore avviando il programma:\n\n"
-            f"{exc}"
-        )
-
-        sys.exit(1)

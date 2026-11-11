@@ -1,0 +1,72 @@
+#
+# updated by ...: Loreto Notarantonio
+#
+
+IdeaPadSlim3 ~ ➜: flatpak list
+Name                                             Application ID                                        Version                         Branch            Installation
+RetroShare-gui                                   cc.retroshare.retroshare-gui                          0.6.7.2                         stable            system
+Decoder                                          com.belmoussaoui.Decoder                              0.10.0                          stable            system
+calibre                                          com.calibre_ebook.calibre                             9.17.0                          stable            system
+Aliza MS                                         com.github.AlizaMedicalImaging.AlizaMS                1.10.3                          stable            system
+PDF Arranger                                     com.github.jeromerobert.pdfarranger                   1.14.0                          stable            system
+Xournal++                                        com.github.xournalpp.xournalpp                        1.3.8                           stable            system
+Cutecom                                          com.gitlab.cutecom.cutecom                            0.51.0                          stable            system
+Opera                                            com.opera.Opera                                       136.0.6008.80                   stable            system
+RustDesk                                         com.rustdesk.RustDesk                                 1.5.1                           stable            system
+Sejda PDF Desktop                                com.sejda.Sejda                                       7.9.10                          stable            system
+Spotify                                          com.spotify.Client                                    1.2.95.453.g0eeebbed            stable            system
+4KTUBE                                           com.warlordsoftwares.youtube-downloader-4ktube        2026.11.3                       stable            system
+XnView MP                                        com.xnview.XnViewMP                                   1.12.2                          stable            system
+Zed                                              dev.zed.Zed                                           v1.27.0                         stable            system
+PDF4QT                                           io.github.JakubMelka.Pdf4qt                           1.6.0.0                         stable            system
+Bootqt                                           io.github.giantpinkrobots.bootqt                      v2026.5.13                      stable            system
+Weasis                                           io.github.nroduit.Weasis                              4.8.0                           stable            system
+Impression                                       io.gitlab.adhami3310.Impression                       3.8.0                           stable            system
+Angry IP Scanner                                 org.angryip.ipscan                                    3.10.0                          stable            system
+Audacity                                         org.audacityteam.Audacity                             3.7.8                           stable            system
+Flameshot                                        org.flameshot.Flameshot                               15.0.0                          stable            system
+FreeCAD translations                             org.freecad.FreeCAD.Locale                                                            stable            system
+Freedesktop Platform                             org.freedesktop.Platform                              freedesktop-sdk-25.08.19        25.08             system
+Freedesktop Platform                             org.freedesktop.Platform                              freedesktop-sdk-26.08.4         26.08             system
+Mesa                                             org.freedesktop.Platform.GL.default                   26.1.8                          24.08             system
+Mesa (Extra)                                     org.freedesktop.Platform.GL.default                   26.1.8                          24.08extra        system
+Mesa                                             org.freedesktop.Platform.GL.default                   26.2.5                          25.08             system
+Mesa (Extra)                                     org.freedesktop.Platform.GL.default                   26.2.5                          25.08-extra       system
+Mesa                                             org.freedesktop.Platform.GL.default                   26.2.5                          26.08             system
+Mesa (Extra)                                     org.freedesktop.Platform.GL.default                   26.2.5                          26.08-extra       system
+Intel VAAPI driver                               org.freedesktop.Platform.VAAPI.Intel                                                  24.08             system
+Intel VAAPI driver                               org.freedesktop.Platform.VAAPI.Intel                                                  25.08             system
+Intel VAAPI driver                               org.freedesktop.Platform.VAAPI.Intel                                                  26.08             system
+Codecs Extra Extension                           org.freedesktop.Platform.codecs-extra                                                 25.08-extra       system
+Codecs Extra Extension                           org.freedesktop.Platform.codecs-extra                                                 26.08-extra       system
+openh264                                         org.freedesktop.Platform.openh264                     2.5.1                           2.5.1             system
+Freedesktop SDK                                  org.freedesktop.Sdk                                   freedesktop-sdk-25.08.19        25.08             system
+Freedesktop SDK                                  org.freedesktop.Sdk                                   freedesktop-sdk-26.08.4         26.08             system
+GNOME Application Platform version 50            org.gnome.Platform                                                                    50                system
+GNOME Application Platform version 51            org.gnome.Platform                                                                    51                system
+GNOME Software Development Kit version 50        org.gnome.Sdk                                                                         50                system
+GNOME Software Development Kit version 51        org.gnome.Sdk                                                                         51                system
+Meld                                             org.gnome.meld                                        3.24.1                          stable            system
+Mint-Y-Aqua Gtk Theme                            org.gtk.Gtk3theme.Mint-Y-Aqua                                                         3.22              system
+KDE Application Platform                         org.kde.Platform                                                                      5.15-24.08        system
+KDE Application Platform                         org.kde.Platform                                                                      5.15-25.08        system
+KDE Application Platform                         org.kde.Platform                                                                      6.10              system
+KDE Application Platform                         org.kde.Platform                                                                      6.11              system
+KDE Application Platform                         org.kde.Platform                                                                      6.9               system
+JuK                                              org.kde.juk                                           26.08.3                         stable            system
+Kid3                                             org.kde.kid3                                          3.10.2                          stable            system
+Kompare                                          org.kde.kompare                                       4.2.26083                       stable            system
+Qrca                                             org.kde.qrca                                          26.08.3                         stable            system
+KiCad                                            org.kicad.KiCad                                       10.0.8                          stable            system
+Footprints                                       org.kicad.KiCad.Library.Footprints                                                    stable            system
+Packages3D                                       org.kicad.KiCad.Library.Packages3D                                                    stable            system
+Symbols                                          org.kicad.KiCad.Library.Symbols                                                       stable            system
+Templates                                        org.kicad.KiCad.Library.Templates                                                     stable            system
+MusicBrainz Picard                               org.musicbrainz.Picard                                3.0.4                           stable            system
+Nicotine+                                        org.nicotine_plus.Nicotine                            3.3.11                          stable            system
+QElectroTech                                     org.qelectrotech.QElectroTech                         0.100                           stable            system
+Raspberry Pi Imager                              org.raspberrypi.rpi-imager                            2.0.12                          stable            system
+DB Browser for SQLite                            org.sqlitebrowser.sqlitebrowser                       3.13.1                          stable            system
+Telegram                                         org.telegram.desktop                                  7.4.1                           stable            system
+QR-ScanGen                                       tech.emendir.QR-ScanGen                               2.2.0                           stable            system
+CoBang                                           vn.hoabinh.quan.CoBang                                2.11.1                          stable            system

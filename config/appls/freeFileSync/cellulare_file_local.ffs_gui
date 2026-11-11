@@ -7,7 +7,10 @@
         <IgnoreTimeShift/>
     </Compare>
     <Synchronize>
-        <Differences LeftOnly="right" LeftNewer="right" RightNewer="right" RightOnly="right"/>
+        <Changes>
+            <Left Create="right" Update="right" Delete="none"/>
+            <Right Create="none" Update="none" Delete="none"/>
+        </Changes>
         <DeletionPolicy>Permanent</DeletionPolicy>
         <VersioningFolder Style="Replace"/>
     </Synchronize>
@@ -25,7 +28,7 @@
     </Filter>
     <FolderPairs>
         <Pair>
-            <Left>/home/loreto/filu/myData/Filu_local_cellulare</Left>
+            <Left>/home/loreto/filu/myData/@Filu_local_cellulare</Left>
             <Right>sftp://loreto@loreto_cellulare:2223/Filu_local|agent</Right>
         </Pair>
     </FolderPairs>

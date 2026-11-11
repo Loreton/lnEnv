@@ -7,7 +7,12 @@
 
 
 
-
+function @_to_xclip_vars() {
+    file=${XCLIP_EXTRA_ENVARS}
+    echo "$@" >> ${file}
+    echo "file $file"
+    cat $file
+}
 
 if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
 
@@ -21,9 +26,11 @@ if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
     # alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >>$file; echo "${ln_GIT_REPO_DIR}" >>$file; cat $file; echo "  written to file $file"; }'  ### importante il singolo apice
 
     # save current dir in file
-    alias ${alias_prefix}cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >$file; echo "file $file"; cat $file;  }'  ### importante il singolo apice
+    alias ${alias_prefix}xclip.cd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >$file; echo "file $file"; cat $file;  }'  ### importante il singolo apice
     # add current dir in file
-    alias ${alias_prefix}cdd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >>$file; echo "file $file"; cat $file; }'  ### importante il singolo apice
+    # alias ${alias_prefix}cdd='file=${XCLIP_ROOT_DIR_FILE} && { echo "$PWD" >>$file; echo "file $file"; cat $file; }'  ### importante il singolo apice
+    # alias ${alias_prefix}xclip.vars='file=${XCLIP_EXTRA_ENV_VARS} && { echo "$@" >>$file; echo "file $file"; cat $file; }'  ### importante il singolo apice
+    alias ${alias_prefix}xclip.vars='@_to_xclip_vars'
 
 
 fi

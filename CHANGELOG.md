@@ -1,3 +1,10 @@
+## [0.0.7] - 2026-11-11
+
+## Other
+
+- mp3 selection list - (Release 0.0.6)
+- python.alias - (Release 0.0.6)
+
 ## [0.0.3] - 2026-10-25
 
 ## Other

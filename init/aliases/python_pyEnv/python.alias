@@ -8,13 +8,17 @@
 
 function @_createPyLnLib_zip() {
     _cur_dir="${PWD}"
+    ZIP_TARGET_DIR="${HOME}/filu/lnEnv/pyScripts"
+
     cd ${HOME}/filu/Programming/gitREPO/pyLnLib/src;  [[ $? != 0 ]] && return
     ver=$(git describe --tags --abbrev=0 | tr '.' '_');  [[ $? != 0 ]] && return
     echo $ver >pyLnLib/version_$ver;  [[ $? != 0 ]] && return
-    zip_name="${HOME}/filu/lnEnv/pyScripts/pyLnLib_${ver}.zip"
+
+    zip_name="${ZIP_TARGET_DIR}/pyLnLib_${ver}.zip"
     zip -ur --latest-time "${zip_name}" "pyLnLib"; [[ $? != 0 ]] && return
     rm -f pyLnLib/version_$ver
     echo "${zip_name} has been created!"
+    ln -sfn "${zip_name}" "${ZIP_TARGET_DIR}/pyLnLib_last.zip"
     cd "${_cur_dir}"
 }
 
