@@ -5,15 +5,8 @@
 
 main:
     # top directory dove cercareventuali files oltre a:
-    # primary_root_dirs_file: "/tmp/xclip.rootdir"  # viene riempito dal comando alias .cd con i path navigati recentemente
     extra_vars_file: "/tmp/xclip.extra_envvars"
     system_vars: "${HOME}/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml"
-
-    # secondary_root_dirs:
-    #     # - /home/loreto/filu/Programming/gitREPO/eBooks
-    #     # - /home/loreto/filu/Programming/gitREPO/pyLnLib
-    #     - /home/loreto/filu/Programming/gitREPO
-    #     - /home/loreto/filu/lnEnv
 
     top_dirs:
         # - /home/loreto/filu/Programming/gitREPO/eBooks
@@ -22,25 +15,20 @@ main:
         - /home/loreto/filu/lnEnv
 
 
-    # XCLIP_ROOT_DIR_FILE: "/tmp/xclip.rootdir"
-    # XCLIP_EXTRA_ENVARS: "/tmp/xclip.extra_envvars"
-    # XCLIP_LOG_FILENAME: "/tmp/xclip.log"
 
-
-
-exclude_dirnames:
-    - .build
-    - .build_stage
-    - .desktop
-    - .git
-    - .old
-    - .saved
-    - .venv
-    - .vscode
-    - .wip
-    - __pycache__
-    - dist
-    - logs
+    exclude_dirnames:
+      - .build
+      - .build_stage
+      - .desktop
+      - .git
+      - .old
+      - .saved
+      - .venv
+      - .vscode
+      - .wip
+      - __pycache__
+      - dist
+      - logs
 
 
 handlers:

@@ -20,7 +20,7 @@
 #   PyYAML
 #
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 # from gettext import install
 from pathlib import Path
 import argparse
@@ -30,6 +30,7 @@ import re
 import subprocess
 import sys
 import yaml
+from string import Template
 
 
 sys.dont_write_bytecode = True
@@ -111,6 +112,17 @@ class FileHandler:
         suffix = Path(filename).suffix.lower()
 
         return suffix in self.extensions
+
+
+@dataclass(slots=True)
+class project_vars:
+    """
+    Mantiene tyutte le variabili di projetto.
+    """
+
+    log_filename: str
+    project_env_vars: dict[str, object] = field(default_factory=dict)
+    exclude_dirnames: list[str] = field(default_factory=list)
 
 
 # ============================================================
@@ -248,7 +260,7 @@ def load_handlers( config: dict, ) -> list[FileHandler]:
         command = [ str(item) for item in command ]
         handler = FileHandler( name=name, extensions=extensions, command=command, line_number=bool(line_number), )
         handlers.append(handler)
-        logger.info( "Loaded handler: %s -> %s", name, handler, )
+        logger.debug( "Loaded handler: %s -> %s", name, handler, )
 
     return handlers
 
@@ -311,43 +323,19 @@ def get_file_handler( filepath: str,
 
 
 
-# def get_file_handler_prev( filepath: str, handlers: list[FileHandler], default_handler: FileHandler | None, ) -> FileHandler | None:
-#     """
-#     Determina quale handler utilizzare per filepath.
-#     """
-#
-#     suffix = Path(filepath).suffix.lower()
-#
-#     logger.info( "Looking for handler for extension: %s", suffix, )
-#
-#
-#     for handler in handlers:
-#         if handler.handles(filepath):
-#             logger.info( "Handler selected: %s", handler.name, )
-#             return handler
-#
-#     logger.info( "No specific handler found for: %s", suffix, )
-#
-#     return default_handler
-
 
 # ============================================================
 # Command builder
 # ============================================================
 
-def build_editor_command( filepath: str,
-                          line_no: int,
-                          handler: FileHandler,
-                        ) -> list[str]:
+def build_editor_command(filepath: str, line_no: int, handler: FileHandler, ) -> list[str]:
     """
     Costruisce il comando da passare a subprocess.
 
-    Se line_number è True:
-
+    If line_number is True:
         /path/file.py:123
 
-    altrimenti:
-
+    else:
         /path/file.epub
     """
 
@@ -364,34 +352,25 @@ def build_editor_command( filepath: str,
 
 
 # ============================================================
-# File search
+# - File search
 # ============================================================
-
 def findFileInDir(path: str, filename: str, ) -> str | None:
-    """
-    Cerca filename direttamente nella directory.
-    """
-
+    """ Cerca filename direttamente nella directory. """
     candidate = Path(path) / filename
-
     if candidate.is_file():
         return str(candidate)
-
     return None
 
 
+# ============================================================
 def findFileInPath( root: str, filename: str, ) -> str | None:
-    """
-    Cerca ricorsivamente filename sotto root.
-    """
+    """ Cerca ricorsivamente filename sotto root. """
 
     logger.info( "findFileInPath: root=%s, filename=%s", root, filename, )
-
     filename = Path(filename).name
 
     if Path(filename).suffix:
         filenames_to_be_searched = [ filename, ]
-
     else:
         filenames_to_be_searched = [ f"{filename}{ext}" for ext in DEFAULT_EXTENSIONS ]
         filenames_to_be_searched.insert( 0, filename, )
@@ -399,14 +378,12 @@ def findFileInPath( root: str, filename: str, ) -> str | None:
 
     logger.debug( "filenames_to_be_searched: %s", filenames_to_be_searched, )
 
-
     for dirpath, dirnames, files in os.walk(root):
         # Non scendere nei .build_stage.
-        dirnames[:] = [
-            dirname
-            for dirname in dirnames
-            if dirname not in exclude_dirnames
-        ]
+        dirnames[:] = [ dirname
+                        for dirname in dirnames
+                        if dirname not in pv.exclude_dirnames
+                    ]
 
 
         for candidate_name in filenames_to_be_searched:
@@ -422,10 +399,9 @@ def findFileInPath( root: str, filename: str, ) -> str | None:
 
 
 # ============================================================
-# Clipboard
+# - Clipboard
 # ============================================================
-
-def leggi_clipboard(tipo_appunti: str = "clipboard", ) -> str | None:
+def leggi_clipboard(tipo_appunti: str = "clipboard", ) -> str:
     """
     Legge il contenuto del clipboard o della Primary Selection.
     """
@@ -434,16 +410,16 @@ def leggi_clipboard(tipo_appunti: str = "clipboard", ) -> str | None:
     try:
         comando = [ "xclip", "-o", "-selection", tipo_appunti, ]
         risultato = subprocess.run( comando, capture_output=True, text=True, check=True, )
-        return risultato.stdout.strip()
+        return Template(risultato.stdout.strip()).safe_substitute(pv.project_env_vars)
 
     except subprocess.CalledProcessError as exc:
         logger.error( "Errore durante la lettura degli appunti: %s", exc, )
-        return None
+        return ""
 
 
     except FileNotFoundError:
         logger.error( "Il comando 'xclip' non è installato " "o non è nel PATH.", )
-        return None
+        return ""
 
 
 
@@ -553,7 +529,8 @@ def parse_generic_location( riga: str, ) -> SourceLocation | None:
         module.func 123
     """
 
-    riga = os.path.expandvars(riga)
+    # riga = os.path.expandvars(riga)
+    riga = Template(riga).safe_substitute(pv.project_env_vars)
 
     normalized = (
         riga
@@ -629,8 +606,7 @@ def analizza_riga( riga: str | None, rootDir: str | None, ) -> tuple[SourceLocat
     # --------------------------------------------------------
     # 1. La selezione è direttamente un file?
     # --------------------------------------------------------
-    filepath_candidate = ( riga.strip('"') .strip("'") )
-
+    filepath_candidate = ( riga.strip('"').strip("'") )
     if os.path.isfile(filepath_candidate):
         location = SourceLocation( filename=filepath_candidate, line_no=1, format="direct_file", )
         logger.info( "Direct file found: %s", location, )
@@ -714,7 +690,11 @@ def parserInput() -> argparse.Namespace:
 
     parser.add_argument( "--root-dir-file", required=True, metavar="", default=None, help=( "file containing root directories " "[%(default)s]" ) )
     parser.add_argument( "--console", action="store_true", help="console log", )
-    parser.add_argument( "--zed", action="store_true", help="compatibility option: usa ZED", )
+    parser.add_argument( "--zed", action="store_true", help="compatibility option: use ZED editor", )
+
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument( "--primary", action="store_true", help="read primary selection", )
+    group.add_argument( "--clipboard", action="store_true", help="read clipboard", )
 
     return parser.parse_args()
 
@@ -738,6 +718,7 @@ def install_envars_vars(system_yaml_vars: str, extra_vars_file: str = None) -> N
     with open(yaml_file, 'r') as f:
         content=f.read() # single string
     dvars=yaml.load(content, Loader=yaml.FullLoader)
+
     for key, value in dvars["system_envars"].items():
         os.environ[key] = value
 
@@ -755,10 +736,48 @@ def install_envars_vars(system_yaml_vars: str, extra_vars_file: str = None) -> N
 
 
 
+
+#============================================================
+def set_env_vars(system_yaml_vars: str, extra_vars_file: str = None) -> dict[str, str]:
+    """
+        Install system environment variables from a YAML file.
+        Utile per risolvere variabili d'ambiente che potrebbero
+        essere presenti nel path che andiamo a processare
+
+    Args:
+        system_yaml_vars (str): Path to the YAML file containing system environment variables.
+        extra_vars_file (str): Path to the file containing extra environment variables.
+
+    Returns:
+        dict[str, str]: A dictionary containing the environment variables.
+    """
+    import yaml
+    yaml_file=os.path.expandvars(system_yaml_vars)
+    with open(yaml_file, 'r') as f:
+        content=f.read() # single string
+    dvars=yaml.load(content, Loader=yaml.FullLoader)
+    env_vars=dvars["system_envars"]
+
+    if extra_vars_file:
+        extra_vars = Path(extra_vars_file)
+        if extra_vars.exists() and extra_vars.is_file():
+            with open(extra_vars_file, 'r') as f:
+                env_vars=f.read() # single string
+
+            for line in env_vars.split('\n'):
+                items = line.split('=', 1)
+                if len(items) == 2:
+                    var_name, value = items
+                    env_vars[var_name] = value
+
+
+    return env_vars
+
+
 # ============================================================
 # Main
 # ============================================================
-def main():
+def main() -> int:
     # --------------------------------------------------------
     # Load YAML configuration file
     # --------------------------------------------------------
@@ -767,42 +786,41 @@ def main():
         config = load_config( config_filename)
         handlers = load_handlers( config, )
         default_handler = load_default_handler( config, )
-        top_dirs: list[str] = config["main"]["top_dirs"] # get list of top directories
-        extra_vars_file: str = config["main"]["extra_vars_file"] # get filename for extra vars
-        system_yaml_vars: str = config["main"]["system_vars"] # get filename for system vars
-        exclude_dirnames: list[str] = config["main"].get("exclude_dirnames", [])
+        main_config=config["main"]
+        top_dirs: list[str] = main_config["top_dirs"] # get list of top directories
+        extra_vars_file: str = main_config["extra_vars_file"] # get filename for extra vars
+        system_yaml_vars: str = main_config["system_vars"] # get filename for system vars
+        pv.exclude_dirnames = main_config.get("exclude_dirnames", [])
 
     except Exception as exc:
-        # logger.error( "Unable to load configuration: %s", exc, exc_info=True, )
         show_error( "Errore caricando la configurazione " f"di xClip:\n\n{exc}\n\n" f"{config_filename}" )
-        sys.exit(1)
-    
-    
-    
+        return 1
+
     args = parserInput()
-    install_envars_vars(system_yaml_vars=system_yaml_vars, extra_vars_file=extra_vars_file)  # Install system environment variables from the YAML file
+    # install_envars_vars(system_yaml_vars=system_yaml_vars, extra_vars_file=extra_vars_file)  # Install system environment variables from the YAML file
+    pv.project_env_vars=set_env_vars(system_yaml_vars=system_yaml_vars, extra_vars_file=extra_vars_file)  # Install system environment variables from the YAML file
 
 
     # --------------------------------------------------------
-    # Root directories
+    # - Root directories from file root_dir_file
     # --------------------------------------------------------
-    ffile = Path(args.root_dir_file)
+    root_dir_file = Path(args.root_dir_file)
     rootDirs: list[str] = []
-    if not ffile.exists():
-        with ffile.open(mode="w", encoding="utf-8") as f:
+    if not root_dir_file.exists():
+        # ---- create it
+        with root_dir_file.open(mode="w", encoding="utf-8") as f:
             f.write("\n".join(top_dirs))
 
-    # read root directories from file createde by .cd alias command
     try:
-        with ffile.open( mode="r", encoding="utf-8", ) as f:
+        # --- read root directories from file created by .cd alias command
+        with root_dir_file.open( mode="r", encoding="utf-8", ) as f:
             content = f.read()
         if content:
             rootDirs = content.split()
 
     except FileNotFoundError:
-        logger.error( "File %s not found", ffile, )
-        # show_error( "File delle root directory non trovato:\n\n" f"{ffile}" )
-        # sys.exit(1)
+        show_error( f"File delle root directory non trovato:\n\n{root_dir_file}" )
+        return 1
 
 
     # aggiungiamo quelle configurate nel file di configurazione
@@ -813,53 +831,44 @@ def main():
             rootDirs.append(top_dir)
 
     if not rootDirs:
-        logger.warning( "No root directories configured.", )
-        show_error( "Nessuna root directory configurata." )
-        sys.exit(1)
+        show_error( "No root directories configured." )
+        return 1
 
 
     # --------------------------------------------------------
-    # Clipboard
+    # - Capture Clipboard or selection string
     # --------------------------------------------------------
+    clipboard_text = leggi_clipboard(tipo_appunti="clipboard", )
+    selection_text = leggi_clipboard(tipo_appunti="primary", )
 
-    testo_copiato = leggi_clipboard( "clipboard", )
-    testo_selezionato = leggi_clipboard( "primary", )
-
-    logger.info("-")
-    logger.info("-")
-    logger.info("-")
-
-    logger.info( "Primary Selection..: %s", testo_selezionato, )
-    logger.info( "Clipboard (Ctrl+C).: %s", testo_copiato, )
     logger.info( "rootDirs: %s", rootDirs, )
+    logger.info( "Primary Selection..: %s", selection_text, )
+    logger.info( "Clipboard (Ctrl+C).: %s", clipboard_text, )
 
-    if not testo_selezionato and not testo_copiato:
-        logger.error( "testo non selezionato e clipboard vuota", )
-        show_error( "testo non selezionato e clipboard vuota" )
-        sys.exit(1)
+    text_to_be_searched: str = selection_text if args.primary else clipboard_text
+    selection_type: str = "primary_selection" if args.primary else "clipboard"
+    if not text_to_be_searched:
+        show_error(f"Selection type: {selection_type}\ntesto non selezionato e clipboard vuota" )
+        return  1
 
 
     # --------------------------------------------------------
     # Controllo preliminare: è un URL / IP?
     # --------------------------------------------------------
     location: SourceLocation | None = None
+    url_check = is_url_or_ip(text_to_be_searched)
     filepath: str | None = None
 
-    url_check = is_url_or_ip(testo_selezionato)
     if url_check:
         location = SourceLocation(filename=url_check, line_no=1, format="url")
         filepath = url_check
         logger.info("URL/IP target identified directly: %s", filepath)
 
-    # --------------------------------------------------------
-    # Se non è un URL, cerca il file in tutti i rootDirs
-    # --------------------------------------------------------
-
-
     else:
+        # --- Se non è un URL, cerca il file in tutti i rootDirs
         for root_dir in rootDirs:
             logger.info( "Trying rootDir: %s", root_dir, )
-            result = analizza_riga( riga=testo_selezionato, rootDir=root_dir, )
+            result = analizza_riga( riga=text_to_be_searched, rootDir=root_dir, )
             if result:
                 location, filepath = result
                 logger.info( "Found file in: %s", root_dir, )
@@ -868,23 +877,20 @@ def main():
             logger.info( "NOT found in: %s", root_dir, )
 
     # --------------------------------------------------------
-    # File non trovato
+    # --- File non trovato
     # --------------------------------------------------------
-
     if location is None or filepath is None:
         roots = "\n".join( f"  {root}" for root in rootDirs )
-        logger.warning( "Nessun file trovato per:\n%s", testo_selezionato, )
-        show_error(
-            "File non trovato.\n\n"
-            f"Selezione:\n"
-            f"{testo_selezionato}\n\n"
-            f"Root directories cercate:\n"
-            f"{roots}\n\n"
-            f"Log:\n"
-            f"{pv.log_filename}"
-        )
+        logger.warning( "Nessun file trovato per:\n%s", text_to_be_searched, )
+        show_error( f'Nessun file trovato per:\n"{text_to_be_searched}"\n\n'
+                    f"selection_type: {selection_type}:\n"
+                    f'string: "{text_to_be_searched}"\n\n'
+                    f"Root directories cercate:\n"
+                    f"\t{roots}\n\n"
+                    f"\tLog: {pv.log_filename}"
+                )
 
-        sys.exit(1)
+        return 1
 
     # --------------------------------------------------------
     # Determina handler
@@ -897,63 +903,52 @@ def main():
 
     if handler is None:
         logger.error( "No handler available for: %s", filepath, )
-        show_error( "Nessun programma configurato per:\n\n" f"{filepath}" )
-        sys.exit(1)
+        show_error( f"Nessun programma configurato per:\n\n {filepath}" )
+        return 1
 
     # --------------------------------------------------------
     # Costruisce comando
     # --------------------------------------------------------
-
-    editor_command = build_editor_command(filepath=filepath,
-                                        line_no=location.line_no,
-                                        handler=handler,
-                                    )
+    editor_command = build_editor_command(filepath=filepath, line_no=location.line_no, handler=handler, )
     logger.info( "Source location : %s", location, )
     logger.info( "Resolved file   : %s", filepath, )
     logger.info( "Handler         : %s", handler.name, )
-    logger.info( "Command          : %s", editor_command, )
+    logger.info( "Command         : %s", editor_command, )
 
 
     # --------------------------------------------------------
-    # Avvio programma
+    # - Avvio programma
     # --------------------------------------------------------
+    rcode = run_editor(command=editor_command, filepath=filepath)
 
+
+    return rcode
+
+
+# --------------------------------------------------------
+# - Run program
+# --------------------------------------------------------
+def run_editor(command: list[str], filepath: str) -> int:
     try:
-        subprocess.Popen( editor_command, )
+        subprocess.Popen(command)
 
     except FileNotFoundError as exc:
         logger.error( "Program not found: %s", exc, )
-        show_error(
-            "Programma non trovato:\n\n"
-            f"{editor_command[0]}\n\n"
-            f"File:\n{filepath}"
-        )
-
-        sys.exit(1)
+        show_error(f"Programma non trovato:\n\n {command[0]}\n\n - File:\n {filepath}" )
+        return 1
 
     except Exception as exc:
+        logger.error( "Error starting program: %s", exc, exc_info=True, )
+        show_error("Errore avviando il programma:\n\n" f"{exc}")
+        return 1
 
-        logger.error(
-            "Error starting program: %s",
-            exc,
-            exc_info=True,
-        )
-
-        show_error(
-            "Errore avviando il programma:\n\n"
-            f"{exc}"
-        )
-
-        sys.exit(1)
-
-
+    return 0
 
 
 ##########################################################################
 #               M A I N
 ##########################################################################
 if __name__ == "__main__":
-    pv = dataclass(frozen=True)
 
     """ logger è reso globale per essere utilizzato in tutte le funzioni """
     LOG_CONSOLE = (logging.INFO if '--console' in sys.argv else logging.WARNING)
@@ -961,5 +956,9 @@ if __name__ == "__main__":
     log_filename = os.environ.get( "ln_XCLIP_LOG_FILENAME", '/tmp/xclip.log' )
     logger = setLogger(filename=log_filename, file_Log_level=logging.INFO, console_Log_level=LOG_CONSOLE, )
     logger.info("starting.... %s", log_filename)
-    main()
 
+
+    # pv = dataclass(frozen=True)
+    pv = project_vars
+    pv.log_filename = log_filename
+    main()

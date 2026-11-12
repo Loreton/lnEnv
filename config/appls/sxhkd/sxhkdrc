@@ -5,12 +5,14 @@
 
 
 # Open Firefox (Ctrl + K then Ctrl + I)
-alt + x ; alt + c
-    /usr/bin/flatpak run com.calibre_ebook.calibre
+# alt + x ; alt + c
+#     /usr/bin/flatpak run com.calibre_ebook.calibre
 
 
-alt + x; alt + x
-    /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --file /tmp/xclip.rootdir --zed
+alt + x; alt + p
+    /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --root-dir-file /tmp/xclip.rootdir --primary --zed
+alt + x; alt + c
+    /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --root-dir-file /tmp/xclip.rootdir --clipboard --zed
 
 
 alt + x ; alt + s
