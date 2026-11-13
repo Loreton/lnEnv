@@ -1,0 +1,6 @@
+#!/bin/bash
+xclip_extra_vars='/tmp/xclip.extra_envvars'
+
+echo "YAML_KEYPATH_SEP=__##__" >> ${xclip_extra_vars}
+echo "selection_filename=Loreto_selection_list.yaml" >>${xclip_extra_vars}
+echo "ITALIAN_SONGS=${HOME}/filu/myData/Songs/mp3_songs/Italiani" >>${xclip_extra_vars}

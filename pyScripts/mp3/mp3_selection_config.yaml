@@ -1,14 +1,15 @@
 mp3_main_vars:
-  keypath_separator: &KEYPATH_SEPARATOR "__##__"
+  # keypath_separator: &KEYPATH_SEPARATOR "__##__"
 
   search_path:
     - ${HOME}/filu/myData/Songs/mp3_songs/Italiani
 
   project_env_vars:
     # Il valore delle variabili potranno essere utilizzate nello YAML come ${ITALIAN_ROOT}.
-    __KEYP_SEP__: *KEYPATH_SEPARATOR # lo uso anche come variabile
+    # YAML_KEYPATH_SEP: *KEYPATH_SEPARATOR # lo uso anche come variabile
+    YAML_KEYPATH_SEP: "__##__" # lo uso anche come variabile
     selection_filename: "Loreto_selection_list.yaml"
-    # ln_ITALIAN_SONGS: ${HOME}/filu/myData/Songs/mp3_songs/Italiani
+    ITALIAN_SONGS: ${HOME}/filu/myData/Songs/mp3_songs/Italiani
 
 
 
@@ -16,8 +17,9 @@ main:
     field: uno
 
 lista:
-    Franceso_Guccini: !include "${ln_ITALIAN_SONGS}/Francesco_Guccini/${selection_filename}${__KEYP_SEP__}Albums"
-    Alex_Britti:      !include "${ln_ITALIAN_SONGS}/Alex_Britti/${selection_filename}${__KEYP_SEP__}Albums"
+    Franceso Guccini: !include "${ITALIAN_SONGS}/Francesco_Guccini/${selection_filename}${YAML_KEYPATH_SEP}Albums"
+    Alex Britti:      !include "${ITALIAN_SONGS}/Alex_Britti/${selection_filename}${YAML_KEYPATH_SEP}Albums"
+    Luciano Rossi:    !include "${ITALIAN_SONGS}/Luciano_Rossi/${selection_filename}${YAML_KEYPATH_SEP}Albums"
 
 
 # sample
@@ -38,5 +40,5 @@ filename: !join_str
 # sample
 merge:
     !include_merge
-        - "${ln_ITALIAN_SONGS}/DJ_Francesco/Loreto_selection_list.yaml"
-        - "${ln_ITALIAN_SONGS}/Domenico_Modugno/Loreto_selection_list.yaml"
+        - "${ITALIAN_SONGS}/DJ_Francesco/Loreto_selection_list.yaml"
+        - "${ITALIAN_SONGS}/Domenico_Modugno/Loreto_selection_list.yaml"

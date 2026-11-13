@@ -8,7 +8,7 @@
 
 
 function @_to_xclip_vars() {
-    file=${XCLIP_EXTRA_ENVARS}
+    file=${ln_XCLIP_EXTRA_ENVARS}
     echo "$@" >> ${file}
     echo "file $file"
     cat $file

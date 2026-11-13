@@ -19,6 +19,9 @@
 # Python:
 #   PyYAML
 #
+# ruff: noqa: E402 Module level import not at top of file
+
+import sys; sys.dont_write_bytecode = True
 
 from dataclasses import dataclass, field
 # from gettext import install
@@ -28,12 +31,10 @@ import logging
 import os
 import re
 import subprocess
-import sys
 import yaml
 from string import Template
 
 
-sys.dont_write_bytecode = True
 
 
 # ============================================================
@@ -431,39 +432,20 @@ def leggi_clipboard(tipo_appunti: str = "clipboard", ) -> str:
 def parse_source_location( riga: str, ) -> SourceLocation | None:
     """
     Cerca nella riga un riferimento sorgente.
-
     Formati riconosciuti:
-
-        [file_name.func_name : 112]
-
-        [file_name : 112]
-
-        File "/path/file.py", line 232, in function
+        logger:
+            [file_name.func_name : 112]
+            [file_name : 112]
+        python traceback:
+            File "/path/file.py", line 232, in function
     """
 
     patterns = [
+        # --- Logger
+        ( "logger", re.compile( r"\[([^.]+)(?:\.[^:]+)?\s*:\s*(\d+)\]" ), ),
 
-        # ----------------------------------------------------
-        # Logger
-        # ----------------------------------------------------
-
-        (
-            "logger",
-            re.compile(
-                r"\[([^.]+)(?:\.[^:]+)?\s*:\s*(\d+)\]"
-            ),
-        ),
-
-        # ----------------------------------------------------
-        # Python traceback
-        # ----------------------------------------------------
-
-        (
-            "traceback",
-            re.compile(
-                r'File "([^"]+)",\s+line\s+(\d+)'
-            ),
-        ),
+        # --- Python traceback
+        ( "traceback", re.compile( r'File "([^"]+)",\s+line\s+(\d+)' ), ),
     ]
 
     for format_name, pattern in patterns:
@@ -471,14 +453,8 @@ def parse_source_location( riga: str, ) -> SourceLocation | None:
         if not match:
             continue
 
-        location = SourceLocation(
-            filename=match.group(1),
-            line_no=int(match.group(2)),
-            format=format_name,
-        )
-
+        location = SourceLocation( filename=match.group(1), line_no=int(match.group(2)), format=format_name, )
         logger.info( "SourceLocation found: %s", location, )
-
         return location
 
     return None
@@ -522,23 +498,19 @@ def parse_generic_location( riga: str, ) -> SourceLocation | None:
     Fallback per formati generici.
 
     Esempi:
-
         file.py 123
         file.py line 123
         file.py:123
         module.func 123
+        file.yaml#xxx
     """
-
-    # riga = os.path.expandvars(riga)
-    riga = Template(riga).safe_substitute(pv.project_env_vars)
-
-    normalized = (
-        riga
-        .replace(":", " ")
-        .replace(",", " ")
-        .replace("(", " ")
-        .replace(")", " ")
-    )
+    riga='/home/loreto/filu/myData/Songs/mp3_songs/Italiani/Luciano_Rossi/Loreto_selection_list.yaml__##__Albums'
+    normalized = (riga
+                .replace(":", " ")
+                .replace(",", " ")
+                .replace("(", " ")
+                .replace(")", " ")
+            )
 
     tokens = normalized.split()
 
@@ -550,6 +522,7 @@ def parse_generic_location( riga: str, ) -> SourceLocation | None:
     filepath = tokens[0]
     line_no = 1
 
+    yaml_keypath_sep = pv.project_env_vars.get('YAML_KEYPATH_SEP', '#')
     for index, word in enumerate(tokens):
         if word in ("line", "line:"):
             if index + 1 < len(tokens):
@@ -562,6 +535,11 @@ def parse_generic_location( riga: str, ) -> SourceLocation | None:
             line_no = int(word)
             break
 
+        elif f".yaml{yaml_keypath_sep}" in word: # specifico per !include file yaml
+            filepath = word.split(yaml_keypath_sep)[0]
+            if os.path.isfile(filepath):
+                break
+
     return SourceLocation( filename=filepath, line_no=line_no, format="generic", )
 
 
@@ -573,11 +551,9 @@ def analizza_riga( riga: str | None, rootDir: str | None, ) -> tuple[SourceLocat
     """
     Analizza la riga e risolve il riferimento al file.
 
-    Restituisce:
-
-        (SourceLocation, filepath)
-
-    oppure None.
+    Return:
+        - (SourceLocation, filepath)
+        - None.
     """
 
     logger.info( "processing riga: %s", riga, )
@@ -585,43 +561,40 @@ def analizza_riga( riga: str | None, rootDir: str | None, ) -> tuple[SourceLocat
     if not riga:
         return None
 
+    riga = os.path.expandvars(riga)
+    riga = Template(riga).safe_substitute(pv.project_env_vars)
     riga = riga.strip()
 
     if not riga:
         return None
-
 
     # --------------------------------------------------------
     # 0. La selezione è un URL o un Indirizzo IP?
     # --------------------------------------------------------
     url_found = is_url_or_ip(riga)
     if url_found:
-        location = SourceLocation(
-            filename=url_found, line_no=1, format="url"
-        )
+        location = SourceLocation( filename=url_found, line_no=1, format="url" )
         logger.info("URL/IP detected: %s", location)
         return location, url_found
 
 
-    # --------------------------------------------------------
-    # 1. La selezione è direttamente un file?
-    # --------------------------------------------------------
+    # --- 0. La selezione è direttamente un file?
     filepath_candidate = ( riga.strip('"').strip("'") )
     if os.path.isfile(filepath_candidate):
         location = SourceLocation( filename=filepath_candidate, line_no=1, format="direct_file", )
         logger.info( "Direct file found: %s", location, )
         return location, filepath_candidate
 
+    elif os.path.isdir(filepath_candidate):
+        logger.error( "selected text is a direcotry: %s", filepath_candidate, )
+        show_error(f"selected text is a direcotr y:\n{filepath_candidate}")
+        sys.exit(1)
 
 
-    # --------------------------------------------------------
-    # 2. Parser specifici
-    # --------------------------------------------------------
+    # --- 1. Parser specifici (logger and python traceback))
     location = parse_source_location(riga)
 
-    # --------------------------------------------------------
-    # 3. Parser generico
-    # --------------------------------------------------------
+    # --- 2. Parser generico
     if location is None:
         location = parse_generic_location(riga)
 
@@ -629,30 +602,23 @@ def analizza_riga( riga: str | None, rootDir: str | None, ) -> tuple[SourceLocat
         logger.warning( "Nessun riferimento sorgente trovato: %s", riga, )
         return None
 
-    # --------------------------------------------------------
-    # 4. Pulizia filename
-    # --------------------------------------------------------
 
+    # --- 3. Pulizia filename
     filepath = location.filename.strip()
     filepath = filepath.strip('"')
     filepath = filepath.strip("'")
     filepath = filepath.strip("[")
     filepath = filepath.strip("]")
 
-    # --------------------------------------------------------
-    # 5. Path assoluto
-    # --------------------------------------------------------
-
+    # --- 5. Path assoluto
     if os.path.isabs(filepath):
         logger.info( "Absolute filepath: %s", filepath, )
 
-    # --------------------------------------------------------
-    # 6. Path relativo
-    # --------------------------------------------------------
+    # --- 6. Path relativo
     else:
-
         if rootDir is None:
             logger.error( "rootDir is None", )
+            # show_error( "rootDir is None", )
             return None
 
         found_filepath = findFileInPath( root=rootDir, filename=Path(filepath).name, )
@@ -663,17 +629,14 @@ def analizza_riga( riga: str | None, rootDir: str | None, ) -> tuple[SourceLocat
 
         filepath = found_filepath
 
-    # --------------------------------------------------------
-    # 7. Controlli
-    # --------------------------------------------------------
-
+    # --- 7. Controlli
     if not os.path.exists(filepath):
         logger.warning( "filepath does not exist: %s", filepath, )
         return None
 
-    if os.path.isdir(filepath):
-        logger.error( "filepath is a directory: %s", filepath, )
-        return None
+    # if os.path.isdir(filepath):
+    #     logger.error( "filepath is a directory: %s", filepath, )
+    #     return None
 
     logger.info( "Resolved location: %s -> %s", location, filepath, )
 
@@ -738,7 +701,7 @@ def install_envars_vars(system_yaml_vars: str, extra_vars_file: str = None) -> N
 
 
 #============================================================
-def set_env_vars(system_yaml_vars: str, extra_vars_file: str = None) -> dict[str, str]:
+def set_env_vars(system_yaml_vars: str, extra_vars_file: str|None = None) -> dict[str, str]:
     """
         Install system environment variables from a YAML file.
         Utile per risolvere variabili d'ambiente che potrebbero
@@ -756,7 +719,8 @@ def set_env_vars(system_yaml_vars: str, extra_vars_file: str = None) -> dict[str
     with open(yaml_file, 'r') as f:
         content=f.read() # single string
     dvars=yaml.load(content, Loader=yaml.FullLoader)
-    env_vars=dvars["system_envars"]
+    dvars = dvars["system_envars"]
+    # env_vars: dict[str, str] = dvars["system_envars"]
 
     if extra_vars_file:
         extra_vars = Path(extra_vars_file)
@@ -765,13 +729,18 @@ def set_env_vars(system_yaml_vars: str, extra_vars_file: str = None) -> dict[str
                 env_vars=f.read() # single string
 
             for line in env_vars.split('\n'):
-                items = line.split('=', 1)
+                items = line.split('=', 1) # selection_filename="Loreto_selection_list.yaml"
                 if len(items) == 2:
                     var_name, value = items
-                    env_vars[var_name] = value
+                    dvars[var_name.strip()] = value.strip()
+                else:
+                    items = line.split(':', 1) # selection_filename: "Loreto_selection_list.yaml"
+                    if len(items) == 2:
+                        var_name, value = items
+                        dvars[var_name.strip()] = value.strip()
 
 
-    return env_vars
+    return dvars
 
 
 # ============================================================
@@ -858,7 +827,7 @@ def main() -> int:
     location: SourceLocation | None = None
     url_check = is_url_or_ip(text_to_be_searched)
     filepath: str | None = None
-
+    '''
     if url_check:
         location = SourceLocation(filename=url_check, line_no=1, format="url")
         filepath = url_check
@@ -875,6 +844,19 @@ def main() -> int:
                 break
 
             logger.info( "NOT found in: %s", root_dir, )
+    '''
+    for root_dir in rootDirs:
+        logger.info( "Trying rootDir: %s", root_dir, )
+        result = analizza_riga( riga=text_to_be_searched, rootDir=root_dir, )
+        if result:
+            location, filepath = result
+            logger.info( "Found file in: %s", root_dir, )
+            break
+
+        logger.info( "NOT found in: %s", root_dir, )
+
+
+
 
     # --------------------------------------------------------
     # --- File non trovato
@@ -885,7 +867,7 @@ def main() -> int:
         show_error( f'Nessun file trovato per:\n"{text_to_be_searched}"\n\n'
                     f"selection_type: {selection_type}:\n"
                     f'string: "{text_to_be_searched}"\n\n'
-                    f"Root directories cercate:\n"
+                    f"Top directories searched:\n"
                     f"\t{roots}\n\n"
                     f"\tLog: {pv.log_filename}"
                 )

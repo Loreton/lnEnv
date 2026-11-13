@@ -9,7 +9,7 @@
 #     /usr/bin/flatpak run com.calibre_ebook.calibre
 
 
-alt + x; alt + p
+alt + x; alt + x
     /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --root-dir-file /tmp/xclip.rootdir --primary --zed
 alt + x; alt + c
     /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --root-dir-file /tmp/xclip.rootdir --clipboard --zed
