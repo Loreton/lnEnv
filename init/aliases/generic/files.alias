@@ -33,4 +33,5 @@ if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
     #----- mp3 copy files using loreto_selection_list.yaml file inside each author directory
     #
     alias ${alias_prefix}mp3.copy_selection_list='${ln_PY_SCRIPTS_DIR}/mp3/mp3_selection_list.py $@'
+    alias ${alias_prefix}find="@file-read-only"
 fi

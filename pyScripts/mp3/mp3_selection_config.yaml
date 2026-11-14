@@ -1,44 +1,36 @@
-mp3_main_vars:
+bootstrap_main_vars:
+
+    project_env_vars:
+        # Il valore delle variabili potranno essere utilizzate nello YAML come ${ITALIAN_ROOT}.
+        # YAML_KEYPATH_SEP: *KEYPATH_SEPARATOR # lo uso anche come variabile
+        YAML_KEYPATH_SEP: "__##__" # lo uso anche come variabile
+        selection_filename: "Loreto_selection_list.yaml"
+        ITALIAN_SONGS: ${HOME}/filu/myData/Songs/mp3_songs/Italiani
+
+
   # keypath_separator: &KEYPATH_SEPARATOR "__##__"
-
-  search_path:
-    - ${HOME}/filu/myData/Songs/mp3_songs/Italiani
-
-  project_env_vars:
-    # Il valore delle variabili potranno essere utilizzate nello YAML come ${ITALIAN_ROOT}.
-    # YAML_KEYPATH_SEP: *KEYPATH_SEPARATOR # lo uso anche come variabile
-    YAML_KEYPATH_SEP: "__##__" # lo uso anche come variabile
-    selection_filename: "Loreto_selection_list.yaml"
-    ITALIAN_SONGS: ${HOME}/filu/myData/Songs/mp3_songs/Italiani
-
-
-
 main:
-    field: uno
+  top_dir: ${HOME}/filu/myData/Songs/mp3_songs
+
 
 lista:
-    Franceso Guccini: !include "${ITALIAN_SONGS}/Francesco_Guccini/${selection_filename}${YAML_KEYPATH_SEP}Albums"
-    Alex Britti:      !include "${ITALIAN_SONGS}/Alex_Britti/${selection_filename}${YAML_KEYPATH_SEP}Albums"
-    Luciano Rossi:    !include "${ITALIAN_SONGS}/Luciano_Rossi/${selection_filename}${YAML_KEYPATH_SEP}Albums"
-
-
-# sample
-path: !join_path
-    - /home/loreto
-    - Music
-    - Guccini
-    - Rimmel.mp3
-
-
-# sample
-filename: !join_str
-    - Francesco_
-    - Guccini
-    - .yaml
-
-
-# sample
-merge:
     !include_merge
-        - "${ITALIAN_SONGS}/DJ_Francesco/Loreto_selection_list.yaml"
-        - "${ITALIAN_SONGS}/Domenico_Modugno/Loreto_selection_list.yaml"
+        - "${ITALIAN_SONGS}/Alice/${selection_filename}"
+        - "${ITALIAN_SONGS}/Amedeo_Minghi/${selection_filename}"
+        - "${ITALIAN_SONGS}/Arisa/${selection_filename}"
+        - "${ITALIAN_SONGS}/Banco_del_Mutuo_Soccorso/${selection_filename}"
+        - "${ITALIAN_SONGS}/Delirium/${selection_filename}"
+        - "${ITALIAN_SONGS}/Dik_Dik/${selection_filename}"
+        - "${ITALIAN_SONGS}/Fabrizio_Moro/${selection_filename}"
+        - "${ITALIAN_SONGS}/Francesco_Guccini/${selection_filename}"
+        - "${ITALIAN_SONGS}/Francesco_de_Gregori/${selection_filename}"
+        - "${ITALIAN_SONGS}/Franco_Battiato/${selection_filename}"
+        - "${ITALIAN_SONGS}/Gianfranco_Manfredi/${selection_filename}"
+        - "${ITALIAN_SONGS}/Giorgio_Gaber/${selection_filename}"
+        - "${ITALIAN_SONGS}/Goran_Kuzminac/${selection_filename}"
+        - "${ITALIAN_SONGS}/Le_Orme/${selection_filename}"
+        - "${ITALIAN_SONGS}/Luca_Barbarossa/${selection_filename}"
+        - "${ITALIAN_SONGS}/Luciano_Rossi/${selection_filename}"
+        - "${ITALIAN_SONGS}/Lucio_Dalla/${selection_filename}"
+        - "${ITALIAN_SONGS}/Marco_Ferradini/${selection_filename}"
+        - "${ITALIAN_SONGS}/Pierangelo_Bertoli/${selection_filename}"

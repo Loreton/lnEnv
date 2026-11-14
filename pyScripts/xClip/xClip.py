@@ -504,7 +504,7 @@ def parse_generic_location( riga: str, ) -> SourceLocation | None:
         module.func 123
         file.yaml#xxx
     """
-    riga='/home/loreto/filu/myData/Songs/mp3_songs/Italiani/Luciano_Rossi/Loreto_selection_list.yaml__##__Albums'
+    # riga='/home/loreto/filu/myData/Songs/mp3_songs/Italiani/Luciano_Rossi/Loreto_selection_list.yaml__##__Albums'
     normalized = (riga
                 .replace(":", " ")
                 .replace(",", " ")
@@ -714,14 +714,20 @@ def set_env_vars(system_yaml_vars: str, extra_vars_file: str|None = None) -> dic
     Returns:
         dict[str, str]: A dictionary containing the environment variables.
     """
+
     import yaml
+    # --- inseriamo le env vars nel dizionario pv.project_env_vars
+    dvars: dict=os.environ.copy()  # Start with a copy of the current environment variables
+
     yaml_file=os.path.expandvars(system_yaml_vars)
     with open(yaml_file, 'r') as f:
         content=f.read() # single string
-    dvars=yaml.load(content, Loader=yaml.FullLoader)
-    dvars = dvars["system_envars"]
-    # env_vars: dict[str, str] = dvars["system_envars"]
 
+    # --- aggiungiamo variabili ln_xxxx nel dizionario dvars
+    ln_vars=yaml.load(content, Loader=yaml.FullLoader)
+    dvars.update(ln_vars["system_envars"])
+
+    # --- aggiungiamo extra_vars_file nel dizionario dvars
     if extra_vars_file:
         extra_vars = Path(extra_vars_file)
         if extra_vars.exists() and extra_vars.is_file():

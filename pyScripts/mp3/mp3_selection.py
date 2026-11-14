@@ -10,11 +10,51 @@ import shutil
 import argparse
 from pathlib import Path
 import yaml
+from dataclasses import dataclass, field
 
-# import pyLnLib
+
+
+# --- import pyLnLib
 pylnlib_path = Path(__file__).parent.parent / "pyLnLib_last.zip"
 sys.path.insert(0,str(pylnlib_path))
-from pyLnLib import get_logger, lnDict, get_yamlEngine
+from pyLnLib import get_logger, lnDict, get_yamlEngine, get_colors
+logger = get_logger()
+C = get_colors()
+
+@dataclass(slots=True)
+class project_vars:
+    """
+    Mantiene tyutte le variabili di projetto.
+    """
+
+    log_filename: str
+    top_dir: Path
+    target_dir: Path
+    project_env_vars: dict[str, object] = field(default_factory=dict)
+    exclude_dirnames: list[str] = field(default_factory=list)
+    config_data: lnDict[str, object] = field(default_factory=lnDict)
+
+
+
+
+###################################################################
+# parse Input
+###################################################################
+def parseInput():
+    parser = argparse.ArgumentParser(description="Gestore e copiatore di selezioni musicali YAML.")
+    # parser.add_argument("--top-dir", required=True, type=Path, help="Directory radice delle canzoni")
+    parser.add_argument("--target-dir", required=True, type=Path, help="Directory di destinazione per i file copiati")
+    parser.add_argument("--replace", action="store_true", help="Sovrascrive i file se già presenti nella destinazione")
+    # parser.add_argument("--include-path", action="store_true", help="Includi il percorso relativo originale nella struttura di destinazione")
+
+    # exclusive_group=parser.add_mutually_exclusive_group(required=True)
+    parser.add_argument("--create-yaml", action="store_true", help="Crea un file YAML con la lista delle tracce")
+    parser.add_argument("--go", action="store_true", help="Esegue la copia dei file")
+    # parser.add_argument("--quiet", action="store_true", help="Disabilita i log verbosi")
+
+    args = parser.parse_args()
+    return args
+
 
 
 # =============================================================================
@@ -167,33 +207,21 @@ def read_configuration(config_file_name) -> lnDict:
     return config_data
 
 
-
-###################################################################
-# parse Input
-###################################################################
-def parseInput():
-    parser = argparse.ArgumentParser(description="Gestore e copiatore di selezioni musicali YAML.")
-    # parser.add_argument("--top-dir", required=True, type=Path, help="Directory radice delle canzoni")
-    parser.add_argument("--target-dir", required=True, type=Path, help="Directory di destinazione per i file copiati")
-    parser.add_argument("--replace", action="store_true", help="Sovrascrive i file se già presenti nella destinazione")
-    parser.add_argument("--include-path", action="store_true", help="Includi il percorso relatico originale nella struttura di destinazione")
-
-    # exclusive_group=parser.add_mutually_exclusive_group(required=True)
-    parser.add_argument("--create-yaml", action="store_true", help="Crea un file YAML con la lista delle tracce")
-    parser.add_argument("--go", action="store_true", help="Esegue la copia dei file")
-    # parser.add_argument("--quiet", action="store_true", help="Disabilita i log verbosi")
-
-    args = parser.parse_args()
-    return args
-
 # #####################################################################
 # #
 # #####################################################################
 def main():
-    pv.config_data = read_configuration(config_file_name="mp3_selection_config.yaml")
+    config_file_name="mp3_selection_config.yaml"
+    myYaml=get_yamlEngine(logger=logger)
+    myYaml.bootstrap(config_file_name, main_key='bootstrap_main_vars')
+    pv.config_data=lnDict(myYaml.load(config_file_name))
+
+
+    # myYaml.save_yaml(filepath="yaml_loader_test_file_out.yaml", title="yaml_loader_test_file", indent=4)
+    # pv.config_data = lnDict(read_configuration(config_file_name="mp3_selection_config.yaml"))
+    pv.top_dir = Path(pv.config_data.main.top_dir).resolve()
+    pv.target_dir = Path(args.target_dir).resolve()
     breakpoint()
-    top_dir: Path = args.top_dir.resolve()
-    target_dir: Path = args.target_dir.resolve()
 
     if not top_dir.exists():
         print(f"[ERR] La directory --top-dir specificata non esiste: {top_dir}")
@@ -213,6 +241,23 @@ def main():
     logger.notify(f"total songs: {total_songs}")
 
 if __name__ == "__main__":
+    """ logger è reso globale per essere utilizzato in tutte le funzioni """
+    logger.initialize(name="mp3_selection_list", console_logger_level='info')
+    pv = project_vars
+    C = get_colors()
+    args = parseInput()
+    logger.info("Starting...")
+    main()
+    sys.exit("programma completato!")
+
+
+
+
+
+
+
+
+
     pv = lnDict()
     pv.log_dir=Path('/tmp/mp3_selection')
     pv.log_dir.mkdir(parents=True,exist_ok=True)
@@ -226,33 +271,28 @@ if __name__ == "__main__":
     TAB4='    '
 
 
-    FILENAME_YAML = "Loreto_selection_list.yaml"
-    INCLUDE_AUTHORS =[  "Francesco_Guccini",
-                        "Arisa",
-                        "Alice",
-                        "Amedeo_Minghi",
-                        "Francesco_de_Gregori",
-                        "Delirium",
-                        "Banco_del_Mutuo_Soccorso",
-                        "Dik_Dik",
-                        "Fabrizio_Moro",
-                        "Franco_Battiato",
-                        "Gianfranco_Manfredi",
-                        "Giorgio_Gaber",
-                        "Goran_Kuzminac",
-                        "Le_Orme",
-                        "Luca_Barbarossa",
-                        "Luciano_Rossi",
-                        "Lucio_Dalla",
-                        "Marco_Ferradini",
-                        "Pierangelo_Bertoli",
-                        "",
-                    ]
+    # FILENAME_YAML = "Loreto_selection_list.yaml"
+    # INCLUDE_AUTHORS =[  "Francesco_Guccini",
+    #                     "Arisa",
+    #                     "Alice",
+    #                     "Amedeo_Minghi",
+    #                     "Francesco_de_Gregori",
+    #                     "Delirium",
+    #                     "Banco_del_Mutuo_Soccorso",
+    #                     "Dik_Dik",
+    #                     "Fabrizio_Moro",
+    #                     "Franco_Battiato",
+    #                     "Gianfranco_Manfredi",
+    #                     "Giorgio_Gaber",
+    #                     "Goran_Kuzminac",
+    #                     "Le_Orme",
+    #                     "Luca_Barbarossa",
+    #                     "Luciano_Rossi",
+    #                     "Lucio_Dalla",
+    #                     "Marco_Ferradini",
+    #                     "Pierangelo_Bertoli",
+    #                     "",
+    #                 ]
 
     # logger=init_logger(logger_name="mp3_selection_list", test=False)
     # logger.initialize(name="mp3_selection_list", console_logger_level='info')
-    # C = logger.Colors
-    args = parseInput()
-    logger.info("Starting...")
-    main()
-    logger.info("Completed...")
