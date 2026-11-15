@@ -116,7 +116,19 @@ echo "get_left_part     " $(rStrip "$source_directory" "$relative_path")
 exit
 
 
+${f%.txt} → rimuove il suffisso .txt dalla fine
+% = rimuove il match più corto dal fondo della stringa
+%% = rimuove il match più lungo dal fondo
+# / ## = analogo ma dall'inizio
 
+
+f="documento.txt"
+echo "${f%.txt}"     # → "documento"
+echo "${f%.txt}.md"  # → "documento.md"
+
+f="archivio.txt.backup.txt"
+echo "${f%.txt}.md"    # → "archivio.txt.backup.md"  ✅ solo l'ultimo
+echo "${f//.txt/.md}"  # → "archivio.md.backup.md"    ❌ cambia anche quello in mezzo
 
 
 # https://linuxhint.com/bash_split_examples/

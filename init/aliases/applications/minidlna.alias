@@ -2,6 +2,42 @@
 #
 # updated by ...: Loreto Notarantonio
 #
+source ${ln_COMMON_FUNCTIONS_DIR}/@load_common_functions.sh
+
+# ================================================================================
+# ${file%.vecchiaext} rimuove il suffisso solo se presente (match dal fondo)
+# -- protegge da nomi file che iniziano con -
+# ================================================================================
+function @_minidlna_hide_unhide() {
+    local req_status=${1:hide}
+    local action="${2:-dry-run}" # default null
+
+    _MINIDLNA_DIR=${HOME}/.appo/.vidxx
+    _MINIDLNA_DIR_HIDDEN=${HOME}/.appo/.vidxx1
+
+    if [[ $req_status == 'hide' ]] && [[ -d $_MINIDLNA_DIR ]]; then
+        # --- HIDE directory and files
+        ren_dir_cmd="mv -n ${_MINIDLNA_DIR} ${_MINIDLNA_DIR_HIDDEN}"
+        echo -e "\t${yellow}${action}:${cyan} ${ren_dir_cmd}${reset}"
+        @_rename_extensions ${_MINIDLNA_DIR} mp4 txt4 $action
+        if [[ "$action" == '--go' ]]; then
+            $ren_dir_cmd
+            .minidlna.reload
+        fi
+
+    elif [[ $req_status == 'unhide' ]] && [[ -d $_MINIDLNA_DIR_HIDDEN ]]; then
+        # --- UNHIDE directory and files
+        ren_dir_cmd="mv -n ${_MINIDLNA_DIR_HIDDEN} ${_MINIDLNA_DIR}"
+        echo -e "\t${yellow}${action}:${cyan} ${ren_dir_cmd}${reset}"
+        @_rename_extensions ${_MINIDLNA_DIR_HIDDEN} txt4 mp4 $action
+        if [[ "$action" == '--go' ]]; then
+            $ren_dir_cmd
+            .minidlna.reload
+        fi
+    fi
+
+}
+
 
 minidlna_pahts="
     ${HOME}
@@ -46,6 +82,7 @@ if [[ "${lapTopPC_lc}" == *" ${hostname_lc} "* ]]; then
 
     alias ${alias_prefix}minidlna.set_acl="@set_minidlna_acl"
     alias ${alias_prefix}minidlna.test_acl="@test_minidlna_acl"
-    alias ${alias_prefix}minidlna.hide="mv ${HOME}/.appo/.vid ${HOME}/.appo/.vid1"
-    alias ${alias_prefix}minidlna.unhide="mv ${HOME}/.appo/.vid1 ${HOME}/.appo/.vid"
+
+    alias ${alias_prefix}minidlna.hide='@_minidlna_hide_unhide hide $@'
+    alias ${alias_prefix}minidlna.unhide='@_minidlna_hide_unhide unhide $@'
 fi

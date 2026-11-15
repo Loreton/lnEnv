@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# updated by ...: Loreto Notarantonio
+#
+#
+
+source ${ln_COMMON_FUNCTIONS_DIR}/@load_common_functions.sh
+
+################################################
+# call:
+#       @_fileExists "${image_file}"; fexists=$?
+#       echo -e "exists2: $fexists"
+# NON usare:
+#       local fexists=$(@_fileExists "${image_file}")
+#       perché echo all'inetrno della funzione compromette il funzionamentoi
+################################################
+function @_rename_extensions() {
+    local dir_path="${1:-"Unknown_DIR"}" # default null
+    local old_ext="${2}" # default null
+    local new_ext="${3}" # default null
+    local action="${4:-dry-run}" # default dry-run
+
+    if [[ -d ${dir_path} ]]; then
+        [[ -z $old_ext ]] && echo "old extension is null" && return
+        [[ -z $new_ext ]] && echo "new extension is null" && return
+        for file in  ${dir_path}/*.${old_ext} ; do
+            if [[ -f $file ]]; then
+                new_file="${file%.${old_ext}}.${new_ext}" # rimuove il suffisso dalla fine lo rimpiazza
+                if [[ $file == $new_file ]]; then
+                    echo -e "\t${yellow}WARNING: It is useless to make the rename with the same name! ${blue}$file"
+                    continue
+                fi
+                cmd="mv -n -- ${file} ${new_file}"
+                echo -e "\t${yellow}${action}:${cyan} ${cmd}${reset}"
+                [[ ${action} == "--go" ]] && $cmd
+            else
+                echo -e "\t${red}ERROR: $file NOT found"
+            fi
+        done
+    else
+        echo "${dir_path} is not a directory"
+    fi
+}

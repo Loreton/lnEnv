@@ -1,0 +1,1142 @@
+#--------------------
+#- 15-11-2026_17:35
+#--------------------
+main:
+    top_dir: /home/loreto/filu/myData/Songs/mp3_songs
+    search_path:
+    - /home/loreto/filu/myData/Songs/mp3_songs/Italiani
+    - /home/loreto/filu/myData/Songs/mp3_songs/Stranieri
+authors:
+    Alice:
+        alias: Alice
+        Capo_Nord:
+            include:
+            - Alice/Capo_Nord/Rumba_rock.mp3
+            - Alice/Capo_Nord/Lenzuoli_bianchi.mp3
+            - "Alice/Capo_Nord/Sar\xE0.mp3"
+            - Alice/Capo_Nord/Sera.mp3
+            - Alice/Capo_Nord/Guerriglia_urbana.mp3
+            - Alice/Capo_Nord/Bazar.mp3
+            - Alice/Capo_Nord/Una_sera_di_novembre.mp3
+            - Alice/Capo_Nord/Bael.mp3
+            - Alice/Capo_Nord/Il_Vento_Caldo_DellEstate.mp3
+            exclude: []
+        Gioielli_rubati:
+            include:
+            - Alice/Gioielli_rubati/Gli_uccelli.mp3
+            - Alice/Gioielli_rubati/Summer_on_a_solitary_beach.mp3
+            - Alice/Gioielli_rubati/Pospettiva_Nevski.mp3
+            - Alice/Gioielli_rubati/Un_altra_vita.mp3
+            - Alice/Gioielli_rubati/Mal_d_Africa.mp3
+            - Alice/Gioielli_rubati/Il_re_del_mondo.mp3
+            - Alice/Gioielli_rubati/Le_aquile.mp3
+            - Alice/Gioielli_rubati/Segnali_di_vita.mp3
+            exclude:
+            - Alice/Gioielli_rubati/Luna_Indiana.mp3
+            - null
+        Park_Hotel:
+            include: []
+            exclude:
+            - Alice/Park_Hotel/Luci_lontane.mp3
+            - Alice/Park_Hotel/Segni_nel_cielo.mp3
+            - Alice/Park_Hotel/Conoscersi.mp3
+            - Alice/Park_Hotel/Nuvole_rosse.mp3
+            - Alice/Park_Hotel/Nomadi.mp3
+            - "Alice/Park_Hotel/Citt\xE0_chiusa.mp3"
+            - Alice/Park_Hotel/Il_senso_dei_desideri.mp3
+            - Alice/Park_Hotel/Viali_di_solitudine.mp3
+            - Alice/Park_Hotel/Volo_di_notte.mp3
+            - null
+        Viaggio_in_Italia:
+            include:
+            - Alice/Viaggio_in_Italia/Auschwitz.mp3
+            - Alice/Viaggio_in_Italia/Un_blasfemo.mp3
+            - Alice/Viaggio_in_Italia/Atlantide.mp3
+            exclude:
+            - Alice/Viaggio_in_Italia/Al_Principe.mp3
+            - Alice/Viaggio_in_Italia/Golden_Hair.mp3
+            - Alice/Viaggio_in_Italia/La_bellezza_stravagante.mp3
+            - Alice/Viaggio_in_Italia/Come_un_sigillo.mp3
+            - Alice/Viaggio_in_Italia/Ecco_i_negozi.mp3
+            - Alice/Viaggio_in_Italia/Lindbergh.mp3
+            - "Alice/Viaggio_in_Italia/Cosa_succeder\xE0_alla_ragazza.mp3"
+            - Alice/Viaggio_in_Italia/Islands.mp3
+            - Alice/Viaggio_in_Italia/E_stato_molto_bello.mp3
+            - Alice/Viaggio_in_Italia/Non_insegnate_ai_bambini.mp3
+            - Alice/Viaggio_in_Italia/Febbraio.mp3
+        bestOf:
+            include:
+            - Alice/bestOf/Per_Elisa.mp3
+            - Alice/bestOf/A_cosa_pensano.mp3
+            - Alice/bestOf/Chanson_Egocentrique.mp3
+            exclude:
+            - Alice/bestOf/Laura_degli_specchi.mp3
+            - Alice/bestOf/A_te.mp3
+            - Alice/bestOf/Alice_con_i_Nomadi.mp3
+            - "Alice/bestOf/Tutto_\xE8_niente.mp3"
+            - Alice/bestOf/Cieli_del_Nord.mp3
+            - Alice/bestOf/Messaggio.mp3
+            - Alice/bestOf/Una_notte_speciale.mp3
+            - Alice/bestOf/Tempo_senza_tempo.mp3
+    Amedeo_Minghi:
+        alias: MinghiA
+        La vita mia:
+            include:
+            - Amedeo_Minghi/La_Vita_Mia/1950_live#01.mp3
+            - Amedeo_Minghi/La_Vita_Mia/Anni-60_live#01.mp3
+            - Amedeo_Minghi/La_Vita_Mia/Canzoni_live#01.mp3
+            - Amedeo_Minghi/La_Vita_Mia/Cuore_di_pace_live#01.mp3
+            - Amedeo_Minghi/La_Vita_Mia/La_vita_mia_live#01.mp3
+            - Amedeo_Minghi/La_Vita_Mia/Le_verdi_cattedrali_della_memoria_live#01.mp3
+            - Amedeo_Minghi/La_Vita_Mia/L_immenso_live#01.mp3
+            - "Amedeo_Minghi/La_Vita_Mia/Quando_l_estate_verr\xE0_live#01.mp3"
+            - Amedeo_Minghi/La_Vita_Mia/Rivederci_e_grazie_live#01.mp3
+            - Amedeo_Minghi/La_Vita_Mia/Rosa_live#01.mp3
+            - Amedeo_Minghi/La_Vita_Mia/Saint_Michel_live#01.mp3
+            - Amedeo_Minghi/La_Vita_Mia/Serenata_live#01.mp3
+            exclude: []
+        bestOf:
+            include:
+            - Amedeo_Minghi/bestOf/Vattene_Amore_con_Mietta.mp3
+            - Amedeo_Minghi/bestOf/Vattene_Amore_solo_Mietta.mp3
+            exclude:
+            - Amedeo_Minghi/bestOf/I_Ricordi_Del_Cuore.mp3
+        in_Concerto:
+            include:
+            - Amedeo_Minghi/In_concerto/La_vita_mia_live#02.mp3
+            - Amedeo_Minghi/In_concerto/Mia_vita_live#02.mp3
+            - "Amedeo_Minghi/In_concerto/Quando_l_estate_verr\xE0_live#02.mp3"
+            - Amedeo_Minghi/In_concerto/Vattene_amore_live#02.mp3
+            exclude:
+            - Amedeo_Minghi/In_concerto/Alla_leggera_live#02.mp3
+            - Amedeo_Minghi/In_concerto/Anni-60_live#02.mp3
+            - Amedeo_Minghi/In_concerto/Due_passi_live#02.mp3
+            - Amedeo_Minghi/In_concerto/Emanuela_e_io_live#02.mp3
+            - Amedeo_Minghi/In_concerto/La_breccia_live#02.mp3
+            - Amedeo_Minghi/In_concerto/Le_verdi_cattedrali_della_memoria_live#02.mp3
+            - Amedeo_Minghi/In_concerto/Primula_live#02.mp3
+            - Amedeo_Minghi/In_concerto/Rosa_live#02.mp3
+    Arisa:
+        alias: Arisa
+        bestOf:
+            include:
+            - Arisa/bestOf/Hallelujah.mp3
+            - "Arisa/bestOf/Lamore_\xE8_un_altra_cosa.mp3"
+            - "Arisa/bestOf/Malamoren\xF2.mp3"
+            - Arisa/bestOf/Controvento.mp3
+            - "Arisa/bestOf/Sincerit\xE0.mp3"
+            exclude: []
+    Banco_del_Mutuo_Soccorso:
+        alias: BancodMS
+        bestOf:
+            include:
+            - Banco_del_Mutuo_Soccorso/bestOf/Moby_Dick.mp3
+            exclude: []
+    Delirium:
+        alias: Delirium
+        bestOf:
+            include:
+            - Delirium/bestOf/Jesahel.mp3
+            exclude: []
+    Dik_Dik:
+        alias: dikDik
+        bestOf:
+            include:
+            - Dik_Dik/bestOf/Senza_luce.mp3
+            exclude: []
+    Fabrizio_Moro:
+        alias: MoroF
+        bestOf:
+            include:
+            - Fabrizio_Moro/bestOf/Pensa.mp3
+            exclude:
+            - Fabrizio_Moro/bestOf/E_solo_amore.mp3
+            - Fabrizio_Moro/bestOf/Il_senso_di_ogni_cosa.mp3
+            - "Fabrizio_Moro/bestOf/La_complicit\xE0.mp3"
+            - Fabrizio_Moro/bestOf/21_Anni.mp3
+            - Fabrizio_Moro/bestOf/Eppure_Pretendevi_di_Essere_Chiamata_Amore.mp3
+            - Fabrizio_Moro/bestOf/Seduto_a_guardare.mp3
+            - Fabrizio_Moro/bestOf/L_inizio.mp3
+            - "Fabrizio_Moro/bestOf/Non_\xE8_una_canzone.mp3"
+            - "Fabrizio_Moro/bestOf/Un_giorno_pi\xF9_grande.mp3"
+            - Fabrizio_Moro/bestOf/Il_Peggio_e_Passato.mp3
+            - Fabrizio_Moro/bestOf/Melodia_di_Giugno.mp3
+            - Fabrizio_Moro/bestOf/Domani.mp3
+            - Fabrizio_Moro/bestOf/Sangue_Nelle_Vene.mp3
+            - Fabrizio_Moro/bestOf/Devi_salvarti.mp3
+            - Fabrizio_Moro/bestOf/Eppure_mi_hai_cambiato_la_vita.mp3
+            - Fabrizio_Moro/bestOf/Non_importa.mp3
+            - Fabrizio_Moro/bestOf/Parole_rumori_e_giorni.mp3
+            - Fabrizio_Moro/bestOf/Barabba.mp3
+            - Fabrizio_Moro/bestOf/Sembra_Impossibile.mp3
+            - Fabrizio_Moro/bestOf/Libero.mp3
+            - Fabrizio_Moro/bestOf/Basta.mp3
+    Francesco_Guccini:
+        alias: GuccinF
+        Amerigo:
+            include:
+            - Francesco_Guccini/Amerigo/100_Pennsylvania_avenue.mp3
+            - Francesco_Guccini/Amerigo/Amerigo.mp3
+            - Francesco_Guccini/Amerigo/Eskimo.mp3
+            - Francesco_Guccini/Amerigo/Le_cinque_anatre.mp3
+            - Francesco_Guccini/Amerigo/Libera_Nos_Domine.mp3
+            - Francesco_Guccini/Amerigo/Mondo_nuovo.mp3
+            exclude: []
+        D'Amore di Morte e di Altre Sciocchezze:
+            include:
+            - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Canzone_delle_colombe_e_del_fiore.mp3
+            - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Cirano.mp3
+            - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/I_fichi.mp3
+            - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Il_caduto.mp3
+            - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Il_matto.mp3
+            - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Lettera.mp3
+            - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Quattro_stracci.mp3
+            - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Stelle.mp3
+            - Francesco_Guccini/D_Amore_di_Morte_e_di_Altre_Sciocchezze/Vorrei.mp3
+            exclude: []
+        Due anni dopo:
+            include:
+            - Francesco_Guccini/Due_anni_dopo/Due_anni_dopo.mp3
+            - Francesco_Guccini/Due_anni_dopo/Giorno_d_estate.mp3
+            - Francesco_Guccini/Due_anni_dopo/Il_compleanno.mp3
+            - Francesco_Guccini/Due_anni_dopo/L_albero_ed_io.mp3
+            - "Francesco_Guccini/Due_anni_dopo/La_verit\xE0.mp3"
+            - Francesco_Guccini/Due_anni_dopo/L_ubriaco.mp3
+            - Francesco_Guccini/Due_anni_dopo/Lui_e_lei.mp3
+            - Francesco_Guccini/Due_anni_dopo/Ophelia.mp3
+            - "Francesco_Guccini/Due_anni_dopo/Per_quando_\xE8_tardi.mp3"
+            - Francesco_Guccini/Due_anni_dopo/Primavera_di_Praga.mp3
+            - Francesco_Guccini/Due_anni_dopo/Vedi_cara.mp3
+            exclude:
+            - Francesco_Guccini/Due_anni_dopo/Al_trist.mp3
+        Folk Beat N 1:
+            include:
+            - Francesco_Guccini/Folk_Beat_N._1/Auschwitz.mp3
+            - Francesco_Guccini/Folk_Beat_N._1/Il_3_dicembre.mp3
+            - Francesco_Guccini/Folk_Beat_N._1/Il_sociale_e_l_antisociale.mp3
+            - Francesco_Guccini/Folk_Beat_N._1/In_morte_di_SF.mp3
+            - Francesco_Guccini/Folk_Beat_N._1/La_ballata_degli_annegati.mp3
+            - Francesco_Guccini/Folk_Beat_N._1/L_atomica_cinese.mp3
+            - Francesco_Guccini/Folk_Beat_N._1/Noi_non_ci_saremo.mp3
+            - Francesco_Guccini/Folk_Beat_N._1/Statale_17.mp3
+            - "Francesco_Guccini/Folk_Beat_N._1/Venerd\xEC_Santo.mp3"
+            exclude:
+            - Francesco_Guccini/Folk_Beat_N._1/Talkin_Milano.mp3
+        Guccini:
+            include:
+            - Francesco_Guccini/Guccini/Argentina.mp3
+            - Francesco_Guccini/Guccini/Autogrill.mp3
+            - Francesco_Guccini/Guccini/Gli_amici.mp3
+            - Francesco_Guccini/Guccini/Gulliver.mp3
+            - Francesco_Guccini/Guccini/Inutile.mp3
+            - Francesco_Guccini/Guccini/Shomer_ma_mi-llailah.mp3
+            exclude: []
+        L_isola_non_trovata:
+            include:
+            - Francesco_Guccini/L_isola_non_trovata/Asia.mp3
+            - Francesco_Guccini/L_isola_non_trovata/Canzone_di_notte.mp3
+            - Francesco_Guccini/L_isola_non_trovata/Il_frate.mp3
+            - Francesco_Guccini/L_isola_non_trovata/Il_tema.mp3
+            - Francesco_Guccini/L_isola_non_trovata/La_collina.mp3
+            - Francesco_Guccini/L_isola_non_trovata/L_isola_non_trovata.mp3
+            - Francesco_Guccini/L_isola_non_trovata/L_isola_non_trovata_intro.mp3
+            - Francesco_Guccini/L_isola_non_trovata/L_orizzonte_di_KD.mp3
+            - Francesco_Guccini/L_isola_non_trovata/L_uomo.mp3
+            - "Francesco_Guccini/L_isola_non_trovata/Un_altro_giorno_\xE8_andato.mp3"
+            exclude: []
+        L_Ultima_Thule:
+            include:
+            - Francesco_Guccini/L_Ultima_Thule/Canzone_di_notte_n_4.mp3
+            - Francesco_Guccini/L_Ultima_Thule/Gli_artisti.mp3
+            - Francesco_Guccini/L_Ultima_Thule/L_Ultima_Thule.mp3
+            - Francesco_Guccini/L_Ultima_Thule/L_ultima_volta.mp3
+            - Francesco_Guccini/L_Ultima_Thule/Quel_giorno_d_Aprile.mp3
+            exclude:
+            - Francesco_Guccini/L_Ultima_Thule/Il_testamento_di_un_pagliaccio.mp3
+            - Francesco_Guccini/L_Ultima_Thule/Notti.mp3
+            - Francesco_Guccini/L_Ultima_Thule/Su_in_collina.mp3
+        Metropolis:
+            include:
+            - "Francesco_Guccini/Metropolis/Anten\xF2r.mp3"
+            - Francesco_Guccini/Metropolis/Bisanzio.mp3
+            - Francesco_Guccini/Metropolis/Black_out.mp3
+            - Francesco_Guccini/Metropolis/Bologna.mp3
+            - Francesco_Guccini/Metropolis/Lager.mp3
+            - Francesco_Guccini/Metropolis/Venezia.mp3
+            exclude:
+            - Francesco_Guccini/Metropolis/Milano_poveri_bimbi_di.mp3
+        Opera_buffa:
+            include:
+            - Francesco_Guccini/Opera_buffa/Fantoni_Cesira.mp3
+            - Francesco_Guccini/Opera_buffa/La_fiera_di_san_Lazzaro.mp3
+            - Francesco_Guccini/Opera_buffa/La_genesi.mp3
+            exclude:
+            - "Francesco_Guccini/Opera_buffa/Di_mamme_ce_n_\xE8_una_sola.mp3"
+            - Francesco_Guccini/Opera_buffa/Talkin_sul_sesso.mp3
+            - Francesco_Guccini/Opera_buffa/Il_bello.mp3
+        Parnassius_Guccinii:
+            include:
+            - Francesco_Guccini/Parnassius_Guccinii/Acque.mp3
+            - Francesco_Guccini/Parnassius_Guccinii/Canzone_per_Silvia.mp3
+            - Francesco_Guccini/Parnassius_Guccinii/Farewell.mp3
+            - Francesco_Guccini/Parnassius_Guccinii/Non_bisognerebbe.mp3
+            exclude:
+            - Francesco_Guccini/Parnassius_Guccinii/Dovevo_fare_del_cinema.mp3
+            - Francesco_Guccini/Parnassius_Guccinii/Nostra_signora_dell_ipocrisia.mp3
+            - Francesco_Guccini/Parnassius_Guccinii/Parole.mp3
+            - Francesco_Guccini/Parnassius_Guccinii/Luna_fortuna.mp3
+            - Francesco_Guccini/Parnassius_Guccinii/Samantha.mp3
+        Quello_che_non:
+            include:
+            - Francesco_Guccini/Quello_che_non/Aemilia.mp3
+            - Francesco_Guccini/Quello_che_non/Ballando_con_una_sconosciuta.mp3
+            - Francesco_Guccini/Quello_che_non/Canzone_delle_domande_consuete.mp3
+            - Francesco_Guccini/Quello_che_non/Quello_che_non.mp3
+            exclude:
+            - Francesco_Guccini/Quello_che_non/Tango_per_due.mp3
+            - Francesco_Guccini/Quello_che_non/Canzone_per_Anna.mp3
+            - Francesco_Guccini/Quello_che_non/Cencio.mp3
+            - Francesco_Guccini/Quello_che_non/Le_ragazze_della_notte.mp3
+        Radici:
+            include:
+            - Francesco_Guccini/Radici/Canzone_dei_dodici_mesi.mp3
+            - Francesco_Guccini/Radici/Canzone_della_bambina_portoghese.mp3
+            - Francesco_Guccini/Radici/Il_vecchio_e_il_bambino.mp3
+            - Francesco_Guccini/Radici/Incontro.mp3
+            - Francesco_Guccini/Radici/La_locomotiva.mp3
+            - "Francesco_Guccini/Radici/Piccola_citt\xE0.mp3"
+            - Francesco_Guccini/Radici/Radici.mp3
+            exclude: []
+        Ritratti:
+            include:
+            - "Francesco_Guccini/Ritratti/Canzone_per_il_Ch\xE9.mp3"
+            - Francesco_Guccini/Ritratti/Certo_non_sai.mp3
+            - Francesco_Guccini/Ritratti/Cristoforo_Colombo.mp3
+            - "Francesco_Guccini/Ritratti/La_tua_libert\xE0.mp3"
+            - Francesco_Guccini/Ritratti/Odysseus.mp3
+            - Francesco_Guccini/Ritratti/Piazza_Alimonda.mp3
+            - Francesco_Guccini/Ritratti/Una_canzone.mp3
+            exclude:
+            - Francesco_Guccini/Ritratti/La_ziatta_la_tieta.mp3
+            - Francesco_Guccini/Ritratti/Vite.mp3
+        Signora_Bovary:
+            include:
+            - Francesco_Guccini/Signora_Bovary/Canzone_di_notte_n_3.mp3
+            - Francesco_Guccini/Signora_Bovary/Culodritto.mp3
+            - Francesco_Guccini/Signora_Bovary/Scirocco.mp3
+            - Francesco_Guccini/Signora_Bovary/Signora_bovary.mp3
+            exclude:
+            - Francesco_Guccini/Signora_Bovary/Van_loon.mp3
+            - Francesco_Guccini/Signora_Bovary/Keaton.mp3
+            - Francesco_Guccini/Signora_Bovary/Le_piogge_d_aprile.mp3
+        Stagioni:
+            include:
+            - Francesco_Guccini/Stagioni/Addio.mp3
+            - Francesco_Guccini/Stagioni/Autunno.mp3
+            - Francesco_Guccini/Stagioni/Don_Chisciotte.mp3
+            - Francesco_Guccini/Stagioni/E_un_giorno.mp3
+            - Francesco_Guccini/Stagioni/Ho_ancora_la_forza.mp3
+            - Francesco_Guccini/Stagioni/Stagioni.mp3
+            exclude:
+            - Francesco_Guccini/Stagioni/Addio_intro.mp3
+            - Francesco_Guccini/Stagioni/Primavera_59.mp3
+            - Francesco_Guccini/Stagioni/Inverno_60.mp3
+        Stanze_di_vita_quotidiana:
+            include:
+            - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_della_triste_rinuncia.mp3
+            - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_della_vita_quotidiana.mp3
+            - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_delle_osterie_di_fuori_porta.mp3
+            - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_delle_ragazze_che_se_ne_vanno.mp3
+            - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_per_Piero.mp3
+            - Francesco_Guccini/Stanze_di_vita_quotidiana/Canzone_situazioni_differenti.mp3
+            exclude: []
+        Via_Paolo_Fabbri_43:
+            include:
+            - Francesco_Guccini/Via_Paolo_Fabbri_43/Canzone_di_notte_n_2.mp3
+            - Francesco_Guccini/Via_Paolo_Fabbri_43/Canzone_quasi_d_amore.mp3
+            - Francesco_Guccini/Via_Paolo_Fabbri_43/Il_pensionato.mp3
+            - Francesco_Guccini/Via_Paolo_Fabbri_43/L_avvelenata.mp3
+            - Francesco_Guccini/Via_Paolo_Fabbri_43/Piccola_storia_ignobile.mp3
+            - Francesco_Guccini/Via_Paolo_Fabbri_43/Via_Paolo_Fabbri_43.mp3
+            exclude: []
+        Fra la via Emilia e il West:
+            include:
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Asia_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Autogrill_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Bologna_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Canzone_della_bambina_portoghese_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Canzone_delle_osterie_di_fuori_porta_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/canzone_per_un_amica_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Canzone_quasi_d_amore_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Eskimo_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Il_frate_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Il_pensionato_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Il_vecchio_e_il_bambino_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Incontro_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/La_locomotiva_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/L_isola_non_trovata_live#1.mp3
+            - "Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Piccola_citt\xE0\
+                _live#1.mp3"
+            - "Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Un_altro_giorno_\xE8\
+                _andato_live#1.mp3"
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Vedi_cara_live#1.mp3
+            - Francesco_Guccini/zLive/Fra_la_via_Emilia_e_il_West/Venezia_live#1.mp3
+            exclude: []
+        Guccini e Nomadi in concerto:
+            include:
+            - Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/Atomica_live#2.mp3
+            - Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/Auschwitz_live#2.mp3
+            - Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/canzone_per_un_amica_live#2.mp3
+            - "Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/Dio_\xE8_morto_live#2.mp3"
+            - Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/Noi_live#2.mp3
+            - Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/Noi_non_ci_saremo_live#2.mp3
+            - Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/Per_fare_un_uomo_live#2.mp3
+            - Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/Primavera_di_Praga_live#2.mp3
+            - Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/Radici_live#2.mp3
+            - Francesco_Guccini/zLive/Guccini_e_Nomadi_in_concerto/Statale_17_live#2.mp3
+            exclude: []
+        Live_collection_1998:
+            include:
+            - Francesco_Guccini/zLive/Live_collection_1998/Asia_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Auschwitz_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Autogrill_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Bologna_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Canzone_delle_osterie_di_fuori_porta_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Canzone_per_Silvia_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Canzone_per_un_amica_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Canzone_quasi_d_amore_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Cyrano_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Due_anni_dopo_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Eskimo_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Farewell_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Il_vecchio_e_il_bambino_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Incontro_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/La_locomotiva_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/L_avvelenata_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/L_isola_non_trovata_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Noi_non_ci_saremo_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Primavera_di_Praga_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Quattro_stracci_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Quello_che_non_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Scirocco_live#3.mp3
+            - Francesco_Guccini/zLive/Live_collection_1998/Statale_17_live#3.mp3
+            - "Francesco_Guccini/zLive/Live_collection_1998/Un_altro_giorno_\xE8_andato_live#3.mp3"
+            - Francesco_Guccini/zLive/Live_collection_1998/Venezia_live#3.mp3
+            exclude:
+            - "Francesco_Guccini/zLive/Live_collection_1998/Dio_\xE8_morto_live#3.mp3"
+            - Francesco_Guccini/zLive/Live_collection_1998/Via_Paolo_Fabbri_43_live#3.mp3
+        quasi_come_Dumas:
+            include:
+            - Francesco_Guccini/zLive/quasi_come_Dumas/Al_trest_live#4.mp3
+            - Francesco_Guccini/zLive/quasi_come_Dumas/Auschwitz_live#4.mp3
+            - Francesco_Guccini/zLive/quasi_come_Dumas/Due_anni_dopo_live#4.mp3
+            - Francesco_Guccini/zLive/quasi_come_Dumas/Giorno_d_estate_live#4.mp3
+            - Francesco_Guccini/zLive/quasi_come_Dumas/L_albero_e_io_live#4.mp3
+            - "Francesco_Guccini/zLive/quasi_come_Dumas/Per_quando_\xE8_tardi_live#4.mp3"
+            - Francesco_Guccini/zLive/quasi_come_Dumas/Primavera_di_Praga_live#4.mp3
+            - Francesco_Guccini/zLive/quasi_come_Dumas/Ti_ricordi_di_quei_giorni_live#4.mp3
+            exclude:
+            - "Francesco_Guccini/zLive/quasi_come_Dumas/Dio_\xE8_morto_live#4.mp3"
+            - Francesco_Guccini/zLive/quasi_come_Dumas/L_ubriaco_live#4.mp3
+    Francesco_de_Gregori:
+        alias: deGregoriF
+        Alice_non_lo_sa:
+            include:
+            - Francesco_de_Gregori/Alice_non_lo_sa/Alice.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/Il_ragazzo.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/Suonatori_di_flauto.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/Le_strade_di_lei.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/La_casa_di_Hilde.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/1940.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/Irene.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/Buonanotte_fratello.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/I_musicanti.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/Saigon.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/Sono_tuo.mp3
+            - Francesco_de_Gregori/Alice_non_lo_sa/Marianna_al_bivio.mp3
+            exclude: []
+        Amore_nel_Pomeriggio:
+            exclude:
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/Spad_VII_S2489.mp3
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/Caldo_e_scuro.mp3
+            - "Francesco_de_Gregori/Amore_nel_Pomeriggio/Il_cuoco_di_Sal\xF2.mp3"
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/Cartello_alla_porta.mp3
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/Natale_di_seconda.mp3
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/Condannato_a_morte.mp3
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/Canzone_per_l_estate.mp3
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/L_aggettivo_mitico.mp3
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/Sempre_e_per_sempre.mp3
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/Quando_e_qui.mp3
+            - Francesco_de_Gregori/Amore_nel_Pomeriggio/Deriva.mp3
+            include: []
+        Banana_Republic:
+            exclude:
+            - Francesco_de_Gregori/Banana_Republic/Addio_a_Napoli_LIVE.mp3
+            - Francesco_de_Gregori/Banana_Republic/Banana_republic_LIVE.mp3
+            - Francesco_de_Gregori/Banana_Republic/4_Marzo_1943_LIVE.mp3
+            - Francesco_de_Gregori/Banana_Republic/Ma_come_fanno_i_marinai_LIVE.mp3
+            - Francesco_de_Gregori/Banana_Republic/Santa_Lucia_LIVE.mp3
+            - Francesco_de_Gregori/Banana_Republic/Bufalo_Bill+live+_LIVE.mp3
+            - Francesco_de_Gregori/Banana_Republic/Quattro_Cani_LIVE_#02.mp3
+            - Francesco_de_Gregori/Banana_Republic/La_canzone_d_Orlando_LIVE.mp3
+            - Francesco_de_Gregori/Banana_Republic/Piazza_Grande_LIVE.mp3
+            - Francesco_de_Gregori/Banana_Republic/Un_Gelato_al_Limon_LIVE.mp3
+            include: []
+        Bufalo_Bill:
+            include:
+            - Francesco_de_Gregori/Bufalo_Bill/Giovane_esploratore_Tobia.mp3
+            - Francesco_de_Gregori/Bufalo_Bill/Festival.mp3
+            - Francesco_de_Gregori/Bufalo_Bill/Disastro_aereo_sul_canale_di_Sicilia.mp3
+            - Francesco_de_Gregori/Bufalo_Bill/L_uccisione_di_Babbo_Natale.mp3
+            - Francesco_de_Gregori/Bufalo_Bill/L_ultimo_discorso_registrato.mp3
+            - Francesco_de_Gregori/Bufalo_Bill/Santa_Lucia.mp3
+            - Francesco_de_Gregori/Bufalo_Bill/Ipercarmela.mp3
+            - Francesco_de_Gregori/Bufalo_Bill/Bufalo_Bill.mp3
+            exclude:
+            - Francesco_de_Gregori/Bufalo_Bill/Ninetto_e_la_colonia.mp3
+            - Francesco_de_Gregori/Bufalo_Bill/Atlantide.mp3
+            - null
+        Canzoni_d_amore:
+            exclude:
+            - Francesco_de_Gregori/Canzoni_d_amore/La_ballata_dell_uomo_ragno.mp3
+            - Francesco_de_Gregori/Canzoni_d_amore/Chi_ruba_nei_supermercati.mp3
+            - Francesco_de_Gregori/Canzoni_d_amore/Sangue_su_sangue.mp3
+            - Francesco_de_Gregori/Canzoni_d_amore/Vecchi_amici.mp3
+            - Francesco_de_Gregori/Canzoni_d_amore/Rumore_di_niente.mp3
+            - Francesco_de_Gregori/Canzoni_d_amore/Viaggi_e_miraggi.mp3
+            - Francesco_de_Gregori/Canzoni_d_amore/Stella_della_strada.mp3
+            - Francesco_de_Gregori/Canzoni_d_amore/Povero_me.mp3
+            include: []
+        Curve_nella_memoria:
+            exclude:
+            - Francesco_de_Gregori/Curve_nella_memoria/Pablo_LIVE.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/Viaggi_e_miraggi_LIVE.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/Compagni_di_viaggio_LIVE.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/La_valigia_dell_attore_LIVE.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/Stella_della_strada_LIVE.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/Bellamore_LIVE.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/Il_bandito_e_il_campione_LIVE.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/La_leva_calcistica_della_cl_LIVE.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/La_donna_cannone_LIVE.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/Adelante_adelante_LIVE_#02.mp3
+            - Francesco_de_Gregori/Curve_nella_memoria/L_agnello_di_Dio_LIVE.mp3
+            include: []
+        De_Gregori:
+            exclude:
+            - Francesco_de_Gregori/De_Gregori/Babbo_in_prigione.mp3
+            - Francesco_de_Gregori/De_Gregori/Natale.mp3
+            - Francesco_de_Gregori/De_Gregori/Renoir.mp3
+            - Francesco_de_Gregori/De_Gregori/L_impiccato.mp3
+            - Francesco_de_Gregori/De_Gregori/Renoir+2a_versione.mp3
+            - Francesco_de_Gregori/De_Gregori/Due_zingari.mp3
+            - Francesco_de_Gregori/De_Gregori/Generale.mp3
+            - Francesco_de_Gregori/De_Gregori/Il_56.mp3
+            - Francesco_de_Gregori/De_Gregori/La_campana.mp3
+            - Francesco_de_Gregori/De_Gregori/Raggio_di_sole.mp3
+            include: []
+        Francesco_de_Gregori:
+            include:
+            - Francesco_de_Gregori/Francesco_de_Gregori/Bene.mp3
+            - Francesco_de_Gregori/Francesco_de_Gregori/Cercando_un_altro_Egitto.mp3
+            exclude:
+            - Francesco_de_Gregori/Francesco_de_Gregori/A_lupo.mp3
+            - Francesco_de_Gregori/Francesco_de_Gregori/Finestre_di_dolore.mp3
+            - Francesco_de_Gregori/Francesco_de_Gregori/Informazioni_di_Vincent.mp3
+            - Francesco_de_Gregori/Francesco_de_Gregori/Dolce_amore_del_Bahia.mp3
+            - "Francesco_de_Gregori/Francesco_de_Gregori/Chiss\xE0_dove_sei.mp3"
+            - Francesco_de_Gregori/Francesco_de_Gregori/Giorno_di_pioggia.mp3
+            - Francesco_de_Gregori/Francesco_de_Gregori/Arlecchino.mp3
+        Il_bandito_e_il_campione:
+            exclude:
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/I_muscoli_del_capitano_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Renoir_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/I_matti_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Quattro_Cani_LIVE_#01.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Adelante_adelante_LIVE_#01.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Sangue_su_sangue_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Vita_spericolata_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Titanic_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/La_storia_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Rimmel_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Viva_l_italia_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Vecchi_amici_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Generale_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Il_bandito_e_il_campio_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Sfiorisci_belfiore_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Pezzi_di_vetro_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/Buonanotte_fiorellino_LIVE.mp3
+            - Francesco_de_Gregori/Il_bandito_e_il_campione/La_ballata_dell_uomor_LIVE.mp3
+            include: []
+        La_Donna_Cannone:
+            exclude:
+            - Francesco_de_Gregori/La_Donna_Cannone/Flirt_#2.mp3
+            - Francesco_de_Gregori/La_Donna_Cannone/Flirt_#1.mp3
+            - Francesco_de_Gregori/La_Donna_Cannone/La_ragazza_e_la_miniera.mp3
+            - Francesco_de_Gregori/La_Donna_Cannone/Canta_canta.mp3
+            - Francesco_de_Gregori/La_Donna_Cannone/La_donna_cannone.mp3
+            include: []
+        La_Nostra_Storia:
+            include:
+            - Francesco_de_Gregori/La_Nostra_Storia/Niente_da_capire.mp3
+            exclude:
+            - Francesco_de_Gregori/La_Nostra_Storia/La_leva_calcistica_della_classe_68.mp3
+        Mira_Mare_19-04-89:
+            exclude:
+            - Francesco_de_Gregori/Mira_Mare_19.4.89/Bambini_venite_parvulus.mp3
+            - Francesco_de_Gregori/Mira_Mare_19.4.89/300_000_000_di_topi.mp3
+            - Francesco_de_Gregori/Mira_Mare_19.4.89/Pentathlon.mp3
+            - Francesco_de_Gregori/Mira_Mare_19.4.89/Miramare.mp3
+            - Francesco_de_Gregori/Mira_Mare_19.4.89/Carne_di_pappagallo.mp3
+            - Francesco_de_Gregori/Mira_Mare_19.4.89/Vento_dal_nulla.mp3
+            - Francesco_de_Gregori/Mira_Mare_19.4.89/Cose.mp3
+            - Francesco_de_Gregori/Mira_Mare_19.4.89/Lettera_da_un_cosmodromo_messi.mp3
+            - Francesco_de_Gregori/Mira_Mare_19.4.89/Dr_Dobermann.mp3
+            include: []
+        Prendere_e_lasciare:
+            exclude:
+            - Francesco_de_Gregori/Prendere_e_lasciare/Fine_di_un_killer.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Un_guanto.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Tutti_hanno_un_cuore.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Battere_e_levare.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Battere_e_levare#2.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Baci_da_Pompei.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/L_agnello_di_Dio.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Strumentale.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Rosa_rosae.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Prendi_questa_mano_zingara.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Strelutis_alpinis.mp3
+            - Francesco_de_Gregori/Prendere_e_lasciare/Jazz.mp3
+            include: []
+        Rimmel:
+            include:
+            - Francesco_de_Gregori/Rimmel/Pezzi_di_vetro.mp3
+            - Francesco_de_Gregori/Rimmel/Piccola_mela.mp3
+            - Francesco_de_Gregori/Rimmel/Piano_bar.mp3
+            - Francesco_de_Gregori/Rimmel/Le_storie_di_ieri.mp3
+            - Francesco_de_Gregori/Rimmel/Quattro_cani.mp3
+            - Francesco_de_Gregori/Rimmel/Il_signor_Hood.mp3
+            - Francesco_de_Gregori/Rimmel/Rimmel.mp3
+            - Francesco_de_Gregori/Rimmel/Pablo.mp3
+            - Francesco_de_Gregori/Rimmel/Buonanotte_Fiorellino.mp3
+            exclude: []
+        Scacchi_e_Tarocchi:
+            exclude:
+            - Francesco_de_Gregori/Scacchi_e_Tarocchi/Ciao_ciao.mp3
+            - Francesco_de_Gregori/Scacchi_e_Tarocchi/Sotto_le_stelle_del_Messico.mp3
+            - Francesco_de_Gregori/Scacchi_e_Tarocchi/Scacchi_e_tarocchi.mp3
+            - "Francesco_de_Gregori/Scacchi_e_Tarocchi/A_p\xE0.mp3"
+            - Francesco_de_Gregori/Scacchi_e_Tarocchi/Poeti_per_l_estate.mp3
+            - Francesco_de_Gregori/Scacchi_e_Tarocchi/Tutti_salvi.mp3
+            - Francesco_de_Gregori/Scacchi_e_Tarocchi/Piccoli_dolori.mp3
+            - Francesco_de_Gregori/Scacchi_e_Tarocchi/I_cowboys.mp3
+            - Francesco_de_Gregori/Scacchi_e_Tarocchi/La_storia.mp3
+            - Francesco_de_Gregori/Scacchi_e_Tarocchi/Miracolo_a_Venezia.mp3
+            include: []
+        Terra_di_Nessuno:
+            exclude:
+            - "Francesco_de_Gregori/Terra_di_Nessuno/Capat\xE0z.mp3"
+            - Francesco_de_Gregori/Terra_di_Nessuno/Nero.mp3
+            - Francesco_de_Gregori/Terra_di_Nessuno/Spalle_larghe.mp3
+            - Francesco_de_Gregori/Terra_di_Nessuno/Vecchia_valigia.mp3
+            - "Francesco_de_Gregori/Terra_di_Nessuno/Mim\xEC_sar\xE0.mp3"
+            - Francesco_de_Gregori/Terra_di_Nessuno/Il_canto_delle_sirene.mp3
+            - Francesco_de_Gregori/Terra_di_Nessuno/Pane_e_castagne.mp3
+            - Francesco_de_Gregori/Terra_di_Nessuno/I_matti.mp3
+            - Francesco_de_Gregori/Terra_di_Nessuno/Pilota_di_guerra.mp3
+            include: []
+        Theorius_Campus:
+            exclude:
+            - Francesco_de_Gregori/Theorius_Campus/E_caduto_l_inverno.mp3
+            - Francesco_de_Gregori/Theorius_Campus/Signora_Aquilone.mp3
+            - Francesco_de_Gregori/Theorius_Campus/Ciao_Uomo.mp3
+            - Francesco_de_Gregori/Theorius_Campus/La_casa_del_pazzo.mp3
+            - Francesco_de_Gregori/Theorius_Campus/Vocazione_1_e_1-2.mp3
+            - Francesco_de_Gregori/Theorius_Campus/L_amore_e_come_il_tempo.mp3
+            - "Francesco_de_Gregori/Theorius_Campus/In_mezzo_alla_citt\xE0.mp3"
+            - Francesco_de_Gregori/Theorius_Campus/Roma_Capoccia.mp3
+            - Francesco_de_Gregori/Theorius_Campus/Little_snoring_Willy.mp3
+            - Francesco_de_Gregori/Theorius_Campus/La_Cantina.mp3
+            - Francesco_de_Gregori/Theorius_Campus/Dolce_Signora_Che_Bruci.mp3
+            include: []
+        Titanic:
+            exclude:
+            - Francesco_de_Gregori/Titanic/Belli_Capelli.mp3
+            - Francesco_de_Gregori/Titanic/Centocinquanta_stelle.mp3
+            - Francesco_de_Gregori/Titanic/La_leva_calcistica_del_68.mp3
+            - Francesco_de_Gregori/Titanic/Rollo+His_Jets.mp3
+            - Francesco_de_Gregori/Titanic/I_Muscoli_del_capitano.mp3
+            - Francesco_de_Gregori/Titanic/San_Lorenzo.mp3
+            - Francesco_de_Gregori/Titanic/Caterina.mp3
+            - Francesco_de_Gregori/Titanic/Titanic.mp3
+            - Francesco_de_Gregori/Titanic/L_abbigliamento_di_un_fuochista.mp3
+            include: []
+        Viva_l_Italia:
+            exclude:
+            - Francesco_de_Gregori/Viva_l_Italia/L_ultima_nave.mp3
+            - Francesco_de_Gregori/Viva_l_Italia/Capo_d_Africa.mp3
+            - Francesco_de_Gregori/Viva_l_Italia/Buenos_Aires.mp3
+            - Francesco_de_Gregori/Viva_l_Italia/Terra_e_acqua.mp3
+            - Francesco_de_Gregori/Viva_l_Italia/Stella_Stellina.mp3
+            - "Francesco_de_Gregori/Viva_l_Italia/Ges\xF9_Bambino.mp3"
+            - Francesco_de_Gregori/Viva_l_Italia/Viva_l_Italia.mp3
+            - Francesco_de_Gregori/Viva_l_Italia/Eugenio.mp3
+            include: []
+        bestOf:
+            exclude:
+            - "Francesco_de_Gregori/bestOf/Cosa_sar\xE0.mp3"
+            - "Francesco_de_Gregori/bestOf/Tutto_pi\xF9_chiaro_che_qu\xEC.mp3"
+            include: []
+    Franco_Battiato:
+        alias: BattiatoF
+        Collection:
+            include:
+            - Franco_Battiato/Collection/chan-son_egocentrique_#01.mp3
+            - Franco_Battiato/Collection/gli_uccelli_#01.mp3
+            - Franco_Battiato/Collection/Prospettiva_NEVSKIJ_#01.mp3
+            - Franco_Battiato/Collection/i_treni_di_tozeur_#01.mp3
+            - Franco_Battiato/Collection/l_animale_#01.mp3
+            - Franco_Battiato/Collection/le_aquile_#01.mp3
+            - Franco_Battiato/Collection/Up_Patriot_to_Arms_#01.mp3
+            - Franco_Battiato/Collection/Un_altra_vita_#01.mp3
+            - Franco_Battiato/Collection/summer_on_a_solitary_beach_#01.mp3
+            - "Franco_Battiato/Collection/Caff\xE9_del_LA_Paix_#01.mp3"
+            - Franco_Battiato/Collection/no_time_no_space_#01.mp3
+            - Franco_Battiato/Collection/voglio_vederti_danzare_#01.mp3
+            - Franco_Battiato/Collection/Sentimento_Nuevo_#01.mp3
+            - Franco_Battiato/Collection/la_stagione_dell_amore_#01.mp3
+            - "Franco_Battiato/Collection/centro_di_gravit\xE0_permanente_#01.mp3"
+            - Franco_Battiato/Collection/L_era_del_cinghiale_bianco_#01.mp3
+            - Franco_Battiato/Collection/bandiera_bianca_#01.mp3
+            exclude:
+            - Franco_Battiato/Collection/radio_varsavia_#01.mp3
+        Dieci_stratagemmi:
+            exclude:
+            - "Franco_Battiato/Dieci_stratagemmi/Tra_sesso_e_castit\xE0.mp3"
+            - Franco_Battiato/Dieci_stratagemmi/I_m_that.mp3
+            - Franco_Battiato/Dieci_stratagemmi/23_Coppie_d_cromosomi.mp3
+            - Franco_Battiato/Dieci_stratagemmi/Fortezza_Bastiani.mp3
+            - Franco_Battiato/Dieci_stratagemmi/Odore_di_polvere_da_sparo.mp3
+            - "Franco_Battiato/Dieci_stratagemmi/Apparenza_e_realt\xE0.mp3"
+            - Franco_Battiato/Dieci_stratagemmi/Conforto_alla_vita.mp3
+            - Franco_Battiato/Dieci_stratagemmi/Le_aquile_non_volano_a_stormi.mp3
+            - Franco_Battiato/Dieci_stratagemmi/Ermeneutica.mp3
+            - Franco_Battiato/Dieci_stratagemmi/La_porta_dello_spavento_supremo.mp3
+            include: []
+        FLEURs:
+            exclude:
+            - Franco_Battiato/FLEURs/La_canzone_dei_vecchi_amanti.mp3
+            - Franco_Battiato/FLEURs/Te_lo_leggo_negli_occhi.mp3
+            - Franco_Battiato/FLEURs/Ed_io_tra_voi.mp3
+            - Franco_Battiato/FLEURs/Aria_di_neve.mp3
+            - Franco_Battiato/FLEURs/Amore_che_vieni_amore_che_vai.mp3
+            - Franco_Battiato/FLEURs/Medievale.mp3
+            - Franco_Battiato/FLEURs/La_canzone_dell_amore_perduto.mp3
+            include: []
+        Platinum_Collection:
+            exclude:
+            - Franco_Battiato/Platinum_Collection/Veni_l_autunnu.mp3
+            - Franco_Battiato/Platinum_Collection/radio_varsavia_#02.mp3
+            - Franco_Battiato/Platinum_Collection/New_frontiers.mp3
+            - Franco_Battiato/Platinum_Collection/le_aquile_#02.mp3
+            - Franco_Battiato/Platinum_Collection/Breve_invito_a_rinunciare_al_suicidio.mp3
+            - Franco_Battiato/Platinum_Collection/summer_on_a_solitary_beach_#02.mp3
+            - Franco_Battiato/Platinum_Collection/no_time_no_space_#02.mp3
+            - Franco_Battiato/Platinum_Collection/Fisiognomica.mp3
+            - Franco_Battiato/Platinum_Collection/i_treni_di_tozeur_#02.mp3
+            - Franco_Battiato/Platinum_Collection/l_animale_#02.mp3
+            - Franco_Battiato/Platinum_Collection/Gente_in_progresso.mp3
+            - Franco_Battiato/Platinum_Collection/Sui_giardini_della_preesistenza.mp3
+            - Franco_Battiato/Platinum_Collection/Scalo_a_grado.mp3
+            - Franco_Battiato/Platinum_Collection/L_oceano_di_silenzio.mp3
+            - Franco_Battiato/Platinum_Collection/Prospettiva_nevski.mp3
+            - Franco_Battiato/Platinum_Collection/Mesopotamia.mp3
+            - Franco_Battiato/Platinum_Collection/L_esodo.mp3
+            - Franco_Battiato/Platinum_Collection/Up_patriots_to_arms.mp3
+            - Franco_Battiato/Platinum_Collection/Stranizza_d_amuri.mp3
+            - Franco_Battiato/Platinum_Collection/Sentimiento_nuevo+spanish_version.mp3
+            - Franco_Battiato/Platinum_Collection/Tramonto_occidentale.mp3
+            - Franco_Battiato/Platinum_Collection/Alexander_platz.mp3
+            - Franco_Battiato/Platinum_Collection/Caffe_de_la_paix.mp3
+            - Franco_Battiato/Platinum_Collection/chan-son_egocentrique_#02.mp3
+            - Franco_Battiato/Platinum_Collection/Risveglio_di_primavera.mp3
+            - Franco_Battiato/Platinum_Collection/bandiera_bianca_#02.mp3
+            - Franco_Battiato/Platinum_Collection/L_ombra_della_luce.mp3
+            - Franco_Battiato/Platinum_Collection/Mal_d_africa.mp3
+            - Franco_Battiato/Platinum_Collection/Secondo_imbrunire.mp3
+            - Franco_Battiato/Platinum_Collection/Nomadi.mp3
+            - Franco_Battiato/Platinum_Collection/la_stagione_dell_amore_#02.mp3
+            - Franco_Battiato/Platinum_Collection/Strade_dell_est.mp3
+            - Franco_Battiato/Platinum_Collection/Via_lattea.mp3
+            - Franco_Battiato/Platinum_Collection/Come_un_cammello_in_una_grondaia.mp3
+            - Franco_Battiato/Platinum_Collection/Clamori.mp3
+            - "Franco_Battiato/Platinum_Collection/Cuccurucuc\xF9.mp3"
+            - Franco_Battiato/Platinum_Collection/L_ombrello_e_la_macchina_da_cucire.mp3
+            - Franco_Battiato/Platinum_Collection/gli_uccelli_#02.mp3
+            - Franco_Battiato/Platinum_Collection/Zone_depresse.mp3
+            - Franco_Battiato/Platinum_Collection/Temporary_road.mp3
+            - Franco_Battiato/Platinum_Collection/Il_re_del_mondo.mp3
+            - Franco_Battiato/Platinum_Collection/Povera_patria.mp3
+            - Franco_Battiato/Platinum_Collection/Lettera_al_governatore_della_libia.mp3
+            - Franco_Battiato/Platinum_Collection/E_ti_vengo_a_cercare.mp3
+            - Franco_Battiato/Platinum_Collection/Atlantide.mp3
+            - Franco_Battiato/Platinum_Collection/L_era_del_cinghiale_bianco_#02.mp3
+            - Franco_Battiato/Platinum_Collection/Le_sacre_sinfonie_del_tempo.mp3
+            - Franco_Battiato/Platinum_Collection/voglio_vederti_danzare_#02.mp3
+            - Franco_Battiato/Platinum_Collection/Giubbe_rosse.mp3
+            - Franco_Battiato/Platinum_Collection/Venezia.mp3
+            - Franco_Battiato/Platinum_Collection/Un_altra_vita_#02.mp3
+            - "Franco_Battiato/Platinum_Collection/centro_di_gravit\xE0_permanente_#02.mp3"
+            - Franco_Battiato/Platinum_Collection/Lode_all_inviolato.mp3
+            include: []
+    Gianfranco_Manfredi:
+        alias: ManfrediG
+        bestOf:
+            include:
+            - "Gianfranco_Manfredi/bestOf/Ma_chi_ha_detto_che_non_c_\xE8.mp3"
+            exclude: []
+    Giorgio_Gaber:
+        alias: GaberG
+        Far_finta_di_essere_sani:
+            include:
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Un_idea.mp3
+            - "Giorgio_Gaber/Far_finta_di_essere_sani/La_libert\xE0.mp3"
+            exclude:
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Chiedo_scusa_se_parlo_di_maria.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Introduzione+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Oh_mama!+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/La_famiglia+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Le_caselle+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Lo_shampoo.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/La_presa_del_potere.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Il_dente_della_conoscenza.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/L_elastico.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Quello_che_perde_i_pezzi.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Al_bar_casablanca+bis.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/La_natura+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/La_comune.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Dall_altra_parte_del_cancello.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Far_finta_di_essere_sani.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Il_muro+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Finale+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Un_emozione.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/La_marcia_dei_colitici.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/La_nave.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Il_narciso+prosa-canzone.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/L_impotenza.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Algebra+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/E_sabato.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/E_giuseppe!+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/La_dentiera+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Le_palline+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Gli_omini+prosa.mp3
+            - Giorgio_Gaber/Far_finta_di_essere_sani/Cerco_un_gesto_naturale.mp3
+        bestOf:
+            exclude:
+            - Giorgio_Gaber/bestOf/Io_Se_Fossi_Dio+Versione_Sequestrata.mp3
+            - Giorgio_Gaber/bestOf/Il_pelo.mp3
+            - Giorgio_Gaber/bestOf/La_strana_famiglia+con_E_Jannacci.mp3
+            include: []
+    Goran_Kuzminac:
+        alias: KuzminacG
+        bestOf:
+            include:
+            - Goran_Kuzminac/bestOf/Canzone_senza_inganni.mp3
+            - "Goran_Kuzminac/bestOf/Stasera_l_aria_\xE8_fresca.mp3"
+            - Goran_Kuzminac/bestOf/Ehi_ci_stai.mp3
+            exclude:
+            - Goran_Kuzminac/bestOf/La_mia_faccia.mp3
+            - Goran_Kuzminac/bestOf/Stella_del_Nord.mp3
+    Le_Orme:
+        alias: leOrme
+        L_Infinito:
+            include: []
+            exclude:
+            - Le_Orme/L_Infinito/Il_Tempio_Sul_Lago+Strumentale.mp3
+            - Le_Orme/L_Infinito/La_Ruota_Del_Cielo.mp3
+        bestOf:
+            include:
+            - Le_Orme/bestOf/Gioco_di_bimba.mp3
+            exclude:
+            - Le_Orme/bestOf/Sguardo_verso_il_cielo.mp3
+    Luca_Barbarossa:
+        alias: BarbarossaL
+        bestOf:
+            include:
+            - Luca_Barbarossa/bestOf/Come_dentro_un_film.mp3
+            - Luca_Barbarossa/bestOf/Le_cose_da_salvare.mp3
+            - Luca_Barbarossa/bestOf/Il_fiume.mp3
+            - Luca_Barbarossa/bestOf/Il_ragazzo_con_la_chitarra.mp3
+            - Luca_Barbarossa/bestOf/Portami_a_ballare.mp3
+            - Luca_Barbarossa/bestOf/Italiani_d_America.mp3
+            - "Luca_Barbarossa/bestOf/Al_di_l\xE0_del_muro.mp3"
+            - Luca_Barbarossa/bestOf/Roma_spogliata.mp3
+            - Luca_Barbarossa/bestOf/Musica_e_parole.mp3
+            - Luca_Barbarossa/bestOf/Via_Margutta.mp3
+            - Luca_Barbarossa/bestOf/Piccola_ragazza.mp3
+            exclude:
+            - Luca_Barbarossa/bestOf/Via_Margutta+live.mp3
+            - Luca_Barbarossa/bestOf/Non_tutti_gli_uomini.mp3
+            - Luca_Barbarossa/bestOf/Ce_l_hai_solo_te.mp3
+            - Luca_Barbarossa/bestOf/Fine_di_un_amore.mp3
+            - Luca_Barbarossa/bestOf/Segnali_di_fumo.mp3
+            - Luca_Barbarossa/bestOf/El_conquistador.mp3
+            - Luca_Barbarossa/bestOf/Stella_segreta.mp3
+            - Luca_Barbarossa/bestOf/Tutto_quello_che_so.mp3
+            - Luca_Barbarossa/bestOf/Voglio.mp3
+            - Luca_Barbarossa/bestOf/Vivo.mp3
+            - Luca_Barbarossa/bestOf/Domani.mp3
+            - Luca_Barbarossa/bestOf/L_amore_rubato.mp3
+            - Luca_Barbarossa/bestOf/Se_tu_sei_con_me.mp3
+            - Luca_Barbarossa/bestOf/Foglia_su_foglia.mp3
+            - Luca_Barbarossa/bestOf/Come_si_dice_ti_amo.mp3
+            - Luca_Barbarossa/bestOf/Yuppies.mp3
+            - Luca_Barbarossa/bestOf/Cuore_d_acciaio.mp3
+    Luciano_Rossi:
+        alias: RossiL
+        The_Best:
+            include:
+            - Luciano_Rossi/The_Best/Bella.mp3
+            - Luciano_Rossi/The_Best/Senza_parole.mp3
+            exclude: []
+    Lucio_Dalla:
+        alias: DallaL
+        Dall_America_Caruso:
+            exclude:
+            - Lucio_Dalla/Dall_America_Caruso/Caruso_#01.mp3
+            - Lucio_Dalla/Dall_America_Caruso/Balla_balla_ballerino_#01.mp3
+            - Lucio_Dalla/Dall_America_Caruso/Se_io_fossi_un_Angelo_#01.mp3
+            - "Lucio_Dalla/Dall_America_Caruso/L_anno_che_verr\xE0_#01.mp3"
+            - Lucio_Dalla/Dall_America_Caruso/Futura_#01.mp3
+            - Lucio_Dalla/Dall_America_Caruso/4_3_43.mp3
+            - Lucio_Dalla/Dall_America_Caruso/Anna_e_Marco_#01.mp3
+            - Lucio_Dalla/Dall_America_Caruso/Viaggi_organizzati_#01.mp3
+            - Lucio_Dalla/Dall_America_Caruso/Stella_di_mare_#01.mp3
+            - Lucio_Dalla/Dall_America_Caruso/Cara_#01.mp3
+            - Lucio_Dalla/Dall_America_Caruso/Tutta_la_vita.mp3
+            - Lucio_Dalla/Dall_America_Caruso/Washington_#01.mp3
+            include: []
+        bestOf:
+            include:
+            - Lucio_Dalla/bestOf/4_Marzo_1943.mp3
+            - Lucio_Dalla/bestOf/Anna_e_Marco.mp3
+            - Lucio_Dalla/bestOf/Balla_balla_ballerino.mp3
+            - "Lucio_Dalla/bestOf/Com_\xE8_profondo_il_mare.mp3"
+            - "Lucio_Dalla/bestOf/Cosa_Sar\xE0.mp3"
+            - Lucio_Dalla/bestOf/Disperato_erotico_stomp.mp3
+            - Lucio_Dalla/bestOf/Itaca.mp3
+            - Lucio_Dalla/bestOf/La_casa_in_riva_al_mare.mp3
+            - "Lucio_Dalla/bestOf/L_anno_che_verr\xE0.mp3"
+            - Lucio_Dalla/bestOf/La_sera_dei_miracoli.mp3
+            - Lucio_Dalla/bestOf/L_ultima_luna.mp3
+            - Lucio_Dalla/bestOf/Nuvolari.mp3
+            - Lucio_Dalla/bestOf/Piazza_Grande.mp3
+            - Lucio_Dalla/bestOf/Se_io_fossi_un_Angelo.mp3
+            - Lucio_Dalla/bestOf/Silvie.mp3
+            - Lucio_Dalla/bestOf/Stella_di_mare.mp3
+            - Lucio_Dalla/bestOf/Sulla_rotta_di_Cristoforo_Colombo.mp3
+            - Lucio_Dalla/bestOf/Un_uomo_come_me.mp3
+            exclude:
+            - Lucio_Dalla/bestOf/Anna_Bellanna.mp3
+            - Lucio_Dalla/bestOf/Cara.mp3
+            - Lucio_Dalla/bestOf/Caruso.mp3
+            - Lucio_Dalla/bestOf/Fumetto.mp3
+            - Lucio_Dalla/bestOf/Futura.mp3
+            - Lucio_Dalla/bestOf/Grande_figlio_di_puttana.mp3
+            - Lucio_Dalla/bestOf/La_signora.mp3
+            - Lucio_Dalla/bestOf/Mambo.mp3
+            - Lucio_Dalla/bestOf/Milano.mp3
+            - Lucio_Dalla/bestOf/Notte.mp3
+            - Lucio_Dalla/bestOf/Tango.mp3
+            - Lucio_Dalla/bestOf/Telefonami_tra_vent_anni.mp3
+            - Lucio_Dalla/bestOf/Viaggi_organizzati.mp3
+            - Lucio_Dalla/bestOf/Washington.mp3
+    Marco_Ferradini:
+        alias: FerradiniM
+        bestOf:
+            include:
+            - Marco_Ferradini/bestOf/Teorema.mp3
+            exclude: []
+    Pierangelo_Bertoli:
+        alias: BertoliP
+        Eppure_Soffia:
+            include:
+            - Pierangelo_Bertoli/Eppure_Soffia/E_nato_si_dice.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/Eppure_soffia.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/Non_vincono.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/Per_dirti_t_amo.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/Sera_di_Gallipoli.mp3
+            exclude:
+            - Pierangelo_Bertoli/Eppure_Soffia/C_era_Un_Tempo.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/Cristalli_di_memoria.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/Due_occhi_blu.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/La_bala.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/Povera_Mary.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/Prega_crest.mp3
+            - Pierangelo_Bertoli/Eppure_Soffia/Racconta_una_storia_d_amore.mp3
+        301_Guerre_Fa:
+            exclude:
+            - Pierangelo_Bertoli/301_Guerre_Fa/Pescatore_#03.mp3
+            - Pierangelo_Bertoli/301_Guerre_Fa/Oracoli_#02.mp3
+            - Pierangelo_Bertoli/301_Guerre_Fa/Vagabondi.mp3
+            - Pierangelo_Bertoli/301_Guerre_Fa/La_Nebbia.mp3
+            - Pierangelo_Bertoli/301_Guerre_Fa/La_Fatica.mp3
+            - Pierangelo_Bertoli/301_Guerre_Fa/Favola_#01.mp3
+            - Pierangelo_Bertoli/301_Guerre_Fa/Se_Solo_Lo_Vuoi.mp3
+            - Pierangelo_Bertoli/301_Guerre_Fa/Liberato_Me.mp3
+            - Pierangelo_Bertoli/301_Guerre_Fa/Spunta_La_Luna_Dal_Monte_#04.mp3
+            - "Pierangelo_Bertoli/301_Guerre_Fa/Cos\xEC_#01.mp3"
+            - Pierangelo_Bertoli/301_Guerre_Fa/la_prima_pioggia_#02.mp3
+            - "Pierangelo_Bertoli/301_Guerre_Fa/301_Guerre_F\xE0.mp3"
+            - Pierangelo_Bertoli/301_Guerre_Fa/cent_anni_di_meno_#02.mp3
+            - Pierangelo_Bertoli/301_Guerre_Fa/Le_Grandi_Solitudini.mp3
+            include: []
+        Certi_Momenti:
+            include:
+            - Pierangelo_Bertoli/Certi_Momenti/Certi_Momenti.mp3
+            - Pierangelo_Bertoli/Certi_Momenti/Pescatore.mp3
+            - Pierangelo_Bertoli/Certi_Momenti/Cent_anni_di_Meno.mp3
+            - Pierangelo_Bertoli/Certi_Momenti/Canzoncina.mp3
+            - Pierangelo_Bertoli/Certi_Momenti/I_Poeti.mp3
+            exclude:
+            - Pierangelo_Bertoli/Certi_Momenti/Fer_L_amaur.mp3
+            - Pierangelo_Bertoli/Certi_Momenti/In_Fondo.mp3
+            - Pierangelo_Bertoli/Certi_Momenti/Riflusso.mp3
+            - Pierangelo_Bertoli/Certi_Momenti/e_poi.mp3
+        Eternamente_Musica:
+            include:
+            - Pierangelo_Bertoli/Eternamente_Musica/Italia_d_oro_#01.mp3
+            exclude:
+            - Pierangelo_Bertoli/Eternamente_Musica/Canzoncina_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/cent_anni_di_meno_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/I_fiori_che_tu_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/Gli_anni_miei_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/Per_l_amour.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/Marisa_ti_sposa_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/Spunta_la_luna_dal_monte_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/Susanna_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/e_poi_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/Fantasmi_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/A_muso_duro_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/Certi_momenti_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/Valzer_lento_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/I_Poeti_#01.mp3
+            - Pierangelo_Bertoli/Eternamente_Musica/Pescatore_#01.mp3
+        Gli_Anni_Miei:
+            exclude:
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Il_mio_regalo.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Gli_anni_miei_#02.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Marisa_ti_sposa_#02.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Passeggeri_clandestini.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Ho_bisogno_di_te_maria.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Rottami.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Bersagli_mobili.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Ballata_sul_percorso.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Valzer_lento_#02.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/La_faccia_di_Angela.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Se_tu_fossi_libera.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Delta.mp3
+            - Pierangelo_Bertoli/Gli_Anni_Miei/Navigatori.mp3
+            include: []
+        Il_Centro_Del_Fiume:
+            include:
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/Rosso_colore_#02.mp3
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/Vedere_il_quartiere.mp3
+            exclude:
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/Un_lupo_di_mare.mp3
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/Un_altra_volta.mp3
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/Ballata_per_l_ultimo_nato.mp3
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/Il_centro_del_fiume_#02.mp3
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/La_luna_sotto_casa_#02.mp3
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/Per_te.mp3
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/1967.mp3
+            - Pierangelo_Bertoli/Il_Centro_Del_Fiume/Decima_canzone.mp3
+        Italia_d_oro:
+            exclude:
+            - Pierangelo_Bertoli/Italia_d_oro/Italia_d_oro_#02.mp3
+            - Pierangelo_Bertoli/Italia_d_oro/la_prima_pioggia_#01.mp3
+            - Pierangelo_Bertoli/Italia_d_oro/Fantasmi_#02.mp3
+            - Pierangelo_Bertoli/Italia_d_oro/Susanna_#02.mp3
+            - Pierangelo_Bertoli/Italia_d_oro/Giulio.mp3
+            - Pierangelo_Bertoli/Italia_d_oro/I_fiori_che_tu_#02.mp3
+            - Pierangelo_Bertoli/Italia_d_oro/Le_solite_cose.mp3
+            - Pierangelo_Bertoli/Italia_d_oro/Ninna_nanna_ai_miei_bimbi.mp3
+            - Pierangelo_Bertoli/Italia_d_oro/Spunta_La_Luna_Dal_Monte_#03.mp3
+            include: []
+        Oracoli:
+            exclude:
+            - Pierangelo_Bertoli/Oracoli/Oracoli_#01.mp3
+            - "Pierangelo_Bertoli/Oracoli/E_cos\xEC_nasce_una_canzone.mp3"
+            - Pierangelo_Bertoli/Oracoli/Eroi.mp3
+            - Pierangelo_Bertoli/Oracoli/Come_eravamo.mp3
+            - Pierangelo_Bertoli/Oracoli/Gente_metropolitana.mp3
+            - Pierangelo_Bertoli/Oracoli/Sere.mp3
+            - Pierangelo_Bertoli/Oracoli/Sabato_#02.mp3
+            - Pierangelo_Bertoli/Oracoli/Dal_vero_#02.mp3
+            - Pierangelo_Bertoli/Oracoli/Chiama_piano.mp3
+            - Pierangelo_Bertoli/Oracoli/Acqua_limpida_#02.mp3
+            - Pierangelo_Bertoli/Oracoli/Se_potesse_bastare.mp3
+            include: []
+        Sedia_Elettrica:
+            exclude:
+            - "Pierangelo_Bertoli/Sedia_Elettrica/Chiss\xE0_perch\xE9.mp3"
+            - Pierangelo_Bertoli/Sedia_Elettrica/Nuvole.mp3
+            - Pierangelo_Bertoli/Sedia_Elettrica/Una_strada.mp3
+            - Pierangelo_Bertoli/Sedia_Elettrica/Voglio_vivere.mp3
+            - Pierangelo_Bertoli/Sedia_Elettrica/Mio_figlio.mp3
+            - Pierangelo_Bertoli/Sedia_Elettrica/Improvvisamente.mp3
+            - Pierangelo_Bertoli/Sedia_Elettrica/Figlio_di_un_cane.mp3
+            - Pierangelo_Bertoli/Sedia_Elettrica/Suonando_la_chitarra.mp3
+            - "Pierangelo_Bertoli/Sedia_Elettrica/La_verit\xE0.mp3"
+            include: []
+        Spunta_la_luna_dal_monte:
+            include:
+            - Pierangelo_Bertoli/Spunta_la_luna_dal_monte/Spunta_la_luna_dal_monte_#02.mp3
+            exclude:
+            - Pierangelo_Bertoli/Spunta_la_luna_dal_monte/Pescatore_#02.mp3
+            - "Pierangelo_Bertoli/Spunta_la_luna_dal_monte/I_miei_pensieri_sono_tutti_l\xEC\
+                _#01.mp3"
+            - Pierangelo_Bertoli/Spunta_la_luna_dal_monte/Eppure_soffia_#01.mp3
+            - Pierangelo_Bertoli/Spunta_la_luna_dal_monte/Canto_di_vittoria.mp3
+            - Pierangelo_Bertoli/Spunta_la_luna_dal_monte/Certi_momenti_#02.mp3
+            - Pierangelo_Bertoli/Spunta_la_luna_dal_monte/Dal_vero_#01.mp3
+            - Pierangelo_Bertoli/Spunta_la_luna_dal_monte/Sabato_#01.mp3
+            - Pierangelo_Bertoli/Spunta_la_luna_dal_monte/A_muso_duro_#02.mp3
+            - Pierangelo_Bertoli/Spunta_la_luna_dal_monte/Acqua_limpida_#01.mp3
+        Una_voce_tra_due_fuochi:
+            include:
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Spunta_la_luna_dal_monte+con_I_Tazenda.mp3
+            exclude:
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Il_centro_del_fiume_#01.mp3
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Eppure_Soffia_#03.mp3
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Certi_Momenti_#03.mp3
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Dimmi.mp3
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Italia_d_oro_#03.mp3
+            - "Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Non_finir\xE0.mp3"
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Rosso_colore_#01.mp3
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Pescatore_#04.mp3
+            - "Pierangelo_Bertoli/Una_voce_tra_due_fuochi/I_miei_pensieri_sono_tutti_l\xEC\
+                _#02.mp3"
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Caccia_Alla_Volpe_#01.mp3
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Chiama_piano+con_F_Concato.mp3
+            - "Pierangelo_Bertoli/Una_voce_tra_due_fuochi/Non_ti_sveglier\xF2.mp3"
+            - Pierangelo_Bertoli/Una_voce_tra_due_fuochi/A_Muso_Duro_#03.mp3
+        Bertoli_Studio_Live:
+            exclude:
+            - "Pierangelo_Bertoli/Bertoli_Studio_Live/Cos\xEC_#02.mp3"
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Caccia_Alla_Volpe_#02.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/La_luna_sotto_casa_#01.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Maria_Teresa.mp3
+            - "Pierangelo_Bertoli/Bertoli_Studio_Live/I_Miei_Pensieri_Sono_Tutti_L\xEC\
+                _#03.mp3"
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Eppure_Soffia_#04.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/C_era_Un_Tempo_#02.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Per_dirti_t_amo_#02.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Varsavia.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Cent_anni_di_Meno_#04.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Favola_#02.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/A_Muso_Duro_#04.mp3
+            - "Pierangelo_Bertoli/Bertoli_Studio_Live/Voglia_di_Libert\xE0.mp3"
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Pescatore_#06.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Sera_di_Gallipoli_#02.mp3
+            - Pierangelo_Bertoli/Bertoli_Studio_Live/Certi_Momenti_#05.mp3
+            include: []

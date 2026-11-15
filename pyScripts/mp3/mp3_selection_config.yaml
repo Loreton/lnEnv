@@ -1,5 +1,4 @@
 bootstrap_main_vars:
-
     project_env_vars:
         # Il valore delle variabili potranno essere utilizzate nello YAML come ${ITALIAN_ROOT}.
         # YAML_KEYPATH_SEP: *KEYPATH_SEPARATOR # lo uso anche come variabile
@@ -11,10 +10,12 @@ bootstrap_main_vars:
   # keypath_separator: &KEYPATH_SEPARATOR "__##__"
 main:
   top_dir: ${HOME}/filu/myData/Songs/mp3_songs
+  search_path:
+       - ${HOME}/filu/myData/Songs/mp3_songs/Italiani
+       - ${HOME}/filu/myData/Songs/mp3_songs/Stranieri
 
-
-lista:
-    !include_merge
+authors:
+    !dict_merge
         - "${ITALIAN_SONGS}/Alice/${selection_filename}"
         - "${ITALIAN_SONGS}/Amedeo_Minghi/${selection_filename}"
         - "${ITALIAN_SONGS}/Arisa/${selection_filename}"

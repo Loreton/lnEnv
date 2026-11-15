@@ -32,7 +32,7 @@ class project_vars:
     target_dir: Path
     project_env_vars: dict[str, object] = field(default_factory=dict)
     exclude_dirnames: list[str] = field(default_factory=list)
-    config_data: lnDict[str, object] = field(default_factory=lnDict)
+    config_data: lnDict = field(default_factory=lnDict)
 
 
 
@@ -45,7 +45,7 @@ def parseInput():
     # parser.add_argument("--top-dir", required=True, type=Path, help="Directory radice delle canzoni")
     parser.add_argument("--target-dir", required=True, type=Path, help="Directory di destinazione per i file copiati")
     parser.add_argument("--replace", action="store_true", help="Sovrascrive i file se già presenti nella destinazione")
-    # parser.add_argument("--include-path", action="store_true", help="Includi il percorso relativo originale nella struttura di destinazione")
+    parser.add_argument("--include-path", action="store_true", help="Includi il percorso relativo originale nella struttura di destinazione")
 
     # exclusive_group=parser.add_mutually_exclusive_group(required=True)
     parser.add_argument("--create-yaml", action="store_true", help="Crea un file YAML con la lista delle tracce")
@@ -181,62 +181,113 @@ def process_author_directory(args, author_dir: Path, target_dir: Path) -> int:
 ###################################################################
 # Read Configuration
 ###################################################################
-def read_configuration(config_file_name) -> lnDict:
+def read_configuration(config_file_name, bootstrap_key: str) -> object:
     """
          read application configuration file
 
          Args:
-             None
+             configuration file name
 
          return:
              configuration (lnDict)
     """
-
+    config_debug_out=Path(config_file_name).stem + "_out.yaml"
     myYaml=get_yamlEngine(logger=logger)
-    myYaml.bootstrap(config_file_name, main_key='mp3_main_vars')
+    myYaml.bootstrap(config_file_name, main_key=bootstrap_key)
     config_data=myYaml.load(config_file_name)
-    _bootstrat=config_data.pop("mp3_main_vars")
-    myYaml.save_yaml(filepath="yaml_loader_test_file_out.yaml", title="yaml_loader_test_file", indent=4)
-
-    # yaml_engine=get_yamlEngine(logger=logger, search_path=["."])
-    # config_data: lnDict = lnDict(yaml_engine.load(str(config_file)))
-    # config_data.save_yaml(title="processed_config", filepath=pv.log_dir / "mp3_selection_config.yaml")
-
-    # pv.author_registry=AuthorRegistry(pv.config_dir / "authors.yaml")
+    _bootstrat=config_data.pop(bootstrap_key)
+    myYaml.save_yaml(filepath=f"{config_debug_out}", indent=4)
 
     return config_data
 
+# ==========================================================
+def check_source_path(song_name: str) -> Path| None:
+    for path in pv.config_data.main.search_path:
+        source_file = Path(path) / song_name
+        if source_file.exists():
+            break
+    else:
+        logger.error(f"no path was found for song: {song_name}")
+        source_file = None
+        breakpoint()
+
+    return source_file
+
+
+
+# ==========================================================
+def check_dest_path(song_name: str, alias: str) -> Path:
+    if args.include_path:
+        dest_file = pv.target_dir / song_name
+    else:
+        dest_file = pv.target_dir / f"{alias}_{Path(song_name).name}"
+
+        # parts = author_name.split('_')
+        # dest_song_name = Path(song_name).name
+        # if author_name == "Banco_del_Mutuo_Soccorso":
+        #     dest_song_name = f"BancodMS_{dest_song_name}"
+        # elif len(parts) == 1:
+        #     dest_song_name = f"{parts[0]}_{dest_song_name}"
+        # elif len(parts) == 2:
+        #     dest_song_name = f"{parts[1]}{parts[0][0]}_{dest_song_name}"
+        # # elif len(parts) == 3:
+        # #     dest_song_name = f"{parts[2]}{parts[0][0]}_{dest_song_name}"
+        # else:
+        #     breakpoint()
+
+
+    return dest_file
 
 # #####################################################################
 # #
 # #####################################################################
 def main():
     config_file_name="mp3_selection_config.yaml"
-    myYaml=get_yamlEngine(logger=logger)
-    myYaml.bootstrap(config_file_name, main_key='bootstrap_main_vars')
-    pv.config_data=lnDict(myYaml.load(config_file_name))
-
-
-    # myYaml.save_yaml(filepath="yaml_loader_test_file_out.yaml", title="yaml_loader_test_file", indent=4)
-    # pv.config_data = lnDict(read_configuration(config_file_name="mp3_selection_config.yaml"))
-    pv.top_dir = Path(pv.config_data.main.top_dir).resolve()
+    config_data=read_configuration(config_file_name=config_file_name, bootstrap_key='bootstrap_main_vars')
+    pv.config_data=lnDict(config_data)
+    top_dir = Path(pv.config_data.main.top_dir).resolve()
     pv.target_dir = Path(args.target_dir).resolve()
-    breakpoint()
 
     if not top_dir.exists():
         print(f"[ERR] La directory --top-dir specificata non esiste: {top_dir}")
         return
 
-    target_dir.mkdir(parents=True, exist_ok=True)
+    pv.target_dir.mkdir(parents=True, exist_ok=True)
 
     # Scansione cartelle degli autori
+    TAB3=' '*3
+    TAB6=' '*6
     total_songs: int = 0
-    for author_dir in sorted(top_dir.iterdir()):
-        if author_dir.is_dir():
-            songs = process_author_directory(args=args, author_dir=author_dir, target_dir=target_dir)
-            if songs:
-                total_songs += songs
-                logger.notify(f"author songs: {songs}")
+    for author_name, author_albums in pv.config_data.authors.items():
+        alias = author_albums.pop("alias") # remove it
+        logger.notify(f"Processing author: {author_name}")
+        for album_name, songs in author_albums.items():
+            logger.debug(f"{TAB3}Processing album: {album_name}")
+            for song_name in songs["include"]:
+                logger.debug(f"{TAB3}{song_name}")
+                total_songs += 1
+                source_file = check_source_path(song_name)
+                if not source_file:
+                    continue
+
+                dest_file = check_dest_path(song_name, alias)
+                if dest_file.exists() and not args.replace:
+                    logger.warning(f"{TAB3}already exists: {dest_file}")
+                    continue
+
+                # Crea le directory di destinazione se necessario
+                dest_file.parent.mkdir(parents=True, exist_ok=True)
+
+                # Copia il file
+                try:
+                    if args.go:
+                        shutil.copy2(source_file, dest_file)
+                    logger.info(f"{TAB6}-> {dest_file}")
+                except Exception as e:
+                    logger.error(f"Errore nella copia di {source_file}: {e}")
+
+
+
 
     logger.notify(f"total songs: {total_songs}")
 
@@ -249,50 +300,3 @@ if __name__ == "__main__":
     logger.info("Starting...")
     main()
     sys.exit("programma completato!")
-
-
-
-
-
-
-
-
-
-    pv = lnDict()
-    pv.log_dir=Path('/tmp/mp3_selection')
-    pv.log_dir.mkdir(parents=True,exist_ok=True)
-    logger = get_logger()
-    logger.initialize("logger_TEST", console_logger_level="info")
-    C = logger.COLORS
-    # logger = get_logger()
-    # C = get_colors()
-
-    TAB2='  '
-    TAB4='    '
-
-
-    # FILENAME_YAML = "Loreto_selection_list.yaml"
-    # INCLUDE_AUTHORS =[  "Francesco_Guccini",
-    #                     "Arisa",
-    #                     "Alice",
-    #                     "Amedeo_Minghi",
-    #                     "Francesco_de_Gregori",
-    #                     "Delirium",
-    #                     "Banco_del_Mutuo_Soccorso",
-    #                     "Dik_Dik",
-    #                     "Fabrizio_Moro",
-    #                     "Franco_Battiato",
-    #                     "Gianfranco_Manfredi",
-    #                     "Giorgio_Gaber",
-    #                     "Goran_Kuzminac",
-    #                     "Le_Orme",
-    #                     "Luca_Barbarossa",
-    #                     "Luciano_Rossi",
-    #                     "Lucio_Dalla",
-    #                     "Marco_Ferradini",
-    #                     "Pierangelo_Bertoli",
-    #                     "",
-    #                 ]
-
-    # logger=init_logger(logger_name="mp3_selection_list", test=False)
-    # logger.initialize(name="mp3_selection_list", console_logger_level='info')
