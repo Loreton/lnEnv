@@ -5,15 +5,33 @@
 
 main:
     # top directory dove cercareventuali files oltre a:
-    extra_vars_file: "/tmp/xclip.extra_envvars"
-    system_vars: "${HOME}/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml"
+    system_vars_file: "${HOME}/filu/lnEnv/.config_secret/yaml/ln_system_variables.yaml"
+    extra_vars_file: "/tmp/xclip/extra_vars.txt"
 
-    top_dirs:
+    base_top_dirs_file: /tmp/xclip/top_dirs.txt
+    extra_top_dirs_file: /tmp/xclip/extra_top_dirs.txt
+
+    default_top_dirs:
         # - /home/loreto/filu/Programming/gitREPO/eBooks
         # - /home/loreto/filu/Programming/gitREPO/pyLnLib
         - /home/loreto/filu/Programming/gitREPO
         - /home/loreto/filu/lnEnv
 
+
+    # --- nel caso non fosse presente l'extension
+    default_extensions:
+        - .py
+        - .sh
+        - .conf
+        - .yaml
+        - .json
+        - .txt
+        - .ini
+        - .cpp
+        - .c
+        - .h
+        - .tpl
+        - .alias
 
 
     exclude_dirnames:
@@ -31,149 +49,111 @@ main:
       - logs
 
 
-handlers:
 
-  # ----------------------------------------------------------
-  # Python
-  #
-  # Se viene trovato:
-  #
-  #   pyproject_class:134
-  #
-  # oppure:
-  #
-  #   File ".../pyproject_class.py", line 134
-  #
-  # viene aperto nell'editor con il numero di linea.
-  # ----------------------------------------------------------
+    # - "/usr/bin/flatpak run --command=ebook-viewer com.calibre_ebook.calibre"
+commands:
+    # ========================================
+    ebook_viewr: &EBOOK
+        command:
+            - /usr/bin/flatpak
+            - run
+            - org.kde.kid3
+        line_numer: true
 
-  python:
-    extensions:
-      - .py
-      - .pyw
-      - .yaml
-      - .sh
-      - .config
-      - .txt
-      - .json
-      - .c
-      - .cpp
-      - .c++
-      - .h
-      - .hpp
-      - .tab
-      - .md
-      - .toml
-      - .functions
-      - .alias
+    # ========================================
+    zed: &ZED
+        command:
+            - /home/loreto/filu/lnEnv/start_proc/zed_start.sh
+        line_numer: false
 
-    command:
-      - /home/loreto/filu/lnEnv/start_proc/zed_start.sh
+    # ========================================
+    mp3: &MP3
+          # - "/usr/bin/flatpak run org.kde.kid3"
+        command:  # se più parti dividere la stringa in più righe
+          - /usr/bin/flatpak
+          - run
+          - org.kde.kid3
+        line_number: false
 
-    line_number: true
+    # ========================================
+    pdf_okular: &OKULAR
+        command:
+          - okular
+        line_number: false
+
+    pdf_xournal: &XOURNAL
+        command:
+          - flatpak
+          - run
+          - com.github.xournalpp.xournalpp
+        line_number: false
 
 
-  # ----------------------------------------------------------
-  # EPUB
-  # ----------------------------------------------------------
-  epub:
-    extensions:
-      - .epub
-
-    command:  # se più parti dividere la stringa in più righe
-      # - "/usr/bin/flatpak run --command=ebook-viewer com.calibre_ebook.calibre"
-      - /usr/bin/flatpak
-      - run
-      - --command=ebook-viewer
-      - com.calibre_ebook.calibre
-
-    line_number: false
-
-
-  # ----------------------------------------------------------
-  # MP3
-  # ----------------------------------------------------------
-  mp3:
-    extensions:
-      - .mp3
-
-    command:  # se più parti dividere la stringa in più righe
-      # - "/usr/bin/flatpak run --command=ebook-viewer com.calibre_ebook.calibre"
-      - /usr/bin/flatpak
-      - run
-      - org.kde.kid3
-
-    line_number: false
-
-
-  # ----------------------------------------------------------
-  # PDF
-  # ----------------------------------------------------------
-
-  pdf:
-    extensions:
-      - .pdf
-
-    command:
-      - okular
-
-    line_number: false
-
-
-  # ----------------------------------------------------------
-  # LibreOffice
-  # ----------------------------------------------------------
-
-  spreadsheet:
-    extensions:
-      - .xlsx
-      - .xls
-      - .ods
-
-    command:
-      - libreoffice
-
-    line_number: false
-
-
-  # ----------------------------------------------------------
-  # Testi / Markdown
-  # ----------------------------------------------------------
-
-  text:
-    extensions:
-      - .txt
-      - .md
-
-    command:
-      - xdg-open
-
-    line_number: false
-
-
-  # ----------------------------------------------------------
-  # Default
-  #
-  # Qualunque estensione non riconosciuta viene affidata
-  # al desktop.
-  # ----------------------------------------------------------
-
-  default:
-    command:
-      - xdg-open
-
-    line_number: false
+    # ========================================
+    spreadsheet: &SPREADSHEET
+        command:
+          - libreoffice
+        line_number: false
 
 
 
-  # ----------------------------------------------------------
-  # Web / Browser
-  # Se selezioni http://localhost:8000/api
-  #     oppure 192.168.1.50:3000/dashboard,
-  #     lo script riconosce immediatamente il pattern senza interrogare il filesystem.
-  # ----------------------------------------------------------
-  browser:
-    extensions: []
-    command:
-      - xdg-open # Oppure: - google-chrome , - firefox
-    line_number: false
+    # ========================================
+    #     Web / Browser
+    # Se selezioni http://localhost:8000/api
+    #     oppure 192.168.1.50:3000/dashboard,
+    #     lo script riconosce immediatamente il pattern senza interrogare il filesystem.
+    # ========================================
+    browser: &BROWSER
+        command:
+          - xdg-open # Oppure: - google-chrome , - firefox
+        line_number: false
+
+
+
+    # ========================================
+    # Default
+    #
+    # Qualunque estensione non riconosciuta viene affidata
+    # al desktop.
+    # ========================================
+    default: &DEFAULT
+        command:
+          - xdg-open
+        line_number: false
+
+
+
+extensions_handler:
+    # epub
+    epub:       *EBOOK
+    mp3:        *MP3
+    pdf:        *XOURNAL
+
+    # TEXT
+    py:         *ZED
+    pyw:        *ZED
+    yaml:       *ZED
+    sh:         *ZED
+    config:     *ZED
+    txt:        *ZED
+    md:         *ZED
+    json:       *ZED
+    c:          *ZED
+    cpp:        *ZED
+    c++:        *ZED
+    h:          *ZED
+    hpp:        *ZED
+    tab:        *ZED
+    toml:       *ZED
+    functions:  *ZED
+    alias:      *ZED
+
+
+    xlsx:       *SPREADSHEET
+    xls:        *SPREADSHEET
+    ods:        *SPREADSHEET
+
+    # --- url
+    browser:        *BROWSER
+
+    default:        *DEFAULT

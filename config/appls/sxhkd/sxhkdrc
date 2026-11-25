@@ -10,9 +10,9 @@
 
 
 alt + x; alt + x
-    /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --root-dir-file /tmp/xclip.rootdir --primary --zed
+    /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --primary
 alt + x; alt + c
-    /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --root-dir-file /tmp/xclip.rootdir --clipboard --zed
+    /usr/bin/python3 /home/loreto/filu/lnEnv/pyScripts/xClip/xClip.py --clipboard
 
 
 alt + x ; alt + s
@@ -28,4 +28,3 @@ alt + x ; alt + z
 ### --- edit del file di configurazione di sxhkd
 alt + x ; alt + e
     ${ln_START_PROC_DIR}/sublime_start.sh  ${ln_SXHKD_CONFIG_FILE}
-

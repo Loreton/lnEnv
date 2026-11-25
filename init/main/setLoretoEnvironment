@@ -77,9 +77,9 @@ function set_vars() {
             export         ln_SXHKD_CONFIG_FILE="${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc"
             export              ln_PY_LNLIB_DIR="${ln_GIT_REPO_DIR}/pyLnLib"
 
-            export        ln_XCLIP_ROOT_DIR_FILE="/tmp/xclip.rootdir"
-            export        ln_XCLIP_EXTRA_ENVARS="/tmp/xclip.extra_envvars"
-            export        ln_XCLIP_LOG_FILENAME="/tmp/xclip.log"
+            # export        ln_XCLIP_ROOT_DIR_FILE="/tmp/xclip.rootdir"
+            # export        ln_XCLIP_EXTRA_ENVARS="/tmp/xclip.extra_envvars"
+            # export        ln_XCLIP_LOG_FILENAME="/tmp/xclip.log"
 
             #... python (posso decidere se avere quello di default oppure altro)
             #... python il default lo uso per platformio
