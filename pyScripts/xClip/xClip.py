@@ -18,26 +18,23 @@
 ##
 # ruff: noqa: E402 Module level import not at top of file
 
-from pickletools import stringnl
-from select import select
+# from pickletools import stringnl
+# from select import select
 import sys; sys.dont_write_bytecode = True
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 import argparse
 import subprocess
 import os
-# import logging
 import re
-# import yaml
 from string import Template
-# from typing import TypedDict, cast, NotRequired
 
 
 
 
 # --- import pyLnLib
-# pylnlib_path = Path(__file__).parent.parent / "pyLnLib_last.zip"
+pylnlib_path = Path(__file__).parent.parent / "pyLnLib_last.zip"
 pylnlib_path = '/home/loreto/filu/Programming/gitREPO/pyLnLib/src'
 sys.path.insert(0,str(pylnlib_path))
 
@@ -78,8 +75,11 @@ class SourceLocation:
     format: str # direct_file, generic, url
 
     def __str__(self) -> str:
-        return f"{self.filename}:{self.line_no}"
-
+        # return f"{self.filename}:{self.line_no}"
+        return f"""filepath: {self.filename}\n
+                line_no: {self.line_no}\n
+                format: {self.format}
+                """
 
 @dataclass(slots=True)
 class FileHandler:
@@ -91,7 +91,7 @@ class FileHandler:
     name: str
     extensions: list[str]
     command: list[str]
-    line_number: bool = False
+    req_line_number: bool = False
 
     # def handles(self, filename: str) -> bool:
     #     """
@@ -120,7 +120,7 @@ def parserInput() -> argparse.Namespace:
 
 #============================================================
 # --- clean_text
-def clean_text(text: str) -> str:
+def clean_text(text: str, *, strip_chars: str|None=None, replace_chars: str|None=None) -> str:
     """
     Pulisce il testo rimuovendo caratteri speciali e spazi bianchi.
     e risolvendoventuali variabili
@@ -129,21 +129,29 @@ def clean_text(text: str) -> str:
     # cleaned_text = re.sub(r'[^\w\s\.\-\/]', '', text)
     # cleaned_text = cleaned_text.strip()
     # return cleaned_text
-    logger.info( "processing string: %s", text, )
+    logger.debug( "processing string: %s", text, )
 
     if not text:
         return ""
 
     cleaned_text = os.path.expandvars(text)
     cleaned_text = Template(cleaned_text).safe_substitute(pvars.env_vars)
-    # cleaned_text = cleaned_text.strip().strip('"').strip("'")
+    cleaned_text = cleaned_text.strip().strip('"').strip("'")
 
     # --- 1. Stripping filename
-    strip_chars=''' "'[] '''
-    cleaned_text = cleaned_text.strip(strip_chars)
-    logger.info( "Cleaned selected text: %s", cleaned_text )
-    if not cleaned_text:
-        return ""
+    # strip_chars=''' "'[]: '''
+    if strip_chars:
+        cleaned_text = cleaned_text.strip(strip_chars)
+        logger.info( "Cleaned selected text: %s", cleaned_text )
+        if not cleaned_text:
+            return ""
+
+    if replace_chars:
+        for char in replace_chars:
+            cleaned_text = cleaned_text.replace(char , ' ')
+        logger.info( "Cleaned selected text: %s", cleaned_text )
+        if not cleaned_text:
+            return ""
 
     return cleaned_text
 
@@ -273,7 +281,7 @@ def build_editor_command(filepath: str, line_no: int, handler: FileHandler, ) ->
 
     command = list(handler.command)
 
-    if handler.line_number:
+    if handler.req_line_number:
         command.append( f"{filepath}:{line_no}" )
     else:
         command.append(filepath)
@@ -282,6 +290,46 @@ def build_editor_command(filepath: str, line_no: int, handler: FileHandler, ) ->
 
     return command
 
+
+
+# ============================================================
+# ---- Generic parser
+def parse_generic_location(riga: str, ) -> SourceLocation | None:
+    """
+    Fallback per formati generici.
+    riga già ripulita
+
+    Esempi:
+
+        file.py 123
+        file.py line 123
+        file.py:123
+        module.func 123
+    """
+    riga = clean_text(riga, replace_chars=''' "'[]:, ''')
+    tokens = riga.split()
+
+    logger.info( "generic tokens: %s", tokens, )
+
+    if not tokens:
+        return None
+
+    filepath = tokens[0]
+    line_no = 1
+
+    for index, word in enumerate(tokens):
+        if word in ("line", "line:"):
+            if index + 1 < len(tokens):
+                candidate = tokens[index + 1]
+                if candidate.isdigit():
+                    line_no = int(candidate)
+                    break
+
+        elif word.isdigit():
+            line_no = int(word)
+            break
+
+    return SourceLocation( filename=filepath, line_no=line_no, format="generic", )
 
 
 
@@ -311,8 +359,8 @@ def parse_source_location( riga: str, ) -> SourceLocation | None:
         if not match:
             continue
 
-        location = SourceLocation( filename=match.group(1), line_no=int(match.group(2)), format=format_name, )
-        logger.info( "SourceLocation found: %s", location, )
+        location = SourceLocation( filename=match.group(1).strip(), line_no=int(match.group(2)), format=format_name, )
+        logger.debug( "SourceLocation found: %s", location, )
         return location
 
     return None
@@ -320,99 +368,62 @@ def parse_source_location( riga: str, ) -> SourceLocation | None:
 # ============================================================
 # - File search
 # ============================================================
-# def findFileInDir(path: str, filename: str, ) -> str | None:
-#     """ Cerca filename direttamente nella directory. """
-#     candidate = Path(path) / filename
-#     if candidate.is_file():
-#         return str(candidate)
-#     return None
+def findFileInDir(path: str, filenames_to_be_searched: list[str]) -> str | None:
+    """ Cerca filename direttamente nella directory. """
+    for fn in filenames_to_be_searched:
+        candidate = Path(path) / fn
+        logger.info( "\tchecking for: %s", candidate, )
+        if candidate.is_file():
+            return str(candidate)
+    return None
 
 
 # ============================================================
-def findFileInPath( root: str, filename: str, ) -> str | None:
+def findFileInPath(root: str, filepath: str, format: str) -> str|None:
     """ Cerca ricorsivamente filename sotto root. """
+    # filepath = location.filename.strip()
+    # format = location.format
+    logger.info( "findFileInPath: root=%s, filename=%s", root, filepath, )
 
-    logger.info( "findFileInPath: root=%s, filename=%s", root, filename, )
-    filename = Path(filename).name
+    # verifica se il file esiste già
+    if Path(filepath).is_file():
+        return filepath
 
-    if Path(filename).suffix:
+    filename = Path(filepath).name
+    if format == 'logger':
+        extensions = pvars.xclip_config.main.code_extensions
+    else:
+        extensions = pvars.xclip_config.main.code_extensions + pvars.xclip_config.main.default_extensions
+
+    if Path(filename).suffix: # se già contiene il suffix....
         filenames_to_be_searched = [ filename, ]
     else:
-        filenames_to_be_searched = [ f"{filename}{ext}" for ext in pvars.xclip_config.main.default_extensions]
+        filenames_to_be_searched = [ f"{filename}{ext}" for ext in extensions]
         filenames_to_be_searched.insert( 0, filename, )
 
-
-    logger.debug( "filenames_to_be_searched: %s", filenames_to_be_searched, )
+    logger.info("filenames_to_be_searched:\n%s", filenames_to_be_searched, )
 
     for dirpath, dirnames, files in os.walk(root):
         # Non scendere nei .build_stage.
-        dirnames[:] = [ dirname
-                        for dirname in dirnames
-                        if dirname not in pvars.xclip_config.main.exclude_dirnames
-                    ]
+        logger.debug( "checking on path: %s", dirpath, )
+        dirnames[:] = [
+            dirname
+            for dirname in dirnames
+            if dirname[0]!='.' and dirname not in pvars.xclip_config.main.exclude_dirnames
+        ]
 
 
         for candidate_name in filenames_to_be_searched:
             full_path = os.path.join( dirpath, candidate_name, )
-            logger.debug( "checking for: %s", full_path, )
+            logger.debug( "\tsearching: %s", candidate_name, )
 
             if candidate_name in files:
-                logger.info( "Trovato: %s", full_path, )
+                logger.info( "FOUND: %s", full_path, )
                 return full_path
-
 
     return None
 
 
-
-
-# ============================================================
-# ---- Generic parser
-def parse_generic_location( riga: str, ) -> SourceLocation | None:
-    """
-    Fallback per formati generici.
-
-    Esempi:
-
-        file.py 123
-        file.py line 123
-        file.py:123
-        module.func 123
-    """
-
-    riga = os.path.expandvars(riga)
-
-    normalized = (
-        riga
-        .replace(":", " ")
-        .replace(",", " ")
-        .replace("(", " ")
-        .replace(")", " ")
-    )
-
-    tokens = normalized.split()
-
-    logger.info( "generic tokens: %s", tokens, )
-
-    if not tokens:
-        return None
-
-    filepath = tokens[0]
-    line_no = 1
-
-    for index, word in enumerate(tokens):
-        if word in ("line", "line:"):
-            if index + 1 < len(tokens):
-                candidate = tokens[index + 1]
-                if candidate.isdigit():
-                    line_no = int(candidate)
-                    break
-
-        elif word.isdigit():
-            line_no = int(word)
-            break
-
-    return SourceLocation( filename=filepath, line_no=line_no, format="generic", )
 
 
 
@@ -476,8 +487,7 @@ def getSelectedText(xc: lnDict) -> str:
     logger.info("Clipboard (Ctrl+C).: %s", clipboard_text, )
     logger.info("working on:          %s", text, )
 
-    # --- pulizia della stringa selezionata
-    return clean_text(text)
+    return text.strip()
 
 
 
@@ -556,7 +566,7 @@ def getSelectedText(xc: lnDict) -> str:
 
 # ============================================================
 # --- Analizza riga
-def analizza_riga( filepath_candidate: str | None, rootDir: str | None, ) -> tuple[SourceLocation, str] | None:
+def analizza_riga(filepath_candidate: str | None, rootDir: str | None, ) -> SourceLocation | None:
     """
     Analizza il percorso del file e risolve il riferimento.
     prima verifica il formato della riga, poi cerca il file nei root directories.
@@ -566,30 +576,10 @@ def analizza_riga( filepath_candidate: str | None, rootDir: str | None, ) -> tup
         - None.
     """
 
-    logger.debug( "processing filepath_candidate: %s", filepath_candidate, )
+    logger.debug("processing filepath_candidate: %s", filepath_candidate, )
 
     if not filepath_candidate:
         return None
-
-
-    if not rootDir:
-        # --------------------------------------------------------
-        # 0. La selezione è un URL o un Indirizzo IP?
-        # --------------------------------------------------------
-        url_found = is_url_or_ip(filepath_candidate)
-        if url_found:
-            location = SourceLocation(filename=url_found, line_no=1, format="url")
-            logger.info("URL/IP detected: %s", location)
-            return location, url_found
-
-
-        # --------------------------------------------------------
-        # 1. La selezione è direttamente un file?
-        # --------------------------------------------------------
-        if os.path.isfile(filepath_candidate):
-            location = SourceLocation(filename=filepath_candidate, line_no=1, format="direct_file", )
-            logger.notify( "Direct file found: %s", location, )
-            return location
 
 
     # --- 1. Parser specifici (logger and python traceback))
@@ -608,25 +598,23 @@ def analizza_riga( filepath_candidate: str | None, rootDir: str | None, ) -> tup
         logger.error( "rootDir is None", )
         return None
 
-    found_filepath = findFileInPath(root=rootDir, filename=Path(filepath_candidate).name, )
-
-    if found_filepath is None:
-        # logger.warning( "File non trovato: %s", filepath_candidate, )
+    # modifica opportunamente format e filename
+    found_filepath = findFileInPath(root=rootDir, filepath=location.filename, format=location.format)
+    if not found_filepath:
         return None
 
-    # filepath_candidate = found_filepath
-    location = SourceLocation( filename=found_filepath, line_no=1, format="direct_file", )
 
     # --- 7. Controlli
-    if not os.path.exists(found_filepath):
-        logger.warning( "filepath does not exist: %s", found_filepath, )
-        return None
+    # if not os.path.exists(found_filepath):
+    #     logger.warning( "filepath does not exist: %s", found_filepath, )
+    #     return None
 
     if os.path.isdir(found_filepath):
         logger.error( "filepath is a directory: %s", found_filepath, )
         return None
 
-    logger.info( "Resolved location: %s -> %s", location, found_filepath, )
+    location.filename=found_filepath
+    logger.info( "Resolved location: %s", location)
 
     return location
 
@@ -636,7 +624,7 @@ def analizza_riga( filepath_candidate: str | None, rootDir: str | None, ) -> tup
 def get_file_handler( location: SourceLocation ) -> FileHandler | None:
     """Determina quale handler utilizzare per filepath o URL."""
     ext_hndl=pvars.xclip_config.extensions_handler
-
+    req_line_number = False
     default_command = ext_hndl["default"].command
 
     if location.format == 'url':
@@ -644,44 +632,54 @@ def get_file_handler( location: SourceLocation ) -> FileHandler | None:
     else:
         suffix = Path(location.filename).suffix.lower()
 
-    logger.info("Looking for handler for extension: %s", suffix[1:])
-    command = ext_hndl[suffix[1:]].get("command", None)
-    line_no = ext_hndl[suffix[1:]].get("line_no", False)
-    if command is None:
-        logger.warning("No specific handler found for: %s", suffix)
+    suffix = suffix.lstrip('.') # remove starting dot
+    if suffix:
+        logger.info("Looking for handler for extension: %s", suffix[1:])
+
+        command = ext_hndl[suffix].get("command", None)
+        req_line_number = ext_hndl[suffix].get("req_line_number", False)
+        if command is None:
+            logger.warning("No specific handler found for: %s", suffix)
+            command = default_command
+    else:
         command = default_command
 
-    # if line_no is False:
-        # line_no = 1
-    return FileHandler(name=suffix[1:], extensions=[suffix], command=command, line_number=line_no)
+    return FileHandler(name=suffix, extensions=[suffix], command=command, req_line_number=req_line_number)
 
 
-
-# def process_location(location: SourceLocation):
-#     # --------------------------------------------------------
-#     # Determina handler
-#     # --------------------------------------------------------
-#     handler = get_file_handler(location=location)
-#
-#     if handler is None:
-#         logger.error( "No handler available for: %s", filepath, )
-#         show_error( f"Nessun programma configurato per:\n\n {filepath}" )
-#         return 1
-#
-#     # --------------------------------------------------------
-#     # Costruisce comando
-#     # --------------------------------------------------------
-#     editor_command = build_editor_command(filepath=location.filename, line_no=location.line_no, handler=handler, )
-#     logger.info( "Source location : %s", location, )
-#     logger.info( "Resolved file   : %s", location.filename, )
-#     logger.info( "Handler         : %s", handler.name, )
-#     logger.info( "Command         : %s", editor_command, )
 
 
 
 # ============================================================
 # --- Run program
-def run_handler_program(command: list[str], filepath: str) -> int:
+def run_handler_program(location: SourceLocation) -> int:
+    filepath = location.filename
+    # --------------------------------------------------------
+    # Determina handler
+    # --------------------------------------------------------
+    handler = get_file_handler(location=location)
+    if handler is None:
+        logger.error( "No handler available for: %s", filepath, )
+        show_error( f"Nessun programma configurato per:\n\n {filepath}" )
+        return 1
+
+    # --------------------------------------------------------
+    # Costruisce comando
+    # --------------------------------------------------------
+    command = build_editor_command(filepath=filepath, line_no=location.line_no, handler=handler, )
+    # logger.info( "Resolved file   : %s", location.filename, )
+    logger.info( "filepath  : %s", location.filename, )
+    logger.info( "line_no   : %s", location.line_no, )
+    logger.info( "format    : %s", location.format, )
+    logger.info( "Handler   : %s", handler.name, )
+    logger.info( "Command   : %s", command, )
+
+
+    # --------------------------------------------------------
+    # - Avvio programma
+    # --------------------------------------------------------
+    # rcode = run_handler_program(command=editor_command, filepath=location.filename)
+
     try:
         subprocess.Popen(command)
 
@@ -712,27 +710,44 @@ def main(pvars: lnDict) -> int:
 
     # --- preleviamo selected text
     selected_text = getSelectedText(xc)
+    selected_text = clean_text(selected_text) # --- pulizia della stringa selezionata
     if not selected_text:
         show_error(f"Selection type: {pvars.selection_type}\ntesto non selezionato e clipboard vuota" )
         return 1
 
     location: SourceLocation | None = None
-    filepath: str | None = None
+    logger.debug( "processing text: %s", selected_text, )
 
-    logger.info( "processing text: %s", selected_text, )
+
     # --------------------------------------------------------
-    # --- 0. Primo controllo: la selezione è un URL o un Indirizzo IP?
+    # 0. La selezione è un URL o un Indirizzo IP?
     # --------------------------------------------------------
-    # location = analizza_riga(filepath_candidate=selected_text, rootDir=None )
+    url_found = is_url_or_ip(selected_text)
+    if url_found:
+        location = SourceLocation(filename=url_found, line_no=1, format="url")
+        logger.info("URL/IP detected: %s", location)
+        return run_handler_program(location=location)
+    # --------------------------------------------------------
+    # 1. La selezione è direttamente un file? magari absoolute?
+    # --------------------------------------------------------
+    if location is None and os.path.isfile(selected_text):
+        location = SourceLocation(filename=selected_text, line_no=1, format="direct_file", )
+        logger.notify( "Direct file found: %s", location, )
+        return run_handler_program(location=location)
 
 
-    rootDirs.insert(0, '') # insert a dummy root dir to manage absolute paths and direct file references
+
+    # rootDirs.insert(0, os.curdir) # insert a dummy root dir to manage absolute paths and direct file references
+    # rootDirs.insert(0, '') # insert a dummy root dir to manage absolute paths and direct file references
     for root_dir in rootDirs:
-        logger.info( "Trying rootDir: %s", root_dir, )
+        logger.notify("Trying rootDir:\n%s", root_dir, )
         location = analizza_riga(filepath_candidate=selected_text, rootDir=root_dir, )
+        logger.info( "location: %s", location, )
+
         if location:
             logger.info( "Found file:\n%s\nin: %s", selected_text, root_dir, )
-            break
+            return run_handler_program(location=location)
+            # break
 
         logger.info( "NOT found in: %s", root_dir, )
 
@@ -752,36 +767,32 @@ def main(pvars: lnDict) -> int:
 
         return 1
 
-
-
-
     # --------------------------------------------------------
     # Determina handler
     # --------------------------------------------------------
-    handler: FileHandler = get_file_handler(location=location)
-
-    if handler is None:
-        logger.error( "No handler available for: %s", filepath, )
-        show_error( f"Nessun programma configurato per:\n\n {filepath}" )
-        return 1
-
-    # --------------------------------------------------------
-    # Costruisce comando
-    # --------------------------------------------------------
-    editor_command = build_editor_command(filepath=location.filename, line_no=location.line_no, handler=handler, )
-    logger.info( "Source location : %s", location, )
-    logger.info( "Resolved file   : %s", location.filename, )
-    logger.info( "Handler         : %s", handler.name, )
-    logger.info( "Command         : %s", editor_command, )
+#     handler: FileHandler = get_file_handler(location=location)
+#
+#     if handler is None:
+#         logger.error( "No handler available for: %s", filepath, )
+#         show_error( f"Nessun programma configurato per:\n\n {filepath}" )
+#         return 1
+#
+#     # --------------------------------------------------------
+#     # Costruisce comando
+#     # --------------------------------------------------------
+#     editor_command = build_editor_command(filepath=location.filename, line_no=location.line_no, handler=handler, )
+#     logger.info( "Source location : %s", location, )
+#     logger.info( "Resolved file   : %s", location.filename, )
+#     logger.info( "Handler         : %s", handler.name, )
+#     logger.info( "Command         : %s", editor_command, )
 
 
     # --------------------------------------------------------
     # - Avvio programma
     # --------------------------------------------------------
-    rcode = run_handler_program(command=editor_command, filepath=location.filename)
+    return run_handler_program(location=location)
 
 
-    return rcode
 
 
 
@@ -799,7 +810,11 @@ def main(pvars: lnDict) -> int:
 
 
 if __name__ == "__main__":
-    LOG_CONSOLE_LEVEL = ("INFO" if '--console' in sys.argv else "CRITICAL")
+    if any(arg.startswith('--cons') for arg in sys.argv[1:]):
+        LOG_CONSOLE_LEVEL = "INFO"
+    else:
+        LOG_CONSOLE_LEVEL = "CRITICAL"
+
     log_dir='/tmp/xclip'
     logger.initialize("xclip",
                         console_logger_level=LOG_CONSOLE_LEVEL,
@@ -820,14 +835,11 @@ if __name__ == "__main__":
     # --- Verifica input arguments
     pvars.args  = parserInput()
 
-    # pvars.default_handler = load_default_handler(xclip_config)
-    # pvars.handlers = load_handlers(xclip_config, )
-    # xclip_config.run.top_dirs: list[str] = main_config["top_dirs"] # get list of top directories
-    # extra_vars_file: str = main_config["extra_vars_file"] # get filename for extra vars
-    # system_yaml_vars: str = main_config["system_vars"] # get filename for system vars
-    # pv.exclude_dirnames = main_config.get("exclude_dirnames", [])
-    # breakpoint()
+
     logger.info("="*60)
     logger.info("= starting.... %s", logger.filename)
     logger.info("="*60)
-    main(pvars)
+    rcode = main(pvars)
+    if rcode != 0:
+        logger.error("Error (rcode:%d) occurred while running xclip", rcode)
+        sys.exit(rcode)

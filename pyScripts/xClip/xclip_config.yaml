@@ -19,34 +19,49 @@ main:
 
 
     # --- nel caso non fosse presente l'extension
-    default_extensions:
+    code_extensions:
         - .py
         - .sh
+        - .cpp
+        - .c
+        - .h
+        - .tpl
+
+    default_extensions:
         - .conf
         - .yaml
         - .json
         - .txt
         - .ini
-        - .cpp
-        - .c
-        - .h
-        - .tpl
         - .alias
 
 
     exclude_dirnames:
+      - .appo
       - .build
       - .build_stage
+      - .cache
+      - .config
       - .desktop
       - .git
+      - .local
       - .old
+      - .platformio
+      - .ropeproject
       - .saved
+      - .var
       - .venv
       - .vscode
       - .wip
       - __pycache__
       - dist
       - logs
+      - prev
+      - appo
+      - site-packages
+      - share
+      - Downloads
+      - filu
 
 
 
@@ -58,13 +73,13 @@ commands:
             - /usr/bin/flatpak
             - run
             - org.kde.kid3
-        line_numer: true
+        req_line_number: false
 
     # ========================================
     zed: &ZED
         command:
             - /home/loreto/filu/lnEnv/start_proc/zed_start.sh
-        line_numer: false
+        req_line_number: true
 
     # ========================================
     mp3: &MP3
@@ -73,27 +88,27 @@ commands:
           - /usr/bin/flatpak
           - run
           - org.kde.kid3
-        line_number: false
+        req_line_number: false
 
     # ========================================
     pdf_okular: &OKULAR
         command:
           - okular
-        line_number: false
+        req_line_number: false
 
     pdf_xournal: &XOURNAL
         command:
           - flatpak
           - run
           - com.github.xournalpp.xournalpp
-        line_number: false
+        req_line_number: false
 
 
     # ========================================
     spreadsheet: &SPREADSHEET
         command:
           - libreoffice
-        line_number: false
+        req_line_number: false
 
 
 
@@ -106,7 +121,7 @@ commands:
     browser: &BROWSER
         command:
           - xdg-open # Oppure: - google-chrome , - firefox
-        line_number: false
+        req_line_number: false
 
 
 
@@ -119,7 +134,7 @@ commands:
     default: &DEFAULT
         command:
           - xdg-open
-        line_number: false
+        req_line_number: false
 
 
 

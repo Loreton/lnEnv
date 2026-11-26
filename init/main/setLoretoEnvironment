@@ -69,19 +69,9 @@ function set_vars() {
             export        ln_LINUX_PORTABLE_DIR="${ln_APPLICATIONS_DIR}/linuxPortable"
             export              ln_LN_APPLS_DIR="${ln_APPLICATIONS_DIR}/lnAppls"
 
-            #---------------------
-            #... application configuration directory and files
-            #---------------------
-            export          ln_APPLS_CONFIG_DIR="${ln_ENV_DIR}/config/appls"
-            export            ln_ZED_CONFIG_DIR="${ln_APPLS_CONFIG_DIR}/zed"
-            export         ln_SXHKD_CONFIG_FILE="${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc"
-            export              ln_PY_LNLIB_DIR="${ln_GIT_REPO_DIR}/pyLnLib"
 
-            # export        ln_XCLIP_ROOT_DIR_FILE="/tmp/xclip.rootdir"
-            # export        ln_XCLIP_EXTRA_ENVARS="/tmp/xclip.extra_envvars"
-            # export        ln_XCLIP_LOG_FILENAME="/tmp/xclip.log"
 
-            #... python (posso decidere se avere quello di default oppure altro)
+            #... python (posso decider e se avere quello di default oppure altro)
             #... python il default lo uso per platformio
             # [[ -d "${HOME}/.pyenv" ]] && export PYENV_ROOT="${HOME}/.pyenv"
             export                   PYENV_ROOT="${HOME}/.pyenv"
@@ -95,6 +85,22 @@ function set_vars() {
             # export            ln_ITALIAN_SONGS="${HOME}/filu/myData/Songs/mp3_songs/Italiani"
             # export            ln_STRANIERI_SONGS="${HOME}/filu/myData/Songs/mp3_songs/Stranieri"
 
+            # if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
+                #---------------------
+                #... application configuration directory and files
+                #---------------------
+                export          ln_APPLS_CONFIG_DIR="${ln_ENV_DIR}/config/appls"
+                export            ln_ZED_CONFIG_DIR="${ln_APPLS_CONFIG_DIR}/zed"
+                export         ln_SXHKD_CONFIG_FILE="${ln_APPLS_CONFIG_DIR}/sxhkd/sxhkdrc"
+                export              ln_PY_LNLIB_DIR="${ln_GIT_REPO_DIR}/pyLnLib"
+
+                export             ln_XCLIP_DIR="${ln_PY_SCRIPTS_DIR}/xClip"
+                export             ln_XCLIP_TEMP_DIR='/tmp/xclip'
+                export        ln_XCLIP_LOG_FILENAME="${ln_XCLIP_TEMP_DIR}/xclip.log"
+                export          ln_XCLIP_EXTRA_DIRS="${ln_XCLIP_TEMP_DIR}/extra_dirs.txt"
+                export         ln_XCLIP_EXTRA_VARS="${ln_XCLIP_TEMP_DIR}/extra_vars.txt"
+                export         ln_XCLIP_PROJECT_VARS_FILE="xclip_set_vars.txt"
+            # fi
 
 
 

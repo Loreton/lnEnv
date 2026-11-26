@@ -5,6 +5,7 @@ scriptDir="$(dirname ${scriptFullPath})"
 
 # --- top dir per dove cercare i file
 extra_top_dirs_file="/tmp/xclip/extra_top_dirs.txt"
+mkdir -p $(dirname ${extra_top_dirs_file})
 echo "${scriptDir}" >> ${extra_top_dirs_file}
 echo "${HOME}/filu/myData/Songs/mp3_songs/Italiani" >>${extra_top_dirs_file}
 echo "---------------------------------------"
@@ -15,6 +16,8 @@ echo
 echo
 # --- variabili d'ambiente utili per la ricerca
 extra_vars_file='/tmp/xclip/extra_vars.txt'
+mkdir -p $(dirname ${extra_vars_file})
+
 echo "YAML_KEYPATH_SEP=__##__" >> ${extra_vars_file}
 echo "selection_filename=Loreto_selection_list.yaml" >>${extra_vars_file}
 echo "ITALIAN_SONGS=${HOME}/filu/myData/Songs/mp3_songs/Italiani" >>${extra_vars_file}

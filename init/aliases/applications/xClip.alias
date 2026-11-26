@@ -1,25 +1,19 @@
 #!/bin/bash
-#
-# updated by ...: Loreto Notarantonio
-# Date .........: 14-08-2026 13.36.29
-#
 
-
-
-
-# function @_to_xclip_vars() {
-#     file=${ln_XCLIP_EXTRA_ENVARS}
-#     echo "$@" >> ${file}
-#     echo "file $file"
-#     cat $file
-# }
+function @set_xclip_vars() {
+    echo "${PWD}" >>"${ln_XCLIP_EXTRA_DIRS}"
+    if [[ -f ${ln_XCLIP_PROJECT_VARS_FILE} ]]; then
+       echo "running ${ln_XCLIP_PROJECT_VARS_FILE}"
+       /usr/bin/bash "${ln_XCLIP_PROJECT_VARS_FILE}"
+    fi
+}
 
 if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
-    # XCLIP_EXTRA_TOP_DIR_FILE='/tmp/xclip_extra_top_dirs.txt'
+    mkdir -p "${ln_XCLIP_TEMP_DIR}"
 
     ###... per aprire un file selezionato nella shell (vedi anche $HOME/.xbindkeysrc)
-    alias ${alias_prefix}xclip.clipboard="${ln_PY_SCRIPTS_DIR}/xClip/xClip.py --clipboard"
-    alias ${alias_prefix}xclip.primary="${ln_PY_SCRIPTS_DIR}/xClip/xClip.py --primary"
+    alias ${alias_prefix}xclip.clipboard="${ln_XCLIP_DIR}/xClip.py --clipboard"
+    alias ${alias_prefix}xclip.primary="${ln_XCLIP_DIR}/xClip.py --primary"
     # alias ${alias_prefix}xclip.zed.edit=".zed ${ln_PY_SCRIPTS_DIR}/xClip/xClip.py"
 
 
@@ -27,7 +21,6 @@ if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
     # alias ${alias_prefix}xclip.topdir='file=/tmp/xclip/extra_top_dirs.txt && { echo "$PWD" >$file; echo "file $file"; cat $file;  }'  ### importante il singolo apice
 
     # add current dir in file
-    # alias ${alias_prefix}xclip.vars='@_to_xclip_vars'
-
+    alias ${alias_prefix}xclip.vars="@_set_xclip_vars"
 
 fi
