@@ -21,6 +21,6 @@ if [[ " ${lapTopPC_lc} " == *" ${hostname_lc} "* ]]; then
     # alias ${alias_prefix}xclip.topdir='file=/tmp/xclip/extra_top_dirs.txt && { echo "$PWD" >$file; echo "file $file"; cat $file;  }'  ### importante il singolo apice
 
     # add current dir in file
-    alias ${alias_prefix}xclip.vars="@_set_xclip_vars"
+    alias ${alias_prefix}xclip.vars="@set_xclip_vars"
 
 fi

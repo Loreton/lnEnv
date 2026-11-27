@@ -27,6 +27,7 @@ main:
         - .h
         - .tpl
 
+
     default_extensions:
         - .conf
         - .yaml
@@ -34,7 +35,6 @@ main:
         - .txt
         - .ini
         - .alias
-
 
     exclude_dirnames:
       - .appo

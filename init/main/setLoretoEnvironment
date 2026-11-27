@@ -99,7 +99,7 @@ function set_vars() {
                 export        ln_XCLIP_LOG_FILENAME="${ln_XCLIP_TEMP_DIR}/xclip.log"
                 export          ln_XCLIP_EXTRA_DIRS="${ln_XCLIP_TEMP_DIR}/extra_dirs.txt"
                 export         ln_XCLIP_EXTRA_VARS="${ln_XCLIP_TEMP_DIR}/extra_vars.txt"
-                export         ln_XCLIP_PROJECT_VARS_FILE="xclip_set_vars.txt"
+                export         ln_XCLIP_PROJECT_VARS_FILE="xclip_set_vars"
             # fi
 
 

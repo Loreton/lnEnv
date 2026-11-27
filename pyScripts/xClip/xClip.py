@@ -387,7 +387,8 @@ def findFileInPath(root: str, filepath: str, format: str) -> str|None:
 
     # verifica se il file esiste già
     if Path(filepath).is_file():
-        return filepath
+        logger.info( "File found: %s", filepath, )
+        return Path(filepath).resolve()
 
     filename = Path(filepath).name
     if format == 'logger':
@@ -417,7 +418,8 @@ def findFileInPath(root: str, filepath: str, format: str) -> str|None:
             full_path = os.path.join( dirpath, candidate_name, )
             logger.debug( "\tsearching: %s", candidate_name, )
 
-            if candidate_name in files:
+            # if candidate_name in files:
+            if Path(full_path).is_file():
                 logger.info( "FOUND: %s", full_path, )
                 return full_path
 
@@ -603,12 +605,6 @@ def analizza_riga(filepath_candidate: str | None, rootDir: str | None, ) -> Sour
     if not found_filepath:
         return None
 
-
-    # --- 7. Controlli
-    # if not os.path.exists(found_filepath):
-    #     logger.warning( "filepath does not exist: %s", found_filepath, )
-    #     return None
-
     if os.path.isdir(found_filepath):
         logger.error( "filepath is a directory: %s", found_filepath, )
         return None
@@ -737,7 +733,7 @@ def main(pvars: lnDict) -> int:
 
 
 
-    # rootDirs.insert(0, os.curdir) # insert a dummy root dir to manage absolute paths and direct file references
+    rootDirs.insert(0, str(Path(os.curdir).resolve())) # insert a dummy root dir to manage absolute paths and direct file references
     # rootDirs.insert(0, '') # insert a dummy root dir to manage absolute paths and direct file references
     for root_dir in rootDirs:
         logger.notify("Trying rootDir:\n%s", root_dir, )
@@ -747,7 +743,6 @@ def main(pvars: lnDict) -> int:
         if location:
             logger.info( "Found file:\n%s\nin: %s", selected_text, root_dir, )
             return run_handler_program(location=location)
-            # break
 
         logger.info( "NOT found in: %s", root_dir, )
 
@@ -814,6 +809,7 @@ if __name__ == "__main__":
         LOG_CONSOLE_LEVEL = "INFO"
     else:
         LOG_CONSOLE_LEVEL = "CRITICAL"
+        LOG_CONSOLE_LEVEL = "INFO"
 
     log_dir='/tmp/xclip'
     logger.initialize("xclip",
