@@ -34,8 +34,8 @@ from string import Template
 
 
 # --- import pyLnLib
-pylnlib_path = Path(__file__).parent.parent / "pyLnLib_last.zip"
 pylnlib_path = '/home/loreto/filu/Programming/gitREPO/pyLnLib/src'
+pylnlib_path = Path(__file__).parent.parent / "pyLnLib_last.zip"
 sys.path.insert(0,str(pylnlib_path))
 
 # from pyLnLib import get_logger, lnDict, get_yamlEngine, get_colors
